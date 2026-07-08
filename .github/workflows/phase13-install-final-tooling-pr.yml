@@ -40,13 +40,11 @@ jobs:
           node --check scripts/phase13-public-validation.mjs
           node --check scripts/phase13-final-signoff.mjs
           node --check scripts/phase13-firefox-screenshots.mjs
-          test -f .github/workflows/phase13-final-certification.yml
-          test -f .github/workflows/phase13-publish.yml
-      - name: Commit frozen final-release tooling
+      - name: Commit frozen final-release JavaScript utilities
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add scripts/phase13-* .github/workflows/phase13-*.yml
-          git commit -m "Freeze Phase 13 final certification and publication tooling"
+          git add scripts/phase13-nonpublic-audit.mjs scripts/phase13-package-final.mjs scripts/phase13-validate-archives.mjs scripts/phase13-public-validation.mjs scripts/phase13-final-signoff.mjs scripts/phase13-firefox-screenshots.mjs
+          git commit -m "Freeze Phase 13 final release utilities"
           git push origin HEAD:release/v1.0.0-certification
