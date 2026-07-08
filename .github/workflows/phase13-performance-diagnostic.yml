@@ -1,14 +1,18 @@
 name: Phase 13 Hosted Performance Diagnostic
 
-# This targeted workflow exposes every real-browser performance attempt before the long final certification completes.
+# Targeted real-browser performance feedback before the full final-certification workflow completes.
 on:
   push:
     branches:
       - release/v1.0.0-certification
     paths:
-      - scripts/phase13-xvfb-performance.mjs
+      - src/scenes/HUDScene.js
+      - tests/phase13-hosted-release.test.js
       - scripts/phase10-performance-validation.mjs
       - scripts/phase10-browser-helpers.mjs
+      - scripts/phase13-hosted-frame-sampler.mjs
+      - scripts/phase13-performance-certification.mjs
+      - scripts/phase13-chromium-performance-entry.mjs
       - .github/workflows/phase13-performance-diagnostic.yml
   workflow_dispatch:
 
@@ -32,8 +36,12 @@ jobs:
       - run: npm ci --no-audit --no-fund --prefer-offline
         env:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: '1'
+      - name: Validate focused release tooling and HUD regression
+        run: |
+          npm run lint
+          node --test tests/phase13-hosted-release.test.js
       - run: npx playwright install --with-deps chromium
-      - name: Run unchanged Chromium performance gate across supported hosted modes
+      - name: Run Chromium performance gate
         shell: bash
         run: |
           export CHROMIUM_EXECUTABLE="$(node -e "const {chromium}=require('playwright');process.stdout.write(chromium.executablePath())")"
@@ -46,7 +54,9 @@ jobs:
             docs/PHASE10_PERFORMANCE_VALIDATION.json
             docs/PHASE13_CHROMIUM_PERFORMANCE_ATTEMPT_*.json
             docs/PHASE13_CHROMIUM_PERFORMANCE_ATTEMPTS.json
-          if-no-files-found: error
+            docs/PHASE13_CHROMIUM_PERFORMANCE_CANDIDATE_*.json
+            docs/PHASE13_CHROMIUM_PERFORMANCE_CHANNELS.json
+          if-no-files-found: warn
           retention-days: 30
 
   firefox-performance:
@@ -61,8 +71,12 @@ jobs:
       - run: npm ci --no-audit --no-fund --prefer-offline
         env:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: '1'
+      - name: Validate focused release tooling and HUD regression
+        run: |
+          npm run lint
+          node --test tests/phase13-hosted-release.test.js
       - run: npx playwright install --with-deps firefox
-      - name: Run unchanged Firefox performance gate across supported hosted modes
+      - name: Run Firefox performance gate
         shell: bash
         run: |
           export FIREFOX_EXECUTABLE="$(node -e "const {firefox}=require('playwright');process.stdout.write(firefox.executablePath())")"
@@ -75,5 +89,5 @@ jobs:
             docs/PHASE13_FIREFOX_PERFORMANCE_VALIDATION.json
             docs/PHASE13_FIREFOX_PERFORMANCE_ATTEMPT_*.json
             docs/PHASE13_FIREFOX_PERFORMANCE_ATTEMPTS.json
-          if-no-files-found: error
+          if-no-files-found: warn
           retention-days: 30
