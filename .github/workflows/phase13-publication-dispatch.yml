@@ -22,6 +22,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         shell: bash
         run: |
+          echo "Issuing isolated Phase 13 publication dispatch."
           curl --fail-with-body --location \
             --request POST \
             --header "Accept: application/vnd.github+json" \
