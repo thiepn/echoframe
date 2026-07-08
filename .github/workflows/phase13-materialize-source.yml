@@ -1,0 +1,83 @@
+name: Phase 13 Materialize Verified Source
+
+on:
+  push:
+    branches:
+      - release/v1.0.0-certification
+    paths:
+      - .github/workflows/phase13-materialize-source.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: phase13-materialize-source
+  cancel-in-progress: false
+
+jobs:
+  materialize:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: release/v1.0.0-certification
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Verify Phase 12 source archive
+        shell: bash
+        run: |
+          test -f ECHOFRAME_phase12_certification_candidate.zip
+          echo "8cbc7d526c80ae0ea1c506cf580518cc5abed93b7f653eeb2ca43b659db122ca  ECHOFRAME_phase12_certification_candidate.zip" | sha256sum -c -
+
+      - name: Extract and normalize verified source
+        shell: bash
+        run: |
+          rm -rf /tmp/echoframe-phase13-source
+          mkdir -p /tmp/echoframe-phase13-source
+          unzip -q ECHOFRAME_phase12_certification_candidate.zip -d /tmp/echoframe-phase13-source
+          python - <<'PY'
+          from pathlib import Path
+
+          lock = Path('/tmp/echoframe-phase13-source/package-lock.json')
+          text = lock.read_text(encoding='utf-8')
+          internal = 'https://packages.applied-caas-gateway1.internal.api.openai.org/artifactory/api/npm/npm-public/'
+          public = 'https://registry.npmjs.org/'
+          replacements = text.count(internal)
+          if replacements != 121:
+              raise SystemExit(f'Expected 121 internal registry URLs, found {replacements}.')
+          text = text.replace(internal, public)
+          if 'packages.applied-caas-gateway1.internal.api.openai.org' in text:
+              raise SystemExit('Internal registry URL remains after normalization.')
+          lock.write_text(text, encoding='utf-8')
+          print(f'Normalized {replacements} lockfile URLs.')
+          PY
+          cd /tmp/echoframe-phase13-source
+          patch --forward -p1 < "$GITHUB_WORKSPACE/phase13/patches/chromium-input-harness.patch"
+          node --check scripts/phase10-browser-validation.mjs
+
+      - name: Materialize repository source
+        shell: bash
+        run: |
+          rsync -a /tmp/echoframe-phase13-source/ ./
+          test -f package.json
+          test -f package-lock.json
+          test -f scripts/phase10-browser-validation.mjs
+          ! grep -R "packages.applied-caas-gateway1.internal.api.openai.org" package-lock.json
+          node --check scripts/phase10-browser-validation.mjs
+
+      - name: Commit materialized source
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Source already materialized."
+            exit 0
+          fi
+          git commit -m "Materialize verified Phase 12 source for hosted certification"
+          git push origin HEAD:release/v1.0.0-certification

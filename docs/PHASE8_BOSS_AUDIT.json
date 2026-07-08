@@ -1,0 +1,482 @@
+{
+  "generatedAt": "2026-07-06T12:45:04.506Z",
+  "scope": "100 Relaxed, 100 Standard, and 100 Overclocked deterministic complete boss simulations.",
+  "totals": {
+    "simulations": 300,
+    "exactDeterministicMatches": 300,
+    "completed": 300,
+    "attackSelections": {
+      "rotating-fan": 10467,
+      "drifter-summon": 4991,
+      "targeted-line-volley": 6535,
+      "hostile-echo": 4081,
+      "sector-deletion": 1257,
+      "rear-panel-exposure": 2873
+    },
+    "attackFrequenciesByPhase": {
+      "OBSERVE": {
+        "rotating-fan": 6742,
+        "drifter-summon": 2397,
+        "targeted-line-volley": 3269
+      },
+      "IMITATE": {
+        "hostile-echo": 2831,
+        "drifter-summon": 2594,
+        "targeted-line-volley": 2185,
+        "rotating-fan": 2573
+      },
+      "DELETE": {
+        "sector-deletion": 1257,
+        "rear-panel-exposure": 2873,
+        "targeted-line-volley": 1081,
+        "rotating-fan": 1152,
+        "hostile-echo": 1250
+      }
+    },
+    "fallbackCount": 0,
+    "attackRejectionReasons": {
+      "major-concurrency": 36778,
+      "retry-later": 11829
+    },
+    "phaseThresholdClamps": 0,
+    "fanProjectiles": 262590,
+    "lineVolleys": 6535,
+    "summons": 13686,
+    "hostileEchoes": 4081,
+    "sectorPatterns": {
+      "top-contraction": 214,
+      "center-channel": 239,
+      "bottom-contraction": 216,
+      "left-contraction": 209,
+      "right-contraction": 177,
+      "opposite-corners": 202
+    },
+    "panelSelections": {
+      "north": 2873,
+      "east": 1112
+    },
+    "addCapViolations": 0,
+    "hostileEchoCapViolations": 0,
+    "invulnerableIntervalViolations": 0,
+    "vulnerableIntervalViolations": 0,
+    "phaseSkipViolations": 0,
+    "nonFiniteValues": 0,
+    "maximumInvulnerableIntervalMs": 2700,
+    "minimumVulnerableIntervalMs": 4200,
+    "averageDurationMs": 217728,
+    "minimumDurationMs": 188400,
+    "maximumDurationMs": 261600
+  },
+  "hardFailures": {
+    "nondeterministicMatches": 0,
+    "incompleteSimulations": 0,
+    "addCapViolations": 0,
+    "hostileEchoCapViolations": 0,
+    "invulnerableIntervalViolations": 0,
+    "vulnerableIntervalViolations": 0,
+    "phaseSkipViolations": 0,
+    "nonFiniteValues": 0
+  },
+  "samples": [
+    {
+      "seed": 1,
+      "difficultyId": "relaxed",
+      "defeated": true,
+      "durationMs": 201600,
+      "phaseDurations": {
+        "OBSERVE": 65400,
+        "IMITATE": 74850,
+        "DELETE": 58650
+      },
+      "attackFrequencies": {
+        "rotating-fan": 29,
+        "drifter-summon": 15,
+        "targeted-line-volley": 22,
+        "hostile-echo": 13,
+        "sector-deletion": 6,
+        "rear-panel-exposure": 9
+      },
+      "attacksByPhase": {
+        "OBSERVE": {
+          "rotating-fan": 21,
+          "drifter-summon": 7,
+          "targeted-line-volley": 10
+        },
+        "IMITATE": {
+          "hostile-echo": 9,
+          "drifter-summon": 8,
+          "targeted-line-volley": 7,
+          "rotating-fan": 7
+        },
+        "DELETE": {
+          "sector-deletion": 6,
+          "rear-panel-exposure": 9,
+          "targeted-line-volley": 5,
+          "rotating-fan": 1,
+          "hostile-echo": 4
+        }
+      },
+      "rejectionReasons": {
+        "major-concurrency": 123,
+        "retry-later": 40
+      },
+      "fallbackCount": 0,
+      "thresholdClamps": 0,
+      "fanProjectiles": 708,
+      "fanGapMinimumDegrees": 55,
+      "linePlans": 22,
+      "summonCount": 42,
+      "addCapViolation": 0,
+      "hostilePlans": 13,
+      "hostileCapViolation": 0,
+      "sectorCount": 6,
+      "sectorPatterns": {
+        "top-contraction": 2,
+        "center-channel": 2,
+        "bottom-contraction": 1,
+        "left-contraction": 1
+      },
+      "panelSelections": {
+        "north": 9,
+        "east": 5
+      },
+      "maximumInvulnerableIntervalMs": 2700,
+      "minimumVulnerableIntervalMs": 4200,
+      "phaseSkipViolation": 0,
+      "nonFiniteValues": 0
+    },
+    {
+      "seed": 2,
+      "difficultyId": "relaxed",
+      "defeated": true,
+      "durationMs": 195600,
+      "phaseDurations": {
+        "OBSERVE": 65400,
+        "IMITATE": 74850,
+        "DELETE": 52650
+      },
+      "attackFrequencies": {
+        "drifter-summon": 15,
+        "rotating-fan": 30,
+        "targeted-line-volley": 17,
+        "hostile-echo": 14,
+        "rear-panel-exposure": 9,
+        "sector-deletion": 3
+      },
+      "attacksByPhase": {
+        "OBSERVE": {
+          "drifter-summon": 7,
+          "rotating-fan": 20,
+          "targeted-line-volley": 10
+        },
+        "IMITATE": {
+          "drifter-summon": 8,
+          "rotating-fan": 8,
+          "hostile-echo": 8,
+          "targeted-line-volley": 6
+        },
+        "DELETE": {
+          "rear-panel-exposure": 9,
+          "hostile-echo": 6,
+          "rotating-fan": 2,
+          "sector-deletion": 3,
+          "targeted-line-volley": 1
+        }
+      },
+      "rejectionReasons": {
+        "major-concurrency": 124,
+        "retry-later": 37
+      },
+      "fallbackCount": 0,
+      "thresholdClamps": 0,
+      "fanProjectiles": 761,
+      "fanGapMinimumDegrees": 56,
+      "linePlans": 17,
+      "summonCount": 36,
+      "addCapViolation": 0,
+      "hostilePlans": 14,
+      "hostileCapViolation": 0,
+      "sectorCount": 3,
+      "sectorPatterns": {
+        "center-channel": 1,
+        "bottom-contraction": 1,
+        "right-contraction": 1
+      },
+      "panelSelections": {
+        "north": 9,
+        "east": 4
+      },
+      "maximumInvulnerableIntervalMs": 2700,
+      "minimumVulnerableIntervalMs": 4200,
+      "phaseSkipViolation": 0,
+      "nonFiniteValues": 0
+    },
+    {
+      "seed": 1,
+      "difficultyId": "standard",
+      "defeated": true,
+      "durationMs": 211200,
+      "phaseDurations": {
+        "OBSERVE": 72600,
+        "IMITATE": 82050,
+        "DELETE": 53850
+      },
+      "attackFrequencies": {
+        "targeted-line-volley": 23,
+        "drifter-summon": 16,
+        "rotating-fan": 38,
+        "hostile-echo": 12,
+        "rear-panel-exposure": 9,
+        "sector-deletion": 4
+      },
+      "attacksByPhase": {
+        "OBSERVE": {
+          "targeted-line-volley": 11,
+          "drifter-summon": 8,
+          "rotating-fan": 23
+        },
+        "IMITATE": {
+          "rotating-fan": 10,
+          "drifter-summon": 8,
+          "targeted-line-volley": 8,
+          "hostile-echo": 9
+        },
+        "DELETE": {
+          "rear-panel-exposure": 9,
+          "targeted-line-volley": 4,
+          "sector-deletion": 4,
+          "rotating-fan": 5,
+          "hostile-echo": 3
+        }
+      },
+      "rejectionReasons": {
+        "major-concurrency": 104,
+        "retry-later": 34
+      },
+      "fallbackCount": 0,
+      "thresholdClamps": 0,
+      "fanProjectiles": 911,
+      "fanGapMinimumDegrees": 55,
+      "linePlans": 23,
+      "summonCount": 48,
+      "addCapViolation": 0,
+      "hostilePlans": 12,
+      "hostileCapViolation": 0,
+      "sectorCount": 4,
+      "sectorPatterns": {
+        "center-channel": 1,
+        "bottom-contraction": 1,
+        "top-contraction": 1,
+        "right-contraction": 1
+      },
+      "panelSelections": {
+        "north": 9,
+        "east": 3
+      },
+      "maximumInvulnerableIntervalMs": 2700,
+      "minimumVulnerableIntervalMs": 4200,
+      "phaseSkipViolation": 0,
+      "nonFiniteValues": 0
+    },
+    {
+      "seed": 2,
+      "difficultyId": "standard",
+      "defeated": true,
+      "durationMs": 222600,
+      "phaseDurations": {
+        "OBSERVE": 72600,
+        "IMITATE": 82050,
+        "DELETE": 65250
+      },
+      "attackFrequencies": {
+        "drifter-summon": 16,
+        "rotating-fan": 35,
+        "targeted-line-volley": 21,
+        "hostile-echo": 15,
+        "sector-deletion": 4,
+        "rear-panel-exposure": 10
+      },
+      "attacksByPhase": {
+        "OBSERVE": {
+          "drifter-summon": 8,
+          "rotating-fan": 22,
+          "targeted-line-volley": 11
+        },
+        "IMITATE": {
+          "hostile-echo": 10,
+          "drifter-summon": 8,
+          "targeted-line-volley": 6,
+          "rotating-fan": 8
+        },
+        "DELETE": {
+          "sector-deletion": 4,
+          "rear-panel-exposure": 10,
+          "rotating-fan": 5,
+          "targeted-line-volley": 4,
+          "hostile-echo": 5
+        }
+      },
+      "rejectionReasons": {
+        "major-concurrency": 136,
+        "retry-later": 44
+      },
+      "fallbackCount": 0,
+      "thresholdClamps": 0,
+      "fanProjectiles": 846,
+      "fanGapMinimumDegrees": 55,
+      "linePlans": 21,
+      "summonCount": 45,
+      "addCapViolation": 0,
+      "hostilePlans": 15,
+      "hostileCapViolation": 0,
+      "sectorCount": 4,
+      "sectorPatterns": {
+        "right-contraction": 1,
+        "center-channel": 1,
+        "bottom-contraction": 1,
+        "top-contraction": 1
+      },
+      "panelSelections": {
+        "north": 10,
+        "east": 5
+      },
+      "maximumInvulnerableIntervalMs": 2700,
+      "minimumVulnerableIntervalMs": 4200,
+      "phaseSkipViolation": 0,
+      "nonFiniteValues": 0
+    },
+    {
+      "seed": 1,
+      "difficultyId": "overclocked",
+      "defeated": true,
+      "durationMs": 241200,
+      "phaseDurations": {
+        "OBSERVE": 80400,
+        "IMITATE": 93450,
+        "DELETE": 64650
+      },
+      "attackFrequencies": {
+        "rotating-fan": 40,
+        "drifter-summon": 19,
+        "targeted-line-volley": 20,
+        "hostile-echo": 16,
+        "rear-panel-exposure": 10,
+        "sector-deletion": 4
+      },
+      "attacksByPhase": {
+        "OBSERVE": {
+          "rotating-fan": 24,
+          "drifter-summon": 9,
+          "targeted-line-volley": 12
+        },
+        "IMITATE": {
+          "hostile-echo": 11,
+          "drifter-summon": 10,
+          "targeted-line-volley": 6,
+          "rotating-fan": 10
+        },
+        "DELETE": {
+          "hostile-echo": 5,
+          "rear-panel-exposure": 10,
+          "targeted-line-volley": 2,
+          "rotating-fan": 6,
+          "sector-deletion": 4
+        }
+      },
+      "rejectionReasons": {
+        "major-concurrency": 142,
+        "retry-later": 44
+      },
+      "fallbackCount": 0,
+      "thresholdClamps": 0,
+      "fanProjectiles": 1014,
+      "fanGapMinimumDegrees": 55,
+      "linePlans": 20,
+      "summonCount": 49,
+      "addCapViolation": 0,
+      "hostilePlans": 16,
+      "hostileCapViolation": 0,
+      "sectorCount": 4,
+      "sectorPatterns": {
+        "bottom-contraction": 3,
+        "right-contraction": 1
+      },
+      "panelSelections": {
+        "north": 10,
+        "east": 4
+      },
+      "maximumInvulnerableIntervalMs": 2700,
+      "minimumVulnerableIntervalMs": 4200,
+      "phaseSkipViolation": 0,
+      "nonFiniteValues": 0
+    },
+    {
+      "seed": 2,
+      "difficultyId": "overclocked",
+      "defeated": true,
+      "durationMs": 241200,
+      "phaseDurations": {
+        "OBSERVE": 80400,
+        "IMITATE": 93450,
+        "DELETE": 64650
+      },
+      "attackFrequencies": {
+        "drifter-summon": 18,
+        "targeted-line-volley": 23,
+        "rotating-fan": 41,
+        "hostile-echo": 17,
+        "rear-panel-exposure": 10,
+        "sector-deletion": 4
+      },
+      "attacksByPhase": {
+        "OBSERVE": {
+          "drifter-summon": 9,
+          "targeted-line-volley": 12,
+          "rotating-fan": 28
+        },
+        "IMITATE": {
+          "targeted-line-volley": 8,
+          "drifter-summon": 9,
+          "hostile-echo": 11,
+          "rotating-fan": 9
+        },
+        "DELETE": {
+          "targeted-line-volley": 3,
+          "rear-panel-exposure": 10,
+          "hostile-echo": 6,
+          "sector-deletion": 4,
+          "rotating-fan": 4
+        }
+      },
+      "rejectionReasons": {
+        "major-concurrency": 138,
+        "retry-later": 44
+      },
+      "fallbackCount": 0,
+      "thresholdClamps": 0,
+      "fanProjectiles": 895,
+      "fanGapMinimumDegrees": 56,
+      "linePlans": 23,
+      "summonCount": 55,
+      "addCapViolation": 0,
+      "hostilePlans": 17,
+      "hostileCapViolation": 0,
+      "sectorCount": 4,
+      "sectorPatterns": {
+        "left-contraction": 1,
+        "opposite-corners": 1,
+        "bottom-contraction": 1,
+        "center-channel": 1
+      },
+      "panelSelections": {
+        "north": 10,
+        "east": 3
+      },
+      "maximumInvulnerableIntervalMs": 2700,
+      "minimumVulnerableIntervalMs": 4200,
+      "phaseSkipViolation": 0,
+      "nonFiniteValues": 0
+    }
+  ],
+  "passed": true
+}

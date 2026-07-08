@@ -1,0 +1,210 @@
+{
+  "generatedAt": "2026-07-08T14:01:29.289Z",
+  "browser": "Firefox",
+  "engineExecutable": "Playwright-managed",
+  "base": "/",
+  "checks": {
+    "http200": true,
+    "title": true,
+    "releaseMode": true,
+    "freshTutorialIncomplete": true,
+    "freshRunCountZero": true,
+    "freshRoutesTutorial": true,
+    "noRunCreatedBeforeTutorial": true,
+    "tutorialPause": true,
+    "tutorialResume": true,
+    "realPointerFireAccepted": true,
+    "productionEchoDeployed": true,
+    "completionPersisted": true,
+    "oneRunStarted": true,
+    "tutorialScoreExcluded": true,
+    "combatOneStarts": true,
+    "returningBypassesTutorial": true,
+    "archiveReplayEntry": true,
+    "archiveReplayNoRunRecord": true,
+    "keyboardRebind": true,
+    "immediateContextRebuild": true,
+    "conflictRejected": true,
+    "pointerRebind": true,
+    "escapeCancelsCapture": true,
+    "restoreDefaults": true,
+    "reloadPersistence": true,
+    "accessibilityPage": true,
+    "credits": true,
+    "combatRegression": true,
+    "fullRouteVictory": true,
+    "fatalScreen": true,
+    "zeroExceptions": true,
+    "zeroConsoleErrors": true,
+    "zeroFailedRequests": true,
+    "warningsExplained": true
+  },
+  "observations": {
+    "pointerFire": {
+      "target": {
+        "x": 340.20870888888896,
+        "y": 720
+      },
+      "targetPoint": {
+        "x": 340.20870888888896,
+        "y": 720,
+        "box": {
+          "x": 0,
+          "y": 0,
+          "width": 1600,
+          "height": 900
+        },
+        "screen": {
+          "x": 340.20870888888896,
+          "y": 720,
+          "gameWidth": 1600,
+          "gameHeight": 900,
+          "camera": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          }
+        }
+      },
+      "state": "DASH_GATE",
+      "probe": {
+        "keydowns": [],
+        "pointerdowns": [
+          {
+            "button": 0,
+            "trusted": true,
+            "x": 340,
+            "y": 720,
+            "at": 1538
+          }
+        ]
+      },
+      "activeProjectiles": 1
+    },
+    "keyboardRebind": {
+      "revisionBefore": 1,
+      "revisionAfterKeyboard": 2,
+      "probe": {
+        "keydowns": [
+          {
+            "code": "KeyI",
+            "key": "i",
+            "trusted": true,
+            "repeat": false,
+            "at": 3880
+          }
+        ],
+        "pointerdowns": []
+      },
+      "binding": {
+        "device": "keyboard",
+        "code": "KeyI"
+      }
+    },
+    "conflictRebind": {
+      "probe": {
+        "keydowns": [
+          {
+            "code": "KeyI",
+            "key": "i",
+            "trusted": true,
+            "repeat": false,
+            "at": 4111
+          }
+        ],
+        "pointerdowns": []
+      },
+      "binding": {
+        "device": "keyboard",
+        "code": "KeyS"
+      }
+    },
+    "pointerRebind": {
+      "click": {
+        "x": 800,
+        "y": 450,
+        "button": "middle"
+      },
+      "probe": {
+        "keydowns": [],
+        "pointerdowns": [
+          {
+            "button": 1,
+            "trusted": true,
+            "x": 800,
+            "y": 450,
+            "at": 4355
+          }
+        ]
+      },
+      "binding": {
+        "device": "pointer",
+        "button": 1
+      }
+    },
+    "escapeCapture": {
+      "keydowns": [
+        {
+          "code": "Escape",
+          "key": "Escape",
+          "trusted": true,
+          "repeat": false,
+          "at": 4573
+        }
+      ],
+      "pointerdowns": []
+    },
+    "route": {
+      "result": "victory",
+      "finalScore": 6988,
+      "recentRuns": 1,
+      "aggregate": {
+        "runsStarted": 4,
+        "runsCompleted": 1,
+        "victories": 1,
+        "defeats": 0,
+        "totalSimulationMs": 581.2253333333332,
+        "totalScore": 6988,
+        "highestScore": 6988,
+        "totalEnemiesDefeated": 0,
+        "totalElitesDefeated": 1,
+        "totalBossesDefeated": 1
+      }
+    },
+    "finalDiagnostics": {
+      "title": "ECHOFRAME: LAST SIGNAL",
+      "fatalVisible": true
+    }
+  },
+  "exceptions": [],
+  "consoleErrors": [],
+  "consoleWarnings": [
+    {
+      "type": "warning",
+      "text": "[JavaScript Warning: \"Failed to create WebGL context: WebGL creation failed: \n* WebglAllowWindowsNativeGl:false restricts context creation on this system. ()\n* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)\" {file: \"http://127.0.0.1:38539/assets/index-7J-ToV3C.js\" line: 1}]"
+    },
+    {
+      "type": "warning",
+      "text": "[JavaScript Warning: \"Failed to create WebGL context: WebGL creation failed: \n* WebglAllowWindowsNativeGl:false restricts context creation on this system. ()\n* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)\" {file: \"http://127.0.0.1:38539/assets/index-7J-ToV3C.js\" line: 1}]"
+    },
+    {
+      "type": "warning",
+      "text": "[JavaScript Warning: \"An AudioContext was prevented from starting automatically. It must be created or resumed after a user gesture on the page.\" {file: \"http://127.0.0.1:38539/assets/index-7J-ToV3C.js\" line: 64}]"
+    },
+    {
+      "type": "warning",
+      "text": "[JavaScript Warning: \"Failed to create WebGL context: WebGL creation failed: \n* WebglAllowWindowsNativeGl:false restricts context creation on this system. ()\n* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)\" {file: \"http://127.0.0.1:38539/assets/index-7J-ToV3C.js\" line: 1}]"
+    },
+    {
+      "type": "warning",
+      "text": "[JavaScript Warning: \"Failed to create WebGL context: WebGL creation failed: \n* WebglAllowWindowsNativeGl:false restricts context creation on this system. ()\n* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)\" {file: \"http://127.0.0.1:38539/assets/index-7J-ToV3C.js\" line: 1}]"
+    },
+    {
+      "type": "warning",
+      "text": "[JavaScript Warning: \"An AudioContext was prevented from starting automatically. It must be created or resumed after a user gesture on the page.\" {file: \"http://127.0.0.1:38539/assets/index-7J-ToV3C.js\" line: 64}]"
+    }
+  ],
+  "failedRequests": [],
+  "requestCount": 7,
+  "passed": true
+}

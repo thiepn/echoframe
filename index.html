@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="ECHOFRAME: LAST SIGNAL — a deterministic desktop browser action-roguelite built around recording and fighting alongside temporal Echoes."
+    />
+    <meta name="theme-color" content="#080b14" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <title>ECHOFRAME: LAST SIGNAL</title>
+  </head>
+  <body>
+    <main id="app" aria-label="ECHOFRAME game application">
+      <div id="game-shell">
+        <div id="game-container" aria-label="ECHOFRAME game canvas"></div>
+        <p id="viewport-notice" role="status" aria-live="polite" hidden>
+          A browser viewport of at least 1024 × 576 is recommended.
+        </p>
+      </div>
+      <noscript>
+        ECHOFRAME requires JavaScript to run. Enable JavaScript and reload the page.
+      </noscript>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

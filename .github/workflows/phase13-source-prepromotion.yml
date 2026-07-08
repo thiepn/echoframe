@@ -1,0 +1,13 @@
+name: Phase 13 Source Pre-Promotion Certification — Historical
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  historical-status:
+    runs-on: ubuntu-24.04
+    steps:
+      - run: echo "Completed source pre-promotion workflow retained as historical evidence; no longer automatic."

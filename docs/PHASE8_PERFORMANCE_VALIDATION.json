@@ -1,0 +1,74 @@
+{
+  "generatedAt": "2026-07-06T12:46:44.034Z",
+  "microbenchmarks": {
+    "rotatingFanPlan": {
+      "iterations": 10000,
+      "totalMs": 62.91408899999999,
+      "averageMicroseconds": 6.2914088999999995
+    },
+    "lineVolleyPlan": {
+      "iterations": 5000,
+      "totalMs": 13.964656000000005,
+      "averageMicroseconds": 2.792931200000001
+    },
+    "hostileReplayConversion": {
+      "iterations": 5000,
+      "totalMs": 234.33775699999998,
+      "averageMicroseconds": 46.867551399999996
+    },
+    "sectorPlan": {
+      "iterations": 10000,
+      "totalMs": 154.79029099999997,
+      "averageMicroseconds": 15.479029099999996
+    },
+    "sectorValidation": {
+      "iterations": 50000,
+      "totalMs": 96.00836999999996,
+      "averageMicroseconds": 1.920167399999999
+    }
+  },
+  "schedulerRejections": {
+    "averagePerSimulation": 168.33333333333334,
+    "maximumPerSimulation": 186,
+    "total": 48607
+  },
+  "browser": {
+    "startupToHookMs": 118.20000000018626,
+    "startupToActiveMs": 155.70000000018626,
+    "phaseTransitions": [
+      {
+        "from": "OBSERVE",
+        "to": "IMITATE",
+        "durationMs": 1365.4000000003725,
+        "maxFrameMs": 16.800000000000182,
+        "averageFrameMs": 16.535365853660807,
+        "frameSamples": 82,
+        "completed": true
+      },
+      {
+        "from": "IMITATE",
+        "to": "DELETE",
+        "durationMs": 1363,
+        "maxFrameMs": 16.800000000000182,
+        "averageFrameMs": 16.529268292678385,
+        "frameSamples": 82,
+        "completed": true
+      }
+    ],
+    "exceptions": 0,
+    "consoleErrors": 0,
+    "warnings": 0
+  },
+  "bundle": {
+    "javascriptAssets": [
+      {
+        "filename": "index-CZO84KeB.js",
+        "bytes": 1706477,
+        "gzipBytes": 447707
+      }
+    ],
+    "totalJavaScriptBytes": 1706477,
+    "totalJavaScriptGzipBytes": 447707
+  },
+  "passed": true
+}

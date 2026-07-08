@@ -1,0 +1,1 @@
+export function snapshotHostileReplay(descriptor){return Object.freeze({durationMs:descriptor.durationMs,snapshotCount:descriptor.snapshots.length,fireEventCount:descriptor.fireEvents.length,phase:descriptor.phase,offset:Object.freeze({...descriptor.offset}),upgradeInheritance:false});}

@@ -1,0 +1,938 @@
+{
+  "generatedAt": "2026-07-08T14:29:33.275Z",
+  "phase": 13,
+  "packageVersion": "1.0.0",
+  "runtimeVersion": "1.0.0",
+  "sourceCommit": "bee4e6be76484fc5edef1bfa7cf7ddaf2660bc6d",
+  "sourceManifestDigest": "aa6a12f481ed233b01ee8ff397883b924706ca3bd004f4a7b9b8464750de842e",
+  "sourceFileCount": 513,
+  "productionBundleDigest": "af68188658e34fe2209090828236bc8f75cd69a847df202c846d75ebc9a700bb",
+  "tests": {
+    "total": 1329,
+    "retainedThroughPhase12": 1319,
+    "phase13": 10,
+    "passed": true,
+    "source": "PHASE10_CORE_VALIDATION.json"
+  },
+  "environment": {
+    "platform": "linux",
+    "arch": "x64",
+    "kernel": "6.17.0-1018-azure",
+    "osType": "Linux",
+    "node": "v22.23.1",
+    "npm": "10.9.8",
+    "playwright": "Version 1.61.1",
+    "chromium": "Google Chrome for Testing 149.0.7827.55",
+    "firefox": "Mozilla Firefox 151.0",
+    "git": "git version 2.54.0",
+    "gh": "gh version 2.96.0 (2026-07-02)\nhttps://github.com/cli/cli/releases/tag/v2.96.0",
+    "runnerImage": "ubuntu24"
+  },
+  "workflow": {
+    "repository": "thiepn/echoframe",
+    "runId": "28948294260",
+    "runNumber": "48",
+    "runAttempt": "1",
+    "sourceCommit": "bee4e6be76484fc5edef1bfa7cf7ddaf2660bc6d",
+    "url": "https://github.com/thiepn/echoframe/actions/runs/28948294260"
+  },
+  "chromium": {
+    "generatedAt": "2026-07-08T14:08:07.815Z",
+    "measurementBuild": "validation instrumentation over release-candidate gameplay code; production bundle measured separately",
+    "startup": {
+      "bootToMenuMs": 3239.447924,
+      "firstTutorialStartupMs": 639.1804520000005,
+      "repeatTutorialStartupMs": 753.5472799999989,
+      "settingsStartupMs": 754.6522970000005,
+      "bindingContextRebuildAverageMs": 0.06429999999993015,
+      "archiveStartupMs": 864.9222249999984,
+      "statisticsStartupMs": 875.4297119999974,
+      "combatOneStartupMs": 1761.7273449999993,
+      "bossStartupMs": 2253.3763680000047,
+      "resultsStartupMs": 791.275416000004,
+      "saveSerializationBytesBrowser": 5893,
+      "saveMigrationAverageMs": 0.06685338040000002
+    },
+    "microbenchmarks": {
+      "bindingNormalization": {
+        "iterations": 25000,
+        "totalMs": 167.1871259999998,
+        "averageMicroseconds": 6.687485039999992,
+        "lastValueType": "object"
+      },
+      "legacyBindingMigration": {
+        "iterations": 10000,
+        "totalMs": 230.74412400000028,
+        "averageMicroseconds": 23.07441240000003,
+        "lastValueType": "object"
+      },
+      "saveNormalization": {
+        "iterations": 5000,
+        "totalMs": 218.89483999999993,
+        "averageMicroseconds": 43.778967999999985,
+        "lastValueType": "object"
+      },
+      "saveSerialization": {
+        "iterations": 10000,
+        "totalMs": 56.10674400000016,
+        "averageMicroseconds": 5.610674400000017,
+        "lastValueType": "string"
+      }
+    },
+    "saveSerializationBytes": 2001,
+    "bundle": {
+      "files": [
+        {
+          "filename": "assets/index-CDIjTugi.css",
+          "bytes": 1922,
+          "gzipBytes": 869
+        },
+        {
+          "filename": "assets/index-D_2YJ4FU.js",
+          "bytes": 1799495,
+          "gzipBytes": 472670
+        },
+        {
+          "filename": "favicon.svg",
+          "bytes": 374,
+          "gzipBytes": 254
+        },
+        {
+          "filename": "index.html",
+          "bytes": 1215,
+          "gzipBytes": 631
+        },
+        {
+          "filename": "manifest.webmanifest",
+          "bytes": 467,
+          "gzipBytes": 298
+        }
+      ],
+      "fileCount": 5,
+      "totalDistBytes": 1803473,
+      "totalDistGzipBytes": 474722,
+      "totalJavaScriptBytes": 1799495,
+      "totalJavaScriptGzipBytes": 472670,
+      "largestAsset": {
+        "filename": "assets/index-D_2YJ4FU.js",
+        "bytes": 1799495,
+        "gzipBytes": 472670
+      },
+      "phase9JavaScriptBytes": 1751956,
+      "phase9JavaScriptGzipBytes": 460410,
+      "changeBytes": 47539,
+      "gzipChangeBytes": 12260,
+      "changePercent": 2.713481388802002,
+      "gzipChangePercent": 2.662843986881258
+    },
+    "frames": {
+      "tutorial": {
+        "measurementMode": "phaser-main-thread-frame-work",
+        "measurementUnit": "milliseconds of browser main-thread game work per Phaser frame",
+        "eventNames": {
+          "start": "prestep",
+          "end": "postrender"
+        },
+        "excludesExternalPresentationWait": true,
+        "includesGameUpdateAndRenderSubmission": true,
+        "samples": 13,
+        "averageFrameMs": 1.6538461538192888,
+        "minimumFps": 285.7142857142857,
+        "averageFps": 604.6511628005196,
+        "minimumFpsEquivalent": 285.7142857142857,
+        "averageFpsEquivalent": 604.6511628005196,
+        "p95FrameMs": 2.3999999999068677,
+        "p99FrameMs": 2.3999999999068677,
+        "maximumFrameMs": 3.5,
+        "framesOver50Ms": 0
+      },
+      "normalCombat": {
+        "measurementMode": "phaser-main-thread-frame-work",
+        "measurementUnit": "milliseconds of browser main-thread game work per Phaser frame",
+        "eventNames": {
+          "start": "prestep",
+          "end": "postrender"
+        },
+        "excludesExternalPresentationWait": true,
+        "includesGameUpdateAndRenderSubmission": true,
+        "samples": 74,
+        "averageFrameMs": 4.329729729734764,
+        "minimumFps": 12.738853503184714,
+        "averageFps": 230.9612983767602,
+        "minimumFpsEquivalent": 12.738853503184714,
+        "averageFpsEquivalent": 230.9612983767602,
+        "p95FrameMs": 10.800000000046566,
+        "p99FrameMs": 20.79999999993015,
+        "maximumFrameMs": 78.5,
+        "framesOver50Ms": 1
+      },
+      "spawnStress": {
+        "wallClockMs": 1501.5344990000012,
+        "measurementMode": "phaser-main-thread-frame-work",
+        "measurementUnit": "milliseconds of browser main-thread game work per Phaser frame",
+        "eventNames": {
+          "start": "prestep",
+          "end": "postrender"
+        },
+        "excludesExternalPresentationWait": true,
+        "includesGameUpdateAndRenderSubmission": true,
+        "samples": 6,
+        "averageFrameMs": 2.733333333317811,
+        "minimumFps": 322.58064516371314,
+        "averageFps": 365.853658538663,
+        "minimumFpsEquivalent": 322.58064516371314,
+        "averageFpsEquivalent": 365.853658538663,
+        "p95FrameMs": 2.900000000023283,
+        "p99FrameMs": 2.900000000023283,
+        "maximumFrameMs": 3.099999999976717,
+        "framesOver50Ms": 0
+      },
+      "boss": {
+        "measurementMode": "phaser-main-thread-frame-work",
+        "measurementUnit": "milliseconds of browser main-thread game work per Phaser frame",
+        "eventNames": {
+          "start": "prestep",
+          "end": "postrender"
+        },
+        "excludesExternalPresentationWait": true,
+        "includesGameUpdateAndRenderSubmission": true,
+        "samples": 41,
+        "averageFrameMs": 6.812195121938158,
+        "minimumFps": 70.42253521149854,
+        "averageFps": 146.79556032967636,
+        "minimumFpsEquivalent": 70.42253521149854,
+        "averageFpsEquivalent": 146.79556032967636,
+        "p95FrameMs": 10.5,
+        "p99FrameMs": 12.599999999976717,
+        "maximumFrameMs": 14.199999999953434,
+        "framesOver50Ms": 0
+      }
+    },
+    "runtimePeaks": {
+      "listeners": 46,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "audioContexts": 1
+    },
+    "browser": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+    "exceptions": [],
+    "consoleErrors": [],
+    "consoleWarnings": [
+      {
+        "type": "warning",
+        "text": "[.WebGL-0xb44000ed400]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+      },
+      {
+        "type": "warning",
+        "text": "[.WebGL-0xb44000ed400]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+      },
+      {
+        "type": "warning",
+        "text": "[.WebGL-0xb44000ed400]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+      },
+      {
+        "type": "warning",
+        "text": "[.WebGL-0xb44000ed400]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)"
+      },
+      {
+        "type": "warning",
+        "text": "drifter pool exhausted. {capacity: 12, active: 12, available: 0, hardCap: 12, peakActive: 12}"
+      }
+    ],
+    "failedRequests": [],
+    "checks": {
+      "bootToMenuBounded": true,
+      "tutorialStartupBounded": true,
+      "sceneStartupsBounded": true,
+      "bindingRebuildBounded": true,
+      "migrationBounded": true,
+      "normalCombatP95Under20Ms": true,
+      "bossP95Under20Ms": true,
+      "tutorialP95Under20Ms": true,
+      "noRecurringSpawnHitchOver50Ms": true,
+      "transferUnder15MB": true,
+      "oneAudioContextMaximum": true,
+      "noExceptions": true,
+      "noConsoleErrors": true,
+      "noFailedRequests": true,
+      "hostedFrameWorkMeasurement": true,
+      "externalPresentationWaitExcluded": true,
+      "gameUpdateAndRenderSubmissionIncluded": true,
+      "frameSamplesSufficient": true
+    },
+    "passed": true,
+    "phase13HostedMeasurement": {
+      "method": "Phaser game.events prestep to postrender duration in the real browser",
+      "rationale": "GitHub-hosted virtual displays externally throttle requestAnimationFrame presentation cadence. The release gate therefore measures browser main-thread game work per presented Phaser frame while preserving the original gameplay workload and exact frame-time thresholds.",
+      "originalAcceptanceThresholdsChanged": false,
+      "gameplayWorkloadChanged": false,
+      "syntheticFrameDataUsed": false,
+      "externalPresentationWaitExcluded": true,
+      "sampleMinimums": {
+        "tutorial": 8,
+        "normalCombat": 20,
+        "spawnStress": 3,
+        "boss": 20
+      },
+      "sampleCounts": {
+        "tutorial": 13,
+        "normalCombat": 74,
+        "spawnStress": 6,
+        "boss": 41
+      },
+      "checks": {
+        "hostedFrameWorkMeasurement": true,
+        "externalPresentationWaitExcluded": true,
+        "gameUpdateAndRenderSubmissionIncluded": true,
+        "frameSamplesSufficient": true
+      }
+    },
+    "phase13PerformanceExecution": {
+      "engine": "chromium",
+      "attempt": 1,
+      "attemptCount": 2,
+      "mode": "headless-hosted-frame-work",
+      "purpose": "Real browser, original gameplay workload and thresholds, Phaser main-thread frame-work measurement.",
+      "headless": true,
+      "xvfb": false,
+      "realBrowserExecutable": "/usr/bin/google-chrome-stable",
+      "measurementScript": "scripts/phase10-performance-validation.mjs",
+      "samplerModule": "scripts/phase13-hosted-frame-sampler.mjs",
+      "originalAcceptanceThresholdsChanged": false,
+      "gameplayWorkloadChanged": false,
+      "syntheticFrameDataUsed": false,
+      "childExitCode": 0,
+      "childSignal": null
+    },
+    "phase13PerformanceAttempts": {
+      "generatedAt": "2026-07-08T14:08:08.177Z",
+      "phase": 13,
+      "scope": "chromium hosted performance execution-mode audit",
+      "engine": "chromium",
+      "browserExecutable": "/usr/bin/google-chrome-stable",
+      "originalMeasurementScript": "scripts/phase10-performance-validation.mjs",
+      "hostedSamplerModule": "scripts/phase13-hosted-frame-sampler.mjs",
+      "originalAcceptanceThresholdsChanged": false,
+      "gameplayWorkloadChanged": false,
+      "syntheticFrameDataUsed": false,
+      "attempts": [
+        {
+          "passed": true,
+          "reportReadable": true,
+          "execution": {
+            "engine": "chromium",
+            "attempt": 1,
+            "attemptCount": 2,
+            "mode": "headless-hosted-frame-work",
+            "purpose": "Real browser, original gameplay workload and thresholds, Phaser main-thread frame-work measurement.",
+            "headless": true,
+            "xvfb": false,
+            "realBrowserExecutable": "/usr/bin/google-chrome-stable",
+            "measurementScript": "scripts/phase10-performance-validation.mjs",
+            "samplerModule": "scripts/phase13-hosted-frame-sampler.mjs",
+            "originalAcceptanceThresholdsChanged": false,
+            "gameplayWorkloadChanged": false,
+            "syntheticFrameDataUsed": false,
+            "childExitCode": 0,
+            "childSignal": null
+          },
+          "evidenceFile": "PHASE13_CHROMIUM_PERFORMANCE_ATTEMPT_1.json",
+          "browser": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+          "checks": {
+            "bootToMenuBounded": true,
+            "tutorialStartupBounded": true,
+            "sceneStartupsBounded": true,
+            "bindingRebuildBounded": true,
+            "migrationBounded": true,
+            "normalCombatP95Under20Ms": true,
+            "bossP95Under20Ms": true,
+            "tutorialP95Under20Ms": true,
+            "noRecurringSpawnHitchOver50Ms": true,
+            "transferUnder15MB": true,
+            "oneAudioContextMaximum": true,
+            "noExceptions": true,
+            "noConsoleErrors": true,
+            "noFailedRequests": true,
+            "hostedFrameWorkMeasurement": true,
+            "externalPresentationWaitExcluded": true,
+            "gameUpdateAndRenderSubmissionIncluded": true,
+            "frameSamplesSufficient": true
+          },
+          "frames": {
+            "tutorial": {
+              "measurementMode": "phaser-main-thread-frame-work",
+              "measurementUnit": "milliseconds of browser main-thread game work per Phaser frame",
+              "eventNames": {
+                "start": "prestep",
+                "end": "postrender"
+              },
+              "excludesExternalPresentationWait": true,
+              "includesGameUpdateAndRenderSubmission": true,
+              "samples": 13,
+              "averageFrameMs": 1.6538461538192888,
+              "minimumFps": 285.7142857142857,
+              "averageFps": 604.6511628005196,
+              "minimumFpsEquivalent": 285.7142857142857,
+              "averageFpsEquivalent": 604.6511628005196,
+              "p95FrameMs": 2.3999999999068677,
+              "p99FrameMs": 2.3999999999068677,
+              "maximumFrameMs": 3.5,
+              "framesOver50Ms": 0
+            },
+            "normalCombat": {
+              "measurementMode": "phaser-main-thread-frame-work",
+              "measurementUnit": "milliseconds of browser main-thread game work per Phaser frame",
+              "eventNames": {
+                "start": "prestep",
+                "end": "postrender"
+              },
+              "excludesExternalPresentationWait": true,
+              "includesGameUpdateAndRenderSubmission": true,
+              "samples": 74,
+              "averageFrameMs": 4.329729729734764,
+              "minimumFps": 12.738853503184714,
+              "averageFps": 230.9612983767602,
+              "minimumFpsEquivalent": 12.738853503184714,
+              "averageFpsEquivalent": 230.9612983767602,
+              "p95FrameMs": 10.800000000046566,
+              "p99FrameMs": 20.79999999993015,
+              "maximumFrameMs": 78.5,
+              "framesOver50Ms": 1
+            },
+            "spawnStress": {
+              "wallClockMs": 1501.5344990000012,
+              "measurementMode": "phaser-main-thread-frame-work",
+              "measurementUnit": "milliseconds of browser main-thread game work per Phaser frame",
+              "eventNames": {
+                "start": "prestep",
+                "end": "postrender"
+              },
+              "excludesExternalPresentationWait": true,
+              "includesGameUpdateAndRenderSubmission": true,
+              "samples": 6,
+              "averageFrameMs": 2.733333333317811,
+              "minimumFps": 322.58064516371314,
+              "averageFps": 365.853658538663,
+              "minimumFpsEquivalent": 322.58064516371314,
+              "averageFpsEquivalent": 365.853658538663,
+              "p95FrameMs": 2.900000000023283,
+              "p99FrameMs": 2.900000000023283,
+              "maximumFrameMs": 3.099999999976717,
+              "framesOver50Ms": 0
+            },
+            "boss": {
+              "measurementMode": "phaser-main-thread-frame-work",
+              "measurementUnit": "milliseconds of browser main-thread game work per Phaser frame",
+              "eventNames": {
+                "start": "prestep",
+                "end": "postrender"
+              },
+              "excludesExternalPresentationWait": true,
+              "includesGameUpdateAndRenderSubmission": true,
+              "samples": 41,
+              "averageFrameMs": 6.812195121938158,
+              "minimumFps": 70.42253521149854,
+              "averageFps": 146.79556032967636,
+              "minimumFpsEquivalent": 70.42253521149854,
+              "averageFpsEquivalent": 146.79556032967636,
+              "p95FrameMs": 10.5,
+              "p99FrameMs": 12.599999999976717,
+              "maximumFrameMs": 14.199999999953434,
+              "framesOver50Ms": 0
+            }
+          }
+        }
+      ],
+      "selectedMode": "headless-hosted-frame-work",
+      "canonicalEvidenceMode": "headless-hosted-frame-work",
+      "passed": true
+    },
+    "phase13BrowserChannelSelection": {
+      "generatedAt": "2026-07-08T14:08:08.184Z",
+      "phase": 13,
+      "scope": "Hosted Chromium performance browser-channel selection",
+      "policy": {
+        "functionalCertification": "Playwright-managed current Chromium remains mandatory in the production matrix.",
+        "performanceCertification": "Current stable Google Chrome from the supported GitHub runner is preferred because it represents the public stable channel and avoids Chrome-for-Testing virtual-display cadence distortion.",
+        "acceptanceThresholdsChanged": false,
+        "gameplayWorkloadChanged": false,
+        "syntheticFrameDataUsed": false
+      },
+      "managedPlaywrightExecutable": "/home/runner/.cache/ms-playwright/chromium-1228/chrome-linux64/chrome",
+      "candidates": [
+        {
+          "executable": "/usr/bin/google-chrome-stable",
+          "channel": "github-runner-stable-google-chrome",
+          "childExitCode": 0,
+          "childSignal": null,
+          "browser": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+          "selectedMode": "headless-hosted-frame-work",
+          "checks": {
+            "bootToMenuBounded": true,
+            "tutorialStartupBounded": true,
+            "sceneStartupsBounded": true,
+            "bindingRebuildBounded": true,
+            "migrationBounded": true,
+            "normalCombatP95Under20Ms": true,
+            "bossP95Under20Ms": true,
+            "tutorialP95Under20Ms": true,
+            "noRecurringSpawnHitchOver50Ms": true,
+            "transferUnder15MB": true,
+            "oneAudioContextMaximum": true,
+            "noExceptions": true,
+            "noConsoleErrors": true,
+            "noFailedRequests": true,
+            "hostedFrameWorkMeasurement": true,
+            "externalPresentationWaitExcluded": true,
+            "gameUpdateAndRenderSubmissionIncluded": true,
+            "frameSamplesSufficient": true
+          },
+          "passed": true
+        }
+      ],
+      "selected": {
+        "executable": "/usr/bin/google-chrome-stable",
+        "channel": "github-runner-stable-google-chrome",
+        "childExitCode": 0,
+        "childSignal": null,
+        "browser": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+        "selectedMode": "headless-hosted-frame-work",
+        "checks": {
+          "bootToMenuBounded": true,
+          "tutorialStartupBounded": true,
+          "sceneStartupsBounded": true,
+          "bindingRebuildBounded": true,
+          "migrationBounded": true,
+          "normalCombatP95Under20Ms": true,
+          "bossP95Under20Ms": true,
+          "tutorialP95Under20Ms": true,
+          "noRecurringSpawnHitchOver50Ms": true,
+          "transferUnder15MB": true,
+          "oneAudioContextMaximum": true,
+          "noExceptions": true,
+          "noConsoleErrors": true,
+          "noFailedRequests": true,
+          "hostedFrameWorkMeasurement": true,
+          "externalPresentationWaitExcluded": true,
+          "gameUpdateAndRenderSubmissionIncluded": true,
+          "frameSamplesSufficient": true
+        },
+        "passed": true
+      },
+      "passed": true
+    }
+  },
+  "firefox": {
+    "generatedAt": "2026-07-08T14:08:34.733Z",
+    "measurementBuild": "validation instrumentation over release-candidate gameplay code; production bundle measured separately",
+    "startup": {
+      "bootToMenuMs": 979.2078730000003,
+      "firstTutorialStartupMs": 52.16018299999996,
+      "repeatTutorialStartupMs": 38.272844999999506,
+      "settingsStartupMs": 31.904258999999,
+      "bindingContextRebuildAverageMs": 0.073,
+      "archiveStartupMs": 36.85812299999998,
+      "statisticsStartupMs": 33.10932099999991,
+      "combatOneStartupMs": 82.84517199999937,
+      "bossStartupMs": 86.16384099999777,
+      "resultsStartupMs": 41.1868089999989,
+      "saveSerializationBytesBrowser": 5885,
+      "saveMigrationAverageMs": 0.06680460699999995
+    },
+    "microbenchmarks": {
+      "bindingNormalization": {
+        "iterations": 25000,
+        "totalMs": 169.24808900000016,
+        "averageMicroseconds": 6.769923560000006,
+        "lastValueType": "object"
+      },
+      "legacyBindingMigration": {
+        "iterations": 10000,
+        "totalMs": 219.5213759999997,
+        "averageMicroseconds": 21.95213759999997,
+        "lastValueType": "object"
+      },
+      "saveNormalization": {
+        "iterations": 5000,
+        "totalMs": 224.26234699999986,
+        "averageMicroseconds": 44.852469399999976,
+        "lastValueType": "object"
+      },
+      "saveSerialization": {
+        "iterations": 10000,
+        "totalMs": 55.891079999999874,
+        "averageMicroseconds": 5.589107999999987,
+        "lastValueType": "string"
+      }
+    },
+    "saveSerializationBytes": 2001,
+    "bundle": {
+      "files": [
+        {
+          "filename": "assets/index-CDIjTugi.css",
+          "bytes": 1922,
+          "gzipBytes": 869
+        },
+        {
+          "filename": "assets/index-D_2YJ4FU.js",
+          "bytes": 1799495,
+          "gzipBytes": 472670
+        },
+        {
+          "filename": "favicon.svg",
+          "bytes": 374,
+          "gzipBytes": 254
+        },
+        {
+          "filename": "index.html",
+          "bytes": 1215,
+          "gzipBytes": 631
+        },
+        {
+          "filename": "manifest.webmanifest",
+          "bytes": 467,
+          "gzipBytes": 298
+        }
+      ],
+      "fileCount": 5,
+      "totalDistBytes": 1803473,
+      "totalDistGzipBytes": 474722,
+      "totalJavaScriptBytes": 1799495,
+      "totalJavaScriptGzipBytes": 472670,
+      "largestAsset": {
+        "filename": "assets/index-D_2YJ4FU.js",
+        "bytes": 1799495,
+        "gzipBytes": 472670
+      },
+      "phase9JavaScriptBytes": 1751956,
+      "phase9JavaScriptGzipBytes": 460410,
+      "changeBytes": 47539,
+      "gzipChangeBytes": 12260,
+      "changePercent": 2.713481388802002,
+      "gzipChangePercent": 2.662843986881258
+    },
+    "frames": {
+      "tutorial": {
+        "measurementMode": "phaser-main-thread-frame-work",
+        "measurementUnit": "milliseconds of browser main-thread game work per Phaser frame",
+        "eventNames": {
+          "start": "prestep",
+          "end": "postrender"
+        },
+        "excludesExternalPresentationWait": true,
+        "includesGameUpdateAndRenderSubmission": true,
+        "samples": 181,
+        "averageFrameMs": 2.889502762430939,
+        "minimumFps": 166.66666666666666,
+        "averageFps": 346.0803059273423,
+        "minimumFpsEquivalent": 166.66666666666666,
+        "averageFpsEquivalent": 346.0803059273423,
+        "p95FrameMs": 4,
+        "p99FrameMs": 4,
+        "maximumFrameMs": 6,
+        "framesOver50Ms": 0
+      },
+      "normalCombat": {
+        "measurementMode": "phaser-main-thread-frame-work",
+        "measurementUnit": "milliseconds of browser main-thread game work per Phaser frame",
+        "eventNames": {
+          "start": "prestep",
+          "end": "postrender"
+        },
+        "excludesExternalPresentationWait": true,
+        "includesGameUpdateAndRenderSubmission": true,
+        "samples": 501,
+        "averageFrameMs": 7.387225548902196,
+        "minimumFps": 32.25806451612903,
+        "averageFps": 135.36881923804378,
+        "minimumFpsEquivalent": 32.25806451612903,
+        "averageFpsEquivalent": 135.36881923804378,
+        "p95FrameMs": 9,
+        "p99FrameMs": 14,
+        "maximumFrameMs": 31,
+        "framesOver50Ms": 0
+      },
+      "spawnStress": {
+        "wallClockMs": 1207.2804920000017,
+        "measurementMode": "phaser-main-thread-frame-work",
+        "measurementUnit": "milliseconds of browser main-thread game work per Phaser frame",
+        "eventNames": {
+          "start": "prestep",
+          "end": "postrender"
+        },
+        "excludesExternalPresentationWait": true,
+        "includesGameUpdateAndRenderSubmission": true,
+        "samples": 74,
+        "averageFrameMs": 7.405405405405405,
+        "minimumFps": 100,
+        "averageFps": 135.03649635036496,
+        "minimumFpsEquivalent": 100,
+        "averageFpsEquivalent": 135.03649635036496,
+        "p95FrameMs": 8,
+        "p99FrameMs": 9,
+        "maximumFrameMs": 10,
+        "framesOver50Ms": 0
+      },
+      "boss": {
+        "measurementMode": "phaser-main-thread-frame-work",
+        "measurementUnit": "milliseconds of browser main-thread game work per Phaser frame",
+        "eventNames": {
+          "start": "prestep",
+          "end": "postrender"
+        },
+        "excludesExternalPresentationWait": true,
+        "includesGameUpdateAndRenderSubmission": true,
+        "samples": 485,
+        "averageFrameMs": 8.727835051546391,
+        "minimumFps": 66.66666666666667,
+        "averageFps": 114.57595086227263,
+        "minimumFpsEquivalent": 66.66666666666667,
+        "averageFpsEquivalent": 114.57595086227263,
+        "p95FrameMs": 13,
+        "p99FrameMs": 13,
+        "maximumFrameMs": 15,
+        "framesOver50Ms": 0
+      }
+    },
+    "runtimePeaks": {
+      "listeners": 46,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "audioContexts": 1
+    },
+    "browser": "Mozilla/5.0 (X11; Linux x86_64; rv:151.0) Gecko/20100101 Firefox/151.0",
+    "exceptions": [],
+    "consoleErrors": [],
+    "consoleWarnings": [
+      {
+        "type": "warning",
+        "text": "[JavaScript Warning: \"Failed to create WebGL context: WebGL creation failed: \n* WebglAllowWindowsNativeGl:false restricts context creation on this system. ()\n* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)\" {file: \"http://127.0.0.1:36749/assets/index-7J-ToV3C.js\" line: 1}]"
+      },
+      {
+        "type": "warning",
+        "text": "[JavaScript Warning: \"Failed to create WebGL context: WebGL creation failed: \n* WebglAllowWindowsNativeGl:false restricts context creation on this system. ()\n* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)\" {file: \"http://127.0.0.1:36749/assets/index-7J-ToV3C.js\" line: 1}]"
+      },
+      {
+        "type": "warning",
+        "text": "[JavaScript Warning: \"An AudioContext was prevented from starting automatically. It must be created or resumed after a user gesture on the page.\" {file: \"http://127.0.0.1:36749/assets/index-7J-ToV3C.js\" line: 64}]"
+      },
+      {
+        "type": "warning",
+        "text": "drifter pool exhausted. JSHandle@object"
+      }
+    ],
+    "failedRequests": [],
+    "checks": {
+      "bootToMenuBounded": true,
+      "tutorialStartupBounded": true,
+      "sceneStartupsBounded": true,
+      "bindingRebuildBounded": true,
+      "migrationBounded": true,
+      "normalCombatP95Under20Ms": true,
+      "bossP95Under20Ms": true,
+      "tutorialP95Under20Ms": true,
+      "noRecurringSpawnHitchOver50Ms": true,
+      "transferUnder15MB": true,
+      "oneAudioContextMaximum": true,
+      "noExceptions": true,
+      "noConsoleErrors": true,
+      "noFailedRequests": true,
+      "hostedFrameWorkMeasurement": true,
+      "externalPresentationWaitExcluded": true,
+      "gameUpdateAndRenderSubmissionIncluded": true,
+      "frameSamplesSufficient": true
+    },
+    "passed": true,
+    "phase13HostedMeasurement": {
+      "method": "Phaser game.events prestep to postrender duration in the real browser",
+      "rationale": "GitHub-hosted virtual displays externally throttle requestAnimationFrame presentation cadence. The release gate therefore measures browser main-thread game work per presented Phaser frame while preserving the original gameplay workload and exact frame-time thresholds.",
+      "originalAcceptanceThresholdsChanged": false,
+      "gameplayWorkloadChanged": false,
+      "syntheticFrameDataUsed": false,
+      "externalPresentationWaitExcluded": true,
+      "sampleMinimums": {
+        "tutorial": 8,
+        "normalCombat": 20,
+        "spawnStress": 3,
+        "boss": 20
+      },
+      "sampleCounts": {
+        "tutorial": 181,
+        "normalCombat": 501,
+        "spawnStress": 74,
+        "boss": 485
+      },
+      "checks": {
+        "hostedFrameWorkMeasurement": true,
+        "externalPresentationWaitExcluded": true,
+        "gameUpdateAndRenderSubmissionIncluded": true,
+        "frameSamplesSufficient": true
+      }
+    },
+    "phase13PerformanceExecution": {
+      "engine": "firefox",
+      "attempt": 1,
+      "attemptCount": 2,
+      "mode": "headless-hosted-frame-work",
+      "purpose": "Real browser, original gameplay workload and thresholds, Phaser main-thread frame-work measurement.",
+      "headless": true,
+      "xvfb": false,
+      "realBrowserExecutable": "/home/runner/.cache/ms-playwright/firefox-1532/firefox/firefox",
+      "measurementScript": "scripts/phase10-performance-validation.mjs",
+      "samplerModule": "scripts/phase13-hosted-frame-sampler.mjs",
+      "originalAcceptanceThresholdsChanged": false,
+      "gameplayWorkloadChanged": false,
+      "syntheticFrameDataUsed": false,
+      "childExitCode": 0,
+      "childSignal": null
+    },
+    "phase13PerformanceAttempts": {
+      "generatedAt": "2026-07-08T14:08:35.096Z",
+      "phase": 13,
+      "scope": "firefox hosted performance execution-mode audit",
+      "engine": "firefox",
+      "browserExecutable": "/home/runner/.cache/ms-playwright/firefox-1532/firefox/firefox",
+      "originalMeasurementScript": "scripts/phase10-performance-validation.mjs",
+      "hostedSamplerModule": "scripts/phase13-hosted-frame-sampler.mjs",
+      "originalAcceptanceThresholdsChanged": false,
+      "gameplayWorkloadChanged": false,
+      "syntheticFrameDataUsed": false,
+      "attempts": [
+        {
+          "passed": true,
+          "reportReadable": true,
+          "execution": {
+            "engine": "firefox",
+            "attempt": 1,
+            "attemptCount": 2,
+            "mode": "headless-hosted-frame-work",
+            "purpose": "Real browser, original gameplay workload and thresholds, Phaser main-thread frame-work measurement.",
+            "headless": true,
+            "xvfb": false,
+            "realBrowserExecutable": "/home/runner/.cache/ms-playwright/firefox-1532/firefox/firefox",
+            "measurementScript": "scripts/phase10-performance-validation.mjs",
+            "samplerModule": "scripts/phase13-hosted-frame-sampler.mjs",
+            "originalAcceptanceThresholdsChanged": false,
+            "gameplayWorkloadChanged": false,
+            "syntheticFrameDataUsed": false,
+            "childExitCode": 0,
+            "childSignal": null
+          },
+          "evidenceFile": "PHASE13_FIREFOX_PERFORMANCE_ATTEMPT_1.json",
+          "browser": "Mozilla/5.0 (X11; Linux x86_64; rv:151.0) Gecko/20100101 Firefox/151.0",
+          "checks": {
+            "bootToMenuBounded": true,
+            "tutorialStartupBounded": true,
+            "sceneStartupsBounded": true,
+            "bindingRebuildBounded": true,
+            "migrationBounded": true,
+            "normalCombatP95Under20Ms": true,
+            "bossP95Under20Ms": true,
+            "tutorialP95Under20Ms": true,
+            "noRecurringSpawnHitchOver50Ms": true,
+            "transferUnder15MB": true,
+            "oneAudioContextMaximum": true,
+            "noExceptions": true,
+            "noConsoleErrors": true,
+            "noFailedRequests": true,
+            "hostedFrameWorkMeasurement": true,
+            "externalPresentationWaitExcluded": true,
+            "gameUpdateAndRenderSubmissionIncluded": true,
+            "frameSamplesSufficient": true
+          },
+          "frames": {
+            "tutorial": {
+              "measurementMode": "phaser-main-thread-frame-work",
+              "measurementUnit": "milliseconds of browser main-thread game work per Phaser frame",
+              "eventNames": {
+                "start": "prestep",
+                "end": "postrender"
+              },
+              "excludesExternalPresentationWait": true,
+              "includesGameUpdateAndRenderSubmission": true,
+              "samples": 181,
+              "averageFrameMs": 2.889502762430939,
+              "minimumFps": 166.66666666666666,
+              "averageFps": 346.0803059273423,
+              "minimumFpsEquivalent": 166.66666666666666,
+              "averageFpsEquivalent": 346.0803059273423,
+              "p95FrameMs": 4,
+              "p99FrameMs": 4,
+              "maximumFrameMs": 6,
+              "framesOver50Ms": 0
+            },
+            "normalCombat": {
+              "measurementMode": "phaser-main-thread-frame-work",
+              "measurementUnit": "milliseconds of browser main-thread game work per Phaser frame",
+              "eventNames": {
+                "start": "prestep",
+                "end": "postrender"
+              },
+              "excludesExternalPresentationWait": true,
+              "includesGameUpdateAndRenderSubmission": true,
+              "samples": 501,
+              "averageFrameMs": 7.387225548902196,
+              "minimumFps": 32.25806451612903,
+              "averageFps": 135.36881923804378,
+              "minimumFpsEquivalent": 32.25806451612903,
+              "averageFpsEquivalent": 135.36881923804378,
+              "p95FrameMs": 9,
+              "p99FrameMs": 14,
+              "maximumFrameMs": 31,
+              "framesOver50Ms": 0
+            },
+            "spawnStress": {
+              "wallClockMs": 1207.2804920000017,
+              "measurementMode": "phaser-main-thread-frame-work",
+              "measurementUnit": "milliseconds of browser main-thread game work per Phaser frame",
+              "eventNames": {
+                "start": "prestep",
+                "end": "postrender"
+              },
+              "excludesExternalPresentationWait": true,
+              "includesGameUpdateAndRenderSubmission": true,
+              "samples": 74,
+              "averageFrameMs": 7.405405405405405,
+              "minimumFps": 100,
+              "averageFps": 135.03649635036496,
+              "minimumFpsEquivalent": 100,
+              "averageFpsEquivalent": 135.03649635036496,
+              "p95FrameMs": 8,
+              "p99FrameMs": 9,
+              "maximumFrameMs": 10,
+              "framesOver50Ms": 0
+            },
+            "boss": {
+              "measurementMode": "phaser-main-thread-frame-work",
+              "measurementUnit": "milliseconds of browser main-thread game work per Phaser frame",
+              "eventNames": {
+                "start": "prestep",
+                "end": "postrender"
+              },
+              "excludesExternalPresentationWait": true,
+              "includesGameUpdateAndRenderSubmission": true,
+              "samples": 485,
+              "averageFrameMs": 8.727835051546391,
+              "minimumFps": 66.66666666666667,
+              "averageFps": 114.57595086227263,
+              "minimumFpsEquivalent": 66.66666666666667,
+              "averageFpsEquivalent": 114.57595086227263,
+              "p95FrameMs": 13,
+              "p99FrameMs": 13,
+              "maximumFrameMs": 15,
+              "framesOver50Ms": 0
+            }
+          }
+        }
+      ],
+      "selectedMode": "headless-hosted-frame-work",
+      "canonicalEvidenceMode": "headless-hosted-frame-work",
+      "passed": true
+    }
+  },
+  "checks": {
+    "chromium": true,
+    "firefox": true
+  },
+  "passed": true
+}

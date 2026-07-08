@@ -1,0 +1,23 @@
+{
+  "generatedAt": "2026-07-07T17:31:50.620Z",
+  "release": "1.0.0-release-candidate",
+  "status": "release-candidate-not-signed-off",
+  "passed": false,
+  "releaseReady": false,
+  "criticalDefects": 0,
+  "highDefects": 0,
+  "mediumDefects": 0,
+  "lowDefects": 0,
+  "openGates": [
+    "firefox"
+  ],
+  "firefox": {
+    "passed": false,
+    "status": "environment-blocked-before-game-execution",
+    "gameCodeExecuted": false,
+    "browserSubstitutionUsed": false
+  },
+  "publicDeploymentUrlValidated": false,
+  "archiveLabel": "release candidate",
+  "statement": "Strict sign-off is withheld. No failed or unavailable gate was reclassified to permit shipping."
+}

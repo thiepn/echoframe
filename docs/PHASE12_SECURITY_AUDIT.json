@@ -1,0 +1,26 @@
+{
+  "generatedAt": "2026-07-08T00:02:08.898Z",
+  "checks": {
+    "noAnalytics": true,
+    "noRemoteTelemetry": true,
+    "noEval": true,
+    "noDynamicScriptInjection": true,
+    "noUnsafeImportedHtml": true,
+    "noGameplayNetwork": true,
+    "clipboardGuarded": true,
+    "objectUrlsRevoked": true,
+    "fileInputsRemoved": true,
+    "productionDebugGuard": true
+  },
+  "findings": [],
+  "personalDataCollected": false,
+  "analyticsEnabled": false,
+  "remoteTelemetry": false,
+  "passed": true,
+  "phase": 12,
+  "scope": "Phase 12 security audit",
+  "packageVersion": "1.0.0-release-candidate",
+  "runtimeVersion": "1.0.0-release-candidate",
+  "sourceManifestDigest": "3eafc0a1a6b2ee2d9b804fa353e65c1b9758ef45c9c83c13e376e2c1e5efd4b4",
+  "commandError": null
+}

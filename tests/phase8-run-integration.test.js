@@ -1,0 +1,34 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+import { RunPlanGenerator, RUN_PLAN_GENERATIONS } from '../src/run/RunPlanGenerator.js';
+import { RUN_SEGMENT_TYPES } from '../src/run/RunSegmentType.js';
+import { RunState } from '../src/state/RunState.js';
+import { GameState } from '../src/state/GameState.js';
+import { RunProgressionController } from '../src/run/RunProgressionController.js';
+import { createBossStartSnapshot } from '../src/boss/BossSnapshot.js';
+import { COMBAT_STATES } from '../src/state/CombatState.js';
+
+const plan = () => new RunPlanGenerator({ generationVersion: RUN_PLAN_GENERATIONS.phase8 }).generate({ seed: 314159, difficultyId: 'standard' });
+const run = () => new RunState({ seed: 314159, difficultyId: 'standard', runPlanGenerator: new RunPlanGenerator({ generationVersion: RUN_PLAN_GENERATIONS.phase8 }) });
+
+test('Phase 8 is a named run-plan generation', () => assert.equal(RUN_PLAN_GENERATIONS.phase8, 3));
+test('Phase 8 run contains exactly eight gameplay segments', () => assert.equal(plan().segments.length, 8));
+test('Phase 8 final segment is a real boss segment', () => assert.equal(plan().segments.at(-1).segmentType, RUN_SEGMENT_TYPES.boss));
+test('Phase 8 boss segment uses the fixed boss chamber', () => assert.equal(plan().segments.at(-1).arenaDescriptor.templateId, 'boss-chamber'));
+test('Phase 8 exposes seven upgrade offers', () => assert.equal(plan().upgradeOfferCount, 7));
+test('Phase 8 retains two elite encounters', () => assert.equal(plan().expectedEliteCount, 2));
+test('Phase 8 retains the recovery chamber', () => assert.equal(plan().recoveryChamberIncluded, true));
+test('Phase 8 declares boss implementation active', () => assert.equal(plan().bossImplemented, true));
+test('Phase 8 disables production boss handoff', () => assert.equal(plan().bossHandoffAvailable, false));
+test('Phase 8 boss template metadata is canonical', () => assert.equal(plan().bossTemplateId, 'boss-chamber'));
+test('Phase 8 generated plan is immutable', () => assert.equal(Object.isFrozen(plan()), true));
+test('Phase 8 boss descriptor is immutable', () => assert.equal(Object.isFrozen(plan().segments.at(-1).arenaDescriptor), true));
+test('GameState creates Phase 8 runs by default', () => { const game = new GameState(); const value = game.createRun({ seed: 11, difficultyId: 'standard' }); assert.equal(value.runPlan.generationVersion, RUN_PLAN_GENERATIONS.phase8); });
+test('RunState initializes explicit boss fields', () => { const value = run(); assert.equal(value.bossStarted, false); assert.equal(value.bossDefeated, false); assert.equal(value.victoryRecorded, false); });
+test('RunState serializes boss fields for debug inspection', () => { const value = run(); value.bossPhase = 'IMITATE'; assert.equal(value.serializeForDebug().bossPhase, 'IMITATE'); });
+test('boss start snapshot is detached from mutable run state', () => { const value = run(); value.selectedUpgrades.set('split-lens', 1); const snapshot = createBossStartSnapshot(value); value.selectedUpgrades.set('split-lens', 2); assert.equal(snapshot.selectedUpgrades['split-lens'], 1); });
+test('boss start snapshot is deeply immutable', () => { const snapshot = createBossStartSnapshot(run()); assert.equal(Object.isFrozen(snapshot), true); assert.equal(Object.isFrozen(snapshot.selectedUpgrades), true); });
+test('RunProgressionController marks boss segment ownership', () => { const value = run(); value.currentSegmentIndex = 7; const controller = new RunProgressionController(value); assert.equal(controller.markSegmentStarted().segmentType, RUN_SEGMENT_TYPES.boss); assert.equal(value.currentSegmentId, 'null-architect'); });
+test('boss run statuses include intro through results', () => { for (const key of ['bossIntro','bossActive','bossTransition','bossDestruction','victory','defeat','results']) assert.equal(typeof COMBAT_STATES[key], 'string'); });
+test('production UpgradeScene contains real boss routing', () => { const source = readFileSync(new URL('../src/scenes/UpgradeScene.js', import.meta.url), 'utf8'); assert.match(source, /RUN_SEGMENT_TYPES\.boss/); assert.match(source, /targetKey:SCENE_KEYS\.boss/); });

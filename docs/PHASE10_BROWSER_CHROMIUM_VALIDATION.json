@@ -1,0 +1,71 @@
+{
+  "generatedAt": "2026-07-08T00:03:12.029Z",
+  "browser": "Chromium",
+  "engineExecutable": "/usr/bin/chromium",
+  "base": "/",
+  "checks": {
+    "http200": true,
+    "title": true,
+    "releaseMode": true,
+    "freshTutorialIncomplete": true,
+    "freshRunCountZero": true,
+    "freshRoutesTutorial": true,
+    "noRunCreatedBeforeTutorial": true,
+    "tutorialPause": true,
+    "tutorialResume": true,
+    "realPointerFireAccepted": true,
+    "productionEchoDeployed": true,
+    "completionPersisted": true,
+    "oneRunStarted": true,
+    "tutorialScoreExcluded": true,
+    "combatOneStarts": true,
+    "returningBypassesTutorial": true,
+    "archiveReplayEntry": true,
+    "archiveReplayNoRunRecord": true,
+    "keyboardRebind": true,
+    "immediateContextRebuild": true,
+    "conflictRejected": true,
+    "pointerRebind": true,
+    "escapeCancelsCapture": true,
+    "restoreDefaults": true,
+    "reloadPersistence": true,
+    "accessibilityPage": true,
+    "credits": true,
+    "combatRegression": true,
+    "fullRouteVictory": true,
+    "fatalScreen": true,
+    "zeroExceptions": true,
+    "zeroConsoleErrors": true,
+    "zeroFailedRequests": true,
+    "warningsExplained": true
+  },
+  "observations": {
+    "route": {
+      "result": "victory",
+      "finalScore": 6988,
+      "recentRuns": 1,
+      "aggregate": {
+        "runsStarted": 4,
+        "runsCompleted": 1,
+        "victories": 1,
+        "defeats": 0,
+        "totalSimulationMs": 1003.3300000000002,
+        "totalScore": 6988,
+        "highestScore": 6988,
+        "totalEnemiesDefeated": 0,
+        "totalElitesDefeated": 1,
+        "totalBossesDefeated": 1
+      }
+    },
+    "finalDiagnostics": {
+      "title": "ECHOFRAME: LAST SIGNAL",
+      "fatalVisible": true
+    }
+  },
+  "exceptions": [],
+  "consoleErrors": [],
+  "consoleWarnings": [],
+  "failedRequests": [],
+  "requestCount": 8,
+  "passed": true
+}

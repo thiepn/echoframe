@@ -1,0 +1,24 @@
+{
+  "generatedAt": "2026-07-08T00:01:58.933Z",
+  "scope": "5,000 finalized run records aggregated in ascending, descending, and deterministic shuffled order.",
+  "records": 5000,
+  "summary": {
+    "runsCompleted": 5000,
+    "totalScore": 137487499,
+    "highestScore": 44994,
+    "recentRuns": 50
+  },
+  "failures": {
+    "aggregateMismatches": 0,
+    "personalBestMismatches": 0,
+    "recentRunCapFailures": 0,
+    "duplicateRunRecordFailures": 0,
+    "percentageNonFiniteValues": 0,
+    "invalidDates": 0,
+    "invalidDifficultyIds": 0,
+    "invalidScoreTotals": 0,
+    "importExportMismatches": 0,
+    "overflowOrClampEvents": 0
+  },
+  "passed": true
+}

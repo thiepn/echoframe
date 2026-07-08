@@ -1,0 +1,167 @@
+{
+  "generatedAt": "2026-07-06T12:45:07.375Z",
+  "activations": 5000,
+  "authoredPatternCount": 6,
+  "frequencies": {
+    "center-channel": 827,
+    "right-contraction": 804,
+    "left-contraction": 876,
+    "bottom-contraction": 821,
+    "opposite-corners": 838,
+    "top-contraction": 834
+  },
+  "authored": [
+    {
+      "id": "left-contraction",
+      "valid": true,
+      "safeRatio": 0.75,
+      "connected": true,
+      "routeWidth": 238,
+      "safeCells": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11
+      ],
+      "disabledCells": [
+        0,
+        4,
+        8
+      ]
+    },
+    {
+      "id": "right-contraction",
+      "valid": true,
+      "safeRatio": 0.75,
+      "connected": true,
+      "routeWidth": 238,
+      "safeCells": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10
+      ],
+      "disabledCells": [
+        3,
+        7,
+        11
+      ]
+    },
+    {
+      "id": "top-contraction",
+      "valid": true,
+      "safeRatio": 0.6666666666666666,
+      "connected": true,
+      "routeWidth": 238,
+      "safeCells": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "disabledCells": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "bottom-contraction",
+      "valid": true,
+      "safeRatio": 0.6666666666666666,
+      "connected": true,
+      "routeWidth": 238,
+      "safeCells": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "disabledCells": [
+        8,
+        9,
+        10,
+        11
+      ]
+    },
+    {
+      "id": "opposite-corners",
+      "valid": true,
+      "safeRatio": 0.6666666666666666,
+      "connected": true,
+      "routeWidth": 238,
+      "safeCells": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10
+      ],
+      "disabledCells": [
+        0,
+        3,
+        8,
+        11
+      ]
+    },
+    {
+      "id": "center-channel",
+      "valid": true,
+      "safeRatio": 0.5,
+      "connected": true,
+      "routeWidth": 238,
+      "safeCells": [
+        1,
+        2,
+        5,
+        6,
+        9,
+        10
+      ],
+      "disabledCells": [
+        0,
+        3,
+        4,
+        7,
+        8,
+        11
+      ]
+    }
+  ],
+  "failures": {
+    "nondeterministic": 0,
+    "safeArea": 0,
+    "connectivity": 0,
+    "routeWidth": 0,
+    "duration": 0,
+    "warning": 0,
+    "damage": 0,
+    "tick": 0,
+    "entryGrace": 0,
+    "immediateRepeat": 0
+  },
+  "hardFailureCount": 0,
+  "passed": true
+}

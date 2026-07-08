@@ -1,0 +1,20 @@
+{
+  "generatedAt": "2026-07-08T00:02:08.857Z",
+  "checks": {
+    "noAnalytics": true,
+    "noRemoteTelemetry": true,
+    "noEval": true,
+    "noDynamicScriptInjection": true,
+    "noUnsafeImportedHtml": true,
+    "noGameplayNetwork": true,
+    "clipboardGuarded": true,
+    "objectUrlsRevoked": true,
+    "fileInputsRemoved": true,
+    "productionDebugGuard": true
+  },
+  "findings": [],
+  "personalDataCollected": false,
+  "analyticsEnabled": false,
+  "remoteTelemetry": false,
+  "passed": true
+}

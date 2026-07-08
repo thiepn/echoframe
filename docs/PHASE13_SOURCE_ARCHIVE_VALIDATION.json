@@ -1,0 +1,65 @@
+{
+  "generatedAt": "2026-07-08T14:30:27.872Z",
+  "archive": "ECHOFRAME_v1.0.0_final_source.zip",
+  "archiveSha256": "e4b0c6a4fe7524d980927a114969d10181477efa3f3cec6021a0677e1c724085",
+  "archiveBytes": 4008531,
+  "expectedSha256": "e4b0c6a4fe7524d980927a114969d10181477efa3f3cec6021a0677e1c724085",
+  "forbiddenSourceEntries": [],
+  "phase13EvidenceEntries": [],
+  "checks": {
+    "rootPackage": true,
+    "rootSource": true,
+    "rootCanonical": true,
+    "forbiddenAbsent": true,
+    "noForbiddenArchiveEntries": true,
+    "generatedPhase13EvidenceExcluded": true,
+    "packageFinal": true,
+    "canonical:GAME_DESIGN.md": true,
+    "canonical:TECHNICAL_SPEC.md": true,
+    "canonical:ART_DIRECTION.md": true,
+    "canonical:BALANCE_SPEC.md": true,
+    "canonical:QA_CHECKLIST.md": true,
+    "installLintTestsBuild": true
+  },
+  "browserSmoke": {
+    "chromium": {
+      "engine": "chromium",
+      "label": "source archive rebuilt output",
+      "base": "/echoframe/",
+      "checks": {
+        "http200": true,
+        "title": true,
+        "oneCanvas": true,
+        "version": true,
+        "productionMode": true,
+        "noExceptions": true,
+        "noConsoleErrors": true,
+        "noFailedRequests": true
+      },
+      "exceptions": [],
+      "consoleErrors": [],
+      "failedRequests": [],
+      "passed": true
+    },
+    "firefox": {
+      "engine": "firefox",
+      "label": "source archive rebuilt output",
+      "base": "/echoframe/",
+      "checks": {
+        "http200": true,
+        "title": true,
+        "oneCanvas": true,
+        "version": true,
+        "productionMode": true,
+        "noExceptions": true,
+        "noConsoleErrors": true,
+        "noFailedRequests": true
+      },
+      "exceptions": [],
+      "consoleErrors": [],
+      "failedRequests": [],
+      "passed": true
+    }
+  },
+  "passed": true
+}

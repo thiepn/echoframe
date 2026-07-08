@@ -1,0 +1,1 @@
+export class ScoreTelemetry { constructor(initial = {}) { Object.assign(this, { accepted: 0, rejected: {}, finalizations: 0, ...structuredClone(initial) }); } snapshot() { return structuredClone(this); } }

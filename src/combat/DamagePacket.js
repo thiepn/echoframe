@@ -1,0 +1,26 @@
+export function createDamagePacket(data = {}) {
+  return Object.freeze({
+    damageId: String(data.damageId ?? ''),
+    sourceFaction: data.sourceFaction,
+    sourceType: String(data.sourceType ?? 'unknown'),
+    sourceId: data.sourceId ?? null,
+    ownerId: data.ownerId ?? data.sourceId ?? null,
+    targetType: String(data.targetType ?? 'unknown'),
+    targetId: data.targetId ?? null,
+    baseAmount: Math.max(0, Number(data.baseAmount) || 0),
+    finalAmount: Math.max(0, Number(data.finalAmount ?? data.baseAmount) || 0),
+    critical: Boolean(data.critical),
+    damageTags: Object.freeze([...(data.damageTags ?? [])]),
+    hitPosition: Object.freeze({ x: Number(data.hitPosition?.x) || 0, y: Number(data.hitPosition?.y) || 0 }),
+    direction: Object.freeze({ x: Number(data.direction?.x) || 0, y: Number(data.direction?.y) || 0 }),
+    timestampMs: Math.max(0, Number(data.timestampMs) || 0),
+    bypassInvulnerability: Boolean(data.bypassInvulnerability),
+    sourceEventId: data.sourceEventId ?? null,
+    projectileActivationId: data.projectileActivationId ?? null,
+    sourceUpgradeId: data.sourceUpgradeId ?? null,
+    triggerDepth: Math.max(0, Math.floor(Number(data.triggerDepth) || 0)),
+    canTriggerChain: data.canTriggerChain !== false,
+    canTriggerFragments: data.canTriggerFragments !== false,
+    canCrit: data.canCrit !== false,
+  });
+}

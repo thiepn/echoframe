@@ -1,0 +1,31 @@
+{
+  "generatedAt": "2026-07-08T00:05:29.973Z",
+  "phase": 12,
+  "scope": "Phase 12 Chromium-versus-Firefox authoritative deterministic comparison",
+  "packageVersion": "1.0.0-release-candidate",
+  "runtimeVersion": "1.0.0-release-candidate",
+  "sourceManifestDigest": "3eafc0a1a6b2ee2d9b804fa353e65c1b9758ef45c9c83c13e376e2c1e5efd4b4",
+  "productionBundleDigest": "34ba803c59ef10c3fb33e95410ba638dfeb7a8b9f1e10912abca4b5b69b3b764",
+  "chromium": {
+    "executed": true,
+    "snapshotCount": 12,
+    "errors": [],
+    "exceptions": [],
+    "failedRequests": [],
+    "error": null
+  },
+  "firefox": {
+    "executed": false,
+    "snapshotCount": 0,
+    "errors": [],
+    "exceptions": [],
+    "failedRequests": [],
+    "error": "Phase 11 Firefox validation did not execute game code."
+  },
+  "comparisons": [],
+  "hardFailures": 0,
+  "status": "blocked-supported-real-firefox-required",
+  "passed": false,
+  "note": "Frame-perfect unscripted physics is intentionally outside this comparison. Authoritative seeded models and a controlled ledger event sequence are compared.",
+  "commandError": "Command failed: npm run audit:determinism:phase11"
+}

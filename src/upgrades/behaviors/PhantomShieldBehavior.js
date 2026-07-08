@@ -1,0 +1,1 @@
+export class PhantomShieldBehavior{capacity(profile){return Math.max(0,profile?.capacity??0);}consume(echo){if((echo.phantomShieldRemaining??0)<=0)return false;echo.phantomShieldRemaining--;return true;}}

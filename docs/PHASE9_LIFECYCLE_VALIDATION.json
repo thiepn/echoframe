@@ -1,0 +1,463 @@
+{
+  "generatedAt": "2026-07-07T06:36:37.429Z",
+  "cycles": 51,
+  "recoveredCompletedFullRuns": 7,
+  "newFullRuns": 4,
+  "fullRuns": 11,
+  "directCycles": 40,
+  "start": {
+    "listeners": 1,
+    "cleanup": 3,
+    "input": 1,
+    "scenes": 1,
+    "audio": 0,
+    "records": 7,
+    "completed": 7
+  },
+  "end": {
+    "listeners": 1,
+    "cleanup": 3,
+    "input": 1,
+    "scenes": 1,
+    "audio": 0,
+    "records": 50,
+    "completed": 51
+  },
+  "growth": {
+    "listeners": 0,
+    "cleanup": 0,
+    "input": 0,
+    "scenes": 0,
+    "audio": 0
+  },
+  "aggregate": {
+    "runsStarted": 0,
+    "runsCompleted": 51,
+    "victories": 38,
+    "defeats": 13,
+    "totalSimulationMs": 3218727.3566666665,
+    "totalScore": 160217,
+    "highestScore": 9434,
+    "totalEnemiesDefeated": 40,
+    "totalElitesDefeated": 0,
+    "totalBossesDefeated": 38
+  },
+  "recentRuns": 50,
+  "samples": [
+    {
+      "listeners": 1,
+      "cleanup": 3,
+      "input": 1,
+      "scenes": 1,
+      "audio": 0,
+      "records": 8,
+      "completed": 8
+    },
+    {
+      "listeners": 1,
+      "cleanup": 3,
+      "input": 1,
+      "scenes": 1,
+      "audio": 0,
+      "records": 9,
+      "completed": 9
+    },
+    {
+      "listeners": 1,
+      "cleanup": 3,
+      "input": 1,
+      "scenes": 1,
+      "audio": 0,
+      "records": 10,
+      "completed": 10
+    },
+    {
+      "listeners": 1,
+      "cleanup": 3,
+      "input": 1,
+      "scenes": 1,
+      "audio": 0,
+      "records": 11,
+      "completed": 11
+    },
+    {
+      "listeners": 1,
+      "cleanup": 3,
+      "input": 1,
+      "scenes": 1,
+      "audio": 0,
+      "records": 12,
+      "completed": 12
+    },
+    {
+      "listeners": 1,
+      "cleanup": 3,
+      "input": 1,
+      "scenes": 1,
+      "audio": 0,
+      "records": 13,
+      "completed": 13
+    },
+    {
+      "listeners": 1,
+      "cleanup": 3,
+      "input": 1,
+      "scenes": 1,
+      "audio": 0,
+      "records": 14,
+      "completed": 14
+    },
+    {
+      "listeners": 1,
+      "cleanup": 3,
+      "input": 1,
+      "scenes": 1,
+      "audio": 0,
+      "records": 15,
+      "completed": 15
+    },
+    {
+      "listeners": 1,
+      "cleanup": 3,
+      "input": 1,
+      "scenes": 1,
+      "audio": 0,
+      "records": 16,
+      "completed": 16
+    },
+    {
+      "listeners": 1,
+      "cleanup": 3,
+      "input": 1,
+      "scenes": 1,
+      "audio": 0,
+      "records": 17,
+      "completed": 17
+    },
+    {
+      "listeners": 1,
+      "cleanup": 3,
+      "input": 1,
+      "scenes": 1,
+      "audio": 0,
+      "records": 18,
+      "completed": 18
+    },
+    {
+      "listeners": 1,
+      "cleanup": 3,
+      "input": 1,
+      "scenes": 1,
+      "audio": 0,
+      "records": 19,
+      "completed": 19
+    },
+    {
+      "listeners": 1,
+      "cleanup": 3,
+      "input": 1,
+      "scenes": 1,
+      "audio": 0,
+      "records": 20,
+      "completed": 20
+    },
+    {
+      "listeners": 1,
+      "cleanup": 3,
+      "input": 1,
+      "scenes": 1,
+      "audio": 0,
+      "records": 21,
+      "completed": 21
+    },
+    {
+      "listeners": 1,
+      "cleanup": 3,
+      "input": 1,
+      "scenes": 1,
+      "audio": 0,
+      "records": 22,
+      "completed": 22
+    },
+    {
+      "listeners": 1,
+      "cleanup": 3,
+      "input": 1,
+      "scenes": 1,
+      "audio": 0,
+      "records": 23,
+      "completed": 23
+    },
+    {
+      "listeners": 1,
+      "cleanup": 3,
+      "input": 1,
+      "scenes": 1,
+      "audio": 0,
+      "records": 24,
+      "completed": 24
+    },
+    {
+      "listeners": 1,
+      "cleanup": 3,
+      "input": 1,
+      "scenes": 1,
+      "audio": 0,
+      "records": 25,
+      "completed": 25
+    },
+    {
+      "listeners": 1,
+      "cleanup": 3,
+      "input": 1,
+      "scenes": 1,
+      "audio": 0,
+      "records": 26,
+      "completed": 26
+    },
+    {
+      "listeners": 1,
+      "cleanup": 3,
+      "input": 1,
+      "scenes": 1,
+      "audio": 0,
+      "records": 27,
+      "completed": 27
+    },
+    {
+      "listeners": 1,
+      "cleanup": 3,
+      "input": 1,
+      "scenes": 1,
+      "audio": 0,
+      "records": 28,
+      "completed": 28
+    },
+    {
+      "listeners": 1,
+      "cleanup": 3,
+      "input": 1,
+      "scenes": 1,
+      "audio": 0,
+      "records": 29,
+      "completed": 29
+    },
+    {
+      "listeners": 1,
+      "cleanup": 3,
+      "input": 1,
+      "scenes": 1,
+      "audio": 0,
+      "records": 30,
+      "completed": 30
+    },
+    {
+      "listeners": 1,
+      "cleanup": 3,
+      "input": 1,
+      "scenes": 1,
+      "audio": 0,
+      "records": 31,
+      "completed": 31
+    },
+    {
+      "listeners": 1,
+      "cleanup": 3,
+      "input": 1,
+      "scenes": 1,
+      "audio": 0,
+      "records": 32,
+      "completed": 32
+    },
+    {
+      "listeners": 1,
+      "cleanup": 3,
+      "input": 1,
+      "scenes": 1,
+      "audio": 0,
+      "records": 33,
+      "completed": 33
+    },
+    {
+      "listeners": 1,
+      "cleanup": 3,
+      "input": 1,
+      "scenes": 1,
+      "audio": 0,
+      "records": 34,
+      "completed": 34
+    },
+    {
+      "listeners": 1,
+      "cleanup": 3,
+      "input": 1,
+      "scenes": 1,
+      "audio": 0,
+      "records": 35,
+      "completed": 35
+    },
+    {
+      "listeners": 1,
+      "cleanup": 3,
+      "input": 1,
+      "scenes": 1,
+      "audio": 0,
+      "records": 36,
+      "completed": 36
+    },
+    {
+      "listeners": 1,
+      "cleanup": 3,
+      "input": 1,
+      "scenes": 1,
+      "audio": 0,
+      "records": 37,
+      "completed": 37
+    },
+    {
+      "listeners": 1,
+      "cleanup": 3,
+      "input": 1,
+      "scenes": 1,
+      "audio": 0,
+      "records": 38,
+      "completed": 38
+    },
+    {
+      "listeners": 1,
+      "cleanup": 3,
+      "input": 1,
+      "scenes": 1,
+      "audio": 0,
+      "records": 39,
+      "completed": 39
+    },
+    {
+      "listeners": 1,
+      "cleanup": 3,
+      "input": 1,
+      "scenes": 1,
+      "audio": 0,
+      "records": 40,
+      "completed": 40
+    },
+    {
+      "listeners": 1,
+      "cleanup": 3,
+      "input": 1,
+      "scenes": 1,
+      "audio": 0,
+      "records": 41,
+      "completed": 41
+    },
+    {
+      "listeners": 1,
+      "cleanup": 3,
+      "input": 1,
+      "scenes": 1,
+      "audio": 0,
+      "records": 42,
+      "completed": 42
+    },
+    {
+      "listeners": 1,
+      "cleanup": 3,
+      "input": 1,
+      "scenes": 1,
+      "audio": 0,
+      "records": 43,
+      "completed": 43
+    },
+    {
+      "listeners": 1,
+      "cleanup": 3,
+      "input": 1,
+      "scenes": 1,
+      "audio": 0,
+      "records": 44,
+      "completed": 44
+    },
+    {
+      "listeners": 1,
+      "cleanup": 3,
+      "input": 1,
+      "scenes": 1,
+      "audio": 0,
+      "records": 45,
+      "completed": 45
+    },
+    {
+      "listeners": 1,
+      "cleanup": 3,
+      "input": 1,
+      "scenes": 1,
+      "audio": 0,
+      "records": 46,
+      "completed": 46
+    },
+    {
+      "listeners": 1,
+      "cleanup": 3,
+      "input": 1,
+      "scenes": 1,
+      "audio": 0,
+      "records": 47,
+      "completed": 47
+    },
+    {
+      "listeners": 1,
+      "cleanup": 3,
+      "input": 1,
+      "scenes": 1,
+      "audio": 0,
+      "records": 48,
+      "completed": 48
+    },
+    {
+      "listeners": 1,
+      "cleanup": 3,
+      "input": 1,
+      "scenes": 1,
+      "audio": 0,
+      "records": 49,
+      "completed": 49
+    },
+    {
+      "listeners": 1,
+      "cleanup": 3,
+      "input": 1,
+      "scenes": 1,
+      "audio": 0,
+      "records": 50,
+      "completed": 50
+    },
+    {
+      "listeners": 1,
+      "cleanup": 3,
+      "input": 1,
+      "scenes": 1,
+      "audio": 0,
+      "records": 50,
+      "completed": 51
+    }
+  ],
+  "exceptions": 0,
+  "consoleErrors": 0,
+  "checks": {
+    "cycles": true,
+    "fullRuns": true,
+    "directCycles": 40,
+    "allDifficulties": true,
+    "victories": true,
+    "defeats": true,
+    "recentRunCap": true,
+    "noListenerGrowth": true,
+    "noCleanupGrowth": true,
+    "noInputGrowth": true,
+    "noSceneGrowth": true,
+    "noAudioGrowth": true,
+    "noExceptions": true,
+    "noConsoleErrors": true
+  },
+  "passed": true
+}

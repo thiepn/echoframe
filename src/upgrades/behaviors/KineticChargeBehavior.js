@@ -1,0 +1,1 @@
+export class KineticChargeBehavior{constructor(){this.charge=0;}update(deltaMs,speed,maximumSpeed,profile){if(!profile){this.charge=0;return 0;}if(speed>=maximumSpeed*profile.threshold)this.charge=Math.min(1,this.charge+deltaMs/profile.chargeMs);else this.charge=Math.max(0,this.charge-deltaMs/profile.decayMs);return this.charge*profile.bonus;}reset(){this.charge=0;}}

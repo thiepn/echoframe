@@ -1,0 +1,162 @@
+{
+  "generatedAt": "2026-07-06T01:11:04.179Z",
+  "scope": "3,000 complete deterministic Phase 7 arena sequences (1,000 per difficulty).",
+  "difficulties": {
+    "relaxed": {
+      "sequences": 1000,
+      "descriptors": 8000,
+      "deterministicMatches": 1000,
+      "templateFrequency": {
+        "open-circle": 2827,
+        "split-pillars": 1093,
+        "offset-core": 358,
+        "side-channels": 848,
+        "boss-chamber": 1000,
+        "broken-ring": 1093,
+        "twin-islands": 396,
+        "four-corners": 385
+      },
+      "transformFrequency": {
+        "mirror-y": 1323,
+        "rotate-180": 1577,
+        "identity": 3604,
+        "mirror-x": 1496
+      },
+      "hazardFrequency": {
+        "none": 4926,
+        "pulse-nodes": 1557,
+        "conduit-sweep": 1517
+      },
+      "decorationFrequency": {
+        "variant-b": 1994,
+        "variant-c": 2008,
+        "variant-a": 3998
+      },
+      "fallbackCount": 0,
+      "maximumGenerationAttempts": 1,
+      "errors": []
+    },
+    "standard": {
+      "sequences": 1000,
+      "descriptors": 8000,
+      "deterministicMatches": 1000,
+      "templateFrequency": {
+        "open-circle": 2827,
+        "split-pillars": 1093,
+        "offset-core": 358,
+        "side-channels": 848,
+        "boss-chamber": 1000,
+        "broken-ring": 1093,
+        "twin-islands": 396,
+        "four-corners": 385
+      },
+      "transformFrequency": {
+        "mirror-y": 1323,
+        "rotate-180": 1577,
+        "identity": 3604,
+        "mirror-x": 1496
+      },
+      "hazardFrequency": {
+        "none": 4926,
+        "pulse-nodes": 1557,
+        "conduit-sweep": 1517
+      },
+      "decorationFrequency": {
+        "variant-b": 1994,
+        "variant-c": 2008,
+        "variant-a": 3998
+      },
+      "fallbackCount": 0,
+      "maximumGenerationAttempts": 1,
+      "errors": []
+    },
+    "overclocked": {
+      "sequences": 1000,
+      "descriptors": 8000,
+      "deterministicMatches": 1000,
+      "templateFrequency": {
+        "open-circle": 2827,
+        "split-pillars": 1093,
+        "offset-core": 358,
+        "side-channels": 848,
+        "boss-chamber": 1000,
+        "broken-ring": 1093,
+        "twin-islands": 396,
+        "four-corners": 385
+      },
+      "transformFrequency": {
+        "mirror-y": 1323,
+        "rotate-180": 1577,
+        "identity": 3604,
+        "mirror-x": 1496
+      },
+      "hazardFrequency": {
+        "none": 4926,
+        "pulse-nodes": 1557,
+        "conduit-sweep": 1517
+      },
+      "decorationFrequency": {
+        "variant-b": 1994,
+        "variant-c": 2008,
+        "variant-a": 3998
+      },
+      "fallbackCount": 0,
+      "maximumGenerationAttempts": 1,
+      "errors": []
+    }
+  },
+  "totals": {
+    "sequences": 3000,
+    "descriptors": 24000,
+    "deterministicComparisons": 3000,
+    "deterministicMatches": 3000,
+    "templateFrequency": {
+      "open-circle": 8481,
+      "split-pillars": 3279,
+      "offset-core": 1074,
+      "side-channels": 2544,
+      "boss-chamber": 3000,
+      "broken-ring": 3279,
+      "twin-islands": 1188,
+      "four-corners": 1155
+    },
+    "transformFrequency": {
+      "mirror-y": 3969,
+      "rotate-180": 4731,
+      "identity": 10812,
+      "mirror-x": 4488
+    },
+    "hazardFrequency": {
+      "none": 14778,
+      "pulse-nodes": 4671,
+      "conduit-sweep": 4551
+    },
+    "decorationFrequency": {
+      "variant-b": 5982,
+      "variant-c": 6024,
+      "variant-a": 11994
+    },
+    "consecutiveLayoutViolations": 0,
+    "hazardRepetitionViolations": 0,
+    "fallbackCount": 0,
+    "generationAttempts": 24000,
+    "maximumGenerationAttempts": 1,
+    "rejectionReasons": {},
+    "playerSpawnViolations": 0,
+    "navigationFailures": 0,
+    "routeWidthFailures": 0,
+    "safeAreaFailures": 0,
+    "eliteSocketFailures": 0,
+    "lancerLaneFailures": 0,
+    "rangedLaneFailures": 0,
+    "largeClearanceFailures": 0,
+    "copyPlacementFailures": 0,
+    "cameraBoundFailures": 0,
+    "nonFiniteCoordinateCount": 0,
+    "bossChamberMisselectionCount": 0,
+    "recoveryHazardCount": 0,
+    "errors": [],
+    "averageGenerationAttempts": 1,
+    "passed": true
+  }
+}

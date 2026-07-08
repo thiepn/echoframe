@@ -1,0 +1,89 @@
+{
+  "generatedAt": "2026-07-07T22:26:53.100Z",
+  "sourceManifestDigest": "3be6c352bb402201c24c32067bbd281dc0493008e19f469f1827ceebffd4fa78",
+  "packageVersion": "1.0.0-release-candidate",
+  "historicalPhase10": [
+    {
+      "filename": "PHASE10_CORE_VALIDATION.json",
+      "exists": true,
+      "passed": true,
+      "status": null,
+      "generatedAt": "2026-07-07T22:25:09.406Z",
+      "evidenceClass": "historical-phase10"
+    },
+    {
+      "filename": "PHASE10_BROWSER_CHROMIUM_VALIDATION.json",
+      "exists": true,
+      "passed": true,
+      "status": null,
+      "generatedAt": "2026-07-07T22:23:31.288Z",
+      "evidenceClass": "historical-phase10"
+    },
+    {
+      "filename": "PHASE10_BROWSER_FIREFOX_VALIDATION.json",
+      "exists": true,
+      "passed": false,
+      "status": "environment-blocked-before-game-execution",
+      "generatedAt": "2026-07-07T17:30:07.260Z",
+      "evidenceClass": "historical-phase10"
+    },
+    {
+      "filename": "PHASE10_DEPLOYMENT_VALIDATION.json",
+      "exists": true,
+      "passed": true,
+      "status": null,
+      "generatedAt": "2026-07-07T22:25:23.129Z",
+      "evidenceClass": "historical-phase10"
+    },
+    {
+      "filename": "PHASE10_LIFECYCLE_VALIDATION.json",
+      "exists": true,
+      "passed": true,
+      "status": null,
+      "generatedAt": "2026-07-07T16:15:32.227Z",
+      "evidenceClass": "historical-phase10"
+    },
+    {
+      "filename": "PHASE10_MENU_IDLE_VALIDATION.json",
+      "exists": true,
+      "passed": true,
+      "status": null,
+      "generatedAt": "2026-07-07T16:46:02.681Z",
+      "evidenceClass": "historical-phase10"
+    },
+    {
+      "filename": "PHASE10_ACTIVE_SOAK_VALIDATION.json",
+      "exists": true,
+      "passed": true,
+      "status": null,
+      "generatedAt": "2026-07-07T17:28:01.030Z",
+      "evidenceClass": "historical-phase10"
+    },
+    {
+      "filename": "PHASE10_PERFORMANCE_VALIDATION.json",
+      "exists": true,
+      "passed": true,
+      "status": null,
+      "generatedAt": "2026-07-07T16:11:32.427Z",
+      "evidenceClass": "historical-phase10"
+    },
+    {
+      "filename": "PHASE10_RELEASE_AUDIT.json",
+      "exists": true,
+      "passed": false,
+      "status": null,
+      "generatedAt": "2026-07-07T17:31:49.495Z",
+      "evidenceClass": "historical-phase10"
+    },
+    {
+      "filename": "PHASE10_RELEASE_SIGNOFF.json",
+      "exists": true,
+      "passed": false,
+      "status": "release-candidate-not-signed-off",
+      "generatedAt": "2026-07-07T17:31:50.620Z",
+      "evidenceClass": "historical-phase10"
+    }
+  ],
+  "phase11": [],
+  "invalidationPolicy": "Every Phase 11 report must record package version, source manifest digest, production bundle digest when applicable, browser and environment."
+}

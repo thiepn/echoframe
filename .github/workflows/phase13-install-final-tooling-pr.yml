@@ -1,0 +1,13 @@
+name: Phase 13 Final Tooling Installer — Historical
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  historical-status:
+    runs-on: ubuntu-24.04
+    steps:
+      - run: echo "Completed final-tooling installer retained as historical evidence; no longer automatic."

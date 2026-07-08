@@ -1,0 +1,3287 @@
+{
+  "generatedAt": "2026-07-05T22:08:57.040Z",
+  "cycleTarget": 50,
+  "seedOffset": 0,
+  "cyclesCompleted": 50,
+  "victories": 30,
+  "deaths": 20,
+  "restarts": 5,
+  "difficultiesCovered": [
+    "relaxed",
+    "standard",
+    "overclocked"
+  ],
+  "uniqueSeeds": 50,
+  "mouseSelections": 75,
+  "keyboardSelections": 75,
+  "eliteHostsCovered": [
+    "bulwark",
+    "drifter",
+    "lancer",
+    "sentry",
+    "shard-carrier",
+    "suppressor"
+  ],
+  "eliteModifiersCovered": [
+    "overclocked",
+    "replicating",
+    "resonant"
+  ],
+  "hostModifierPairsCovered": [
+    "bulwark:replicating",
+    "bulwark:resonant",
+    "drifter:overclocked",
+    "drifter:replicating",
+    "drifter:resonant",
+    "lancer:overclocked",
+    "lancer:replicating",
+    "lancer:resonant",
+    "sentry:overclocked",
+    "sentry:replicating",
+    "sentry:resonant",
+    "shard-carrier:overclocked",
+    "shard-carrier:replicating",
+    "shard-carrier:resonant",
+    "suppressor:overclocked",
+    "suppressor:resonant"
+  ],
+  "baseline": {
+    "activeScenes": [
+      "MainMenuScene"
+    ],
+    "listeners": 0,
+    "cleanup": 3,
+    "inputContexts": 1,
+    "audioContexts": 0,
+    "transitionActive": false,
+    "inputLocked": false,
+    "hookPresent": false
+  },
+  "final": {
+    "activeScenes": [
+      "MainMenuScene"
+    ],
+    "listeners": 0,
+    "cleanup": 3,
+    "inputContexts": 1,
+    "audioContexts": 0,
+    "transitionActive": false,
+    "inputLocked": false,
+    "hookPresent": false
+  },
+  "growth": {
+    "listeners": 0,
+    "cleanup": 0,
+    "inputContexts": 0,
+    "audioContexts": 0
+  },
+  "cycles": [
+    {
+      "cycle": 1,
+      "expected": "victory",
+      "seed": 1,
+      "difficultyId": "relaxed",
+      "elitePlans": [
+        {
+          "modifierId": "resonant",
+          "eliteInstanceId": "elite-1-resonant-sentry-bea9e6df",
+          "hostEnemyType": "sentry",
+          "baseThreat": 2,
+          "threatSurcharge": 4,
+          "totalThreat": 6,
+          "selectionSeed": 2864147812,
+          "supportCompositionSeed": 1781120917,
+          "spawnSelectionSeed": 676694237,
+          "spawnOrderSeed": 3755162790,
+          "cosmeticSeed": 2578794479,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-1"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        },
+        {
+          "modifierId": "replicating",
+          "eliteInstanceId": "elite-2-replicating-lancer-b1a9e4a2",
+          "hostEnemyType": "lancer",
+          "baseThreat": 3,
+          "threatSurcharge": 4,
+          "totalThreat": 7,
+          "selectionSeed": 2763483628,
+          "supportCompositionSeed": 1646899989,
+          "spawnSelectionSeed": 609585357,
+          "spawnOrderSeed": 4023595362,
+          "cosmeticSeed": 2612347211,
+          "reservedEnemySlots": 1,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-2"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        }
+      ],
+      "result": {
+        "result": "victory",
+        "seed": 1,
+        "difficultyId": "relaxed",
+        "preBossComplete": true,
+        "segmentCount": 6,
+        "upgrades": 5,
+        "hookPresent": false
+      },
+      "durationMs": 625
+    },
+    {
+      "cycle": 2,
+      "expected": "victory",
+      "seed": 2,
+      "difficultyId": "standard",
+      "elitePlans": [
+        {
+          "modifierId": "overclocked",
+          "eliteInstanceId": "elite-1-overclocked-drifter-bea9e6dc",
+          "hostEnemyType": "drifter",
+          "baseThreat": 1,
+          "threatSurcharge": 3,
+          "totalThreat": 4,
+          "selectionSeed": 2864147815,
+          "supportCompositionSeed": 1781120918,
+          "spawnSelectionSeed": 676694238,
+          "spawnOrderSeed": 3755162789,
+          "cosmeticSeed": 2578794476,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-1"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        },
+        {
+          "modifierId": "replicating",
+          "eliteInstanceId": "elite-2-replicating-bulwark-b1a9e4a1",
+          "hostEnemyType": "bulwark",
+          "baseThreat": 4,
+          "threatSurcharge": 4,
+          "totalThreat": 8,
+          "selectionSeed": 2763483631,
+          "supportCompositionSeed": 1646899990,
+          "spawnSelectionSeed": 609585358,
+          "spawnOrderSeed": 4023595361,
+          "cosmeticSeed": 2612347208,
+          "reservedEnemySlots": 1,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-2"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        }
+      ],
+      "result": {
+        "result": "victory",
+        "seed": 2,
+        "difficultyId": "standard",
+        "preBossComplete": true,
+        "segmentCount": 6,
+        "upgrades": 5,
+        "hookPresent": false
+      },
+      "durationMs": 406
+    },
+    {
+      "cycle": 3,
+      "expected": "victory",
+      "seed": 3,
+      "difficultyId": "overclocked",
+      "elitePlans": [
+        {
+          "modifierId": "replicating",
+          "eliteInstanceId": "elite-1-replicating-lancer-bea9e6dd",
+          "hostEnemyType": "lancer",
+          "baseThreat": 3,
+          "threatSurcharge": 4,
+          "totalThreat": 7,
+          "selectionSeed": 2864147814,
+          "supportCompositionSeed": 1781120919,
+          "spawnSelectionSeed": 676694239,
+          "spawnOrderSeed": 3755162788,
+          "cosmeticSeed": 2578794477,
+          "reservedEnemySlots": 1,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-1"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        },
+        {
+          "modifierId": "overclocked",
+          "eliteInstanceId": "elite-2-overclocked-lancer-b1a9e4a0",
+          "hostEnemyType": "lancer",
+          "baseThreat": 3,
+          "threatSurcharge": 3,
+          "totalThreat": 6,
+          "selectionSeed": 2763483630,
+          "supportCompositionSeed": 1646899991,
+          "spawnSelectionSeed": 609585359,
+          "spawnOrderSeed": 4023595360,
+          "cosmeticSeed": 2612347209,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-2"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        }
+      ],
+      "result": {
+        "result": "victory",
+        "seed": 3,
+        "difficultyId": "overclocked",
+        "preBossComplete": true,
+        "segmentCount": 6,
+        "upgrades": 5,
+        "hookPresent": false
+      },
+      "durationMs": 438
+    },
+    {
+      "cycle": 4,
+      "expected": "death",
+      "seed": 4,
+      "difficultyId": "relaxed",
+      "elitePlans": [
+        {
+          "modifierId": "replicating",
+          "eliteInstanceId": "elite-1-replicating-lancer-bea9e6da",
+          "hostEnemyType": "lancer",
+          "baseThreat": 3,
+          "threatSurcharge": 4,
+          "totalThreat": 7,
+          "selectionSeed": 2864147809,
+          "supportCompositionSeed": 1781120912,
+          "spawnSelectionSeed": 676694232,
+          "spawnOrderSeed": 3755162787,
+          "cosmeticSeed": 2578794474,
+          "reservedEnemySlots": 1,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-1"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        },
+        {
+          "modifierId": "overclocked",
+          "eliteInstanceId": "elite-2-overclocked-drifter-b1a9e4a7",
+          "hostEnemyType": "drifter",
+          "baseThreat": 1,
+          "threatSurcharge": 3,
+          "totalThreat": 4,
+          "selectionSeed": 2763483625,
+          "supportCompositionSeed": 1646899984,
+          "spawnSelectionSeed": 609585352,
+          "spawnOrderSeed": 4023595367,
+          "cosmeticSeed": 2612347214,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-2"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        }
+      ],
+      "result": {
+        "result": "death",
+        "seed": 4,
+        "difficultyId": "relaxed",
+        "preBossComplete": false,
+        "segmentCount": 6,
+        "upgrades": 0,
+        "hookPresent": false
+      },
+      "durationMs": 578
+    },
+    {
+      "cycle": 5,
+      "expected": "death",
+      "seed": 5,
+      "difficultyId": "standard",
+      "elitePlans": [
+        {
+          "modifierId": "replicating",
+          "eliteInstanceId": "elite-1-replicating-sentry-bea9e6db",
+          "hostEnemyType": "sentry",
+          "baseThreat": 2,
+          "threatSurcharge": 4,
+          "totalThreat": 6,
+          "selectionSeed": 2864147808,
+          "supportCompositionSeed": 1781120913,
+          "spawnSelectionSeed": 676694233,
+          "spawnOrderSeed": 3755162786,
+          "cosmeticSeed": 2578794475,
+          "reservedEnemySlots": 1,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-1"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        },
+        {
+          "modifierId": "overclocked",
+          "eliteInstanceId": "elite-2-overclocked-shard-carrier-b1a9e4a6",
+          "hostEnemyType": "shard-carrier",
+          "baseThreat": 3,
+          "threatSurcharge": 3,
+          "totalThreat": 6,
+          "selectionSeed": 2763483624,
+          "supportCompositionSeed": 1646899985,
+          "spawnSelectionSeed": 609585353,
+          "spawnOrderSeed": 4023595366,
+          "cosmeticSeed": 2612347215,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-2"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        }
+      ],
+      "result": {
+        "result": "death",
+        "seed": 5,
+        "difficultyId": "standard",
+        "preBossComplete": false,
+        "segmentCount": 6,
+        "upgrades": 0,
+        "hookPresent": false
+      },
+      "durationMs": 550
+    },
+    {
+      "cycle": 6,
+      "expected": "victory",
+      "seed": 6,
+      "difficultyId": "overclocked",
+      "elitePlans": [
+        {
+          "modifierId": "resonant",
+          "eliteInstanceId": "elite-1-resonant-drifter-bea9e6d8",
+          "hostEnemyType": "drifter",
+          "baseThreat": 1,
+          "threatSurcharge": 4,
+          "totalThreat": 5,
+          "selectionSeed": 2864147811,
+          "supportCompositionSeed": 1781120914,
+          "spawnSelectionSeed": 676694234,
+          "spawnOrderSeed": 3755162785,
+          "cosmeticSeed": 2578794472,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-1"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        },
+        {
+          "modifierId": "replicating",
+          "eliteInstanceId": "elite-2-replicating-lancer-b1a9e4a5",
+          "hostEnemyType": "lancer",
+          "baseThreat": 3,
+          "threatSurcharge": 4,
+          "totalThreat": 7,
+          "selectionSeed": 2763483627,
+          "supportCompositionSeed": 1646899986,
+          "spawnSelectionSeed": 609585354,
+          "spawnOrderSeed": 4023595365,
+          "cosmeticSeed": 2612347212,
+          "reservedEnemySlots": 1,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-2"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        }
+      ],
+      "result": {
+        "result": "victory",
+        "seed": 6,
+        "difficultyId": "overclocked",
+        "preBossComplete": true,
+        "segmentCount": 6,
+        "upgrades": 5,
+        "hookPresent": false
+      },
+      "durationMs": 408
+    },
+    {
+      "cycle": 7,
+      "expected": "victory",
+      "seed": 7,
+      "difficultyId": "relaxed",
+      "elitePlans": [
+        {
+          "modifierId": "replicating",
+          "eliteInstanceId": "elite-1-replicating-sentry-bea9e6d9",
+          "hostEnemyType": "sentry",
+          "baseThreat": 2,
+          "threatSurcharge": 4,
+          "totalThreat": 6,
+          "selectionSeed": 2864147810,
+          "supportCompositionSeed": 1781120915,
+          "spawnSelectionSeed": 676694235,
+          "spawnOrderSeed": 3755162784,
+          "cosmeticSeed": 2578794473,
+          "reservedEnemySlots": 1,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-1"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        },
+        {
+          "modifierId": "resonant",
+          "eliteInstanceId": "elite-2-resonant-bulwark-b1a9e4a4",
+          "hostEnemyType": "bulwark",
+          "baseThreat": 4,
+          "threatSurcharge": 4,
+          "totalThreat": 8,
+          "selectionSeed": 2763483626,
+          "supportCompositionSeed": 1646899987,
+          "spawnSelectionSeed": 609585355,
+          "spawnOrderSeed": 4023595364,
+          "cosmeticSeed": 2612347213,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-2"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        }
+      ],
+      "result": {
+        "result": "victory",
+        "seed": 7,
+        "difficultyId": "relaxed",
+        "preBossComplete": true,
+        "segmentCount": 6,
+        "upgrades": 5,
+        "hookPresent": false
+      },
+      "durationMs": 376
+    },
+    {
+      "cycle": 8,
+      "expected": "victory",
+      "seed": 8,
+      "difficultyId": "standard",
+      "elitePlans": [
+        {
+          "modifierId": "resonant",
+          "eliteInstanceId": "elite-1-resonant-lancer-bea9e6d6",
+          "hostEnemyType": "lancer",
+          "baseThreat": 3,
+          "threatSurcharge": 4,
+          "totalThreat": 7,
+          "selectionSeed": 2864147821,
+          "supportCompositionSeed": 1781120924,
+          "spawnSelectionSeed": 676694228,
+          "spawnOrderSeed": 3755162799,
+          "cosmeticSeed": 2578794470,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-1"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        },
+        {
+          "modifierId": "replicating",
+          "eliteInstanceId": "elite-2-replicating-bulwark-b1a9e4ab",
+          "hostEnemyType": "bulwark",
+          "baseThreat": 4,
+          "threatSurcharge": 4,
+          "totalThreat": 8,
+          "selectionSeed": 2763483621,
+          "supportCompositionSeed": 1646899996,
+          "spawnSelectionSeed": 609585348,
+          "spawnOrderSeed": 4023595371,
+          "cosmeticSeed": 2612347202,
+          "reservedEnemySlots": 1,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-2"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        }
+      ],
+      "result": {
+        "result": "victory",
+        "seed": 8,
+        "difficultyId": "standard",
+        "preBossComplete": true,
+        "segmentCount": 6,
+        "upgrades": 5,
+        "hookPresent": false
+      },
+      "durationMs": 358
+    },
+    {
+      "cycle": 9,
+      "expected": "death",
+      "seed": 9,
+      "difficultyId": "overclocked",
+      "elitePlans": [
+        {
+          "modifierId": "resonant",
+          "eliteInstanceId": "elite-1-resonant-sentry-bea9e6d7",
+          "hostEnemyType": "sentry",
+          "baseThreat": 2,
+          "threatSurcharge": 4,
+          "totalThreat": 6,
+          "selectionSeed": 2864147820,
+          "supportCompositionSeed": 1781120925,
+          "spawnSelectionSeed": 676694229,
+          "spawnOrderSeed": 3755162798,
+          "cosmeticSeed": 2578794471,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-1"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        },
+        {
+          "modifierId": "overclocked",
+          "eliteInstanceId": "elite-2-overclocked-suppressor-b1a9e4aa",
+          "hostEnemyType": "suppressor",
+          "baseThreat": 5,
+          "threatSurcharge": 3,
+          "totalThreat": 8,
+          "selectionSeed": 2763483620,
+          "supportCompositionSeed": 1646899997,
+          "spawnSelectionSeed": 609585349,
+          "spawnOrderSeed": 4023595370,
+          "cosmeticSeed": 2612347203,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-2"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        }
+      ],
+      "result": {
+        "result": "death",
+        "seed": 9,
+        "difficultyId": "overclocked",
+        "preBossComplete": false,
+        "segmentCount": 6,
+        "upgrades": 0,
+        "hookPresent": false
+      },
+      "durationMs": 519
+    },
+    {
+      "cycle": 10,
+      "expected": "death",
+      "seed": 10,
+      "difficultyId": "relaxed",
+      "elitePlans": [
+        {
+          "modifierId": "overclocked",
+          "eliteInstanceId": "elite-1-overclocked-sentry-bea9e6d4",
+          "hostEnemyType": "sentry",
+          "baseThreat": 2,
+          "threatSurcharge": 3,
+          "totalThreat": 5,
+          "selectionSeed": 2864147823,
+          "supportCompositionSeed": 1781120926,
+          "spawnSelectionSeed": 676694230,
+          "spawnOrderSeed": 3755162797,
+          "cosmeticSeed": 2578794468,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-1"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        },
+        {
+          "modifierId": "resonant",
+          "eliteInstanceId": "elite-2-resonant-sentry-b1a9e4a9",
+          "hostEnemyType": "sentry",
+          "baseThreat": 2,
+          "threatSurcharge": 4,
+          "totalThreat": 6,
+          "selectionSeed": 2763483623,
+          "supportCompositionSeed": 1646899998,
+          "spawnSelectionSeed": 609585350,
+          "spawnOrderSeed": 4023595369,
+          "cosmeticSeed": 2612347200,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-2"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        }
+      ],
+      "result": {
+        "result": "death",
+        "seed": 10,
+        "difficultyId": "relaxed",
+        "preBossComplete": false,
+        "segmentCount": 6,
+        "upgrades": 0,
+        "hookPresent": false
+      },
+      "durationMs": 535
+    },
+    {
+      "cycle": 11,
+      "expected": "victory",
+      "seed": 11,
+      "difficultyId": "standard",
+      "elitePlans": [
+        {
+          "modifierId": "overclocked",
+          "eliteInstanceId": "elite-1-overclocked-lancer-bea9e6d5",
+          "hostEnemyType": "lancer",
+          "baseThreat": 3,
+          "threatSurcharge": 3,
+          "totalThreat": 6,
+          "selectionSeed": 2864147822,
+          "supportCompositionSeed": 1781120927,
+          "spawnSelectionSeed": 676694231,
+          "spawnOrderSeed": 3755162796,
+          "cosmeticSeed": 2578794469,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-1"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        },
+        {
+          "modifierId": "resonant",
+          "eliteInstanceId": "elite-2-resonant-bulwark-b1a9e4a8",
+          "hostEnemyType": "bulwark",
+          "baseThreat": 4,
+          "threatSurcharge": 4,
+          "totalThreat": 8,
+          "selectionSeed": 2763483622,
+          "supportCompositionSeed": 1646899999,
+          "spawnSelectionSeed": 609585351,
+          "spawnOrderSeed": 4023595368,
+          "cosmeticSeed": 2612347201,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-2"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        }
+      ],
+      "result": {
+        "result": "victory",
+        "seed": 11,
+        "difficultyId": "standard",
+        "preBossComplete": true,
+        "segmentCount": 6,
+        "upgrades": 5,
+        "hookPresent": false
+      },
+      "durationMs": 386
+    },
+    {
+      "cycle": 12,
+      "expected": "victory",
+      "seed": 12,
+      "difficultyId": "overclocked",
+      "elitePlans": [
+        {
+          "modifierId": "resonant",
+          "eliteInstanceId": "elite-1-resonant-lancer-bea9e6d2",
+          "hostEnemyType": "lancer",
+          "baseThreat": 3,
+          "threatSurcharge": 4,
+          "totalThreat": 7,
+          "selectionSeed": 2864147817,
+          "supportCompositionSeed": 1781120920,
+          "spawnSelectionSeed": 676694224,
+          "spawnOrderSeed": 3755162795,
+          "cosmeticSeed": 2578794466,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-1"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        },
+        {
+          "modifierId": "replicating",
+          "eliteInstanceId": "elite-2-replicating-sentry-b1a9e4af",
+          "hostEnemyType": "sentry",
+          "baseThreat": 2,
+          "threatSurcharge": 4,
+          "totalThreat": 6,
+          "selectionSeed": 2763483617,
+          "supportCompositionSeed": 1646899992,
+          "spawnSelectionSeed": 609585344,
+          "spawnOrderSeed": 4023595375,
+          "cosmeticSeed": 2612347206,
+          "reservedEnemySlots": 1,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-2"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        }
+      ],
+      "result": {
+        "result": "victory",
+        "seed": 12,
+        "difficultyId": "overclocked",
+        "preBossComplete": true,
+        "segmentCount": 6,
+        "upgrades": 5,
+        "hookPresent": false
+      },
+      "durationMs": 337
+    },
+    {
+      "cycle": 13,
+      "expected": "victory",
+      "seed": 13,
+      "difficultyId": "relaxed",
+      "elitePlans": [
+        {
+          "modifierId": "overclocked",
+          "eliteInstanceId": "elite-1-overclocked-lancer-bea9e6d3",
+          "hostEnemyType": "lancer",
+          "baseThreat": 3,
+          "threatSurcharge": 3,
+          "totalThreat": 6,
+          "selectionSeed": 2864147816,
+          "supportCompositionSeed": 1781120921,
+          "spawnSelectionSeed": 676694225,
+          "spawnOrderSeed": 3755162794,
+          "cosmeticSeed": 2578794467,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-1"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        },
+        {
+          "modifierId": "resonant",
+          "eliteInstanceId": "elite-2-resonant-lancer-b1a9e4ae",
+          "hostEnemyType": "lancer",
+          "baseThreat": 3,
+          "threatSurcharge": 4,
+          "totalThreat": 7,
+          "selectionSeed": 2763483616,
+          "supportCompositionSeed": 1646899993,
+          "spawnSelectionSeed": 609585345,
+          "spawnOrderSeed": 4023595374,
+          "cosmeticSeed": 2612347207,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-2"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        }
+      ],
+      "result": {
+        "result": "victory",
+        "seed": 13,
+        "difficultyId": "relaxed",
+        "preBossComplete": true,
+        "segmentCount": 6,
+        "upgrades": 5,
+        "hookPresent": false
+      },
+      "durationMs": 358
+    },
+    {
+      "cycle": 14,
+      "expected": "death",
+      "seed": 14,
+      "difficultyId": "standard",
+      "elitePlans": [
+        {
+          "modifierId": "replicating",
+          "eliteInstanceId": "elite-1-replicating-lancer-bea9e6d0",
+          "hostEnemyType": "lancer",
+          "baseThreat": 3,
+          "threatSurcharge": 4,
+          "totalThreat": 7,
+          "selectionSeed": 2864147819,
+          "supportCompositionSeed": 1781120922,
+          "spawnSelectionSeed": 676694226,
+          "spawnOrderSeed": 3755162793,
+          "cosmeticSeed": 2578794464,
+          "reservedEnemySlots": 1,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-1"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        },
+        {
+          "modifierId": "resonant",
+          "eliteInstanceId": "elite-2-resonant-lancer-b1a9e4ad",
+          "hostEnemyType": "lancer",
+          "baseThreat": 3,
+          "threatSurcharge": 4,
+          "totalThreat": 7,
+          "selectionSeed": 2763483619,
+          "supportCompositionSeed": 1646899994,
+          "spawnSelectionSeed": 609585346,
+          "spawnOrderSeed": 4023595373,
+          "cosmeticSeed": 2612347204,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-2"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        }
+      ],
+      "result": {
+        "result": "death",
+        "seed": 14,
+        "difficultyId": "standard",
+        "preBossComplete": false,
+        "segmentCount": 6,
+        "upgrades": 0,
+        "hookPresent": false
+      },
+      "durationMs": 549
+    },
+    {
+      "cycle": 15,
+      "expected": "death",
+      "seed": 15,
+      "difficultyId": "overclocked",
+      "elitePlans": [
+        {
+          "modifierId": "overclocked",
+          "eliteInstanceId": "elite-1-overclocked-drifter-bea9e6d1",
+          "hostEnemyType": "drifter",
+          "baseThreat": 1,
+          "threatSurcharge": 3,
+          "totalThreat": 4,
+          "selectionSeed": 2864147818,
+          "supportCompositionSeed": 1781120923,
+          "spawnSelectionSeed": 676694227,
+          "spawnOrderSeed": 3755162792,
+          "cosmeticSeed": 2578794465,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-1"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        },
+        {
+          "modifierId": "replicating",
+          "eliteInstanceId": "elite-2-replicating-shard-carrier-b1a9e4ac",
+          "hostEnemyType": "shard-carrier",
+          "baseThreat": 3,
+          "threatSurcharge": 4,
+          "totalThreat": 7,
+          "selectionSeed": 2763483618,
+          "supportCompositionSeed": 1646899995,
+          "spawnSelectionSeed": 609585347,
+          "spawnOrderSeed": 4023595372,
+          "cosmeticSeed": 2612347205,
+          "reservedEnemySlots": 1,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-2"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        }
+      ],
+      "result": {
+        "result": "death",
+        "seed": 15,
+        "difficultyId": "overclocked",
+        "preBossComplete": false,
+        "segmentCount": 6,
+        "upgrades": 0,
+        "hookPresent": false
+      },
+      "durationMs": 535
+    },
+    {
+      "cycle": 16,
+      "expected": "victory",
+      "seed": 16,
+      "difficultyId": "relaxed",
+      "elitePlans": [
+        {
+          "modifierId": "overclocked",
+          "eliteInstanceId": "elite-1-overclocked-lancer-bea9e6ce",
+          "hostEnemyType": "lancer",
+          "baseThreat": 3,
+          "threatSurcharge": 3,
+          "totalThreat": 6,
+          "selectionSeed": 2864147829,
+          "supportCompositionSeed": 1781120900,
+          "spawnSelectionSeed": 676694220,
+          "spawnOrderSeed": 3755162807,
+          "cosmeticSeed": 2578794494,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-1"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        },
+        {
+          "modifierId": "replicating",
+          "eliteInstanceId": "elite-2-replicating-sentry-b1a9e4b3",
+          "hostEnemyType": "sentry",
+          "baseThreat": 2,
+          "threatSurcharge": 4,
+          "totalThreat": 6,
+          "selectionSeed": 2763483645,
+          "supportCompositionSeed": 1646899972,
+          "spawnSelectionSeed": 609585372,
+          "spawnOrderSeed": 4023595379,
+          "cosmeticSeed": 2612347226,
+          "reservedEnemySlots": 1,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-2"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        }
+      ],
+      "result": {
+        "result": "victory",
+        "seed": 16,
+        "difficultyId": "relaxed",
+        "preBossComplete": true,
+        "segmentCount": 6,
+        "upgrades": 5,
+        "hookPresent": false
+      },
+      "durationMs": 373
+    },
+    {
+      "cycle": 17,
+      "expected": "victory",
+      "seed": 17,
+      "difficultyId": "standard",
+      "elitePlans": [
+        {
+          "modifierId": "replicating",
+          "eliteInstanceId": "elite-1-replicating-lancer-bea9e6cf",
+          "hostEnemyType": "lancer",
+          "baseThreat": 3,
+          "threatSurcharge": 4,
+          "totalThreat": 7,
+          "selectionSeed": 2864147828,
+          "supportCompositionSeed": 1781120901,
+          "spawnSelectionSeed": 676694221,
+          "spawnOrderSeed": 3755162806,
+          "cosmeticSeed": 2578794495,
+          "reservedEnemySlots": 1,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-1"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        },
+        {
+          "modifierId": "overclocked",
+          "eliteInstanceId": "elite-2-overclocked-sentry-b1a9e4b2",
+          "hostEnemyType": "sentry",
+          "baseThreat": 2,
+          "threatSurcharge": 3,
+          "totalThreat": 5,
+          "selectionSeed": 2763483644,
+          "supportCompositionSeed": 1646899973,
+          "spawnSelectionSeed": 609585373,
+          "spawnOrderSeed": 4023595378,
+          "cosmeticSeed": 2612347227,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-2"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        }
+      ],
+      "result": {
+        "result": "victory",
+        "seed": 17,
+        "difficultyId": "standard",
+        "preBossComplete": true,
+        "segmentCount": 6,
+        "upgrades": 5,
+        "hookPresent": false
+      },
+      "durationMs": 376
+    },
+    {
+      "cycle": 18,
+      "expected": "victory",
+      "seed": 18,
+      "difficultyId": "overclocked",
+      "elitePlans": [
+        {
+          "modifierId": "overclocked",
+          "eliteInstanceId": "elite-1-overclocked-drifter-bea9e6cc",
+          "hostEnemyType": "drifter",
+          "baseThreat": 1,
+          "threatSurcharge": 3,
+          "totalThreat": 4,
+          "selectionSeed": 2864147831,
+          "supportCompositionSeed": 1781120902,
+          "spawnSelectionSeed": 676694222,
+          "spawnOrderSeed": 3755162805,
+          "cosmeticSeed": 2578794492,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-1"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        },
+        {
+          "modifierId": "replicating",
+          "eliteInstanceId": "elite-2-replicating-sentry-b1a9e4b1",
+          "hostEnemyType": "sentry",
+          "baseThreat": 2,
+          "threatSurcharge": 4,
+          "totalThreat": 6,
+          "selectionSeed": 2763483647,
+          "supportCompositionSeed": 1646899974,
+          "spawnSelectionSeed": 609585374,
+          "spawnOrderSeed": 4023595377,
+          "cosmeticSeed": 2612347224,
+          "reservedEnemySlots": 1,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-2"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        }
+      ],
+      "result": {
+        "result": "victory",
+        "seed": 18,
+        "difficultyId": "overclocked",
+        "preBossComplete": true,
+        "segmentCount": 6,
+        "upgrades": 5,
+        "hookPresent": false
+      },
+      "durationMs": 385
+    },
+    {
+      "cycle": 19,
+      "expected": "death",
+      "seed": 19,
+      "difficultyId": "relaxed",
+      "elitePlans": [
+        {
+          "modifierId": "resonant",
+          "eliteInstanceId": "elite-1-resonant-drifter-bea9e6cd",
+          "hostEnemyType": "drifter",
+          "baseThreat": 1,
+          "threatSurcharge": 4,
+          "totalThreat": 5,
+          "selectionSeed": 2864147830,
+          "supportCompositionSeed": 1781120903,
+          "spawnSelectionSeed": 676694223,
+          "spawnOrderSeed": 3755162804,
+          "cosmeticSeed": 2578794493,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-1"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        },
+        {
+          "modifierId": "overclocked",
+          "eliteInstanceId": "elite-2-overclocked-shard-carrier-b1a9e4b0",
+          "hostEnemyType": "shard-carrier",
+          "baseThreat": 3,
+          "threatSurcharge": 3,
+          "totalThreat": 6,
+          "selectionSeed": 2763483646,
+          "supportCompositionSeed": 1646899975,
+          "spawnSelectionSeed": 609585375,
+          "spawnOrderSeed": 4023595376,
+          "cosmeticSeed": 2612347225,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-2"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        }
+      ],
+      "result": {
+        "result": "death",
+        "seed": 19,
+        "difficultyId": "relaxed",
+        "preBossComplete": false,
+        "segmentCount": 6,
+        "upgrades": 0,
+        "hookPresent": false
+      },
+      "durationMs": 525
+    },
+    {
+      "cycle": 20,
+      "expected": "death",
+      "seed": 20,
+      "difficultyId": "standard",
+      "elitePlans": [
+        {
+          "modifierId": "replicating",
+          "eliteInstanceId": "elite-1-replicating-sentry-bea9e6ca",
+          "hostEnemyType": "sentry",
+          "baseThreat": 2,
+          "threatSurcharge": 4,
+          "totalThreat": 6,
+          "selectionSeed": 2864147825,
+          "supportCompositionSeed": 1781120896,
+          "spawnSelectionSeed": 676694216,
+          "spawnOrderSeed": 3755162803,
+          "cosmeticSeed": 2578794490,
+          "reservedEnemySlots": 1,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-1"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        },
+        {
+          "modifierId": "resonant",
+          "eliteInstanceId": "elite-2-resonant-drifter-b1a9e4b7",
+          "hostEnemyType": "drifter",
+          "baseThreat": 1,
+          "threatSurcharge": 4,
+          "totalThreat": 5,
+          "selectionSeed": 2763483641,
+          "supportCompositionSeed": 1646899968,
+          "spawnSelectionSeed": 609585368,
+          "spawnOrderSeed": 4023595383,
+          "cosmeticSeed": 2612347230,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-2"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        }
+      ],
+      "result": {
+        "result": "death",
+        "seed": 20,
+        "difficultyId": "standard",
+        "preBossComplete": false,
+        "segmentCount": 6,
+        "upgrades": 0,
+        "hookPresent": false
+      },
+      "durationMs": 536
+    },
+    {
+      "cycle": 21,
+      "expected": "victory",
+      "seed": 21,
+      "difficultyId": "overclocked",
+      "elitePlans": [
+        {
+          "modifierId": "replicating",
+          "eliteInstanceId": "elite-1-replicating-sentry-bea9e6cb",
+          "hostEnemyType": "sentry",
+          "baseThreat": 2,
+          "threatSurcharge": 4,
+          "totalThreat": 6,
+          "selectionSeed": 2864147824,
+          "supportCompositionSeed": 1781120897,
+          "spawnSelectionSeed": 676694217,
+          "spawnOrderSeed": 3755162802,
+          "cosmeticSeed": 2578794491,
+          "reservedEnemySlots": 1,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-1"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        },
+        {
+          "modifierId": "overclocked",
+          "eliteInstanceId": "elite-2-overclocked-lancer-b1a9e4b6",
+          "hostEnemyType": "lancer",
+          "baseThreat": 3,
+          "threatSurcharge": 3,
+          "totalThreat": 6,
+          "selectionSeed": 2763483640,
+          "supportCompositionSeed": 1646899969,
+          "spawnSelectionSeed": 609585369,
+          "spawnOrderSeed": 4023595382,
+          "cosmeticSeed": 2612347231,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-2"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        }
+      ],
+      "result": {
+        "result": "victory",
+        "seed": 21,
+        "difficultyId": "overclocked",
+        "preBossComplete": true,
+        "segmentCount": 6,
+        "upgrades": 5,
+        "hookPresent": false
+      },
+      "durationMs": 371
+    },
+    {
+      "cycle": 22,
+      "expected": "victory",
+      "seed": 22,
+      "difficultyId": "relaxed",
+      "elitePlans": [
+        {
+          "modifierId": "resonant",
+          "eliteInstanceId": "elite-1-resonant-drifter-bea9e6c8",
+          "hostEnemyType": "drifter",
+          "baseThreat": 1,
+          "threatSurcharge": 4,
+          "totalThreat": 5,
+          "selectionSeed": 2864147827,
+          "supportCompositionSeed": 1781120898,
+          "spawnSelectionSeed": 676694218,
+          "spawnOrderSeed": 3755162801,
+          "cosmeticSeed": 2578794488,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-1"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        },
+        {
+          "modifierId": "replicating",
+          "eliteInstanceId": "elite-2-replicating-sentry-b1a9e4b5",
+          "hostEnemyType": "sentry",
+          "baseThreat": 2,
+          "threatSurcharge": 4,
+          "totalThreat": 6,
+          "selectionSeed": 2763483643,
+          "supportCompositionSeed": 1646899970,
+          "spawnSelectionSeed": 609585370,
+          "spawnOrderSeed": 4023595381,
+          "cosmeticSeed": 2612347228,
+          "reservedEnemySlots": 1,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-2"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        }
+      ],
+      "result": {
+        "result": "victory",
+        "seed": 22,
+        "difficultyId": "relaxed",
+        "preBossComplete": true,
+        "segmentCount": 6,
+        "upgrades": 5,
+        "hookPresent": false
+      },
+      "durationMs": 387
+    },
+    {
+      "cycle": 23,
+      "expected": "victory",
+      "seed": 23,
+      "difficultyId": "standard",
+      "elitePlans": [
+        {
+          "modifierId": "replicating",
+          "eliteInstanceId": "elite-1-replicating-lancer-bea9e6c9",
+          "hostEnemyType": "lancer",
+          "baseThreat": 3,
+          "threatSurcharge": 4,
+          "totalThreat": 7,
+          "selectionSeed": 2864147826,
+          "supportCompositionSeed": 1781120899,
+          "spawnSelectionSeed": 676694219,
+          "spawnOrderSeed": 3755162800,
+          "cosmeticSeed": 2578794489,
+          "reservedEnemySlots": 1,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-1"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        },
+        {
+          "modifierId": "resonant",
+          "eliteInstanceId": "elite-2-resonant-shard-carrier-b1a9e4b4",
+          "hostEnemyType": "shard-carrier",
+          "baseThreat": 3,
+          "threatSurcharge": 4,
+          "totalThreat": 7,
+          "selectionSeed": 2763483642,
+          "supportCompositionSeed": 1646899971,
+          "spawnSelectionSeed": 609585371,
+          "spawnOrderSeed": 4023595380,
+          "cosmeticSeed": 2612347229,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-2"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        }
+      ],
+      "result": {
+        "result": "victory",
+        "seed": 23,
+        "difficultyId": "standard",
+        "preBossComplete": true,
+        "segmentCount": 6,
+        "upgrades": 5,
+        "hookPresent": false
+      },
+      "durationMs": 352
+    },
+    {
+      "cycle": 24,
+      "expected": "death",
+      "seed": 24,
+      "difficultyId": "overclocked",
+      "elitePlans": [
+        {
+          "modifierId": "overclocked",
+          "eliteInstanceId": "elite-1-overclocked-drifter-bea9e6c6",
+          "hostEnemyType": "drifter",
+          "baseThreat": 1,
+          "threatSurcharge": 3,
+          "totalThreat": 4,
+          "selectionSeed": 2864147837,
+          "supportCompositionSeed": 1781120908,
+          "spawnSelectionSeed": 676694212,
+          "spawnOrderSeed": 3755162815,
+          "cosmeticSeed": 2578794486,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-1"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        },
+        {
+          "modifierId": "replicating",
+          "eliteInstanceId": "elite-2-replicating-shard-carrier-b1a9e4bb",
+          "hostEnemyType": "shard-carrier",
+          "baseThreat": 3,
+          "threatSurcharge": 4,
+          "totalThreat": 7,
+          "selectionSeed": 2763483637,
+          "supportCompositionSeed": 1646899980,
+          "spawnSelectionSeed": 609585364,
+          "spawnOrderSeed": 4023595387,
+          "cosmeticSeed": 2612347218,
+          "reservedEnemySlots": 1,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-2"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        }
+      ],
+      "result": {
+        "result": "death",
+        "seed": 24,
+        "difficultyId": "overclocked",
+        "preBossComplete": false,
+        "segmentCount": 6,
+        "upgrades": 0,
+        "hookPresent": false
+      },
+      "durationMs": 537
+    },
+    {
+      "cycle": 25,
+      "expected": "death",
+      "seed": 25,
+      "difficultyId": "relaxed",
+      "elitePlans": [
+        {
+          "modifierId": "resonant",
+          "eliteInstanceId": "elite-1-resonant-sentry-bea9e6c7",
+          "hostEnemyType": "sentry",
+          "baseThreat": 2,
+          "threatSurcharge": 4,
+          "totalThreat": 6,
+          "selectionSeed": 2864147836,
+          "supportCompositionSeed": 1781120909,
+          "spawnSelectionSeed": 676694213,
+          "spawnOrderSeed": 3755162814,
+          "cosmeticSeed": 2578794487,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-1"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        },
+        {
+          "modifierId": "replicating",
+          "eliteInstanceId": "elite-2-replicating-shard-carrier-b1a9e4ba",
+          "hostEnemyType": "shard-carrier",
+          "baseThreat": 3,
+          "threatSurcharge": 4,
+          "totalThreat": 7,
+          "selectionSeed": 2763483636,
+          "supportCompositionSeed": 1646899981,
+          "spawnSelectionSeed": 609585365,
+          "spawnOrderSeed": 4023595386,
+          "cosmeticSeed": 2612347219,
+          "reservedEnemySlots": 1,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-2"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        }
+      ],
+      "result": {
+        "result": "death",
+        "seed": 25,
+        "difficultyId": "relaxed",
+        "preBossComplete": false,
+        "segmentCount": 6,
+        "upgrades": 0,
+        "hookPresent": false
+      },
+      "durationMs": 525
+    },
+    {
+      "cycle": 26,
+      "expected": "victory",
+      "seed": 26,
+      "difficultyId": "standard",
+      "elitePlans": [
+        {
+          "modifierId": "replicating",
+          "eliteInstanceId": "elite-1-replicating-lancer-bea9e6c4",
+          "hostEnemyType": "lancer",
+          "baseThreat": 3,
+          "threatSurcharge": 4,
+          "totalThreat": 7,
+          "selectionSeed": 2864147839,
+          "supportCompositionSeed": 1781120910,
+          "spawnSelectionSeed": 676694214,
+          "spawnOrderSeed": 3755162813,
+          "cosmeticSeed": 2578794484,
+          "reservedEnemySlots": 1,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-1"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        },
+        {
+          "modifierId": "overclocked",
+          "eliteInstanceId": "elite-2-overclocked-shard-carrier-b1a9e4b9",
+          "hostEnemyType": "shard-carrier",
+          "baseThreat": 3,
+          "threatSurcharge": 3,
+          "totalThreat": 6,
+          "selectionSeed": 2763483639,
+          "supportCompositionSeed": 1646899982,
+          "spawnSelectionSeed": 609585366,
+          "spawnOrderSeed": 4023595385,
+          "cosmeticSeed": 2612347216,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-2"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        }
+      ],
+      "result": {
+        "result": "victory",
+        "seed": 26,
+        "difficultyId": "standard",
+        "preBossComplete": true,
+        "segmentCount": 6,
+        "upgrades": 5,
+        "hookPresent": false
+      },
+      "durationMs": 407
+    },
+    {
+      "cycle": 27,
+      "expected": "victory",
+      "seed": 27,
+      "difficultyId": "overclocked",
+      "elitePlans": [
+        {
+          "modifierId": "resonant",
+          "eliteInstanceId": "elite-1-resonant-sentry-bea9e6c5",
+          "hostEnemyType": "sentry",
+          "baseThreat": 2,
+          "threatSurcharge": 4,
+          "totalThreat": 6,
+          "selectionSeed": 2864147838,
+          "supportCompositionSeed": 1781120911,
+          "spawnSelectionSeed": 676694215,
+          "spawnOrderSeed": 3755162812,
+          "cosmeticSeed": 2578794485,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-1"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        },
+        {
+          "modifierId": "replicating",
+          "eliteInstanceId": "elite-2-replicating-bulwark-b1a9e4b8",
+          "hostEnemyType": "bulwark",
+          "baseThreat": 4,
+          "threatSurcharge": 4,
+          "totalThreat": 8,
+          "selectionSeed": 2763483638,
+          "supportCompositionSeed": 1646899983,
+          "spawnSelectionSeed": 609585367,
+          "spawnOrderSeed": 4023595384,
+          "cosmeticSeed": 2612347217,
+          "reservedEnemySlots": 1,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-2"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        }
+      ],
+      "result": {
+        "result": "victory",
+        "seed": 27,
+        "difficultyId": "overclocked",
+        "preBossComplete": true,
+        "segmentCount": 6,
+        "upgrades": 5,
+        "hookPresent": false
+      },
+      "durationMs": 367
+    },
+    {
+      "cycle": 28,
+      "expected": "victory",
+      "seed": 28,
+      "difficultyId": "relaxed",
+      "elitePlans": [
+        {
+          "modifierId": "overclocked",
+          "eliteInstanceId": "elite-1-overclocked-drifter-bea9e6c2",
+          "hostEnemyType": "drifter",
+          "baseThreat": 1,
+          "threatSurcharge": 3,
+          "totalThreat": 4,
+          "selectionSeed": 2864147833,
+          "supportCompositionSeed": 1781120904,
+          "spawnSelectionSeed": 676694208,
+          "spawnOrderSeed": 3755162811,
+          "cosmeticSeed": 2578794482,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-1"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        },
+        {
+          "modifierId": "resonant",
+          "eliteInstanceId": "elite-2-resonant-bulwark-b1a9e4bf",
+          "hostEnemyType": "bulwark",
+          "baseThreat": 4,
+          "threatSurcharge": 4,
+          "totalThreat": 8,
+          "selectionSeed": 2763483633,
+          "supportCompositionSeed": 1646899976,
+          "spawnSelectionSeed": 609585360,
+          "spawnOrderSeed": 4023595391,
+          "cosmeticSeed": 2612347222,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-2"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        }
+      ],
+      "result": {
+        "result": "victory",
+        "seed": 28,
+        "difficultyId": "relaxed",
+        "preBossComplete": true,
+        "segmentCount": 6,
+        "upgrades": 5,
+        "hookPresent": false
+      },
+      "durationMs": 343
+    },
+    {
+      "cycle": 29,
+      "expected": "death",
+      "seed": 29,
+      "difficultyId": "standard",
+      "elitePlans": [
+        {
+          "modifierId": "resonant",
+          "eliteInstanceId": "elite-1-resonant-sentry-bea9e6c3",
+          "hostEnemyType": "sentry",
+          "baseThreat": 2,
+          "threatSurcharge": 4,
+          "totalThreat": 6,
+          "selectionSeed": 2864147832,
+          "supportCompositionSeed": 1781120905,
+          "spawnSelectionSeed": 676694209,
+          "spawnOrderSeed": 3755162810,
+          "cosmeticSeed": 2578794483,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-1"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        },
+        {
+          "modifierId": "replicating",
+          "eliteInstanceId": "elite-2-replicating-shard-carrier-b1a9e4be",
+          "hostEnemyType": "shard-carrier",
+          "baseThreat": 3,
+          "threatSurcharge": 4,
+          "totalThreat": 7,
+          "selectionSeed": 2763483632,
+          "supportCompositionSeed": 1646899977,
+          "spawnSelectionSeed": 609585361,
+          "spawnOrderSeed": 4023595390,
+          "cosmeticSeed": 2612347223,
+          "reservedEnemySlots": 1,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-2"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        }
+      ],
+      "result": {
+        "result": "death",
+        "seed": 29,
+        "difficultyId": "standard",
+        "preBossComplete": false,
+        "segmentCount": 6,
+        "upgrades": 0,
+        "hookPresent": false
+      },
+      "durationMs": 536
+    },
+    {
+      "cycle": 30,
+      "expected": "death",
+      "seed": 30,
+      "difficultyId": "overclocked",
+      "elitePlans": [
+        {
+          "modifierId": "resonant",
+          "eliteInstanceId": "elite-1-resonant-lancer-bea9e6c0",
+          "hostEnemyType": "lancer",
+          "baseThreat": 3,
+          "threatSurcharge": 4,
+          "totalThreat": 7,
+          "selectionSeed": 2864147835,
+          "supportCompositionSeed": 1781120906,
+          "spawnSelectionSeed": 676694210,
+          "spawnOrderSeed": 3755162809,
+          "cosmeticSeed": 2578794480,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-1"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        },
+        {
+          "modifierId": "overclocked",
+          "eliteInstanceId": "elite-2-overclocked-sentry-b1a9e4bd",
+          "hostEnemyType": "sentry",
+          "baseThreat": 2,
+          "threatSurcharge": 3,
+          "totalThreat": 5,
+          "selectionSeed": 2763483635,
+          "supportCompositionSeed": 1646899978,
+          "spawnSelectionSeed": 609585362,
+          "spawnOrderSeed": 4023595389,
+          "cosmeticSeed": 2612347220,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-2"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        }
+      ],
+      "result": {
+        "result": "death",
+        "seed": 30,
+        "difficultyId": "overclocked",
+        "preBossComplete": false,
+        "segmentCount": 6,
+        "upgrades": 0,
+        "hookPresent": false
+      },
+      "durationMs": 551
+    },
+    {
+      "cycle": 31,
+      "expected": "victory",
+      "seed": 31,
+      "difficultyId": "relaxed",
+      "elitePlans": [
+        {
+          "modifierId": "resonant",
+          "eliteInstanceId": "elite-1-resonant-sentry-bea9e6c1",
+          "hostEnemyType": "sentry",
+          "baseThreat": 2,
+          "threatSurcharge": 4,
+          "totalThreat": 6,
+          "selectionSeed": 2864147834,
+          "supportCompositionSeed": 1781120907,
+          "spawnSelectionSeed": 676694211,
+          "spawnOrderSeed": 3755162808,
+          "cosmeticSeed": 2578794481,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-1"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        },
+        {
+          "modifierId": "replicating",
+          "eliteInstanceId": "elite-2-replicating-drifter-b1a9e4bc",
+          "hostEnemyType": "drifter",
+          "baseThreat": 1,
+          "threatSurcharge": 4,
+          "totalThreat": 5,
+          "selectionSeed": 2763483634,
+          "supportCompositionSeed": 1646899979,
+          "spawnSelectionSeed": 609585363,
+          "spawnOrderSeed": 4023595388,
+          "cosmeticSeed": 2612347221,
+          "reservedEnemySlots": 1,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-2"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        }
+      ],
+      "result": {
+        "result": "victory",
+        "seed": 31,
+        "difficultyId": "relaxed",
+        "preBossComplete": true,
+        "segmentCount": 6,
+        "upgrades": 5,
+        "hookPresent": false
+      },
+      "durationMs": 351
+    },
+    {
+      "cycle": 32,
+      "expected": "victory",
+      "seed": 32,
+      "difficultyId": "standard",
+      "elitePlans": [
+        {
+          "modifierId": "replicating",
+          "eliteInstanceId": "elite-1-replicating-sentry-bea9e6fe",
+          "hostEnemyType": "sentry",
+          "baseThreat": 2,
+          "threatSurcharge": 4,
+          "totalThreat": 6,
+          "selectionSeed": 2864147781,
+          "supportCompositionSeed": 1781120948,
+          "spawnSelectionSeed": 676694268,
+          "spawnOrderSeed": 3755162759,
+          "cosmeticSeed": 2578794446,
+          "reservedEnemySlots": 1,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-1"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        },
+        {
+          "modifierId": "resonant",
+          "eliteInstanceId": "elite-2-resonant-sentry-b1a9e483",
+          "hostEnemyType": "sentry",
+          "baseThreat": 2,
+          "threatSurcharge": 4,
+          "totalThreat": 6,
+          "selectionSeed": 2763483597,
+          "supportCompositionSeed": 1646900020,
+          "spawnSelectionSeed": 609585388,
+          "spawnOrderSeed": 4023595331,
+          "cosmeticSeed": 2612347242,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-2"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        }
+      ],
+      "result": {
+        "result": "victory",
+        "seed": 32,
+        "difficultyId": "standard",
+        "preBossComplete": true,
+        "segmentCount": 6,
+        "upgrades": 5,
+        "hookPresent": false
+      },
+      "durationMs": 391
+    },
+    {
+      "cycle": 33,
+      "expected": "victory",
+      "seed": 33,
+      "difficultyId": "overclocked",
+      "elitePlans": [
+        {
+          "modifierId": "replicating",
+          "eliteInstanceId": "elite-1-replicating-drifter-bea9e6ff",
+          "hostEnemyType": "drifter",
+          "baseThreat": 1,
+          "threatSurcharge": 4,
+          "totalThreat": 5,
+          "selectionSeed": 2864147780,
+          "supportCompositionSeed": 1781120949,
+          "spawnSelectionSeed": 676694269,
+          "spawnOrderSeed": 3755162758,
+          "cosmeticSeed": 2578794447,
+          "reservedEnemySlots": 1,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-1"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        },
+        {
+          "modifierId": "resonant",
+          "eliteInstanceId": "elite-2-resonant-bulwark-b1a9e482",
+          "hostEnemyType": "bulwark",
+          "baseThreat": 4,
+          "threatSurcharge": 4,
+          "totalThreat": 8,
+          "selectionSeed": 2763483596,
+          "supportCompositionSeed": 1646900021,
+          "spawnSelectionSeed": 609585389,
+          "spawnOrderSeed": 4023595330,
+          "cosmeticSeed": 2612347243,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-2"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        }
+      ],
+      "result": {
+        "result": "victory",
+        "seed": 33,
+        "difficultyId": "overclocked",
+        "preBossComplete": true,
+        "segmentCount": 6,
+        "upgrades": 5,
+        "hookPresent": false
+      },
+      "durationMs": 384
+    },
+    {
+      "cycle": 34,
+      "expected": "death",
+      "seed": 34,
+      "difficultyId": "relaxed",
+      "elitePlans": [
+        {
+          "modifierId": "overclocked",
+          "eliteInstanceId": "elite-1-overclocked-drifter-bea9e6fc",
+          "hostEnemyType": "drifter",
+          "baseThreat": 1,
+          "threatSurcharge": 3,
+          "totalThreat": 4,
+          "selectionSeed": 2864147783,
+          "supportCompositionSeed": 1781120950,
+          "spawnSelectionSeed": 676694270,
+          "spawnOrderSeed": 3755162757,
+          "cosmeticSeed": 2578794444,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-1"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        },
+        {
+          "modifierId": "resonant",
+          "eliteInstanceId": "elite-2-resonant-sentry-b1a9e481",
+          "hostEnemyType": "sentry",
+          "baseThreat": 2,
+          "threatSurcharge": 4,
+          "totalThreat": 6,
+          "selectionSeed": 2763483599,
+          "supportCompositionSeed": 1646900022,
+          "spawnSelectionSeed": 609585390,
+          "spawnOrderSeed": 4023595329,
+          "cosmeticSeed": 2612347240,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-2"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        }
+      ],
+      "result": {
+        "result": "death",
+        "seed": 34,
+        "difficultyId": "relaxed",
+        "preBossComplete": false,
+        "segmentCount": 6,
+        "upgrades": 0,
+        "hookPresent": false
+      },
+      "durationMs": 536
+    },
+    {
+      "cycle": 35,
+      "expected": "death",
+      "seed": 35,
+      "difficultyId": "standard",
+      "elitePlans": [
+        {
+          "modifierId": "resonant",
+          "eliteInstanceId": "elite-1-resonant-drifter-bea9e6fd",
+          "hostEnemyType": "drifter",
+          "baseThreat": 1,
+          "threatSurcharge": 4,
+          "totalThreat": 5,
+          "selectionSeed": 2864147782,
+          "supportCompositionSeed": 1781120951,
+          "spawnSelectionSeed": 676694271,
+          "spawnOrderSeed": 3755162756,
+          "cosmeticSeed": 2578794445,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-1"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        },
+        {
+          "modifierId": "overclocked",
+          "eliteInstanceId": "elite-2-overclocked-shard-carrier-b1a9e480",
+          "hostEnemyType": "shard-carrier",
+          "baseThreat": 3,
+          "threatSurcharge": 3,
+          "totalThreat": 6,
+          "selectionSeed": 2763483598,
+          "supportCompositionSeed": 1646900023,
+          "spawnSelectionSeed": 609585391,
+          "spawnOrderSeed": 4023595328,
+          "cosmeticSeed": 2612347241,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-2"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        }
+      ],
+      "result": {
+        "result": "death",
+        "seed": 35,
+        "difficultyId": "standard",
+        "preBossComplete": false,
+        "segmentCount": 6,
+        "upgrades": 0,
+        "hookPresent": false
+      },
+      "durationMs": 519
+    },
+    {
+      "cycle": 36,
+      "expected": "victory",
+      "seed": 36,
+      "difficultyId": "overclocked",
+      "elitePlans": [
+        {
+          "modifierId": "overclocked",
+          "eliteInstanceId": "elite-1-overclocked-drifter-bea9e6fa",
+          "hostEnemyType": "drifter",
+          "baseThreat": 1,
+          "threatSurcharge": 3,
+          "totalThreat": 4,
+          "selectionSeed": 2864147777,
+          "supportCompositionSeed": 1781120944,
+          "spawnSelectionSeed": 676694264,
+          "spawnOrderSeed": 3755162755,
+          "cosmeticSeed": 2578794442,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-1"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        },
+        {
+          "modifierId": "resonant",
+          "eliteInstanceId": "elite-2-resonant-suppressor-b1a9e487",
+          "hostEnemyType": "suppressor",
+          "baseThreat": 5,
+          "threatSurcharge": 4,
+          "totalThreat": 9,
+          "selectionSeed": 2763483593,
+          "supportCompositionSeed": 1646900016,
+          "spawnSelectionSeed": 609585384,
+          "spawnOrderSeed": 4023595335,
+          "cosmeticSeed": 2612347246,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-2"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        }
+      ],
+      "result": {
+        "result": "victory",
+        "seed": 36,
+        "difficultyId": "overclocked",
+        "preBossComplete": true,
+        "segmentCount": 6,
+        "upgrades": 5,
+        "hookPresent": false
+      },
+      "durationMs": 458
+    },
+    {
+      "cycle": 37,
+      "expected": "victory",
+      "seed": 37,
+      "difficultyId": "relaxed",
+      "elitePlans": [
+        {
+          "modifierId": "resonant",
+          "eliteInstanceId": "elite-1-resonant-drifter-bea9e6fb",
+          "hostEnemyType": "drifter",
+          "baseThreat": 1,
+          "threatSurcharge": 4,
+          "totalThreat": 5,
+          "selectionSeed": 2864147776,
+          "supportCompositionSeed": 1781120945,
+          "spawnSelectionSeed": 676694265,
+          "spawnOrderSeed": 3755162754,
+          "cosmeticSeed": 2578794443,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-1"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        },
+        {
+          "modifierId": "overclocked",
+          "eliteInstanceId": "elite-2-overclocked-sentry-b1a9e486",
+          "hostEnemyType": "sentry",
+          "baseThreat": 2,
+          "threatSurcharge": 3,
+          "totalThreat": 5,
+          "selectionSeed": 2763483592,
+          "supportCompositionSeed": 1646900017,
+          "spawnSelectionSeed": 609585385,
+          "spawnOrderSeed": 4023595334,
+          "cosmeticSeed": 2612347247,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-2"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        }
+      ],
+      "result": {
+        "result": "victory",
+        "seed": 37,
+        "difficultyId": "relaxed",
+        "preBossComplete": true,
+        "segmentCount": 6,
+        "upgrades": 5,
+        "hookPresent": false
+      },
+      "durationMs": 401
+    },
+    {
+      "cycle": 38,
+      "expected": "victory",
+      "seed": 38,
+      "difficultyId": "standard",
+      "elitePlans": [
+        {
+          "modifierId": "overclocked",
+          "eliteInstanceId": "elite-1-overclocked-drifter-bea9e6f8",
+          "hostEnemyType": "drifter",
+          "baseThreat": 1,
+          "threatSurcharge": 3,
+          "totalThreat": 4,
+          "selectionSeed": 2864147779,
+          "supportCompositionSeed": 1781120946,
+          "spawnSelectionSeed": 676694266,
+          "spawnOrderSeed": 3755162753,
+          "cosmeticSeed": 2578794440,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-1"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        },
+        {
+          "modifierId": "resonant",
+          "eliteInstanceId": "elite-2-resonant-drifter-b1a9e485",
+          "hostEnemyType": "drifter",
+          "baseThreat": 1,
+          "threatSurcharge": 4,
+          "totalThreat": 5,
+          "selectionSeed": 2763483595,
+          "supportCompositionSeed": 1646900018,
+          "spawnSelectionSeed": 609585386,
+          "spawnOrderSeed": 4023595333,
+          "cosmeticSeed": 2612347244,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-2"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        }
+      ],
+      "result": {
+        "result": "victory",
+        "seed": 38,
+        "difficultyId": "standard",
+        "preBossComplete": true,
+        "segmentCount": 6,
+        "upgrades": 5,
+        "hookPresent": false
+      },
+      "durationMs": 359
+    },
+    {
+      "cycle": 39,
+      "expected": "death",
+      "seed": 39,
+      "difficultyId": "overclocked",
+      "elitePlans": [
+        {
+          "modifierId": "resonant",
+          "eliteInstanceId": "elite-1-resonant-lancer-bea9e6f9",
+          "hostEnemyType": "lancer",
+          "baseThreat": 3,
+          "threatSurcharge": 4,
+          "totalThreat": 7,
+          "selectionSeed": 2864147778,
+          "supportCompositionSeed": 1781120947,
+          "spawnSelectionSeed": 676694267,
+          "spawnOrderSeed": 3755162752,
+          "cosmeticSeed": 2578794441,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-1"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        },
+        {
+          "modifierId": "overclocked",
+          "eliteInstanceId": "elite-2-overclocked-drifter-b1a9e484",
+          "hostEnemyType": "drifter",
+          "baseThreat": 1,
+          "threatSurcharge": 3,
+          "totalThreat": 4,
+          "selectionSeed": 2763483594,
+          "supportCompositionSeed": 1646900019,
+          "spawnSelectionSeed": 609585387,
+          "spawnOrderSeed": 4023595332,
+          "cosmeticSeed": 2612347245,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-2"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        }
+      ],
+      "result": {
+        "result": "death",
+        "seed": 39,
+        "difficultyId": "overclocked",
+        "preBossComplete": false,
+        "segmentCount": 6,
+        "upgrades": 0,
+        "hookPresent": false
+      },
+      "durationMs": 519
+    },
+    {
+      "cycle": 40,
+      "expected": "death",
+      "seed": 40,
+      "difficultyId": "relaxed",
+      "elitePlans": [
+        {
+          "modifierId": "overclocked",
+          "eliteInstanceId": "elite-1-overclocked-lancer-bea9e6f6",
+          "hostEnemyType": "lancer",
+          "baseThreat": 3,
+          "threatSurcharge": 3,
+          "totalThreat": 6,
+          "selectionSeed": 2864147789,
+          "supportCompositionSeed": 1781120956,
+          "spawnSelectionSeed": 676694260,
+          "spawnOrderSeed": 3755162767,
+          "cosmeticSeed": 2578794438,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-1"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        },
+        {
+          "modifierId": "resonant",
+          "eliteInstanceId": "elite-2-resonant-lancer-b1a9e48b",
+          "hostEnemyType": "lancer",
+          "baseThreat": 3,
+          "threatSurcharge": 4,
+          "totalThreat": 7,
+          "selectionSeed": 2763483589,
+          "supportCompositionSeed": 1646900028,
+          "spawnSelectionSeed": 609585380,
+          "spawnOrderSeed": 4023595339,
+          "cosmeticSeed": 2612347234,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-2"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        }
+      ],
+      "result": {
+        "result": "death",
+        "seed": 40,
+        "difficultyId": "relaxed",
+        "preBossComplete": false,
+        "segmentCount": 6,
+        "upgrades": 0,
+        "hookPresent": false
+      },
+      "durationMs": 537
+    },
+    {
+      "cycle": 41,
+      "expected": "victory",
+      "seed": 41,
+      "difficultyId": "standard",
+      "elitePlans": [
+        {
+          "modifierId": "overclocked",
+          "eliteInstanceId": "elite-1-overclocked-lancer-bea9e6f7",
+          "hostEnemyType": "lancer",
+          "baseThreat": 3,
+          "threatSurcharge": 3,
+          "totalThreat": 6,
+          "selectionSeed": 2864147788,
+          "supportCompositionSeed": 1781120957,
+          "spawnSelectionSeed": 676694261,
+          "spawnOrderSeed": 3755162766,
+          "cosmeticSeed": 2578794439,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-1"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        },
+        {
+          "modifierId": "replicating",
+          "eliteInstanceId": "elite-2-replicating-sentry-b1a9e48a",
+          "hostEnemyType": "sentry",
+          "baseThreat": 2,
+          "threatSurcharge": 4,
+          "totalThreat": 6,
+          "selectionSeed": 2763483588,
+          "supportCompositionSeed": 1646900029,
+          "spawnSelectionSeed": 609585381,
+          "spawnOrderSeed": 4023595338,
+          "cosmeticSeed": 2612347235,
+          "reservedEnemySlots": 1,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-2"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        }
+      ],
+      "result": {
+        "result": "victory",
+        "seed": 41,
+        "difficultyId": "standard",
+        "preBossComplete": true,
+        "segmentCount": 6,
+        "upgrades": 5,
+        "hookPresent": false
+      },
+      "durationMs": 384
+    },
+    {
+      "cycle": 42,
+      "expected": "victory",
+      "seed": 42,
+      "difficultyId": "overclocked",
+      "elitePlans": [
+        {
+          "modifierId": "replicating",
+          "eliteInstanceId": "elite-1-replicating-drifter-bea9e6f4",
+          "hostEnemyType": "drifter",
+          "baseThreat": 1,
+          "threatSurcharge": 4,
+          "totalThreat": 5,
+          "selectionSeed": 2864147791,
+          "supportCompositionSeed": 1781120958,
+          "spawnSelectionSeed": 676694262,
+          "spawnOrderSeed": 3755162765,
+          "cosmeticSeed": 2578794436,
+          "reservedEnemySlots": 1,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-1"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        },
+        {
+          "modifierId": "overclocked",
+          "eliteInstanceId": "elite-2-overclocked-lancer-b1a9e489",
+          "hostEnemyType": "lancer",
+          "baseThreat": 3,
+          "threatSurcharge": 3,
+          "totalThreat": 6,
+          "selectionSeed": 2763483591,
+          "supportCompositionSeed": 1646900030,
+          "spawnSelectionSeed": 609585382,
+          "spawnOrderSeed": 4023595337,
+          "cosmeticSeed": 2612347232,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-2"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        }
+      ],
+      "result": {
+        "result": "victory",
+        "seed": 42,
+        "difficultyId": "overclocked",
+        "preBossComplete": true,
+        "segmentCount": 6,
+        "upgrades": 5,
+        "hookPresent": false
+      },
+      "durationMs": 390
+    },
+    {
+      "cycle": 43,
+      "expected": "victory",
+      "seed": 43,
+      "difficultyId": "relaxed",
+      "elitePlans": [
+        {
+          "modifierId": "resonant",
+          "eliteInstanceId": "elite-1-resonant-sentry-bea9e6f5",
+          "hostEnemyType": "sentry",
+          "baseThreat": 2,
+          "threatSurcharge": 4,
+          "totalThreat": 6,
+          "selectionSeed": 2864147790,
+          "supportCompositionSeed": 1781120959,
+          "spawnSelectionSeed": 676694263,
+          "spawnOrderSeed": 3755162764,
+          "cosmeticSeed": 2578794437,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-1"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        },
+        {
+          "modifierId": "replicating",
+          "eliteInstanceId": "elite-2-replicating-drifter-b1a9e488",
+          "hostEnemyType": "drifter",
+          "baseThreat": 1,
+          "threatSurcharge": 4,
+          "totalThreat": 5,
+          "selectionSeed": 2763483590,
+          "supportCompositionSeed": 1646900031,
+          "spawnSelectionSeed": 609585383,
+          "spawnOrderSeed": 4023595336,
+          "cosmeticSeed": 2612347233,
+          "reservedEnemySlots": 1,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-2"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        }
+      ],
+      "result": {
+        "result": "victory",
+        "seed": 43,
+        "difficultyId": "relaxed",
+        "preBossComplete": true,
+        "segmentCount": 6,
+        "upgrades": 5,
+        "hookPresent": false
+      },
+      "durationMs": 339
+    },
+    {
+      "cycle": 44,
+      "expected": "death",
+      "seed": 44,
+      "difficultyId": "standard",
+      "elitePlans": [
+        {
+          "modifierId": "overclocked",
+          "eliteInstanceId": "elite-1-overclocked-lancer-bea9e6f2",
+          "hostEnemyType": "lancer",
+          "baseThreat": 3,
+          "threatSurcharge": 3,
+          "totalThreat": 6,
+          "selectionSeed": 2864147785,
+          "supportCompositionSeed": 1781120952,
+          "spawnSelectionSeed": 676694256,
+          "spawnOrderSeed": 3755162763,
+          "cosmeticSeed": 2578794434,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-1"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        },
+        {
+          "modifierId": "replicating",
+          "eliteInstanceId": "elite-2-replicating-shard-carrier-b1a9e48f",
+          "hostEnemyType": "shard-carrier",
+          "baseThreat": 3,
+          "threatSurcharge": 4,
+          "totalThreat": 7,
+          "selectionSeed": 2763483585,
+          "supportCompositionSeed": 1646900024,
+          "spawnSelectionSeed": 609585376,
+          "spawnOrderSeed": 4023595343,
+          "cosmeticSeed": 2612347238,
+          "reservedEnemySlots": 1,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-2"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        }
+      ],
+      "result": {
+        "result": "death",
+        "seed": 44,
+        "difficultyId": "standard",
+        "preBossComplete": false,
+        "segmentCount": 6,
+        "upgrades": 0,
+        "hookPresent": false
+      },
+      "durationMs": 557
+    },
+    {
+      "cycle": 45,
+      "expected": "death",
+      "seed": 45,
+      "difficultyId": "overclocked",
+      "elitePlans": [
+        {
+          "modifierId": "replicating",
+          "eliteInstanceId": "elite-1-replicating-lancer-bea9e6f3",
+          "hostEnemyType": "lancer",
+          "baseThreat": 3,
+          "threatSurcharge": 4,
+          "totalThreat": 7,
+          "selectionSeed": 2864147784,
+          "supportCompositionSeed": 1781120953,
+          "spawnSelectionSeed": 676694257,
+          "spawnOrderSeed": 3755162762,
+          "cosmeticSeed": 2578794435,
+          "reservedEnemySlots": 1,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-1"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        },
+        {
+          "modifierId": "overclocked",
+          "eliteInstanceId": "elite-2-overclocked-sentry-b1a9e48e",
+          "hostEnemyType": "sentry",
+          "baseThreat": 2,
+          "threatSurcharge": 3,
+          "totalThreat": 5,
+          "selectionSeed": 2763483584,
+          "supportCompositionSeed": 1646900025,
+          "spawnSelectionSeed": 609585377,
+          "spawnOrderSeed": 4023595342,
+          "cosmeticSeed": 2612347239,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-2"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        }
+      ],
+      "result": {
+        "result": "death",
+        "seed": 45,
+        "difficultyId": "overclocked",
+        "preBossComplete": false,
+        "segmentCount": 6,
+        "upgrades": 0,
+        "hookPresent": false
+      },
+      "durationMs": 536
+    },
+    {
+      "cycle": 46,
+      "expected": "victory",
+      "seed": 46,
+      "difficultyId": "relaxed",
+      "elitePlans": [
+        {
+          "modifierId": "replicating",
+          "eliteInstanceId": "elite-1-replicating-sentry-bea9e6f0",
+          "hostEnemyType": "sentry",
+          "baseThreat": 2,
+          "threatSurcharge": 4,
+          "totalThreat": 6,
+          "selectionSeed": 2864147787,
+          "supportCompositionSeed": 1781120954,
+          "spawnSelectionSeed": 676694258,
+          "spawnOrderSeed": 3755162761,
+          "cosmeticSeed": 2578794432,
+          "reservedEnemySlots": 1,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-1"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        },
+        {
+          "modifierId": "overclocked",
+          "eliteInstanceId": "elite-2-overclocked-lancer-b1a9e48d",
+          "hostEnemyType": "lancer",
+          "baseThreat": 3,
+          "threatSurcharge": 3,
+          "totalThreat": 6,
+          "selectionSeed": 2763483587,
+          "supportCompositionSeed": 1646900026,
+          "spawnSelectionSeed": 609585378,
+          "spawnOrderSeed": 4023595341,
+          "cosmeticSeed": 2612347236,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-2"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        }
+      ],
+      "result": {
+        "result": "victory",
+        "seed": 46,
+        "difficultyId": "relaxed",
+        "preBossComplete": true,
+        "segmentCount": 6,
+        "upgrades": 5,
+        "hookPresent": false
+      },
+      "durationMs": 391
+    },
+    {
+      "cycle": 47,
+      "expected": "victory",
+      "seed": 47,
+      "difficultyId": "standard",
+      "elitePlans": [
+        {
+          "modifierId": "replicating",
+          "eliteInstanceId": "elite-1-replicating-drifter-bea9e6f1",
+          "hostEnemyType": "drifter",
+          "baseThreat": 1,
+          "threatSurcharge": 4,
+          "totalThreat": 5,
+          "selectionSeed": 2864147786,
+          "supportCompositionSeed": 1781120955,
+          "spawnSelectionSeed": 676694259,
+          "spawnOrderSeed": 3755162760,
+          "cosmeticSeed": 2578794433,
+          "reservedEnemySlots": 1,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-1"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        },
+        {
+          "modifierId": "resonant",
+          "eliteInstanceId": "elite-2-resonant-suppressor-b1a9e48c",
+          "hostEnemyType": "suppressor",
+          "baseThreat": 5,
+          "threatSurcharge": 4,
+          "totalThreat": 9,
+          "selectionSeed": 2763483586,
+          "supportCompositionSeed": 1646900027,
+          "spawnSelectionSeed": 609585379,
+          "spawnOrderSeed": 4023595340,
+          "cosmeticSeed": 2612347237,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-2"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        }
+      ],
+      "result": {
+        "result": "victory",
+        "seed": 47,
+        "difficultyId": "standard",
+        "preBossComplete": true,
+        "segmentCount": 6,
+        "upgrades": 5,
+        "hookPresent": false
+      },
+      "durationMs": 408
+    },
+    {
+      "cycle": 48,
+      "expected": "victory",
+      "seed": 48,
+      "difficultyId": "overclocked",
+      "elitePlans": [
+        {
+          "modifierId": "overclocked",
+          "eliteInstanceId": "elite-1-overclocked-lancer-bea9e6ee",
+          "hostEnemyType": "lancer",
+          "baseThreat": 3,
+          "threatSurcharge": 3,
+          "totalThreat": 6,
+          "selectionSeed": 2864147797,
+          "supportCompositionSeed": 1781120932,
+          "spawnSelectionSeed": 676694252,
+          "spawnOrderSeed": 3755162775,
+          "cosmeticSeed": 2578794462,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-1"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        },
+        {
+          "modifierId": "resonant",
+          "eliteInstanceId": "elite-2-resonant-drifter-b1a9e493",
+          "hostEnemyType": "drifter",
+          "baseThreat": 1,
+          "threatSurcharge": 4,
+          "totalThreat": 5,
+          "selectionSeed": 2763483613,
+          "supportCompositionSeed": 1646900004,
+          "spawnSelectionSeed": 609585404,
+          "spawnOrderSeed": 4023595347,
+          "cosmeticSeed": 2612347258,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-2"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        }
+      ],
+      "result": {
+        "result": "victory",
+        "seed": 48,
+        "difficultyId": "overclocked",
+        "preBossComplete": true,
+        "segmentCount": 6,
+        "upgrades": 5,
+        "hookPresent": false
+      },
+      "durationMs": 356
+    },
+    {
+      "cycle": 49,
+      "expected": "death",
+      "seed": 49,
+      "difficultyId": "relaxed",
+      "elitePlans": [
+        {
+          "modifierId": "resonant",
+          "eliteInstanceId": "elite-1-resonant-sentry-bea9e6ef",
+          "hostEnemyType": "sentry",
+          "baseThreat": 2,
+          "threatSurcharge": 4,
+          "totalThreat": 6,
+          "selectionSeed": 2864147796,
+          "supportCompositionSeed": 1781120933,
+          "spawnSelectionSeed": 676694253,
+          "spawnOrderSeed": 3755162774,
+          "cosmeticSeed": 2578794463,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-1"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        },
+        {
+          "modifierId": "overclocked",
+          "eliteInstanceId": "elite-2-overclocked-drifter-b1a9e492",
+          "hostEnemyType": "drifter",
+          "baseThreat": 1,
+          "threatSurcharge": 3,
+          "totalThreat": 4,
+          "selectionSeed": 2763483612,
+          "supportCompositionSeed": 1646900005,
+          "spawnSelectionSeed": 609585405,
+          "spawnOrderSeed": 4023595346,
+          "cosmeticSeed": 2612347259,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-2"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        }
+      ],
+      "result": {
+        "result": "death",
+        "seed": 49,
+        "difficultyId": "relaxed",
+        "preBossComplete": false,
+        "segmentCount": 6,
+        "upgrades": 0,
+        "hookPresent": false
+      },
+      "durationMs": 502
+    },
+    {
+      "cycle": 50,
+      "expected": "death",
+      "seed": 50,
+      "difficultyId": "standard",
+      "elitePlans": [
+        {
+          "modifierId": "resonant",
+          "eliteInstanceId": "elite-1-resonant-drifter-bea9e6ec",
+          "hostEnemyType": "drifter",
+          "baseThreat": 1,
+          "threatSurcharge": 4,
+          "totalThreat": 5,
+          "selectionSeed": 2864147799,
+          "supportCompositionSeed": 1781120934,
+          "spawnSelectionSeed": 676694254,
+          "spawnOrderSeed": 3755162773,
+          "cosmeticSeed": 2578794460,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-1"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        },
+        {
+          "modifierId": "overclocked",
+          "eliteInstanceId": "elite-2-overclocked-lancer-b1a9e491",
+          "hostEnemyType": "lancer",
+          "baseThreat": 3,
+          "threatSurcharge": 3,
+          "totalThreat": 6,
+          "selectionSeed": 2763483615,
+          "supportCompositionSeed": 1646900006,
+          "spawnSelectionSeed": 609585406,
+          "spawnOrderSeed": 4023595345,
+          "cosmeticSeed": 2612347256,
+          "reservedEnemySlots": 0,
+          "reservedSubordinateSlots": 0,
+          "tags": [
+            "primary-elite",
+            "elite-2"
+          ],
+          "generationDiagnostics": {
+            "rejectionReasons": {},
+            "fallbackUsed": false
+          }
+        }
+      ],
+      "result": {
+        "result": "death",
+        "seed": 50,
+        "difficultyId": "standard",
+        "preBossComplete": false,
+        "segmentCount": 6,
+        "upgrades": 0,
+        "hookPresent": false
+      },
+      "durationMs": 518
+    }
+  ],
+  "exceptions": 0,
+  "consoleErrors": 0,
+  "warnings": 0,
+  "exceptionDetails": [],
+  "consoleErrorDetails": [],
+  "warningDetails": [],
+  "passed": true
+}

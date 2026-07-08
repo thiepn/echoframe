@@ -1,0 +1,129 @@
+{
+  "generatedAt": "2026-07-07T07:00:08.306Z",
+  "browser": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/144.0.0.0 Safari/537.36",
+  "routes": {
+    "standard": {
+      "result": "victory",
+      "score": 9307,
+      "subtotal": 9307,
+      "multiplier": 1,
+      "unlocks": [
+        "unlock-twin-recall",
+        "unlock-vector-reversal",
+        "unlock-null-absorption",
+        "unlock-memory-burst",
+        "unlock-afterburn",
+        "unlock-deflection-pulse",
+        "unlock-overclocked",
+        "unlock-signal-restored",
+        "unlock-memory-violet",
+        "unlock-architect-fracture",
+        "unlock-resonant-wave",
+        "unlock-clean-vector"
+      ],
+      "bests": [
+        "FIRST_RECORD",
+        "FIRST_RECORD",
+        "FIRST_RECORD",
+        "FIRST_RECORD",
+        "FIRST_RECORD",
+        "FIRST_RECORD",
+        "FIRST_RECORD",
+        "FIRST_RECORD",
+        "FIRST_RECORD"
+      ],
+      "overclocked": true,
+      "recentRuns": 1,
+      "saveWrites": "2026-07-07T06:59:52.471Z"
+    },
+    "relaxed": {
+      "result": "victory",
+      "score": 5195,
+      "subtotal": 6927,
+      "multiplier": 0.75,
+      "unlocks": [],
+      "bests": [
+        "FIRST_RECORD",
+        "FIRST_RECORD",
+        "FIRST_RECORD",
+        "FIRST_RECORD",
+        "FIRST_RECORD",
+        "FIRST_RECORD",
+        "FIRST_RECORD",
+        "FIRST_RECORD",
+        "FIRST_RECORD"
+      ],
+      "overclocked": true,
+      "recentRuns": 2,
+      "saveWrites": "2026-07-07T06:59:59.764Z"
+    },
+    "overclocked": {
+      "result": "victory",
+      "score": 9351,
+      "subtotal": 6927,
+      "multiplier": 1.35,
+      "unlocks": [
+        "unlock-station-cyan"
+      ],
+      "bests": [
+        "FIRST_RECORD",
+        "FIRST_RECORD",
+        "FIRST_RECORD",
+        "FIRST_RECORD",
+        "FIRST_RECORD",
+        "FIRST_RECORD",
+        "FIRST_RECORD",
+        "FIRST_RECORD",
+        "FIRST_RECORD"
+      ],
+      "overclocked": true,
+      "recentRuns": 3,
+      "saveWrites": "2026-07-07T07:00:05.873Z"
+    }
+  },
+  "cosmetic": {
+    "palette": "signal-restored",
+    "trail": "default"
+  },
+  "persistence": {
+    "importOk": true,
+    "badRejected": true,
+    "sameRuns": true,
+    "unlocks": 13,
+    "recentRuns": 3,
+    "personalBestDifficulties": [
+      "standard",
+      "relaxed",
+      "overclocked"
+    ],
+    "selectedPalette": "signal-restored",
+    "selectedTrail": "default"
+  },
+  "checks": {
+    "completeStandardRoute": true,
+    "completeRelaxedRoute": true,
+    "completeOverclockedRoute": true,
+    "scoreStartsAndUpdates": true,
+    "segmentScoreOnce": true,
+    "bossScoreOnce": true,
+    "difficultyMultiplierOnce": true,
+    "comboHud": true,
+    "overclockedUnlock": true,
+    "resultsBreakdown": true,
+    "personalBest": true,
+    "unlockReveal": true,
+    "archive": true,
+    "statistics": true,
+    "recentRuns": true,
+    "cosmetics": true,
+    "exportImport": true,
+    "malformedImportRejected": true
+  },
+  "exceptions": 0,
+  "consoleErrors": 0,
+  "warnings": 0,
+  "exceptionDetails": [],
+  "consoleErrorDetails": [],
+  "warningDetails": [],
+  "passed": true
+}

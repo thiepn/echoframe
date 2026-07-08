@@ -1,0 +1,56 @@
+{
+  "generatedAt": "2026-07-07T06:58:25.288Z",
+  "microbenchmarks": {
+    "scoreEventAcceptance": {
+      "iterations": 100000,
+      "totalMs": 751.6929090000001,
+      "averageMicroseconds": 7.516929090000001
+    },
+    "finalReconciliation": {
+      "iterations": 1000,
+      "totalMs": 1335.516052,
+      "averageMicroseconds": 1335.516052
+    },
+    "unlockEvaluation": {
+      "iterations": 100000,
+      "totalMs": 239.43154300000015,
+      "averageMicroseconds": 2.3943154300000016
+    },
+    "aggregateStatisticsUpdate": {
+      "iterations": 10000,
+      "totalMs": 242.38845600000013,
+      "averageMicroseconds": 24.238845600000012
+    },
+    "saveSerialization": {
+      "iterations": 10000,
+      "totalMs": 1876.708318,
+      "averageMicroseconds": 187.6708318
+    }
+  },
+  "saveSerializationBytes": 24739,
+  "bundle": {
+    "javascriptAssets": [
+      {
+        "filename": "index-CzNs6oQL.js",
+        "bytes": 1751956,
+        "gzipBytes": 460410
+      }
+    ],
+    "totalJavaScriptBytes": 1751956,
+    "totalJavaScriptGzipBytes": 460410,
+    "phase8Bytes": 1706477,
+    "phase8GzipBytes": 447707,
+    "changeBytes": 45479,
+    "changePercent": 2.665081334234215,
+    "gzipChangeBytes": 12703,
+    "gzipChangePercent": 2.8373467468679294
+  },
+  "sourceChecks": {
+    "ledgerCapacity": 4096,
+    "recentRunLimit": 50,
+    "scoreFlyoutVisibleCap": 6,
+    "unlockEvaluationAtFinalization": true,
+    "resultsCountingSingleTween": true
+  },
+  "passed": true
+}

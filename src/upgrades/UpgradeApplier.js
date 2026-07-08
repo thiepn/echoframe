@@ -1,0 +1,2 @@
+import{getUpgrade}from'./UpgradeCatalog.js';
+export class UpgradeApplier{constructor({eventBus=null}={}){this.eventBus=eventBus;}apply(id,levels){const d=getUpgrade(id);if(!d)return{applied:false,reason:'invalid-upgrade'};const current=levels.get(id)??0;if(current>=d.maxLevel)return{applied:false,reason:'level-cap'};const level=current+1;levels.set(id,level);const result={applied:true,id,level,definition:d,levelData:d.levels[level-1]};this.eventBus?.emit('upgrade:applied',{upgradeId:id,level});return result;}}

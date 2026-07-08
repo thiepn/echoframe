@@ -1,0 +1,53 @@
+{
+  "generatedAt": "2026-07-08T00:03:40.053Z",
+  "phase": 12,
+  "scope": "Supported real Firefox/Gecko production certification",
+  "packageVersion": "1.0.0-release-candidate",
+  "runtimeVersion": "1.0.0-release-candidate",
+  "sourceManifestDigest": "3eafc0a1a6b2ee2d9b804fa353e65c1b9758ef45c9c83c13e376e2c1e5efd4b4",
+  "productionBundleDigest": null,
+  "browser": {
+    "requestedEngine": "firefox",
+    "executable": "/mnt/data/firefox-image/usr/lib/firefox/firefox",
+    "version": "Mozilla Firefox 152.0.1",
+    "playwrightVersion": "Version 1.61.1"
+  },
+  "environment": {
+    "platform": "linux",
+    "arch": "x64",
+    "kernel": "4.4.0",
+    "osType": "Linux"
+  },
+  "gameCodeExecuted": false,
+  "chromiumSubstitutionUsed": false,
+  "userAgentEmulationUsed": false,
+  "attempts": [
+    {
+      "kind": "supported-real-firefox-process-probe",
+      "executable": "/mnt/data/firefox-image/usr/lib/firefox/firefox",
+      "version": "Mozilla Firefox 152.0.1",
+      "exitCode": 11,
+      "signal": null,
+      "timedOut": false,
+      "output": "*** You are running in headless mode.\nwasm_rt_syscall_set_segue_base error: Invalid argument\nRedirecting call to abort() to mozalloc_abort\n\nExceptionHandler::GenerateDump attempting to generate:\u0000/home/oai/.config/mozilla/firefox/80nzer4g.default-release/minidumps/124b1034-3f6d-c940-7710-ec728eb4e424.dmp\nExceptionHandler::GenerateDump cloned child 23198ExceptionHandler::WaitForContinueSignal waiting for continue signal...\n\nExceptionHandler::SendContinueSignalToChild sent continue signal to child\nExceptionHandler::GenerateDump minidump generation \u0000succeeded\n\u0000\n(crashreporter:23199): Gtk-WARNING **: 00:03:44.923: cannot open display: :0"
+    }
+  ],
+  "checks": {},
+  "exceptions": [],
+  "consoleErrors": [],
+  "consoleWarnings": [],
+  "failedRequests": [],
+  "passed": false,
+  "status": "environment-blocked-before-game-execution",
+  "blocker": "Firefox aborted before page creation because this Linux 4.4 kernel rejected the GS-base syscall used by current Firefox RLBox/WASM sandboxing.",
+  "error": "Error: Firefox aborted before page creation because this Linux 4.4 kernel rejected the GS-base syscall used by current Firefox RLBox/WASM sandboxing.",
+  "legacyDiagnostic": {
+    "executable": "/mnt/data/firefox115-image/opt/firefox-115.0.3/firefox",
+    "version": "Mozilla Firefox 115.0.3",
+    "processStayedRunning": true,
+    "exitCode": null,
+    "output": "[GFX1-]: glxtest: cannot access /sys/bus/pci\n[GFX1-]: glxtest: Unable to open a connection to the X server\n[GFX1-]: No GPUs detected via PCI\n\n[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt\n*** You are running in headless mode.\n",
+    "acceptedAsCertification": false,
+    "reason": "Firefox 115 is obsolete and is used only to isolate the current-Firefox kernel incompatibility."
+  }
+}

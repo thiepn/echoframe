@@ -1,0 +1,29 @@
+{
+  "generatedAt": "2026-07-07T23:32:04.282Z",
+  "phase": 12,
+  "platform": "linux",
+  "arch": "x64",
+  "kernel": "4.4.0",
+  "osType": "Linux",
+  "node": "v22.16.0",
+  "npm": "10.9.2",
+  "playwright": "Version 1.61.1",
+  "chromium": "Chromium 144.0.7559.96 built on Debian GNU/Linux 13 (trixie)",
+  "firefox": null,
+  "git": "git version 2.47.3",
+  "gh": null,
+  "firefoxCandidates": {
+    "currentRecovered": "/mnt/data/firefox-image/usr/lib/firefox/firefox",
+    "legacyDiagnostic": "/mnt/data/firefox115-image/opt/firefox-115.0.3/firefox"
+  },
+  "network": {
+    "playwrightDownload": "blocked-dns",
+    "aptFirefoxCandidate": "unavailable"
+  },
+  "repository": {
+    "gitCheckout": false,
+    "repositoryUrl": null,
+    "publicPagesUrl": null,
+    "githubCliAvailable": false
+  }
+}

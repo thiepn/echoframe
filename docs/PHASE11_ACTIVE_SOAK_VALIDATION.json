@@ -1,0 +1,28 @@
+{
+  "generatedAt": "2026-07-07T22:27:37.222Z",
+  "phase": 11,
+  "scope": "Final 1.0 30-minute active soak",
+  "packageVersion": "1.0.0-release-candidate",
+  "sourceManifestDigest": "3be6c352bb402201c24c32067bbd281dc0493008e19f469f1827ceebffd4fa78",
+  "status": "not-run-release-promotion-blocked",
+  "passed": false,
+  "historicalPhase10Evidence": {
+    "phase10Lifecycle": {
+      "passed": true,
+      "generatedAt": "2026-07-07T16:15:32.227Z"
+    },
+    "phase10MenuIdle": {
+      "passed": true,
+      "durationMs": 1800160
+    },
+    "phase10ActiveSoak": {
+      "passed": true,
+      "durationMs": 1800376
+    },
+    "phase10Performance": {
+      "passed": true,
+      "generatedAt": "2026-07-07T16:11:32.427Z"
+    }
+  },
+  "reason": "The mandatory real Firefox pre-promotion gate has not passed. Final 1.0 identity was not committed, so final-version lifecycle, idle, soak, and performance evidence would be premature."
+}

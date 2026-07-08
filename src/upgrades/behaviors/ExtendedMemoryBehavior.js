@@ -1,0 +1,1 @@
+export class ExtendedMemoryBehavior{apply(base,profile){return Object.freeze({durationMs:Math.min(profile?.maximumDurationMs??base.durationMs,base.durationMs+(profile?.durationBonusMs??0)),cooldownMs:base.cooldownMs+(profile?.cooldownBonusMs??0)});}}

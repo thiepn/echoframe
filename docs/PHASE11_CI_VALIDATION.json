@@ -1,0 +1,20 @@
+{
+  "generatedAt": "2026-07-07T22:25:37.898Z",
+  "phase": 11,
+  "packageVersion": "1.0.0-release-candidate",
+  "sourceManifestDigest": "3be6c352bb402201c24c32067bbd281dc0493008e19f469f1827ceebffd4fa78",
+  "checks": {
+    "ciWorkflowPresent": true,
+    "ciRequiredStructure": true,
+    "deployWorkflowPresent": true,
+    "deployRequiresCertification": true,
+    "minimalCiPermissions": true,
+    "explicitDeployPermissions": true,
+    "noContinueOnErrorTrue": true
+  },
+  "structurePassed": true,
+  "actualGitHubExecutionAvailable": false,
+  "status": "structure-validated-execution-unavailable",
+  "passed": false,
+  "note": "Workflow structure is locally validated. No connected repository or GitHub Actions run was provided, so CI execution cannot be marked passed."
+}

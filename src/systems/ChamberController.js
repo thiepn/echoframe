@@ -1,0 +1,1 @@
+export class ChamberController{constructor(index=1){this.index=index;this.elapsedMs=0;this.cleared=false;}update(d){if(!this.cleared)this.elapsedMs+=Math.max(0,Number(d)||0);}clear(){if(this.cleared)return false;this.cleared=true;return true;}snapshot(){return{index:this.index,elapsedMs:this.elapsedMs,cleared:this.cleared};}}

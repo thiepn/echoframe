@@ -1,0 +1,114 @@
+{
+  "generatedAt": "2026-07-07T23:32:04.282Z",
+  "phase": 12,
+  "scope": "Phase 11 certification candidate recovery",
+  "sourceArchive": {
+    "path": "/mnt/data/ECHOFRAME_phase11_certification_candidate.zip",
+    "name": "ECHOFRAME_phase11_certification_candidate.zip",
+    "sha256": "0471a46aa98e7b23c2f50b2e20bdcc143d78c959c465ab41f83310303ad720ed",
+    "bytes": 2824498,
+    "totalEntries": 635,
+    "regularFiles": 597,
+    "directoryEntries": 38,
+    "expectedSha256": "0471a46aa98e7b23c2f50b2e20bdcc143d78c959c465ab41f83310303ad720ed",
+    "hashMatched": true,
+    "expectedMetrics": {
+      "totalEntries": 635,
+      "regularFiles": 597,
+      "directoryEntries": 38
+    }
+  },
+  "webArchive": {
+    "path": "/mnt/data/ECHOFRAME_phase11_certification_candidate_web.zip",
+    "name": "ECHOFRAME_phase11_certification_candidate_web.zip",
+    "sha256": "9fabe142d2dcf733f02b4c43e14942e9d15b95f472d7cd477783e9060a11572c",
+    "bytes": 473878,
+    "totalEntries": 6,
+    "regularFiles": 5,
+    "directoryEntries": 1,
+    "expectedSha256": "9fabe142d2dcf733f02b4c43e14942e9d15b95f472d7cd477783e9060a11572c",
+    "hashMatched": true,
+    "expectedMetrics": {
+      "totalEntries": 6,
+      "regularFiles": 5,
+      "directoryEntries": 1
+    }
+  },
+  "packageVersion": "1.0.0-release-candidate",
+  "runtimeVersion": "1.0.0-release-candidate",
+  "phase11ExpectedSourceManifestDigest": "3be6c352bb402201c24c32067bbd281dc0493008e19f469f1827ceebffd4fa78",
+  "currentSourceManifestDigest": "b581a7966a1f8e6f83cd2a3ad4f59d53a34046b8257f919432aa7646af427406",
+  "currentSourceFileCount": 485,
+  "canonical": {
+    "GAME_DESIGN.md": {
+      "expected": "556d99d05d7896c2b02bb653cb28e8a0cb631e223edf67e3e0c1236fd7811f71",
+      "actual": "556d99d05d7896c2b02bb653cb28e8a0cb631e223edf67e3e0c1236fd7811f71",
+      "unchanged": true
+    },
+    "TECHNICAL_SPEC.md": {
+      "expected": "8562235331a2dc229977db11a56fdb10ba0032494d4b0d0706f41bf24c903468",
+      "actual": "8562235331a2dc229977db11a56fdb10ba0032494d4b0d0706f41bf24c903468",
+      "unchanged": true
+    },
+    "ART_DIRECTION.md": {
+      "expected": "aa29931c92ada05c0693ea58730986bc8b9ce8c1b8fcbf78acb4d72be8d1529a",
+      "actual": "aa29931c92ada05c0693ea58730986bc8b9ce8c1b8fcbf78acb4d72be8d1529a",
+      "unchanged": true
+    },
+    "BALANCE_SPEC.md": {
+      "expected": "5fca70f1c890b1e13a3b8b17ab3c82da725491c0cca6146a7ad0a2b1f55fd107",
+      "actual": "5fca70f1c890b1e13a3b8b17ab3c82da725491c0cca6146a7ad0a2b1f55fd107",
+      "unchanged": true
+    },
+    "QA_CHECKLIST.md": {
+      "expected": "b120097203b11e7f2fe025ea5767e931395f5edc7059e9821f6ab5ce1c722122",
+      "actual": "b120097203b11e7f2fe025ea5767e931395f5edc7059e9821f6ab5ce1c722122",
+      "unchanged": true
+    }
+  },
+  "environment": {
+    "platform": "linux",
+    "arch": "x64",
+    "kernel": "4.4.0",
+    "osType": "Linux",
+    "node": "v22.16.0",
+    "npm": "10.9.2",
+    "playwright": "Version 1.61.1",
+    "chromium": "Chromium 144.0.7559.96 built on Debian GNU/Linux 13 (trixie)",
+    "firefox": null,
+    "git": "git version 2.47.3",
+    "gh": null
+  },
+  "archiveMetricDefinitions": {
+    "totalEntries": "All ZIP central-directory entries, including explicit directory entries.",
+    "regularFiles": "All non-directory ZIP entries.",
+    "directoryEntries": "Entries whose path ends with a slash."
+  },
+  "repository": {
+    "gitCheckout": false,
+    "repositoryUrl": null,
+    "publicPagesUrl": null,
+    "githubCliAvailable": false
+  },
+  "checks": {
+    "sourceHashMatched": true,
+    "webHashMatched": true,
+    "sourceEntryMetricsMatched": true,
+    "webEntryMetricsMatched": true,
+    "canonicalUnchanged": true,
+    "candidateIdentityPreserved": true
+  },
+  "openGates": [
+    "realFirefoxCertification",
+    "crossBrowserDeterminism",
+    "githubActionsExecution",
+    "publicPagesValidation",
+    "versionPromotion",
+    "finalVersionLifecycle",
+    "finalVersionIdle",
+    "finalVersionSoak",
+    "finalVersionPackaging"
+  ],
+  "passed": false,
+  "baselineRecovered": true
+}

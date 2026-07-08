@@ -1,0 +1,125 @@
+{
+  "generatedAt": "2026-07-06T14:02:44.025Z",
+  "browser": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/144.0.0.0 Safari/537.36",
+  "routeSnapshot": {
+    "segmentType": "BOSS",
+    "segmentId": "null-architect",
+    "template": "boss-chamber",
+    "upgradeOfferCount": 7,
+    "bossImplemented": true,
+    "bossHandoffAvailable": false,
+    "segments": [
+      "COMBAT",
+      "COMBAT",
+      "ELITE",
+      "COMBAT",
+      "COMBAT",
+      "ELITE",
+      "RECOVERY",
+      "BOSS"
+    ]
+  },
+  "observe": {
+    "seed": 8080,
+    "difficulty": "standard",
+    "combatStatus": "BOSS_ACTIVE",
+    "bossPhase": "OBSERVE",
+    "bossHealth": "3600 / 3600",
+    "bossVulnerability": "OPENING",
+    "bossActiveAttack": "rotating-fan",
+    "hostileEchoes": 0,
+    "sectorState": "SAFE",
+    "openPanels": "none",
+    "bossProjectiles": 9,
+    "summonThreat": 0,
+    "schedulerFallbacks": 0,
+    "schedulerHistory": 2,
+    "playerHealth": 100,
+    "cleanupOwners": 9
+  },
+  "imitate": {
+    "seed": 8080,
+    "difficulty": "standard",
+    "combatStatus": "BOSS_ACTIVE",
+    "bossPhase": "IMITATE",
+    "bossHealth": "2520 / 3600",
+    "bossVulnerability": "CLOSED",
+    "bossActiveAttack": "hostile-echo",
+    "hostileEchoes": 1,
+    "sectorState": "SAFE",
+    "openPanels": "none",
+    "bossProjectiles": 0,
+    "summonThreat": 0,
+    "schedulerFallbacks": 6,
+    "schedulerHistory": 9,
+    "playerHealth": 100,
+    "cleanupOwners": 9
+  },
+  "deletion": {
+    "seed": 8080,
+    "difficulty": "standard",
+    "combatStatus": "BOSS_ACTIVE",
+    "bossPhase": "DELETE",
+    "bossHealth": "1260 / 3600",
+    "bossVulnerability": "CLOSED",
+    "bossActiveAttack": "sector-deletion",
+    "hostileEchoes": 0,
+    "sectorState": "DISABLED",
+    "openPanels": "none",
+    "bossProjectiles": 0,
+    "summonThreat": 0,
+    "schedulerFallbacks": 6,
+    "schedulerHistory": 10,
+    "playerHealth": 100,
+    "cleanupOwners": 9
+  },
+  "victory": {
+    "result": "victory",
+    "title": "Victory · Null Architect Defeated",
+    "bossImplemented": true,
+    "victories": 1,
+    "bossRecord": {
+      "defeats": 1,
+      "attempts": 3,
+      "bestTimeMs": 14246.956666666649,
+      "byDifficulty": {
+        "standard": {
+          "defeats": 1,
+          "bestTimeMs": 14246.956666666649
+        }
+      }
+    }
+  },
+  "defeat": {
+    "result": "defeat",
+    "bossPhase": "OBSERVE",
+    "bossHealth": 3600
+  },
+  "activeKeys": [
+    "ResultsScene"
+  ],
+  "checks": {
+    "realBossRoute": true,
+    "allThreePhases": true,
+    "rotatingFan": true,
+    "targetedLineVolley": true,
+    "drifterSummon": true,
+    "hostileEcho": true,
+    "friendlyAndHostileEcho": true,
+    "sectorDeletion": true,
+    "rearPanel": true,
+    "pauseSafe": true,
+    "resizeSafe": true,
+    "victory": true,
+    "defeat": true,
+    "saveIncrementOnce": true,
+    "noBossHandoff": true
+  },
+  "exceptions": 0,
+  "consoleErrors": 0,
+  "warnings": 0,
+  "exceptionDetails": [],
+  "consoleErrorDetails": [],
+  "warningDetails": [],
+  "passed": true
+}

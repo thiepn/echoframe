@@ -1,0 +1,142 @@
+:root {
+  color-scheme: dark;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #080b14;
+  --hud-opacity: 0.9;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app,
+#game-shell,
+#game-container {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+html,
+body {
+  overflow: hidden;
+  overscroll-behavior: none;
+  background:
+    radial-gradient(circle at 50% 45%, #101827 0%, #080b14 58%, #05070d 100%);
+}
+
+body {
+  touch-action: none;
+  user-select: none;
+}
+
+#app,
+#game-shell {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+#game-container {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#game-container canvas {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  outline: none;
+}
+
+#viewport-notice {
+  position: fixed;
+  z-index: 10000;
+  left: 50%;
+  bottom: 12px;
+  transform: translateX(-50%);
+  margin: 0;
+  padding: 8px 14px;
+  border: 1px solid #ffd166;
+  border-radius: 6px;
+  color: #edf7ff;
+  background: #080b14e8;
+  font-size: 14px;
+  pointer-events: none;
+}
+
+.high-contrast body {
+  background: #02040a;
+}
+
+noscript {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+  color: #edf7ff;
+  background: #080b14;
+  text-align: center;
+}
+
+#fatal-error-screen {
+  width: min(680px, calc(100vw - 40px));
+  margin: auto;
+  padding: 42px;
+  border: 2px solid #ff5a7a;
+  border-radius: 12px;
+  background: #080b14;
+  color: #edf7ff;
+  text-align: center;
+  box-shadow: 0 0 46px #ff5a7a33;
+}
+
+#fatal-error-screen h1 {
+  margin: 0 0 18px;
+  font-family: monospace;
+  font-size: clamp(28px, 5vw, 42px);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.fatal-error-code {
+  font-family: monospace;
+  color: #ffd166;
+}
+
+.fatal-error-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin: 28px 0;
+}
+
+.fatal-error-actions button {
+  min-width: 180px;
+  padding: 13px 20px;
+  border: 2px solid #46d7ff;
+  border-radius: 6px;
+  background: #111a2d;
+  color: #edf7ff;
+  font: 700 17px monospace;
+  cursor: pointer;
+}
+
+.fatal-error-actions button:focus-visible {
+  outline: 4px solid #ffd166;
+  outline-offset: 4px;
+}
+
+.fatal-error-note {
+  margin-bottom: 0;
+  color: #a9b7cb;
+  font-size: 14px;
+  line-height: 1.5;
+}

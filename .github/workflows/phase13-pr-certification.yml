@@ -1,0 +1,13 @@
+name: Phase 13 PR Certification — Historical
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  historical-status:
+    runs-on: ubuntu-24.04
+    steps:
+      - run: echo "Completed pre-promotion certification workflow retained as historical evidence; no longer automatic."

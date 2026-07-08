@@ -1,0 +1,2 @@
+export const CHAMBER_STATES=Object.freeze({pending:'PENDING',intro:'INTRO',spawning:'SPAWNING',active:'ACTIVE',recovery:'RECOVERY',complete:'COMPLETE'});
+export class ChamberState{constructor(){this.reset();}reset(){this.value=CHAMBER_STATES.pending;this.elapsedMs=0;}set(v){this.value=v;this.elapsedMs=0;}update(d){this.elapsedMs+=Math.max(0,Number(d)||0);}snapshot(){return{state:this.value,elapsedMs:this.elapsedMs};}}

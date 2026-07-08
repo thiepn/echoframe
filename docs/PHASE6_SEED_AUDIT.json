@@ -1,0 +1,393 @@
+{
+  "generatedAt": "2026-07-05T22:44:27.476Z",
+  "scope": "300 deterministic Phase 6 pre-boss run plans across all difficulties.",
+  "difficulties": {
+    "relaxed": {
+      "runPlans": 100,
+      "segments": 600,
+      "descriptors": 3000,
+      "deterministicPlanMatches": 100,
+      "deterministicDescriptorMatches": 3000,
+      "generationAttempts": 5532,
+      "maximumGenerationAttempts": 35,
+      "fallbackCount": 0,
+      "rejectionReasons": {
+        "missing-required-role": 1452,
+        "exact-repeat": 308,
+        "insufficient-variety": 853,
+        "role-cap": 293,
+        "body-block-risk": 489,
+        "threat-too-low": 20,
+        "projectile-saturation": 41,
+        "spawn-capacity": 2
+      },
+      "elite1ModifierFrequency": {
+        "resonant": 33,
+        "overclocked": 36,
+        "replicating": 31
+      },
+      "elite2ModifierFrequency": {
+        "replicating": 33,
+        "overclocked": 33,
+        "resonant": 34
+      },
+      "eliteHostFrequencyBySegment": {
+        "elite-1": {
+          "sentry": 34,
+          "drifter": 32,
+          "lancer": 34
+        },
+        "elite-2": {
+          "lancer": 16,
+          "bulwark": 18,
+          "drifter": 18,
+          "shard-carrier": 19,
+          "suppressor": 8,
+          "sentry": 21
+        }
+      },
+      "hostModifierPairFrequency": {
+        "sentry:resonant": 21,
+        "lancer:replicating": 21,
+        "drifter:overclocked": 23,
+        "bulwark:replicating": 6,
+        "lancer:overclocked": 17,
+        "sentry:replicating": 18,
+        "shard-carrier:overclocked": 7,
+        "drifter:resonant": 17,
+        "bulwark:resonant": 10,
+        "lancer:resonant": 12,
+        "suppressor:overclocked": 4,
+        "sentry:overclocked": 16,
+        "shard-carrier:replicating": 9,
+        "shard-carrier:resonant": 3,
+        "drifter:replicating": 10,
+        "suppressor:resonant": 4,
+        "bulwark:overclocked": 2
+      },
+      "enemyFrequency": {
+        "drifter": 7862,
+        "sentry": 3161,
+        "lancer": 1285,
+        "shard-carrier": 745,
+        "bulwark": 788,
+        "suppressor": 306
+      },
+      "roleFrequency": {
+        "PRESSURE": 7862,
+        "RANGED": 3161,
+        "BURST": 1285,
+        "SPAWNER": 745,
+        "DEFENDER": 788,
+        "CONTROL": 306
+      },
+      "patternFrequency": {
+        "INTRODUCTION": 600,
+        "RANGED_CROSS": 393,
+        "PRESSURE_LINE": 314,
+        "RECOVERY": 600,
+        "FINALE": 350,
+        "BURST_WINDOW": 122,
+        "MIXED_ESCALATION": 267,
+        "DEFENSIVE_CORE": 253,
+        "CONTROL_ZONE": 101
+      },
+      "spawnPointFrequency": {
+        "sw": 1959,
+        "w": 1991,
+        "e": 1999,
+        "ne": 1992,
+        "n": 2138,
+        "nw": 1954,
+        "se": 1995,
+        "s": 119
+      },
+      "eliteSocketFrequency": {
+        "ne": 36,
+        "n": 30,
+        "se": 29,
+        "e": 23,
+        "sw": 27,
+        "nw": 33,
+        "w": 21,
+        "s": 1
+      },
+      "supportThreatSum": 2116,
+      "totalEliteThreatSum": 3326,
+      "eliteDescriptors": 200,
+      "threatDeviationSum": 2803,
+      "errors": [],
+      "averageGenerationAttempts": 1.844,
+      "averageSupportThreat": 10.58,
+      "averageTotalEliteThreat": 16.63,
+      "averageThreatDeviation": 0.9343333333333333
+    },
+    "standard": {
+      "runPlans": 100,
+      "segments": 600,
+      "descriptors": 3000,
+      "deterministicPlanMatches": 100,
+      "deterministicDescriptorMatches": 3000,
+      "generationAttempts": 5532,
+      "maximumGenerationAttempts": 35,
+      "fallbackCount": 0,
+      "rejectionReasons": {
+        "missing-required-role": 1452,
+        "exact-repeat": 308,
+        "insufficient-variety": 853,
+        "role-cap": 293,
+        "body-block-risk": 489,
+        "threat-too-low": 20,
+        "projectile-saturation": 41,
+        "spawn-capacity": 2
+      },
+      "elite1ModifierFrequency": {
+        "resonant": 33,
+        "overclocked": 36,
+        "replicating": 31
+      },
+      "elite2ModifierFrequency": {
+        "replicating": 33,
+        "overclocked": 33,
+        "resonant": 34
+      },
+      "eliteHostFrequencyBySegment": {
+        "elite-1": {
+          "sentry": 34,
+          "drifter": 32,
+          "lancer": 34
+        },
+        "elite-2": {
+          "lancer": 16,
+          "bulwark": 18,
+          "drifter": 18,
+          "shard-carrier": 19,
+          "suppressor": 8,
+          "sentry": 21
+        }
+      },
+      "hostModifierPairFrequency": {
+        "sentry:resonant": 21,
+        "lancer:replicating": 21,
+        "drifter:overclocked": 23,
+        "bulwark:replicating": 6,
+        "lancer:overclocked": 17,
+        "sentry:replicating": 18,
+        "shard-carrier:overclocked": 7,
+        "drifter:resonant": 17,
+        "bulwark:resonant": 10,
+        "lancer:resonant": 12,
+        "suppressor:overclocked": 4,
+        "sentry:overclocked": 16,
+        "shard-carrier:replicating": 9,
+        "shard-carrier:resonant": 3,
+        "drifter:replicating": 10,
+        "suppressor:resonant": 4,
+        "bulwark:overclocked": 2
+      },
+      "enemyFrequency": {
+        "drifter": 7862,
+        "sentry": 3161,
+        "lancer": 1285,
+        "shard-carrier": 745,
+        "bulwark": 788,
+        "suppressor": 306
+      },
+      "roleFrequency": {
+        "PRESSURE": 7862,
+        "RANGED": 3161,
+        "BURST": 1285,
+        "SPAWNER": 745,
+        "DEFENDER": 788,
+        "CONTROL": 306
+      },
+      "patternFrequency": {
+        "INTRODUCTION": 600,
+        "RANGED_CROSS": 393,
+        "PRESSURE_LINE": 314,
+        "RECOVERY": 600,
+        "FINALE": 350,
+        "BURST_WINDOW": 122,
+        "MIXED_ESCALATION": 267,
+        "DEFENSIVE_CORE": 253,
+        "CONTROL_ZONE": 101
+      },
+      "spawnPointFrequency": {
+        "s": 1920,
+        "sw": 1682,
+        "e": 1739,
+        "w": 1710,
+        "ne": 1748,
+        "nw": 1722,
+        "n": 1895,
+        "se": 1731
+      },
+      "eliteSocketFrequency": {
+        "s": 29,
+        "ne": 30,
+        "n": 26,
+        "se": 26,
+        "e": 24,
+        "sw": 22,
+        "nw": 26,
+        "w": 17
+      },
+      "supportThreatSum": 2116,
+      "totalEliteThreatSum": 3326,
+      "eliteDescriptors": 200,
+      "threatDeviationSum": 2803,
+      "errors": [],
+      "averageGenerationAttempts": 1.844,
+      "averageSupportThreat": 10.58,
+      "averageTotalEliteThreat": 16.63,
+      "averageThreatDeviation": 0.9343333333333333
+    },
+    "overclocked": {
+      "runPlans": 100,
+      "segments": 600,
+      "descriptors": 3000,
+      "deterministicPlanMatches": 100,
+      "deterministicDescriptorMatches": 3000,
+      "generationAttempts": 5532,
+      "maximumGenerationAttempts": 35,
+      "fallbackCount": 0,
+      "rejectionReasons": {
+        "missing-required-role": 1452,
+        "exact-repeat": 308,
+        "insufficient-variety": 853,
+        "role-cap": 293,
+        "body-block-risk": 489,
+        "threat-too-low": 20,
+        "projectile-saturation": 41,
+        "spawn-capacity": 2
+      },
+      "elite1ModifierFrequency": {
+        "resonant": 33,
+        "overclocked": 36,
+        "replicating": 31
+      },
+      "elite2ModifierFrequency": {
+        "replicating": 33,
+        "overclocked": 33,
+        "resonant": 34
+      },
+      "eliteHostFrequencyBySegment": {
+        "elite-1": {
+          "sentry": 34,
+          "drifter": 32,
+          "lancer": 34
+        },
+        "elite-2": {
+          "lancer": 16,
+          "bulwark": 18,
+          "drifter": 18,
+          "shard-carrier": 19,
+          "suppressor": 8,
+          "sentry": 21
+        }
+      },
+      "hostModifierPairFrequency": {
+        "sentry:resonant": 21,
+        "lancer:replicating": 21,
+        "drifter:overclocked": 23,
+        "bulwark:replicating": 6,
+        "lancer:overclocked": 17,
+        "sentry:replicating": 18,
+        "shard-carrier:overclocked": 7,
+        "drifter:resonant": 17,
+        "bulwark:resonant": 10,
+        "lancer:resonant": 12,
+        "suppressor:overclocked": 4,
+        "sentry:overclocked": 16,
+        "shard-carrier:replicating": 9,
+        "shard-carrier:resonant": 3,
+        "drifter:replicating": 10,
+        "suppressor:resonant": 4,
+        "bulwark:overclocked": 2
+      },
+      "enemyFrequency": {
+        "drifter": 7862,
+        "sentry": 3161,
+        "lancer": 1285,
+        "shard-carrier": 745,
+        "bulwark": 788,
+        "suppressor": 306
+      },
+      "roleFrequency": {
+        "PRESSURE": 7862,
+        "RANGED": 3161,
+        "BURST": 1285,
+        "SPAWNER": 745,
+        "DEFENDER": 788,
+        "CONTROL": 306
+      },
+      "patternFrequency": {
+        "INTRODUCTION": 600,
+        "RANGED_CROSS": 393,
+        "PRESSURE_LINE": 314,
+        "RECOVERY": 600,
+        "FINALE": 350,
+        "BURST_WINDOW": 122,
+        "MIXED_ESCALATION": 267,
+        "DEFENSIVE_CORE": 253,
+        "CONTROL_ZONE": 101
+      },
+      "spawnPointFrequency": {
+        "s": 1920,
+        "sw": 1682,
+        "e": 1739,
+        "w": 1710,
+        "ne": 1748,
+        "nw": 1722,
+        "n": 1895,
+        "se": 1731
+      },
+      "eliteSocketFrequency": {
+        "s": 29,
+        "ne": 30,
+        "n": 26,
+        "se": 26,
+        "e": 24,
+        "sw": 22,
+        "nw": 26,
+        "w": 17
+      },
+      "supportThreatSum": 2116,
+      "totalEliteThreatSum": 3326,
+      "eliteDescriptors": 200,
+      "threatDeviationSum": 2803,
+      "errors": [],
+      "averageGenerationAttempts": 1.844,
+      "averageSupportThreat": 10.58,
+      "averageTotalEliteThreat": 16.63,
+      "averageThreatDeviation": 0.9343333333333333
+    }
+  },
+  "totals": {
+    "runPlans": 300,
+    "segments": 1800,
+    "descriptors": 9000,
+    "deterministicPlanComparisons": 300,
+    "deterministicPlanMatches": 300,
+    "deterministicDescriptorComparisons": 9000,
+    "deterministicDescriptorMatches": 9000,
+    "planGenerationErrors": 0,
+    "encounterGenerationErrors": 0,
+    "generationAttempts": 16596,
+    "maximumGenerationAttempts": 35,
+    "fallbackCount": 0,
+    "ineligiblePairCount": 0,
+    "normalSegmentEliteCount": 0,
+    "missingEliteSegmentCount": 0,
+    "activeCapViolations": 0,
+    "roleCapViolations": 0,
+    "copyReservationViolations": 0,
+    "resonantNoSupportViolations": 0,
+    "repeatedModifierCount": 0,
+    "repeatedHostModifierPairCount": 0,
+    "upgradeOfferMismatches": 0,
+    "errors": [],
+    "averageGenerationAttempts": 1.844,
+    "passed": true
+  }
+}

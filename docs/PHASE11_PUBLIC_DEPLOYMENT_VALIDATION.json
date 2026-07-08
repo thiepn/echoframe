@@ -1,0 +1,12 @@
+{
+  "generatedAt": "2026-07-07T22:27:37.224Z",
+  "phase": 11,
+  "packageVersion": "1.0.0-release-candidate",
+  "sourceManifestDigest": "3be6c352bb402201c24c32067bbd281dc0493008e19f469f1827ceebffd4fa78",
+  "url": null,
+  "status": "unavailable-no-public-url",
+  "passed": false,
+  "chromiumPassed": false,
+  "firefoxPassed": false,
+  "note": "No repository URL or public GitHub Pages URL was provided. No public-launch claim is made."
+}

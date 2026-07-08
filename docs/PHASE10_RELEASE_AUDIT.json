@@ -1,0 +1,192 @@
+{
+  "generatedAt": "2026-07-07T17:31:49.495Z",
+  "release": "1.0.0-release-candidate",
+  "auditCompleted": true,
+  "passed": false,
+  "releaseReady": false,
+  "packageVersion": "1.0.0-release-candidate",
+  "canonical": {
+    "GAME_DESIGN.md": {
+      "expected": "556d99d05d7896c2b02bb653cb28e8a0cb631e223edf67e3e0c1236fd7811f71",
+      "actual": "556d99d05d7896c2b02bb653cb28e8a0cb631e223edf67e3e0c1236fd7811f71",
+      "unchanged": true
+    },
+    "TECHNICAL_SPEC.md": {
+      "expected": "8562235331a2dc229977db11a56fdb10ba0032494d4b0d0706f41bf24c903468",
+      "actual": "8562235331a2dc229977db11a56fdb10ba0032494d4b0d0706f41bf24c903468",
+      "unchanged": true
+    },
+    "ART_DIRECTION.md": {
+      "expected": "aa29931c92ada05c0693ea58730986bc8b9ce8c1b8fcbf78acb4d72be8d1529a",
+      "actual": "aa29931c92ada05c0693ea58730986bc8b9ce8c1b8fcbf78acb4d72be8d1529a",
+      "unchanged": true
+    },
+    "BALANCE_SPEC.md": {
+      "expected": "5fca70f1c890b1e13a3b8b17ab3c82da725491c0cca6146a7ad0a2b1f55fd107",
+      "actual": "5fca70f1c890b1e13a3b8b17ab3c82da725491c0cca6146a7ad0a2b1f55fd107",
+      "unchanged": true
+    },
+    "QA_CHECKLIST.md": {
+      "expected": "b120097203b11e7f2fe025ea5767e931395f5edc7059e9821f6ab5ce1c722122",
+      "actual": "b120097203b11e7f2fe025ea5767e931395f5edc7059e9821f6ab5ce1c722122",
+      "unchanged": true
+    }
+  },
+  "reports": {
+    "core": {
+      "filename": "PHASE10_CORE_VALIDATION.json",
+      "exists": true,
+      "passed": true,
+      "status": null,
+      "generatedAt": "2026-07-07T17:31:42.126Z",
+      "detail": null
+    },
+    "tutorial": {
+      "filename": "PHASE10_TUTORIAL_AUDIT.json",
+      "exists": true,
+      "passed": true,
+      "status": null,
+      "generatedAt": "2026-07-07T17:31:34.096Z",
+      "detail": null
+    },
+    "bindings": {
+      "filename": "PHASE10_BINDING_AUDIT.json",
+      "exists": true,
+      "passed": true,
+      "status": null,
+      "generatedAt": "2026-07-07T17:31:39.213Z",
+      "detail": null
+    },
+    "accessibility": {
+      "filename": "PHASE10_ACCESSIBILITY_AUDIT.json",
+      "exists": true,
+      "passed": true,
+      "status": null,
+      "generatedAt": "2026-07-07T17:31:39.634Z",
+      "detail": null
+    },
+    "accessibilityBrowser": {
+      "filename": "PHASE10_ACCESSIBILITY_BROWSER_VALIDATION.json",
+      "exists": true,
+      "passed": true,
+      "status": null,
+      "generatedAt": "2026-07-07T16:03:23.082Z",
+      "detail": null
+    },
+    "source": {
+      "filename": "PHASE10_SOURCE_AUDIT.json",
+      "exists": true,
+      "passed": true,
+      "status": null,
+      "generatedAt": "2026-07-07T17:31:40.455Z",
+      "detail": null
+    },
+    "security": {
+      "filename": "PHASE10_SECURITY_AUDIT.json",
+      "exists": true,
+      "passed": true,
+      "status": null,
+      "generatedAt": "2026-07-07T17:31:40.948Z",
+      "detail": null
+    },
+    "npm": {
+      "filename": "PHASE10_NPM_AUDIT.json",
+      "exists": true,
+      "passed": true,
+      "status": null,
+      "generatedAt": null,
+      "detail": null
+    },
+    "chromium": {
+      "filename": "PHASE10_BROWSER_CHROMIUM_VALIDATION.json",
+      "exists": true,
+      "passed": true,
+      "status": null,
+      "generatedAt": "2026-07-07T16:13:57.925Z",
+      "detail": null
+    },
+    "firefox": {
+      "filename": "PHASE10_BROWSER_FIREFOX_VALIDATION.json",
+      "exists": true,
+      "passed": false,
+      "status": "environment-blocked-before-game-execution",
+      "generatedAt": "2026-07-07T17:30:07.260Z",
+      "detail": null
+    },
+    "deployment": {
+      "filename": "PHASE10_DEPLOYMENT_VALIDATION.json",
+      "exists": true,
+      "passed": true,
+      "status": null,
+      "generatedAt": "2026-07-07T16:14:48.612Z",
+      "detail": null
+    },
+    "lifecycle": {
+      "filename": "PHASE10_LIFECYCLE_VALIDATION.json",
+      "exists": true,
+      "passed": true,
+      "status": null,
+      "generatedAt": "2026-07-07T16:15:32.227Z",
+      "detail": null
+    },
+    "idle": {
+      "filename": "PHASE10_MENU_IDLE_VALIDATION.json",
+      "exists": true,
+      "passed": true,
+      "status": null,
+      "generatedAt": "2026-07-07T16:46:02.681Z",
+      "detail": null
+    },
+    "soak": {
+      "filename": "PHASE10_ACTIVE_SOAK_VALIDATION.json",
+      "exists": true,
+      "passed": true,
+      "status": null,
+      "generatedAt": "2026-07-07T17:28:01.030Z",
+      "detail": null
+    },
+    "performance": {
+      "filename": "PHASE10_PERFORMANCE_VALIDATION.json",
+      "exists": true,
+      "passed": true,
+      "status": null,
+      "generatedAt": "2026-07-07T16:11:32.427Z",
+      "detail": null
+    }
+  },
+  "screenshots": {
+    "ECHOFRAME_phase10_main_menu.png": true,
+    "ECHOFRAME_phase10_tutorial_movement.png": true,
+    "ECHOFRAME_phase10_tutorial_echo.png": true,
+    "ECHOFRAME_phase10_controls_rebinding.png": true,
+    "ECHOFRAME_phase10_accessibility.png": true,
+    "ECHOFRAME_phase10_full_combat.png": true,
+    "ECHOFRAME_phase10_boss_phase3.png": true,
+    "ECHOFRAME_phase10_results.png": true,
+    "ECHOFRAME_phase10_credits.png": true,
+    "ECHOFRAME_phase10_fatal_screen.png": true
+  },
+  "checks": {
+    "packageVersion": true,
+    "runtimeVersion": true,
+    "canonicalDocumentsUnchanged": true,
+    "allRequiredReportsPresent": true,
+    "allRequiredScreenshotsPresent": true,
+    "deploymentWorkflowComplete": true,
+    "coreValidationPassed": true,
+    "deterministicAuditsPassed": true,
+    "chromiumPassed": true,
+    "firefoxPassed": false,
+    "deploymentPassed": true,
+    "lifecyclePassed": true,
+    "menuIdlePassed": true,
+    "activeSoakPassed": true,
+    "performancePassed": true
+  },
+  "openGates": [
+    "firefoxPassed"
+  ],
+  "criticalDefects": 0,
+  "highDefects": 0,
+  "note": "Release sign-off remains withheld. Open gates are reported without reclassification or concealment."
+}

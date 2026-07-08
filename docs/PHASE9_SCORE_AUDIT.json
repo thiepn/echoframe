@@ -1,0 +1,92 @@
+{
+  "generatedAt": "2026-07-08T00:01:55.089Z",
+  "scope": "300 complete deterministic score simulations: 100 per difficulty.",
+  "simulations": 300,
+  "exactDeterministicMatches": 300,
+  "byDifficulty": {
+    "relaxed": {
+      "simulations": 100,
+      "minimumScore": 21260,
+      "maximumScore": 30079,
+      "averageScore": 25417.86,
+      "averageEvents": 83.54,
+      "maximumLedgerSize": 107,
+      "highestCombo": 21,
+      "categoryTotals": {
+        "enemyScore": 1782374,
+        "eliteScore": 111247,
+        "chamberScore": 490000,
+        "bossScore": 500000,
+        "crossfireScore": 81848,
+        "bulwarkRearScore": 0,
+        "nearMissScore": 20671,
+        "multiKillScore": 0,
+        "timeBonus": 292060,
+        "avoidanceBonus": 110833,
+        "subtotal": 3389033,
+        "difficultyMultiplier": 75,
+        "finalScore": 2541786
+      }
+    },
+    "standard": {
+      "simulations": 100,
+      "minimumScore": 27272,
+      "maximumScore": 40724,
+      "averageScore": 32699.38,
+      "averageEvents": 83.19,
+      "maximumLedgerSize": 105,
+      "highestCombo": 20.7,
+      "categoryTotals": {
+        "enemyScore": 1777498,
+        "eliteScore": 109110,
+        "chamberScore": 490000,
+        "bossScore": 500000,
+        "crossfireScore": 81752,
+        "bulwarkRearScore": 0,
+        "nearMissScore": 19880,
+        "multiKillScore": 0,
+        "timeBonus": 181322,
+        "avoidanceBonus": 110376,
+        "subtotal": 3269938,
+        "difficultyMultiplier": 100,
+        "finalScore": 3269938
+      }
+    },
+    "overclocked": {
+      "simulations": 100,
+      "minimumScore": 33886,
+      "maximumScore": 54733,
+      "averageScore": 42832.72,
+      "averageEvents": 82.73,
+      "maximumLedgerSize": 101,
+      "highestCombo": 21.499999999999996,
+      "categoryTotals": {
+        "enemyScore": 1774678,
+        "eliteScore": 113566,
+        "chamberScore": 490000,
+        "bossScore": 500000,
+        "crossfireScore": 78282,
+        "bulwarkRearScore": 0,
+        "nearMissScore": 20969,
+        "multiKillScore": 0,
+        "timeBonus": 85629,
+        "avoidanceBonus": 109668,
+        "subtotal": 3172792,
+        "difficultyMultiplier": 134.99999999999974,
+        "finalScore": 4283272
+      }
+    }
+  },
+  "failures": {
+    "nondeterministicMatches": 0,
+    "recomputationMismatches": 0,
+    "nonIntegerEventScores": 0,
+    "unknownEventTypes": 0,
+    "unboundedLedgerViolations": 0,
+    "nonFiniteValues": 0,
+    "negativeFinalScores": 0,
+    "duplicateAcceptedEvents": 0,
+    "scoreAfterOutcomeAccepted": 0
+  },
+  "passed": true
+}

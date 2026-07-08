@@ -1,0 +1,628 @@
+{
+  "generatedAt": "2026-07-05T22:07:50.874Z",
+  "bootstrap": {
+    "runId": "d50d3e3b-2625-48e9-aae6-82d45249ac67",
+    "seed": 605193910,
+    "difficultyId": "standard",
+    "plan": {
+      "seed": 605193910,
+      "difficultyId": "standard",
+      "generationVersion": 1,
+      "segments": [
+        {
+          "segmentId": "combat-1",
+          "segmentIndex": 0,
+          "segmentType": "COMBAT",
+          "label": "Combat 1",
+          "chamberIndex": 1,
+          "allowedEnemyTypes": [
+            "drifter",
+            "sentry"
+          ],
+          "threatRange": [
+            5,
+            7
+          ],
+          "activeThreatCap": 6,
+          "requiresElite": false,
+          "offerUpgradeAfter": true,
+          "tags": [
+            "opening",
+            "legacy-roster"
+          ],
+          "encounterSeed": 1913893430,
+          "eliteSeed": 714399049,
+          "randomStreamSeeds": {
+            "runPlan": 1011633437,
+            "encounterComposition": 501434804,
+            "eliteModifierSelection": 215280920,
+            "eliteHostSelection": 2044388811,
+            "eliteSupportComposition": 156165504,
+            "eliteSpawnSelection": 3246447628,
+            "eliteSpawnOrder": 3386344614,
+            "eliteCosmeticVariation": 840332997
+          },
+          "completionRule": "all-hostiles-resolved",
+          "elitePlan": null,
+          "introductionEnemyTypes": []
+        },
+        {
+          "segmentId": "combat-2",
+          "segmentIndex": 1,
+          "segmentType": "COMBAT",
+          "label": "Combat 2",
+          "chamberIndex": 2,
+          "allowedEnemyTypes": [
+            "drifter",
+            "sentry",
+            "lancer"
+          ],
+          "threatRange": [
+            7,
+            10
+          ],
+          "activeThreatCap": 8,
+          "requiresElite": false,
+          "offerUpgradeAfter": true,
+          "introductionEnemyTypes": [
+            "lancer"
+          ],
+          "tags": [
+            "lancer-introduction"
+          ],
+          "encounterSeed": 1930671267,
+          "eliteSeed": 731175900,
+          "randomStreamSeeds": {
+            "runPlan": 1028410248,
+            "encounterComposition": 484658977,
+            "eliteModifierSelection": 232057741,
+            "eliteHostSelection": 2027610974,
+            "eliteSupportComposition": 139387669,
+            "eliteSpawnSelection": 3229670041,
+            "eliteSpawnOrder": 3369566771,
+            "eliteCosmeticVariation": 857108560
+          },
+          "completionRule": "all-hostiles-resolved",
+          "elitePlan": null
+        },
+        {
+          "segmentId": "elite-1",
+          "segmentIndex": 2,
+          "segmentType": "ELITE",
+          "label": "Elite 1",
+          "chamberIndex": 3,
+          "allowedEnemyTypes": [
+            "drifter",
+            "sentry",
+            "lancer"
+          ],
+          "threatRange": [
+            8,
+            11
+          ],
+          "activeThreatCap": 8,
+          "requiresElite": true,
+          "offerUpgradeAfter": true,
+          "tags": [
+            "first-elite"
+          ],
+          "encounterSeed": 3258715927,
+          "eliteSeed": 2595971176,
+          "randomStreamSeeds": {
+            "runPlan": 2355359804,
+            "encounterComposition": 2915890325,
+            "eliteModifierSelection": 3170586681,
+            "eliteHostSelection": 3388299498,
+            "eliteSupportComposition": 3110164641,
+            "eliteSpawnSelection": 1907319085,
+            "eliteSpawnOrder": 2046310791,
+            "eliteCosmeticVariation": 2184825828
+          },
+          "completionRule": "all-hostiles-resolved",
+          "elitePlan": {
+            "modifierId": "overclocked",
+            "eliteInstanceId": "elite-1-overclocked-lancer-9abb6068",
+            "hostEnemyType": "lancer",
+            "baseThreat": 3,
+            "threatSurcharge": 3,
+            "totalThreat": 6,
+            "selectionSeed": 2393238483,
+            "supportCompositionSeed": 1312504098,
+            "spawnSelectionSeed": 205983338,
+            "spawnOrderSeed": 4223777297,
+            "cosmeticSeed": 3181887832,
+            "reservedEnemySlots": 0,
+            "reservedSubordinateSlots": 0,
+            "tags": [
+              "primary-elite",
+              "elite-1"
+            ],
+            "generationDiagnostics": {
+              "rejectionReasons": {},
+              "fallbackUsed": false
+            }
+          },
+          "introductionEnemyTypes": []
+        },
+        {
+          "segmentId": "combat-3",
+          "segmentIndex": 3,
+          "segmentType": "COMBAT",
+          "label": "Combat 3",
+          "chamberIndex": 4,
+          "allowedEnemyTypes": [
+            "drifter",
+            "sentry",
+            "lancer",
+            "shard-carrier",
+            "bulwark"
+          ],
+          "threatRange": [
+            10,
+            13
+          ],
+          "activeThreatCap": 10,
+          "requiresElite": false,
+          "offerUpgradeAfter": true,
+          "introductionEnemyTypes": [
+            "shard-carrier",
+            "bulwark"
+          ],
+          "tags": [
+            "carrier-bulwark-introduction"
+          ],
+          "encounterSeed": 1880340300,
+          "eliteSeed": 680843315,
+          "randomStreamSeeds": {
+            "runPlan": 1045186663,
+            "encounterComposition": 534990030,
+            "eliteModifierSelection": 248834146,
+            "eliteHostSelection": 2077941937,
+            "eliteSupportComposition": 189718778,
+            "eliteSpawnSelection": 3280001398,
+            "eliteSpawnOrder": 3419898332,
+            "eliteCosmeticVariation": 806777791
+          },
+          "completionRule": "all-hostiles-resolved",
+          "elitePlan": null
+        },
+        {
+          "segmentId": "combat-4",
+          "segmentIndex": 4,
+          "segmentType": "COMBAT",
+          "label": "Combat 4",
+          "chamberIndex": 5,
+          "allowedEnemyTypes": [
+            "drifter",
+            "sentry",
+            "lancer",
+            "shard-carrier",
+            "bulwark",
+            "suppressor"
+          ],
+          "threatRange": [
+            12,
+            16
+          ],
+          "activeThreatCap": 12,
+          "requiresElite": false,
+          "offerUpgradeAfter": true,
+          "introductionEnemyTypes": [
+            "suppressor"
+          ],
+          "tags": [
+            "suppressor-introduction",
+            "full-roster"
+          ],
+          "encounterSeed": 1897114105,
+          "eliteSeed": 697616006,
+          "randomStreamSeeds": {
+            "runPlan": 1061967570,
+            "encounterComposition": 518214267,
+            "eliteModifierSelection": 265615063,
+            "eliteHostSelection": 2061172228,
+            "eliteSupportComposition": 172949071,
+            "eliteSpawnSelection": 3263219651,
+            "eliteSpawnOrder": 3403128681,
+            "eliteCosmeticVariation": 823553290
+          },
+          "completionRule": "all-hostiles-resolved",
+          "elitePlan": null
+        },
+        {
+          "segmentId": "elite-2",
+          "segmentIndex": 5,
+          "segmentType": "ELITE",
+          "label": "Elite 2",
+          "chamberIndex": 6,
+          "allowedEnemyTypes": [
+            "drifter",
+            "sentry",
+            "lancer",
+            "shard-carrier",
+            "bulwark",
+            "suppressor"
+          ],
+          "threatRange": [
+            13,
+            17
+          ],
+          "activeThreatCap": 12,
+          "requiresElite": true,
+          "offerUpgradeAfter": false,
+          "tags": [
+            "second-elite",
+            "full-roster",
+            "pre-boss-final"
+          ],
+          "encounterSeed": 3443264874,
+          "eliteSeed": 2512085525,
+          "randomStreamSeeds": {
+            "runPlan": 2204365377,
+            "encounterComposition": 2731341544,
+            "eliteModifierSelection": 3019592260,
+            "eliteHostSelection": 3337968279,
+            "eliteSupportComposition": 3059833564,
+            "eliteSpawnSelection": 2125423440,
+            "eliteSpawnOrder": 1995979770,
+            "eliteCosmeticVariation": 2369374617
+          },
+          "completionRule": "all-hostiles-resolved",
+          "elitePlan": {
+            "modifierId": "replicating",
+            "eliteInstanceId": "elite-2-replicating-drifter-95bb6215",
+            "hostEnemyType": "drifter",
+            "baseThreat": 1,
+            "threatSurcharge": 4,
+            "totalThreat": 5,
+            "selectionSeed": 2158358363,
+            "supportCompositionSeed": 1178285474,
+            "spawnSelectionSeed": 4656762,
+            "spawnOrderSeed": 3418470357,
+            "cosmeticSeed": 3215443964,
+            "reservedEnemySlots": 1,
+            "reservedSubordinateSlots": 0,
+            "tags": [
+              "primary-elite",
+              "elite-2"
+            ],
+            "generationDiagnostics": {
+              "rejectionReasons": {},
+              "fallbackUsed": false
+            }
+          },
+          "introductionEnemyTypes": []
+        }
+      ],
+      "upgradeOfferCount": 5,
+      "expectedEliteCount": 2,
+      "bossHandoffAvailable": false
+    }
+  },
+  "runPlan": {
+    "segments": [
+      "combat-1",
+      "combat-2",
+      "elite-1",
+      "combat-3",
+      "combat-4",
+      "elite-2"
+    ],
+    "upgrades": 5,
+    "elites": [
+      {
+        "modifierId": "overclocked",
+        "eliteInstanceId": "elite-1-overclocked-lancer-9abb6068",
+        "hostEnemyType": "lancer",
+        "baseThreat": 3,
+        "threatSurcharge": 3,
+        "totalThreat": 6,
+        "selectionSeed": 2393238483,
+        "supportCompositionSeed": 1312504098,
+        "spawnSelectionSeed": 205983338,
+        "spawnOrderSeed": 4223777297,
+        "cosmeticSeed": 3181887832,
+        "reservedEnemySlots": 0,
+        "reservedSubordinateSlots": 0,
+        "tags": [
+          "primary-elite",
+          "elite-1"
+        ],
+        "generationDiagnostics": {
+          "rejectionReasons": {},
+          "fallbackUsed": false
+        }
+      },
+      {
+        "modifierId": "replicating",
+        "eliteInstanceId": "elite-2-replicating-drifter-95bb6215",
+        "hostEnemyType": "drifter",
+        "baseThreat": 1,
+        "threatSurcharge": 4,
+        "totalThreat": 5,
+        "selectionSeed": 2158358363,
+        "supportCompositionSeed": 1178285474,
+        "spawnSelectionSeed": 4656762,
+        "spawnOrderSeed": 3418470357,
+        "cosmeticSeed": 3215443964,
+        "reservedEnemySlots": 1,
+        "reservedSubordinateSlots": 0,
+        "tags": [
+          "primary-elite",
+          "elite-2"
+        ],
+        "generationDiagnostics": {
+          "rejectionReasons": {},
+          "fallbackUsed": false
+        }
+      }
+    ],
+    "serializable": true
+  },
+  "checks": {
+    "sixSegmentRoute": true,
+    "fiveUpgrades": true,
+    "mouseUpgradeSelection": true,
+    "keyboardUpgradeSelection": true,
+    "allSixEnemies": true,
+    "overclockedMultipleAttacks": true,
+    "replicatingWarningAndCopy": true,
+    "copyDefeat": true,
+    "resonantTriggerAndAbsorption": true,
+    "playerAndEchoDamageAgainstModifiers": true,
+    "bulwarkEliteInteraction": true,
+    "pauseSafe": true,
+    "resize": {
+      "width": 1600,
+      "height": 900
+    },
+    "eliteDeath": true,
+    "restart": true,
+    "returnToMenu": true
+  },
+  "overclocked": {
+    "states": [
+      "SPAWNING",
+      "ACTIVE",
+      "ATTACK_ANTICIPATION",
+      "ATTACK_EXECUTION"
+    ],
+    "telemetry": {
+      "segmentsStarted": 0,
+      "segmentsCompleted": 0,
+      "segmentDurations": {},
+      "hostsSpawned": 1,
+      "modifiers": {
+        "overclocked": 1
+      },
+      "hosts": {
+        "sentry": 1
+      },
+      "hostModifierPairs": {
+        "sentry:overclocked": 1
+      },
+      "damageTaken": 0,
+      "damageDealt": 0,
+      "overclockedAttacks": 2,
+      "replicationTriggers": 0,
+      "copiesSpawned": 0,
+      "copiesDefeated": 0,
+      "copySpawnRejections": 0,
+      "resonantTriggers": 0,
+      "shieldGranted": 0,
+      "shieldAbsorbed": 0,
+      "shieldExpiries": 0,
+      "shieldBreaks": 0,
+      "eliteDefeats": 0,
+      "eliteDefeatsBySource": {},
+      "timeToKillMs": [],
+      "fallbacks": 0,
+      "rejectionReasons": {},
+      "averageTimeToKillMs": 0,
+      "maximumTimeToKillMs": 0
+    }
+  },
+  "replicating": {
+    "copy": {
+      "enemyId": "drifter-11",
+      "type": "drifter",
+      "role": "PRESSURE",
+      "threatCost": 1,
+      "x": 790.9158243923733,
+      "y": 140.34433672604627,
+      "state": "SPAWNING",
+      "health": 19,
+      "maximumHealth": 19,
+      "moveSpeed": 137.75,
+      "shieldAngle": null,
+      "fieldActive": false,
+      "isElite": false,
+      "isEliteCopy": true,
+      "elite": null,
+      "copyOfEliteInstanceId": "debug-replicating-drifter-1783289261207"
+    },
+    "enemies": [
+      {
+        "enemyId": "drifter-10",
+        "type": "drifter",
+        "role": "PRESSURE",
+        "threatCost": 5,
+        "x": 800,
+        "y": 260,
+        "state": "SPAWNING",
+        "health": 16.65,
+        "maximumHealth": 37,
+        "moveSpeed": 145,
+        "shieldAngle": null,
+        "fieldActive": false,
+        "isElite": true,
+        "isEliteCopy": false,
+        "elite": {
+          "eliteInstanceId": "debug-replicating-drifter-1783289261207",
+          "modifierId": "replicating",
+          "hostEnemyType": "drifter",
+          "enemyId": "drifter-10",
+          "state": "ACTIVE",
+          "pendingCopyMs": 0,
+          "replicationTriggered": true,
+          "shieldAmount": 0,
+          "shieldRemainingMs": 0,
+          "internalCooldownMs": 0
+        },
+        "copyOfEliteInstanceId": null
+      },
+      {
+        "enemyId": "drifter-11",
+        "type": "drifter",
+        "role": "PRESSURE",
+        "threatCost": 1,
+        "x": 790.9158243923733,
+        "y": 140.34433672604627,
+        "state": "SPAWNING",
+        "health": 19,
+        "maximumHealth": 19,
+        "moveSpeed": 137.75,
+        "shieldAngle": null,
+        "fieldActive": false,
+        "isElite": false,
+        "isEliteCopy": true,
+        "elite": null,
+        "copyOfEliteInstanceId": "debug-replicating-drifter-1783289261207"
+      }
+    ],
+    "elite": {
+      "active": 1,
+      "copyLinks": 1,
+      "elites": [
+        {
+          "eliteInstanceId": "debug-replicating-drifter-1783289261207",
+          "modifierId": "replicating",
+          "hostEnemyType": "drifter",
+          "enemyId": "drifter-10",
+          "state": "ACTIVE",
+          "pendingCopyMs": 0,
+          "replicationTriggered": true,
+          "shieldAmount": 0,
+          "shieldRemainingMs": 0,
+          "internalCooldownMs": 0
+        }
+      ],
+      "telemetry": {
+        "segmentsStarted": 0,
+        "segmentsCompleted": 0,
+        "segmentDurations": {},
+        "hostsSpawned": 2,
+        "modifiers": {
+          "overclocked": 1,
+          "replicating": 1
+        },
+        "hosts": {
+          "sentry": 1,
+          "drifter": 1
+        },
+        "hostModifierPairs": {
+          "sentry:overclocked": 1,
+          "drifter:replicating": 1
+        },
+        "damageTaken": 22.35,
+        "damageDealt": 0,
+        "overclockedAttacks": 3,
+        "replicationTriggers": 1,
+        "copiesSpawned": 1,
+        "copiesDefeated": 0,
+        "copySpawnRejections": 0,
+        "resonantTriggers": 0,
+        "shieldGranted": 0,
+        "shieldAbsorbed": 0,
+        "shieldExpiries": 0,
+        "shieldBreaks": 0,
+        "eliteDefeats": 0,
+        "eliteDefeatsBySource": {},
+        "timeToKillMs": [],
+        "fallbacks": 0,
+        "rejectionReasons": {},
+        "averageTimeToKillMs": 0,
+        "maximumTimeToKillMs": 0
+      }
+    },
+    "finite": true
+  },
+  "resonant": {
+    "activation": {
+      "enemyId": "bulwark-12",
+      "shield": 43.199999999999996,
+      "maximumHealth": 180
+    },
+    "damage": {
+      "player": {
+        "accepted": true,
+        "rejectedReason": null,
+        "amountBeforeMitigation": 8,
+        "amountAfterMitigation": 8,
+        "shieldAbsorbed": 8,
+        "damageApplied": 0,
+        "remainingHealth": 180,
+        "targetDefeated": false,
+        "critical": false,
+        "damageId": "browser-res-player",
+        "modifierDiagnostics": {
+          "modifierId": "resonant",
+          "shieldRemaining": 35.199999999999996
+        }
+      },
+      "echo": {
+        "accepted": true,
+        "rejectedReason": null,
+        "amountBeforeMitigation": 8,
+        "amountAfterMitigation": 8,
+        "shieldAbsorbed": 8,
+        "damageApplied": 0,
+        "remainingHealth": 180,
+        "targetDefeated": false,
+        "critical": false,
+        "damageId": "browser-res-echo",
+        "modifierDiagnostics": {
+          "modifierId": "resonant",
+          "shieldRemaining": 27.199999999999996
+        }
+      },
+      "state": {
+        "eliteInstanceId": "debug-resonant-bulwark-1783289262412",
+        "modifierId": "resonant",
+        "hostEnemyType": "bulwark",
+        "enemyId": "bulwark-12",
+        "state": "SHIELDED",
+        "pendingCopyMs": 0,
+        "replicationTriggered": false,
+        "shieldAmount": 27.199999999999996,
+        "shieldRemainingMs": 3483.33,
+        "internalCooldownMs": 2483.33
+      }
+    }
+  },
+  "results": {
+    "result": "victory",
+    "preBossComplete": true,
+    "segmentCount": 6,
+    "upgrades": 5,
+    "texts": [
+      "PRE-BOSS RUN COMPLETE",
+      "All six pre-boss combat segments were cleared. Recovery, final upgrade, and the Null Architect remain outside Phase 6.",
+      "Result: Pre-boss clear\nSeed: 605193910\nDifficulty: Standard\nDuration: 00:07\nCombat 1: 00:05\nCombat 2: 00:00\nElite 1: 00:00\nCombat 3: 00:00\nCombat 4: 00:00\nElite 2: 00:00\nHealth remaining: 100\nDamage taken: 0",
+      "Elite 1: Overclocked Lancer\nElite 2: Replicating Drifter\nElite hosts spawned: 3\nElite defeats: 0\nOverclocked attacks: 3\nReplication triggers: 1\nCopies spawned/defeated: 1 / 1\nResonant triggers: 1\nShield absorbed: 16\nUpgrades: Last Frame L1 · Reactive Shell L1 · Regenerative Circuit L1 · Split Lens L1 · Regenerative Circuit L2",
+      "Player shots/hits: 0 / 0\nPlayer accuracy: 0%\nPlayer damage: 0\nEcho shots/hits: 0 / 0\nEcho accuracy: 0%\nEcho damage: 0\nPlayer / Echo kills: 1 / 1\nTotal enemies: 2\nEncounters: 0\nPeak enemies/projectiles: 6 / 1\nFallbacks: 0",
+      ""
+    ]
+  },
+  "route": [
+    "upgrade-1",
+    "upgrade-2",
+    "upgrade-3",
+    "upgrade-4",
+    "upgrade-5"
+  ],
+  "exceptions": 0,
+  "consoleErrors": 0,
+  "warnings": 0,
+  "passed": true
+}

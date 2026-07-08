@@ -1,0 +1,2 @@
+import{SeededRandom,deriveSeed}from'../../utils/SeededRandom.js';
+export class NullAbsorptionBehavior{constructor(seed=1){this.rng=new SeededRandom(deriveSeed(seed,'null-absorption'));this.cooldownMs=0;this.seen=new Set();}update(deltaMs){this.cooldownMs=Math.max(0,this.cooldownMs-deltaMs);}try(projectileId,profile){if(!profile||this.cooldownMs>0||this.seen.has(projectileId))return 0;this.seen.add(projectileId);if(this.rng.next()>=profile.chance)return 0;this.cooldownMs=profile.internalCooldownMs;return profile.reductionMs;}reset(){this.cooldownMs=0;this.seen.clear();}}

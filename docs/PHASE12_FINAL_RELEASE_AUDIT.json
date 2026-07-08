@@ -1,0 +1,97 @@
+{
+  "generatedAt": "2026-07-08T00:06:54.295Z",
+  "phase": 12,
+  "packageVersion": "1.0.0-release-candidate",
+  "runtimeVersion": "1.0.0-release-candidate",
+  "sourceManifestDigest": "3eafc0a1a6b2ee2d9b804fa353e65c1b9758ef45c9c83c13e376e2c1e5efd4b4",
+  "canonical": {
+    "GAME_DESIGN.md": {
+      "expected": "556d99d05d7896c2b02bb653cb28e8a0cb631e223edf67e3e0c1236fd7811f71",
+      "actual": "556d99d05d7896c2b02bb653cb28e8a0cb631e223edf67e3e0c1236fd7811f71",
+      "unchanged": true
+    },
+    "TECHNICAL_SPEC.md": {
+      "expected": "8562235331a2dc229977db11a56fdb10ba0032494d4b0d0706f41bf24c903468",
+      "actual": "8562235331a2dc229977db11a56fdb10ba0032494d4b0d0706f41bf24c903468",
+      "unchanged": true
+    },
+    "ART_DIRECTION.md": {
+      "expected": "aa29931c92ada05c0693ea58730986bc8b9ce8c1b8fcbf78acb4d72be8d1529a",
+      "actual": "aa29931c92ada05c0693ea58730986bc8b9ce8c1b8fcbf78acb4d72be8d1529a",
+      "unchanged": true
+    },
+    "BALANCE_SPEC.md": {
+      "expected": "5fca70f1c890b1e13a3b8b17ab3c82da725491c0cca6146a7ad0a2b1f55fd107",
+      "actual": "5fca70f1c890b1e13a3b8b17ab3c82da725491c0cca6146a7ad0a2b1f55fd107",
+      "unchanged": true
+    },
+    "QA_CHECKLIST.md": {
+      "expected": "b120097203b11e7f2fe025ea5767e931395f5edc7059e9821f6ab5ce1c722122",
+      "actual": "b120097203b11e7f2fe025ea5767e931395f5edc7059e9821f6ab5ce1c722122",
+      "unchanged": true
+    }
+  },
+  "evidenceFiles": {
+    "recovery": "PHASE12_RECOVERY_REPORT.json",
+    "chromium": "PHASE12_BROWSER_CHROMIUM_VALIDATION.json",
+    "firefox": "PHASE12_BROWSER_FIREFOX_VALIDATION.json",
+    "deployment": "PHASE12_DEPLOYMENT_VALIDATION.json",
+    "determinism": "PHASE12_CROSS_BROWSER_DETERMINISM.json",
+    "accessibility": "PHASE12_ACCESSIBILITY_CERTIFICATION.json",
+    "audio": "PHASE12_AUDIO_CERTIFICATION.json",
+    "ci": "PHASE12_CI_VALIDATION.json",
+    "publicDeployment": "PHASE12_PUBLIC_DEPLOYMENT_VALIDATION.json",
+    "lifecycle": "PHASE12_LIFECYCLE_VALIDATION.json",
+    "idle": "PHASE12_MENU_IDLE_VALIDATION.json",
+    "soak": "PHASE12_ACTIVE_SOAK_VALIDATION.json",
+    "performance": "PHASE12_PERFORMANCE_VALIDATION.json",
+    "source": "PHASE12_SOURCE_AUDIT.json",
+    "security": "PHASE12_SECURITY_AUDIT.json",
+    "npm": "PHASE12_NPM_AUDIT.json"
+  },
+  "checks": {
+    "packageVersionFinal": false,
+    "runtimeVersionFinal": false,
+    "canonicalUnchanged": true,
+    "baselineRecovered": true,
+    "chromiumPassed": true,
+    "firefoxGameCodeExecuted": false,
+    "firefoxPassed": false,
+    "deploymentChromiumPassed": true,
+    "deploymentFirefoxPassed": false,
+    "determinismPassed": false,
+    "accessibilityPassed": false,
+    "audioPassed": false,
+    "ciPassed": false,
+    "publicDeploymentPassed": false,
+    "lifecyclePassed": false,
+    "idlePassed": false,
+    "soakPassed": false,
+    "performancePassed": false,
+    "sourceAuditPassed": true,
+    "securityAuditPassed": true,
+    "npmAuditPassed": true
+  },
+  "openGates": [
+    "packageVersionFinal",
+    "runtimeVersionFinal",
+    "firefoxGameCodeExecuted",
+    "firefoxPassed",
+    "deploymentFirefoxPassed",
+    "determinismPassed",
+    "accessibilityPassed",
+    "audioPassed",
+    "ciPassed",
+    "publicDeploymentPassed",
+    "lifecyclePassed",
+    "idlePassed",
+    "soakPassed",
+    "performancePassed"
+  ],
+  "criticalProductDefects": 0,
+  "highProductDefects": 0,
+  "releaseBlockingMediumDefects": 1,
+  "passed": false,
+  "verdict": "release-candidate-signoff-withheld",
+  "note": "Promotion is withheld. Infrastructure and unavailable certification gates are not reclassified as passes."
+}

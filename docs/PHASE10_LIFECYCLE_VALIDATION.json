@@ -1,0 +1,1321 @@
+{
+  "generatedAt": "2026-07-07T16:15:32.227Z",
+  "wallClockMs": 31412,
+  "harnessMode": "validation-only transition timing acceleration; gameplay definitions, score acceptance, and result finalization unchanged",
+  "categories": {
+    "freshTutorialFullRun": 10,
+    "tutorialAbortRestartReplay": 10,
+    "controlsRebinding": 10,
+    "settingsPauseFocus": 10,
+    "acceleratedRun": 10,
+    "archiveStatisticsCreditsData": 10
+  },
+  "baseline": {
+    "label": "baseline",
+    "cycle": -1,
+    "activeScenes": [
+      "MainMenuScene"
+    ],
+    "listeners": 1,
+    "cleanup": 3,
+    "inputContexts": 1,
+    "keyObjects": 13,
+    "bindingRevision": 1,
+    "captureActive": false,
+    "audioContexts": 1,
+    "activeVoices": 0,
+    "saveWrites": null,
+    "recentRuns": 0,
+    "runsStarted": 0,
+    "runsCompleted": 0,
+    "tutorialCompleted": false
+  },
+  "end": {
+    "label": "end",
+    "cycle": 60,
+    "activeScenes": [
+      "MainMenuScene"
+    ],
+    "listeners": 1,
+    "cleanup": 3,
+    "inputContexts": 1,
+    "keyObjects": 13,
+    "bindingRevision": 31,
+    "captureActive": false,
+    "audioContexts": 1,
+    "activeVoices": 0,
+    "saveWrites": null,
+    "recentRuns": 10,
+    "runsStarted": 19,
+    "runsCompleted": 10,
+    "tutorialCompleted": true
+  },
+  "growth": {
+    "listeners": 0,
+    "cleanup": 0,
+    "inputContexts": 0,
+    "keyObjects": 0,
+    "audioContexts": 0
+  },
+  "samples": [
+    {
+      "label": "baseline",
+      "cycle": -1,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 1,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 0,
+      "saveWrites": null,
+      "recentRuns": 0,
+      "runsStarted": 0,
+      "runsCompleted": 0,
+      "tutorialCompleted": false
+    },
+    {
+      "label": "fresh-tutorial-full-run",
+      "cycle": 0,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 2,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 1,
+      "saveWrites": null,
+      "recentRuns": 1,
+      "runsStarted": 1,
+      "runsCompleted": 1,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "fresh-tutorial-full-run",
+      "cycle": 1,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 3,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 5,
+      "saveWrites": null,
+      "recentRuns": 1,
+      "runsStarted": 1,
+      "runsCompleted": 1,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "fresh-tutorial-full-run",
+      "cycle": 2,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 4,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 5,
+      "saveWrites": null,
+      "recentRuns": 1,
+      "runsStarted": 1,
+      "runsCompleted": 1,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "fresh-tutorial-full-run",
+      "cycle": 3,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 5,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 6,
+      "saveWrites": null,
+      "recentRuns": 1,
+      "runsStarted": 1,
+      "runsCompleted": 1,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "fresh-tutorial-full-run",
+      "cycle": 4,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 6,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 5,
+      "saveWrites": null,
+      "recentRuns": 1,
+      "runsStarted": 1,
+      "runsCompleted": 1,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "fresh-tutorial-full-run",
+      "cycle": 5,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 7,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 5,
+      "saveWrites": null,
+      "recentRuns": 1,
+      "runsStarted": 1,
+      "runsCompleted": 1,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "fresh-tutorial-full-run",
+      "cycle": 6,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 8,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 5,
+      "saveWrites": null,
+      "recentRuns": 1,
+      "runsStarted": 1,
+      "runsCompleted": 1,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "fresh-tutorial-full-run",
+      "cycle": 7,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 9,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 5,
+      "saveWrites": null,
+      "recentRuns": 1,
+      "runsStarted": 1,
+      "runsCompleted": 1,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "fresh-tutorial-full-run",
+      "cycle": 8,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 10,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 6,
+      "saveWrites": null,
+      "recentRuns": 1,
+      "runsStarted": 1,
+      "runsCompleted": 1,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "fresh-tutorial-full-run",
+      "cycle": 9,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 11,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 5,
+      "saveWrites": null,
+      "recentRuns": 1,
+      "runsStarted": 1,
+      "runsCompleted": 1,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "tutorial-abort-restart-replay",
+      "cycle": 0,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 11,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 3,
+      "saveWrites": null,
+      "recentRuns": 1,
+      "runsStarted": 1,
+      "runsCompleted": 1,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "tutorial-abort-restart-replay",
+      "cycle": 1,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 11,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 2,
+      "saveWrites": null,
+      "recentRuns": 1,
+      "runsStarted": 1,
+      "runsCompleted": 1,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "tutorial-abort-restart-replay",
+      "cycle": 2,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 11,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 4,
+      "saveWrites": null,
+      "recentRuns": 1,
+      "runsStarted": 1,
+      "runsCompleted": 1,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "tutorial-abort-restart-replay",
+      "cycle": 3,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 11,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 4,
+      "saveWrites": null,
+      "recentRuns": 1,
+      "runsStarted": 1,
+      "runsCompleted": 1,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "tutorial-abort-restart-replay",
+      "cycle": 4,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 11,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 4,
+      "saveWrites": null,
+      "recentRuns": 1,
+      "runsStarted": 1,
+      "runsCompleted": 1,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "tutorial-abort-restart-replay",
+      "cycle": 5,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 11,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 4,
+      "saveWrites": null,
+      "recentRuns": 1,
+      "runsStarted": 1,
+      "runsCompleted": 1,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "tutorial-abort-restart-replay",
+      "cycle": 6,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 11,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 4,
+      "saveWrites": null,
+      "recentRuns": 1,
+      "runsStarted": 1,
+      "runsCompleted": 1,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "tutorial-abort-restart-replay",
+      "cycle": 7,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 11,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 4,
+      "saveWrites": null,
+      "recentRuns": 1,
+      "runsStarted": 1,
+      "runsCompleted": 1,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "tutorial-abort-restart-replay",
+      "cycle": 8,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 11,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 4,
+      "saveWrites": null,
+      "recentRuns": 1,
+      "runsStarted": 1,
+      "runsCompleted": 1,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "tutorial-abort-restart-replay",
+      "cycle": 9,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 11,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 4,
+      "saveWrites": null,
+      "recentRuns": 1,
+      "runsStarted": 1,
+      "runsCompleted": 1,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "controls-rebinding",
+      "cycle": 0,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 13,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 0,
+      "saveWrites": null,
+      "recentRuns": 1,
+      "runsStarted": 1,
+      "runsCompleted": 1,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "controls-rebinding",
+      "cycle": 1,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 15,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 0,
+      "saveWrites": null,
+      "recentRuns": 1,
+      "runsStarted": 1,
+      "runsCompleted": 1,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "controls-rebinding",
+      "cycle": 2,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 17,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 0,
+      "saveWrites": null,
+      "recentRuns": 1,
+      "runsStarted": 1,
+      "runsCompleted": 1,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "controls-rebinding",
+      "cycle": 3,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 19,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 0,
+      "saveWrites": null,
+      "recentRuns": 1,
+      "runsStarted": 1,
+      "runsCompleted": 1,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "controls-rebinding",
+      "cycle": 4,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 21,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 0,
+      "saveWrites": null,
+      "recentRuns": 1,
+      "runsStarted": 1,
+      "runsCompleted": 1,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "controls-rebinding",
+      "cycle": 5,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 23,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 0,
+      "saveWrites": null,
+      "recentRuns": 1,
+      "runsStarted": 1,
+      "runsCompleted": 1,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "controls-rebinding",
+      "cycle": 6,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 25,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 0,
+      "saveWrites": null,
+      "recentRuns": 1,
+      "runsStarted": 1,
+      "runsCompleted": 1,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "controls-rebinding",
+      "cycle": 7,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 27,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 0,
+      "saveWrites": null,
+      "recentRuns": 1,
+      "runsStarted": 1,
+      "runsCompleted": 1,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "controls-rebinding",
+      "cycle": 8,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 29,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 0,
+      "saveWrites": null,
+      "recentRuns": 1,
+      "runsStarted": 1,
+      "runsCompleted": 1,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "controls-rebinding",
+      "cycle": 9,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 31,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 0,
+      "saveWrites": null,
+      "recentRuns": 1,
+      "runsStarted": 1,
+      "runsCompleted": 1,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "settings-pause-focus",
+      "cycle": 0,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 31,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 0,
+      "saveWrites": null,
+      "recentRuns": 1,
+      "runsStarted": 2,
+      "runsCompleted": 1,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "settings-pause-focus",
+      "cycle": 1,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 31,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 0,
+      "saveWrites": null,
+      "recentRuns": 1,
+      "runsStarted": 3,
+      "runsCompleted": 1,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "settings-pause-focus",
+      "cycle": 2,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 31,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 0,
+      "saveWrites": null,
+      "recentRuns": 1,
+      "runsStarted": 4,
+      "runsCompleted": 1,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "settings-pause-focus",
+      "cycle": 3,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 31,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 0,
+      "saveWrites": null,
+      "recentRuns": 1,
+      "runsStarted": 5,
+      "runsCompleted": 1,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "settings-pause-focus",
+      "cycle": 4,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 31,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 0,
+      "saveWrites": null,
+      "recentRuns": 1,
+      "runsStarted": 6,
+      "runsCompleted": 1,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "settings-pause-focus",
+      "cycle": 5,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 31,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 0,
+      "saveWrites": null,
+      "recentRuns": 1,
+      "runsStarted": 7,
+      "runsCompleted": 1,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "settings-pause-focus",
+      "cycle": 6,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 31,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 0,
+      "saveWrites": null,
+      "recentRuns": 1,
+      "runsStarted": 8,
+      "runsCompleted": 1,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "settings-pause-focus",
+      "cycle": 7,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 31,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 0,
+      "saveWrites": null,
+      "recentRuns": 1,
+      "runsStarted": 9,
+      "runsCompleted": 1,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "settings-pause-focus",
+      "cycle": 8,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 31,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 0,
+      "saveWrites": null,
+      "recentRuns": 1,
+      "runsStarted": 10,
+      "runsCompleted": 1,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "settings-pause-focus",
+      "cycle": 9,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 31,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 0,
+      "saveWrites": null,
+      "recentRuns": 1,
+      "runsStarted": 11,
+      "runsCompleted": 1,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "accelerated-run",
+      "cycle": 0,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 31,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 0,
+      "saveWrites": null,
+      "recentRuns": 2,
+      "runsStarted": 12,
+      "runsCompleted": 2,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "accelerated-run",
+      "cycle": 1,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 31,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 0,
+      "saveWrites": null,
+      "recentRuns": 3,
+      "runsStarted": 13,
+      "runsCompleted": 3,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "accelerated-run",
+      "cycle": 2,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 31,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 0,
+      "saveWrites": null,
+      "recentRuns": 4,
+      "runsStarted": 14,
+      "runsCompleted": 4,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "accelerated-run",
+      "cycle": 3,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 31,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 0,
+      "saveWrites": null,
+      "recentRuns": 5,
+      "runsStarted": 15,
+      "runsCompleted": 5,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "accelerated-run",
+      "cycle": 4,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 31,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 0,
+      "saveWrites": null,
+      "recentRuns": 5,
+      "runsStarted": 14,
+      "runsCompleted": 5,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "accelerated-run",
+      "cycle": 5,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 31,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 0,
+      "saveWrites": null,
+      "recentRuns": 6,
+      "runsStarted": 15,
+      "runsCompleted": 6,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "accelerated-run",
+      "cycle": 6,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 31,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 0,
+      "saveWrites": null,
+      "recentRuns": 7,
+      "runsStarted": 16,
+      "runsCompleted": 7,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "accelerated-run",
+      "cycle": 7,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 31,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 0,
+      "saveWrites": null,
+      "recentRuns": 8,
+      "runsStarted": 17,
+      "runsCompleted": 8,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "accelerated-run",
+      "cycle": 8,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 31,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 0,
+      "saveWrites": null,
+      "recentRuns": 9,
+      "runsStarted": 18,
+      "runsCompleted": 9,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "accelerated-run",
+      "cycle": 9,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 31,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 0,
+      "saveWrites": null,
+      "recentRuns": 10,
+      "runsStarted": 19,
+      "runsCompleted": 10,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "archive-statistics-credits-data",
+      "cycle": 0,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 31,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 0,
+      "saveWrites": null,
+      "recentRuns": 10,
+      "runsStarted": 19,
+      "runsCompleted": 10,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "archive-statistics-credits-data",
+      "cycle": 1,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 31,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 0,
+      "saveWrites": null,
+      "recentRuns": 10,
+      "runsStarted": 19,
+      "runsCompleted": 10,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "archive-statistics-credits-data",
+      "cycle": 2,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 31,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 0,
+      "saveWrites": null,
+      "recentRuns": 10,
+      "runsStarted": 19,
+      "runsCompleted": 10,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "archive-statistics-credits-data",
+      "cycle": 3,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 31,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 0,
+      "saveWrites": null,
+      "recentRuns": 10,
+      "runsStarted": 19,
+      "runsCompleted": 10,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "archive-statistics-credits-data",
+      "cycle": 4,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 31,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 0,
+      "saveWrites": null,
+      "recentRuns": 10,
+      "runsStarted": 19,
+      "runsCompleted": 10,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "archive-statistics-credits-data",
+      "cycle": 5,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 31,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 0,
+      "saveWrites": null,
+      "recentRuns": 10,
+      "runsStarted": 19,
+      "runsCompleted": 10,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "archive-statistics-credits-data",
+      "cycle": 6,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 31,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 0,
+      "saveWrites": null,
+      "recentRuns": 10,
+      "runsStarted": 19,
+      "runsCompleted": 10,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "archive-statistics-credits-data",
+      "cycle": 7,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 31,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 0,
+      "saveWrites": null,
+      "recentRuns": 10,
+      "runsStarted": 19,
+      "runsCompleted": 10,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "archive-statistics-credits-data",
+      "cycle": 8,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 31,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 0,
+      "saveWrites": null,
+      "recentRuns": 10,
+      "runsStarted": 19,
+      "runsCompleted": 10,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "archive-statistics-credits-data",
+      "cycle": 9,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 31,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 0,
+      "saveWrites": null,
+      "recentRuns": 10,
+      "runsStarted": 19,
+      "runsCompleted": 10,
+      "tutorialCompleted": true
+    },
+    {
+      "label": "end",
+      "cycle": 60,
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listeners": 1,
+      "cleanup": 3,
+      "inputContexts": 1,
+      "keyObjects": 13,
+      "bindingRevision": 31,
+      "captureActive": false,
+      "audioContexts": 1,
+      "activeVoices": 0,
+      "saveWrites": null,
+      "recentRuns": 10,
+      "runsStarted": 19,
+      "runsCompleted": 10,
+      "tutorialCompleted": true
+    }
+  ],
+  "checks": {
+    "exact60Cycles": true,
+    "exactCategoryCounts": true,
+    "tenFreshFullRoutes": true,
+    "noListenerGrowth": true,
+    "noCleanupGrowth": true,
+    "noInputContextGrowth": true,
+    "noKeyObjectGrowth": true,
+    "oneAudioContextMaximum": true,
+    "captureClosed": true,
+    "noExceptions": true,
+    "noConsoleErrors": true,
+    "noFailedRequests": true
+  },
+  "exceptions": [],
+  "consoleErrors": [],
+  "consoleWarnings": [],
+  "failedRequests": [],
+  "passed": true
+}

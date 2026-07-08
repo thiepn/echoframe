@@ -1,0 +1,105 @@
+{
+  "generatedAt": "2026-07-08T14:30:03.291Z",
+  "releaseTitle": "ECHOFRAME: LAST SIGNAL — Version 1.0",
+  "version": "1.0.0",
+  "sourceCommit": "bee4e6be76484fc5edef1bfa7cf7ddaf2660bc6d",
+  "sourceManifestDigest": "aa6a12f481ed233b01ee8ff397883b924706ca3bd004f4a7b9b8464750de842e",
+  "sourceFileCount": 513,
+  "productionBundleDigest": "286f9423a223610fd6699b6d03d9458d941dab64c5b05c2a070d699d4155eeb8",
+  "productionFileCount": 5,
+  "productionDigestExcludes": [
+    "phase13-release.json"
+  ],
+  "releaseMarker": {
+    "generatedAt": "2026-07-08T14:30:02.954Z",
+    "version": "1.0.0",
+    "sourceCommit": "bee4e6be76484fc5edef1bfa7cf7ddaf2660bc6d",
+    "sourceManifestDigest": "aa6a12f481ed233b01ee8ff397883b924706ca3bd004f4a7b9b8464750de842e",
+    "productionBundleDigest": "286f9423a223610fd6699b6d03d9458d941dab64c5b05c2a070d699d4155eeb8",
+    "productionFileCount": 5
+  },
+  "canonical": {
+    "GAME_DESIGN.md": {
+      "expected": "556d99d05d7896c2b02bb653cb28e8a0cb631e223edf67e3e0c1236fd7811f71",
+      "actual": "556d99d05d7896c2b02bb653cb28e8a0cb631e223edf67e3e0c1236fd7811f71",
+      "unchanged": true
+    },
+    "TECHNICAL_SPEC.md": {
+      "expected": "8562235331a2dc229977db11a56fdb10ba0032494d4b0d0706f41bf24c903468",
+      "actual": "8562235331a2dc229977db11a56fdb10ba0032494d4b0d0706f41bf24c903468",
+      "unchanged": true
+    },
+    "ART_DIRECTION.md": {
+      "expected": "aa29931c92ada05c0693ea58730986bc8b9ce8c1b8fcbf78acb4d72be8d1529a",
+      "actual": "aa29931c92ada05c0693ea58730986bc8b9ce8c1b8fcbf78acb4d72be8d1529a",
+      "unchanged": true
+    },
+    "BALANCE_SPEC.md": {
+      "expected": "5fca70f1c890b1e13a3b8b17ab3c82da725491c0cca6146a7ad0a2b1f55fd107",
+      "actual": "5fca70f1c890b1e13a3b8b17ab3c82da725491c0cca6146a7ad0a2b1f55fd107",
+      "unchanged": true
+    },
+    "QA_CHECKLIST.md": {
+      "expected": "b120097203b11e7f2fe025ea5767e931395f5edc7059e9821f6ab5ce1c722122",
+      "actual": "b120097203b11e7f2fe025ea5767e931395f5edc7059e9821f6ab5ce1c722122",
+      "unchanged": true
+    }
+  },
+  "environment": {
+    "platform": "linux",
+    "arch": "x64",
+    "kernel": "6.17.0-1018-azure",
+    "osType": "Linux",
+    "node": "v22.23.1",
+    "npm": "10.9.8",
+    "playwright": "Version 1.61.1",
+    "chromium": "Google Chrome for Testing 149.0.7827.55",
+    "firefox": "Mozilla Firefox 151.0",
+    "git": "git version 2.54.0",
+    "gh": "gh version 2.96.0 (2026-07-02)\nhttps://github.com/cli/cli/releases/tag/v2.96.0"
+  },
+  "browsers": {
+    "chromium": "Google Chrome for Testing 149.0.7827.55",
+    "firefox": "Mozilla Firefox 151.0"
+  },
+  "tests": {
+    "total": 1329,
+    "retainedThroughPhase12": 1319,
+    "phase13": 10,
+    "source": "docs/PHASE10_CORE_VALIDATION.json"
+  },
+  "archives": {
+    "source": {
+      "filename": "ECHOFRAME_v1.0.0_final_source.zip",
+      "sha256": "e4b0c6a4fe7524d980927a114969d10181477efa3f3cec6021a0677e1c724085",
+      "bytes": 4008531,
+      "totalEntries": 721,
+      "regularFiles": 681,
+      "directoryEntries": 40
+    },
+    "web": {
+      "filename": "ECHOFRAME_v1.0.0_web.zip",
+      "sha256": "360f26a6a30196623fe35ed41368621c1744757a870de68517b7c47dca631706",
+      "bytes": 474321,
+      "totalEntries": 7,
+      "regularFiles": 6,
+      "directoryEntries": 1
+    }
+  },
+  "ci": {
+    "runId": "28948294260",
+    "runUrl": "https://github.com/thiepn/echoframe/actions/runs/28948294260"
+  },
+  "publicDeployment": {
+    "status": "pending",
+    "url": null
+  },
+  "signoff": {
+    "status": "pending-public-validation",
+    "passed": false
+  },
+  "tag": null,
+  "release": {
+    "status": "pending"
+  }
+}

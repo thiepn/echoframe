@@ -1,0 +1,1036 @@
+{
+  "generatedAt": "2026-07-06T01:11:10.108Z",
+  "scope": "All 24 Phase 7 upgrades, every level, seven-offer runs, and 1,000 randomized legal build states.",
+  "definitions": [
+    {
+      "id": "split-lens",
+      "category": "Weapon",
+      "maxLevel": 2,
+      "initiallyUnlocked": true,
+      "levels": [
+        {
+          "level": 1,
+          "data": {
+            "level": 1,
+            "description": "1 side projectile at 8°; all projectiles deal 72% base damage",
+            "count": 2,
+            "angles": [
+              0,
+              8
+            ],
+            "scalar": 0.72,
+            "fragmentGuardMs": 80
+          },
+          "description": "1 side projectile at 8°; all projectiles deal 72% base damage",
+          "grantApplied": true
+        },
+        {
+          "level": 2,
+          "data": {
+            "level": 2,
+            "description": "2 side projectiles at ±9°; all three deal 62% base damage",
+            "count": 3,
+            "angles": [
+              -9,
+              0,
+              9
+            ],
+            "scalar": 0.62,
+            "fragmentGuardMs": 80
+          },
+          "description": "2 side projectiles at ±9°; all three deal 62% base damage",
+          "grantApplied": true
+        }
+      ]
+    },
+    {
+      "id": "piercing-signal",
+      "category": "Weapon",
+      "maxLevel": 3,
+      "initiallyUnlocked": true,
+      "levels": [
+        {
+          "level": 1,
+          "data": {
+            "level": 1,
+            "description": "+1 enemy pierce; ×0.82 after each pierce; 45% floor",
+            "pierce": 1,
+            "decay": 0.82,
+            "floor": 0.45
+          },
+          "description": "+1 enemy pierce; ×0.82 after each pierce; 45% floor",
+          "grantApplied": true
+        },
+        {
+          "level": 2,
+          "data": {
+            "level": 2,
+            "description": "+2 enemy pierce; ×0.82 after each pierce; 45% floor",
+            "pierce": 2,
+            "decay": 0.82,
+            "floor": 0.45
+          },
+          "description": "+2 enemy pierce; ×0.82 after each pierce; 45% floor",
+          "grantApplied": true
+        },
+        {
+          "level": 3,
+          "data": {
+            "level": 3,
+            "description": "+3 enemy pierce; ×0.82 after each pierce; 45% floor",
+            "pierce": 3,
+            "decay": 0.82,
+            "floor": 0.45
+          },
+          "description": "+3 enemy pierce; ×0.82 after each pierce; 45% floor",
+          "grantApplied": true
+        }
+      ]
+    },
+    {
+      "id": "arc-relay",
+      "category": "Weapon",
+      "maxLevel": 3,
+      "initiallyUnlocked": true,
+      "levels": [
+        {
+          "level": 1,
+          "data": {
+            "level": 1,
+            "description": "Every 6th hit chains to 1 target at 45%",
+            "hitCadence": 6,
+            "targetCount": 1,
+            "scalar": 0.45,
+            "range": 220
+          },
+          "description": "Every 6th hit chains to 1 target at 45%",
+          "grantApplied": true
+        },
+        {
+          "level": 2,
+          "data": {
+            "level": 2,
+            "description": "Every 6th hit chains to 2 targets at 42% each",
+            "hitCadence": 6,
+            "targetCount": 2,
+            "scalar": 0.42,
+            "range": 220
+          },
+          "description": "Every 6th hit chains to 2 targets at 42% each",
+          "grantApplied": true
+        },
+        {
+          "level": 3,
+          "data": {
+            "level": 3,
+            "description": "Every 6th hit chains to 3 targets at 40% each",
+            "hitCadence": 6,
+            "targetCount": 3,
+            "scalar": 0.4,
+            "range": 220
+          },
+          "description": "Every 6th hit chains to 3 targets at 40% each",
+          "grantApplied": true
+        }
+      ]
+    },
+    {
+      "id": "fracture-round",
+      "category": "Weapon",
+      "maxLevel": 3,
+      "initiallyUnlocked": true,
+      "levels": [
+        {
+          "level": 1,
+          "data": {
+            "level": 1,
+            "description": "Critical hits release 2 fragments at 35%",
+            "count": 2,
+            "scalar": 0.35,
+            "speedScalar": 0.7,
+            "lifetimeMs": 500
+          },
+          "description": "Critical hits release 2 fragments at 35%",
+          "grantApplied": true
+        },
+        {
+          "level": 2,
+          "data": {
+            "level": 2,
+            "description": "Critical hits release 3 fragments at 33%",
+            "count": 3,
+            "scalar": 0.33,
+            "speedScalar": 0.7,
+            "lifetimeMs": 500
+          },
+          "description": "Critical hits release 3 fragments at 33%",
+          "grantApplied": true
+        },
+        {
+          "level": 3,
+          "data": {
+            "level": 3,
+            "description": "Critical hits release 4 fragments at 30%",
+            "count": 4,
+            "scalar": 0.3,
+            "speedScalar": 0.7,
+            "lifetimeMs": 500
+          },
+          "description": "Critical hits release 4 fragments at 30%",
+          "grantApplied": true
+        }
+      ]
+    },
+    {
+      "id": "compression-coil",
+      "category": "Weapon",
+      "maxLevel": 3,
+      "initiallyUnlocked": true,
+      "levels": [
+        {
+          "level": 1,
+          "data": {
+            "level": 1,
+            "description": "+12% speed and +8% damage at full charge",
+            "speed": 1.12,
+            "damage": 1.08,
+            "chargeMs": 1200,
+            "decayMs": 350,
+            "dashRetention": 0.5
+          },
+          "description": "+12% speed and +8% damage at full charge",
+          "grantApplied": true
+        },
+        {
+          "level": 2,
+          "data": {
+            "level": 2,
+            "description": "+18% speed and +12% damage at full charge",
+            "speed": 1.18,
+            "damage": 1.12,
+            "chargeMs": 1200,
+            "decayMs": 350,
+            "dashRetention": 0.5
+          },
+          "description": "+18% speed and +12% damage at full charge",
+          "grantApplied": true
+        },
+        {
+          "level": 3,
+          "data": {
+            "level": 3,
+            "description": "+24% speed and +16% damage at full charge",
+            "speed": 1.24,
+            "damage": 1.16,
+            "chargeMs": 1200,
+            "decayMs": 350,
+            "dashRetention": 0.5
+          },
+          "description": "+24% speed and +16% damage at full charge",
+          "grantApplied": true
+        }
+      ]
+    },
+    {
+      "id": "ricochet-matrix",
+      "category": "Weapon",
+      "maxLevel": 2,
+      "initiallyUnlocked": true,
+      "levels": [
+        {
+          "level": 1,
+          "data": {
+            "level": 1,
+            "description": "1 wall bounce; ×0.82 post-bounce damage",
+            "bounces": 1,
+            "decay": 0.82,
+            "sameTargetGuardMs": 120
+          },
+          "description": "1 wall bounce; ×0.82 post-bounce damage",
+          "grantApplied": true
+        },
+        {
+          "level": 2,
+          "data": {
+            "level": 2,
+            "description": "2 wall bounces; each ×0.82 current damage",
+            "bounces": 2,
+            "decay": 0.82,
+            "sameTargetGuardMs": 120
+          },
+          "description": "2 wall bounces; each ×0.82 current damage",
+          "grantApplied": true
+        }
+      ]
+    },
+    {
+      "id": "extended-memory",
+      "category": "Echo",
+      "maxLevel": 3,
+      "initiallyUnlocked": true,
+      "levels": [
+        {
+          "level": 1,
+          "data": {
+            "level": 1,
+            "description": "+0.6s replay; +0.25s cooldown",
+            "durationBonusMs": 600,
+            "maximumDurationMs": 5300,
+            "cooldownBonusMs": 250
+          },
+          "description": "+0.6s replay; +0.25s cooldown",
+          "grantApplied": true
+        },
+        {
+          "level": 2,
+          "data": {
+            "level": 2,
+            "description": "+1.2s replay; +0.50s cooldown",
+            "durationBonusMs": 1200,
+            "maximumDurationMs": 5300,
+            "cooldownBonusMs": 500
+          },
+          "description": "+1.2s replay; +0.50s cooldown",
+          "grantApplied": true
+        },
+        {
+          "level": 3,
+          "data": {
+            "level": 3,
+            "description": "+1.8s replay; +0.75s cooldown",
+            "durationBonusMs": 1800,
+            "maximumDurationMs": 5300,
+            "cooldownBonusMs": 750
+          },
+          "description": "+1.8s replay; +0.75s cooldown",
+          "grantApplied": true
+        }
+      ]
+    },
+    {
+      "id": "twin-recall",
+      "category": "Echo",
+      "maxLevel": 1,
+      "initiallyUnlocked": false,
+      "levels": [
+        {
+          "level": 1,
+          "data": {
+            "level": 1,
+            "description": "A second Echo starts 650ms later at 75% primary scalar",
+            "delayMs": 650,
+            "secondaryScalar": 0.75,
+            "cooldownBonusMs": 1000,
+            "activeCap": 2
+          },
+          "description": "A second Echo starts 650ms later at 75% primary scalar",
+          "grantApplied": true
+        }
+      ]
+    },
+    {
+      "id": "resonant-damage",
+      "category": "Echo",
+      "maxLevel": 3,
+      "initiallyUnlocked": true,
+      "levels": [
+        {
+          "level": 1,
+          "data": {
+            "level": 1,
+            "description": "Crossfire deals +12% damage",
+            "bonus": 0.12,
+            "windowMs": 1000,
+            "targetCooldownMs": 650
+          },
+          "description": "Crossfire deals +12% damage",
+          "grantApplied": true
+        },
+        {
+          "level": 2,
+          "data": {
+            "level": 2,
+            "description": "Crossfire deals +18% damage",
+            "bonus": 0.18,
+            "windowMs": 1000,
+            "targetCooldownMs": 650
+          },
+          "description": "Crossfire deals +18% damage",
+          "grantApplied": true
+        },
+        {
+          "level": 3,
+          "data": {
+            "level": 3,
+            "description": "Crossfire deals +24% damage",
+            "bonus": 0.24,
+            "windowMs": 1000,
+            "targetCooldownMs": 650
+          },
+          "description": "Crossfire deals +24% damage",
+          "grantApplied": true
+        }
+      ]
+    },
+    {
+      "id": "phantom-shield",
+      "category": "Echo",
+      "maxLevel": 3,
+      "initiallyUnlocked": true,
+      "levels": [
+        {
+          "level": 1,
+          "data": {
+            "level": 1,
+            "description": "Each Echo destroys 1 hostile projectile",
+            "capacity": 1
+          },
+          "description": "Each Echo destroys 1 hostile projectile",
+          "grantApplied": true
+        },
+        {
+          "level": 2,
+          "data": {
+            "level": 2,
+            "description": "Each Echo destroys 3 hostile projectiles",
+            "capacity": 3
+          },
+          "description": "Each Echo destroys 3 hostile projectiles",
+          "grantApplied": true
+        },
+        {
+          "level": 3,
+          "data": {
+            "level": 3,
+            "description": "Each Echo destroys 5 hostile projectiles",
+            "capacity": 5
+          },
+          "description": "Each Echo destroys 5 hostile projectiles",
+          "grantApplied": true
+        }
+      ]
+    },
+    {
+      "id": "stable-projection",
+      "category": "Echo",
+      "maxLevel": 3,
+      "initiallyUnlocked": true,
+      "levels": [
+        {
+          "level": 1,
+          "data": {
+            "level": 1,
+            "description": "Echo scalar 0.65",
+            "scalar": 0.65,
+            "cap": 0.9
+          },
+          "description": "Echo scalar 0.65",
+          "grantApplied": true
+        },
+        {
+          "level": 2,
+          "data": {
+            "level": 2,
+            "description": "Echo scalar 0.75",
+            "scalar": 0.75,
+            "cap": 0.9
+          },
+          "description": "Echo scalar 0.75",
+          "grantApplied": true
+        },
+        {
+          "level": 3,
+          "data": {
+            "level": 3,
+            "description": "Echo scalar 0.85",
+            "scalar": 0.8500000000000001,
+            "cap": 0.9
+          },
+          "description": "Echo scalar 0.85",
+          "grantApplied": true
+        }
+      ]
+    },
+    {
+      "id": "memory-burst",
+      "category": "Echo",
+      "maxLevel": 3,
+      "initiallyUnlocked": false,
+      "levels": [
+        {
+          "level": 1,
+          "data": {
+            "level": 1,
+            "description": "Echo expiration bursts for 24 damage in 90px",
+            "radius": 90,
+            "damage": 24
+          },
+          "description": "Echo expiration bursts for 24 damage in 90px",
+          "grantApplied": true
+        },
+        {
+          "level": 2,
+          "data": {
+            "level": 2,
+            "description": "Echo expiration bursts for 36 damage in 110px",
+            "radius": 110,
+            "damage": 36
+          },
+          "description": "Echo expiration bursts for 36 damage in 110px",
+          "grantApplied": true
+        },
+        {
+          "level": 3,
+          "data": {
+            "level": 3,
+            "description": "Echo expiration bursts for 48 damage in 130px",
+            "radius": 130,
+            "damage": 48
+          },
+          "description": "Echo expiration bursts for 48 damage in 130px",
+          "grantApplied": true
+        }
+      ]
+    },
+    {
+      "id": "dash-wake",
+      "category": "Mobility",
+      "maxLevel": 3,
+      "initiallyUnlocked": true,
+      "levels": [
+        {
+          "level": 1,
+          "data": {
+            "level": 1,
+            "description": "Dash leaves a 450ms wake dealing 18",
+            "damage": 18,
+            "lifetimeMs": 450,
+            "width": 28,
+            "echoScalar": 0.55
+          },
+          "description": "Dash leaves a 450ms wake dealing 18",
+          "grantApplied": true
+        },
+        {
+          "level": 2,
+          "data": {
+            "level": 2,
+            "description": "Dash leaves a 450ms wake dealing 27",
+            "damage": 27,
+            "lifetimeMs": 450,
+            "width": 28,
+            "echoScalar": 0.55
+          },
+          "description": "Dash leaves a 450ms wake dealing 27",
+          "grantApplied": true
+        },
+        {
+          "level": 3,
+          "data": {
+            "level": 3,
+            "description": "Dash leaves a 450ms wake dealing 36",
+            "damage": 36,
+            "lifetimeMs": 450,
+            "width": 28,
+            "echoScalar": 0.55
+          },
+          "description": "Dash leaves a 450ms wake dealing 36",
+          "grantApplied": true
+        }
+      ]
+    },
+    {
+      "id": "phase-recovery",
+      "category": "Mobility",
+      "maxLevel": 3,
+      "initiallyUnlocked": true,
+      "levels": [
+        {
+          "level": 1,
+          "data": {
+            "level": 1,
+            "description": "Near misses reduce Echo cooldown by 120ms",
+            "radiusBonus": 28,
+            "reductionMs": 120,
+            "internalCooldownMs": 500
+          },
+          "description": "Near misses reduce Echo cooldown by 120ms",
+          "grantApplied": true
+        },
+        {
+          "level": 2,
+          "data": {
+            "level": 2,
+            "description": "Near misses reduce Echo cooldown by 180ms",
+            "radiusBonus": 28,
+            "reductionMs": 180,
+            "internalCooldownMs": 500
+          },
+          "description": "Near misses reduce Echo cooldown by 180ms",
+          "grantApplied": true
+        },
+        {
+          "level": 3,
+          "data": {
+            "level": 3,
+            "description": "Near misses reduce Echo cooldown by 240ms",
+            "radiusBonus": 28,
+            "reductionMs": 240,
+            "internalCooldownMs": 500
+          },
+          "description": "Near misses reduce Echo cooldown by 240ms",
+          "grantApplied": true
+        }
+      ]
+    },
+    {
+      "id": "kinetic-charge",
+      "category": "Mobility",
+      "maxLevel": 3,
+      "initiallyUnlocked": true,
+      "levels": [
+        {
+          "level": 1,
+          "data": {
+            "level": 1,
+            "description": "Sustained movement grants +8% fire rate",
+            "bonus": 0.08,
+            "threshold": 0.7,
+            "chargeMs": 1500,
+            "decayMs": 600
+          },
+          "description": "Sustained movement grants +8% fire rate",
+          "grantApplied": true
+        },
+        {
+          "level": 2,
+          "data": {
+            "level": 2,
+            "description": "Sustained movement grants +13% fire rate",
+            "bonus": 0.13,
+            "threshold": 0.7,
+            "chargeMs": 1500,
+            "decayMs": 600
+          },
+          "description": "Sustained movement grants +13% fire rate",
+          "grantApplied": true
+        },
+        {
+          "level": 3,
+          "data": {
+            "level": 3,
+            "description": "Sustained movement grants +18% fire rate",
+            "bonus": 0.18,
+            "threshold": 0.7,
+            "chargeMs": 1500,
+            "decayMs": 600
+          },
+          "description": "Sustained movement grants +18% fire rate",
+          "grantApplied": true
+        }
+      ]
+    },
+    {
+      "id": "vector-reversal",
+      "category": "Mobility",
+      "maxLevel": 2,
+      "initiallyUnlocked": false,
+      "levels": [
+        {
+          "level": 1,
+          "data": {
+            "level": 1,
+            "description": "Opposite dash within 450ms at 70% distance",
+            "windowMs": 450,
+            "distanceScalar": 0.7,
+            "minimumAngleDegrees": 120
+          },
+          "description": "Opposite dash within 450ms at 70% distance",
+          "grantApplied": true
+        },
+        {
+          "level": 2,
+          "data": {
+            "level": 2,
+            "description": "Opposite dash within 600ms at 85% distance",
+            "windowMs": 600,
+            "distanceScalar": 0.85,
+            "minimumAngleDegrees": 120
+          },
+          "description": "Opposite dash within 600ms at 85% distance",
+          "grantApplied": true
+        }
+      ]
+    },
+    {
+      "id": "slipstream",
+      "category": "Mobility",
+      "maxLevel": 3,
+      "initiallyUnlocked": true,
+      "levels": [
+        {
+          "level": 1,
+          "data": {
+            "level": 1,
+            "description": "Passing near an Echo grants +12% speed for 1.2s",
+            "bonus": 0.12,
+            "distance": 46,
+            "durationMs": 1200,
+            "perEchoCooldownMs": 1500,
+            "movementCap": 440
+          },
+          "description": "Passing near an Echo grants +12% speed for 1.2s",
+          "grantApplied": true
+        },
+        {
+          "level": 2,
+          "data": {
+            "level": 2,
+            "description": "Passing near an Echo grants +18% speed for 1.2s",
+            "bonus": 0.18,
+            "distance": 46,
+            "durationMs": 1200,
+            "perEchoCooldownMs": 1500,
+            "movementCap": 440
+          },
+          "description": "Passing near an Echo grants +18% speed for 1.2s",
+          "grantApplied": true
+        },
+        {
+          "level": 3,
+          "data": {
+            "level": 3,
+            "description": "Passing near an Echo grants +24% speed for 1.2s",
+            "bonus": 0.24,
+            "distance": 46,
+            "durationMs": 1200,
+            "perEchoCooldownMs": 1500,
+            "movementCap": 440
+          },
+          "description": "Passing near an Echo grants +24% speed for 1.2s",
+          "grantApplied": true
+        }
+      ]
+    },
+    {
+      "id": "afterburn",
+      "category": "Mobility",
+      "maxLevel": 3,
+      "initiallyUnlocked": false,
+      "levels": [
+        {
+          "level": 1,
+          "data": {
+            "level": 1,
+            "description": "First shot within 300ms after dash deals +35% damage",
+            "bonus": 0.35,
+            "windowMs": 300,
+            "sideShotScalar": 0.5
+          },
+          "description": "First shot within 300ms after dash deals +35% damage",
+          "grantApplied": true
+        },
+        {
+          "level": 2,
+          "data": {
+            "level": 2,
+            "description": "First shot within 300ms after dash deals +55% damage",
+            "bonus": 0.55,
+            "windowMs": 300,
+            "sideShotScalar": 0.5
+          },
+          "description": "First shot within 300ms after dash deals +55% damage",
+          "grantApplied": true
+        },
+        {
+          "level": 3,
+          "data": {
+            "level": 3,
+            "description": "First shot within 300ms after dash deals +75% damage",
+            "bonus": 0.75,
+            "windowMs": 300,
+            "sideShotScalar": 0.5
+          },
+          "description": "First shot within 300ms after dash deals +75% damage",
+          "grantApplied": true
+        }
+      ]
+    },
+    {
+      "id": "emergency-repair",
+      "category": "Defense",
+      "maxLevel": 3,
+      "initiallyUnlocked": true,
+      "levels": [
+        {
+          "level": 1,
+          "data": {
+            "level": 1,
+            "description": "Heal 6 after a combat chamber",
+            "heal": 6
+          },
+          "description": "Heal 6 after a combat chamber",
+          "grantApplied": true
+        },
+        {
+          "level": 2,
+          "data": {
+            "level": 2,
+            "description": "Heal 10 after a combat chamber",
+            "heal": 10
+          },
+          "description": "Heal 10 after a combat chamber",
+          "grantApplied": true
+        },
+        {
+          "level": 3,
+          "data": {
+            "level": 3,
+            "description": "Heal 14 after a combat chamber",
+            "heal": 14
+          },
+          "description": "Heal 14 after a combat chamber",
+          "grantApplied": true
+        }
+      ]
+    },
+    {
+      "id": "reactive-shell",
+      "category": "Defense",
+      "maxLevel": 3,
+      "initiallyUnlocked": true,
+      "levels": [
+        {
+          "level": 1,
+          "data": {
+            "level": 1,
+            "description": "15% damage reduction for 2.0s after a hit",
+            "reduction": 0.15,
+            "durationMs": 2000
+          },
+          "description": "15% damage reduction for 2.0s after a hit",
+          "grantApplied": true
+        },
+        {
+          "level": 2,
+          "data": {
+            "level": 2,
+            "description": "22% damage reduction for 2.0s after a hit",
+            "reduction": 0.22,
+            "durationMs": 2000
+          },
+          "description": "22% damage reduction for 2.0s after a hit",
+          "grantApplied": true
+        },
+        {
+          "level": 3,
+          "data": {
+            "level": 3,
+            "description": "30% damage reduction for 2.0s after a hit",
+            "reduction": 0.3,
+            "durationMs": 2000
+          },
+          "description": "30% damage reduction for 2.0s after a hit",
+          "grantApplied": true
+        }
+      ]
+    },
+    {
+      "id": "null-absorption",
+      "category": "Defense",
+      "maxLevel": 3,
+      "initiallyUnlocked": false,
+      "levels": [
+        {
+          "level": 1,
+          "data": {
+            "level": 1,
+            "description": "15% projectile-destruction chance: -150ms Echo cooldown",
+            "chance": 0.15,
+            "reductionMs": 150,
+            "internalCooldownMs": 180
+          },
+          "description": "15% projectile-destruction chance: -150ms Echo cooldown",
+          "grantApplied": true
+        },
+        {
+          "level": 2,
+          "data": {
+            "level": 2,
+            "description": "22% chance: -180ms Echo cooldown",
+            "chance": 0.22,
+            "reductionMs": 180,
+            "internalCooldownMs": 180
+          },
+          "description": "22% chance: -180ms Echo cooldown",
+          "grantApplied": true
+        },
+        {
+          "level": 3,
+          "data": {
+            "level": 3,
+            "description": "30% chance: -220ms Echo cooldown",
+            "chance": 0.3,
+            "reductionMs": 220,
+            "internalCooldownMs": 180
+          },
+          "description": "30% chance: -220ms Echo cooldown",
+          "grantApplied": true
+        }
+      ]
+    },
+    {
+      "id": "last-frame",
+      "category": "Defense",
+      "maxLevel": 1,
+      "initiallyUnlocked": true,
+      "levels": [
+        {
+          "level": 1,
+          "data": {
+            "level": 1,
+            "description": "Once per combat chamber, lethal damage leaves 1 HP and grants 1.2s invulnerability",
+            "invulnerabilityMs": 1200
+          },
+          "description": "Once per combat chamber, lethal damage leaves 1 HP and grants 1.2s invulnerability",
+          "grantApplied": true
+        }
+      ]
+    },
+    {
+      "id": "regenerative-circuit",
+      "category": "Defense",
+      "maxLevel": 3,
+      "initiallyUnlocked": true,
+      "levels": [
+        {
+          "level": 1,
+          "data": {
+            "level": 1,
+            "description": "After 8s: 1 HP / 1.6s, chamber cap 8",
+            "delayMs": 8000,
+            "tickMs": 1600,
+            "cap": 8
+          },
+          "description": "After 8s: 1 HP / 1.6s, chamber cap 8",
+          "grantApplied": true
+        },
+        {
+          "level": 2,
+          "data": {
+            "level": 2,
+            "description": "After 7s: 1 HP / 1.4s, chamber cap 12",
+            "delayMs": 7000,
+            "tickMs": 1400,
+            "cap": 12
+          },
+          "description": "After 7s: 1 HP / 1.4s, chamber cap 12",
+          "grantApplied": true
+        },
+        {
+          "level": 3,
+          "data": {
+            "level": 3,
+            "description": "After 6s: 1 HP / 1.2s, chamber cap 16",
+            "delayMs": 6000,
+            "tickMs": 1200,
+            "cap": 16
+          },
+          "description": "After 6s: 1 HP / 1.2s, chamber cap 16",
+          "grantApplied": true
+        }
+      ]
+    },
+    {
+      "id": "deflection-pulse",
+      "category": "Defense",
+      "maxLevel": 3,
+      "initiallyUnlocked": false,
+      "levels": [
+        {
+          "level": 1,
+          "data": {
+            "level": 1,
+            "description": "Dash-start pulse: 110px radius, 55px push",
+            "radius": 110,
+            "push": 55,
+            "eliteScalar": 0.5
+          },
+          "description": "Dash-start pulse: 110px radius, 55px push",
+          "grantApplied": true
+        },
+        {
+          "level": 2,
+          "data": {
+            "level": 2,
+            "description": "Dash-start pulse: 135px radius, 75px push",
+            "radius": 135,
+            "push": 75,
+            "eliteScalar": 0.5
+          },
+          "description": "Dash-start pulse: 135px radius, 75px push",
+          "grantApplied": true
+        },
+        {
+          "level": 3,
+          "data": {
+            "level": 3,
+            "description": "Dash-start pulse: 160px radius, 95px push",
+            "radius": 160,
+            "push": 95,
+            "eliteScalar": 0.5
+          },
+          "description": "Dash-start pulse: 160px radius, 95px push",
+          "grantApplied": true
+        }
+      ]
+    }
+  ],
+  "totals": {
+    "definitions": 24,
+    "levels": 65,
+    "initiallyUnlocked": 18,
+    "locked": 6,
+    "descriptionMismatches": 0,
+    "grantFailures": 0,
+    "maxLevelExclusionFailures": 0,
+    "offerDeterminismFailures": 0,
+    "duplicateOfferFailures": 0,
+    "lockedOfferFailures": 0,
+    "nonFiniteStats": 0,
+    "negativeCooldowns": 0,
+    "negativeDamage": 0,
+    "capViolations": 0,
+    "randomBuildStates": 1000,
+    "interactionPairsValidated": 18,
+    "recursiveTriggerFailures": 0,
+    "categoryFrequency": {
+      "Defense": 4381,
+      "Weapon": 7109,
+      "Echo": 4947,
+      "Mobility": 4563
+    },
+    "upgradeFrequency": {
+      "reactive-shell": 1131,
+      "fracture-round": 1254,
+      "stable-projection": 1229,
+      "piercing-signal": 1215,
+      "ricochet-matrix": 1143,
+      "emergency-repair": 1148,
+      "phase-recovery": 1152,
+      "dash-wake": 1107,
+      "kinetic-charge": 1166,
+      "compression-coil": 1188,
+      "split-lens": 1075,
+      "extended-memory": 1225,
+      "regenerative-circuit": 1262,
+      "slipstream": 1138,
+      "arc-relay": 1234,
+      "phantom-shield": 1241,
+      "last-frame": 840,
+      "resonant-damage": 1252
+    },
+    "errors": [],
+    "passed": true
+  }
+}
