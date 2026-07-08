@@ -62,6 +62,8 @@ export async function readFrameSampler(page, { reset = false } = {}) {
     const averageFrameMs = sorted.length
       ? sorted.reduce((sum, value) => sum + value, 0) / sorted.length
       : 0;
+    const minimumFpsEquivalent = state.max > 0 ? 1000 / state.max : 0;
+    const averageFpsEquivalent = averageFrameMs > 0 ? 1000 / averageFrameMs : 0;
     const value = {
       measurementMode: state.mode,
       measurementUnit: 'milliseconds of browser main-thread game work per Phaser frame',
@@ -70,8 +72,10 @@ export async function readFrameSampler(page, { reset = false } = {}) {
       includesGameUpdateAndRenderSubmission: state.includesGameUpdateAndRenderSubmission,
       samples: sorted.length,
       averageFrameMs,
-      minimumFpsEquivalent: state.max > 0 ? 1000 / state.max : 0,
-      averageFpsEquivalent: averageFrameMs > 0 ? 1000 / averageFrameMs : 0,
+      minimumFps: minimumFpsEquivalent,
+      averageFps: averageFpsEquivalent,
+      minimumFpsEquivalent,
+      averageFpsEquivalent,
       p95FrameMs: percentile(0.95),
       p99FrameMs: percentile(0.99),
       maximumFrameMs: state.max,
