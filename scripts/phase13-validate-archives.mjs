@@ -28,6 +28,8 @@ const sourceChecks = {
   rootSource: await exists(path.join(sourceDir, 'src', 'main.js')),
   rootCanonical: await exists(path.join(sourceDir, 'docs', 'GAME_DESIGN.md')),
   forbiddenAbsent: (await Promise.all(forbidden.map((name) => exists(path.join(sourceDir, name))))).every((value) => !value),
+  generatedPhase13EvidenceExcluded: !(await exists(path.join(sourceDir, 'docs', 'PHASE13_PACKAGE_BUILD.json')))
+    && !(await exists(path.join(sourceDir, 'docs', 'PHASE13_FINAL_RELEASE_AUDIT.json'))),
   packageFinal: JSON.parse(await readFile(path.join(sourceDir, 'package.json'), 'utf8')).version === '1.0.0',
 };
 for (const [name, expected] of Object.entries(EXPECTED_CANONICAL)) {
@@ -44,14 +46,15 @@ execFileSync('npm', ['run', 'test'], { cwd: sourceDir, stdio: 'inherit' });
 execFileSync('npm', ['run', 'build'], { cwd: sourceDir, stdio: 'inherit', env: { ...process.env, VITE_BASE_PATH: '/echoframe/' } });
 sourceChecks.installLintTestsBuild = true;
 
-const allowedWebRoots = new Set(['index.html', 'manifest.webmanifest', 'favicon.svg', 'icon.svg', 'assets']);
+const allowedWebRoots = new Set(['index.html', 'manifest.webmanifest', 'favicon.svg', 'icon.svg', 'assets', 'phase13-release.json']);
 const webRoots = await readdir(webDir);
 const webChecks = {
   index: await exists(path.join(webDir, 'index.html')),
   manifest: await exists(path.join(webDir, 'manifest.webmanifest')),
   favicon: await exists(path.join(webDir, 'favicon.svg')),
   assets: await exists(path.join(webDir, 'assets')),
-  noSource: !(await exists(path.join(webDir, 'src'))) && !(await exists(path.join(webDir, 'tests'))),
+  releaseIdentityMarker: await exists(path.join(webDir, 'phase13-release.json')),
+  noSource: !(await exists(path.join(webDir, 'src'))) && !(await exists(path.join(webDir, 'tests')),
   onlyStaticRoots: webRoots.every((name) => allowedWebRoots.has(name)),
 };
 
