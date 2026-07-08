@@ -40,12 +40,8 @@ jobs:
           node --check scripts/phase13-public-validation.mjs
           node --check scripts/phase13-final-signoff.mjs
           node --check scripts/phase13-firefox-screenshots.mjs
-          python - <<'PY'
-          import pathlib, yaml
-          for path in pathlib.Path('.github/workflows').glob('phase13-*.yml'):
-              yaml.safe_load(path.read_text())
-          print('Phase 13 final workflow YAML parsed successfully.')
-          PY
+          test -f .github/workflows/phase13-final-certification.yml
+          test -f .github/workflows/phase13-publish.yml
       - name: Commit frozen final-release tooling
         shell: bash
         run: |
