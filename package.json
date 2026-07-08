@@ -41,7 +41,7 @@
     "audit:accessibility": "node scripts/phase10-accessibility-audit.mjs",
     "audit:release": "node scripts/phase10-release-audit.mjs",
     "audit:security": "node scripts/phase10-security-audit.mjs",
-    "validate:browser:phase10": "node scripts/phase10-browser-validation.mjs",
+    "validate:browser:phase10": "node scripts/phase13-chromium-harness-runner.mjs",
     "validate:browser:firefox:phase10": "node scripts/phase10-firefox-validation.mjs",
     "validate:deployment:phase10": "node scripts/phase10-deployment-validation.mjs",
     "validate:lifecycle:phase10": "node scripts/phase10-lifecycle-validation.mjs",
