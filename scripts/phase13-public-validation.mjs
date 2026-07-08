@@ -31,7 +31,7 @@ async function validateEngine(engine) {
     let snapshot = await page.evaluate(() => globalThis.__ECHOFRAME__?.getReleaseSnapshot?.());
     checks.versionFinal = snapshot?.version === '1.0.0';
     checks.productionMode = snapshot?.mode === 'production';
-    checks.debugInert = !globalThis.__ECHOFRAME_PHASE10_TUTORIAL__;
+    checks.debugInert = await page.evaluate(() => !globalThis.__ECHOFRAME_PHASE10_TUTORIAL__);
     await page.screenshot({ path: path.join(SCREENSHOTS, `ECHOFRAME_v1_public_deployment_${suffix}.png`), fullPage: true });
     if (engine === 'chromium') await page.screenshot({ path: path.join(SCREENSHOTS, 'ECHOFRAME_v1_main_menu_chromium.png'), fullPage: true });
     if (engine === 'firefox') await page.screenshot({ path: path.join(SCREENSHOTS, 'ECHOFRAME_v1_main_menu_firefox.png'), fullPage: true });
@@ -122,9 +122,13 @@ async function validateEngine(engine) {
       if (['data:', 'blob:'].includes(protocol)) return false;
       return new URL(url).origin !== parsed.origin;
     });
+    const mixedContent = requestUrls.filter((url) => parsed.protocol === 'https:' && new URL(url).protocol === 'http:');
     observations.requestCount = requestUrls.length;
     observations.unexpectedRequests = [...new Set(unexpected)];
+    observations.mixedContentRequests = [...new Set(mixedContent)];
     checks.noUnexpectedNetwork = unexpected.length === 0;
+    checks.noAnalyticsOrTelemetry = unexpected.length === 0;
+    checks.noMixedContent = mixedContent.length === 0;
     checks.noSourceRequests = !requestUrls.some((url) => /\/src\//.test(url));
     checks.noLocalhost = !requestUrls.some((url) => /localhost|127\.0\.0\.1/.test(url));
     checks.noExceptions = exceptions.length === 0;
