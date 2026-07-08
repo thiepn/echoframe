@@ -55,6 +55,13 @@ jobs:
           print(f'Normalized {replacements} lockfile tarball URLs to registry.npmjs.org')
           PY
 
+      - name: Apply deterministic Chromium input harness patch
+        working-directory: candidate
+        shell: bash
+        run: |
+          patch --forward -p1 < ../phase13/patches/chromium-input-harness.patch
+          node --check scripts/phase10-browser-validation.mjs
+
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -141,6 +148,7 @@ jobs:
           name: phase13-pr-certification-evidence
           path: |
             candidate/package-lock.json
+            candidate/scripts/phase10-browser-validation.mjs
             candidate/docs/PHASE11_*.json
             candidate/docs/PHASE12_*.json
             candidate/docs/screenshots/*.png
