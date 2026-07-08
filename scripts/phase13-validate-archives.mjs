@@ -15,6 +15,12 @@ const sourceDir = path.join(work, 'source');
 const webDir = path.join(work, 'web');
 const exists = async (filename) => { try { await access(filename); return true; } catch { return false; } };
 const sha256 = async (filename) => createHash('sha256').update(await readFile(filename)).digest('hex');
+const archiveEntries = (filename) => execFileSync('unzip', ['-Z1', filename], { encoding: 'utf8' }).trim().split(/\r?\n/).filter(Boolean);
+
+const sourceEntries = archiveEntries(sourceZip);
+const forbiddenEntryPattern = /^(?:\.git(?:\/|$)|node_modules(?:\/|$)|dist(?:\/|$)|dist-[^/]*(?:\/|$)|\.phase[^/]*(?:\/|$)|playwright-report(?:\/|$)|test-results(?:\/|$)|release(?:\/|$)|candidate(?:\/|$))/;
+const forbiddenSourceEntries = sourceEntries.filter((entry) => forbiddenEntryPattern.test(entry));
+const phase13EvidenceEntries = sourceEntries.filter((entry) => /^docs\/PHASE13_/i.test(entry));
 
 await rm(work, { recursive: true, force: true });
 await mkdir(sourceDir, { recursive: true });
@@ -28,7 +34,9 @@ const sourceChecks = {
   rootSource: await exists(path.join(sourceDir, 'src', 'main.js')),
   rootCanonical: await exists(path.join(sourceDir, 'docs', 'GAME_DESIGN.md')),
   forbiddenAbsent: (await Promise.all(forbidden.map((name) => exists(path.join(sourceDir, name))))).every((value) => !value),
-  generatedPhase13EvidenceExcluded: !(await exists(path.join(sourceDir, 'docs', 'PHASE13_PACKAGE_BUILD.json')))
+  noForbiddenArchiveEntries: forbiddenSourceEntries.length === 0,
+  generatedPhase13EvidenceExcluded: phase13EvidenceEntries.length === 0
+    && !(await exists(path.join(sourceDir, 'docs', 'PHASE13_PACKAGE_BUILD.json')))
     && !(await exists(path.join(sourceDir, 'docs', 'PHASE13_FINAL_RELEASE_AUDIT.json'))),
   packageFinal: JSON.parse(await readFile(path.join(sourceDir, 'package.json'), 'utf8')).version === '1.0.0',
 };
@@ -108,6 +116,8 @@ const sourceReport = {
   archiveSha256: await sha256(sourceZip),
   archiveBytes: (await stat(sourceZip)).size,
   expectedSha256: manifest.archives?.source?.sha256,
+  forbiddenSourceEntries,
+  phase13EvidenceEntries,
   checks: sourceChecks,
   browserSmoke: { chromium: sourceChromium, firefox: sourceFirefox },
   passed: Object.values(sourceChecks).every(Boolean) && sourceChromium.passed && sourceFirefox.passed
@@ -128,5 +138,5 @@ const webReport = {
 };
 await writeJson('PHASE13_SOURCE_ARCHIVE_VALIDATION.json', sourceReport);
 await writeJson('PHASE13_WEB_ARCHIVE_VALIDATION.json', webReport);
-console.log(JSON.stringify({ source: { passed: sourceReport.passed, sha256: sourceReport.archiveSha256 }, web: { passed: webReport.passed, sha256: webReport.archiveSha256, bundleDigest: extractedBundle?.digest } }, null, 2));
+console.log(JSON.stringify({ source: { passed: sourceReport.passed, sha256: sourceReport.archiveSha256, forbiddenSourceEntries }, web: { passed: webReport.passed, sha256: webReport.archiveSha256, bundleDigest: extractedBundle?.digest } }, null, 2));
 if (!sourceReport.passed || !webReport.passed) process.exitCode = 1;
