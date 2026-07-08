@@ -16,6 +16,7 @@ const CHECKSUMS = path.join(RELEASE, 'ECHOFRAME_v1.0.0_SHA256SUMS.txt');
 const MANIFEST = path.join(RELEASE, 'ECHOFRAME_v1.0.0_RELEASE_MANIFEST.json');
 const RELEASE_MARKER = path.join(DIST, 'phase13-release.json');
 const RELEASE_MARKER_RELATIVE = 'phase13-release.json';
+const RETAINED_THROUGH_PHASE12 = 1319;
 
 const sha256 = async (filename) => createHash('sha256').update(await readFile(filename)).digest('hex');
 const exists = async (filename) => { try { await access(filename); return true; } catch { return false; } };
@@ -24,6 +25,13 @@ const lines = (command, args, options = {}) => execFileSync(command, args, { cwd
 const previousManifest = await readJson(MANIFEST);
 const audit = await readJson(path.join(DOCS, 'PHASE13_NONPUBLIC_RELEASE_AUDIT.json'));
 if (!audit?.passed) throw new Error('Phase 13 non-public release audit is not passed.');
+const coreValidation = await readJson(path.join(DOCS, 'PHASE10_CORE_VALIDATION.json'));
+const testCommand = coreValidation?.commands?.find((entry) => entry.command === 'npm run test');
+const actualTestTotal = Number(testCommand?.tests);
+if (!Number.isInteger(actualTestTotal) || actualTestTotal < RETAINED_THROUGH_PHASE12 || testCommand?.passed !== true) {
+  throw new Error(`Final core test evidence is invalid: tests=${testCommand?.tests} passed=${testCommand?.passed}`);
+}
+const phase13TestTotal = actualTestTotal - RETAINED_THROUGH_PHASE12;
 const pkg = await packageMetadata();
 const runtime = await runtimeVersion();
 if (pkg.version !== '1.0.0' || runtime !== '1.0.0') throw new Error(`Final identity mismatch: package=${pkg.version} runtime=${runtime}`);
@@ -104,7 +112,7 @@ const webArchive = await archiveMetrics(WEB_ZIP);
 const canonical = await canonicalHashes();
 const manifest = {
   generatedAt: new Date().toISOString(),
-  release: 'ECHOFRAME: LAST SIGNAL — Version 1.0',
+  releaseTitle: 'ECHOFRAME: LAST SIGNAL — Version 1.0',
   version: '1.0.0',
   sourceCommit,
   sourceManifestDigest: source.digest,
@@ -119,7 +127,12 @@ const manifest = {
     chromium: process.env.CHROMIUM_EXECUTABLE ? lines(process.env.CHROMIUM_EXECUTABLE, ['--version'])[0] : null,
     firefox: process.env.FIREFOX_EXECUTABLE ? lines(process.env.FIREFOX_EXECUTABLE, ['--version'], { env: { ...process.env, MOZ_HEADLESS: '1' } })[0] : null,
   },
-  tests: { total: 1328, retainedThroughPhase12: 1319, phase13: 9 },
+  tests: {
+    total: actualTestTotal,
+    retainedThroughPhase12: RETAINED_THROUGH_PHASE12,
+    phase13: phase13TestTotal,
+    source: 'docs/PHASE10_CORE_VALIDATION.json',
+  },
   archives: {
     source: { filename: path.basename(SOURCE_ZIP), ...sourceArchive },
     web: { filename: path.basename(WEB_ZIP), ...webArchive },
@@ -138,6 +151,7 @@ await writeJson('PHASE13_PACKAGE_BUILD.json', {
   productionBundleDigest: bundle?.digest ?? null,
   productionDigestExcludes: [RELEASE_MARKER_RELATIVE],
   releaseMarker,
+  tests: manifest.tests,
   sourceArchive,
   webArchive,
   manifest: path.relative(ROOT, MANIFEST),
@@ -147,9 +161,11 @@ await writeJson('PHASE13_PACKAGE_BUILD.json', {
   checks: {
     externalDistNotDeleted: true,
     phase13EvidenceExcludedToPreventSelfReference: true,
+    finalTestEvidencePassed: testCommand.passed === true && actualTestTotal === testCommand.pass && testCommand.fail === 0,
+    releaseTitlePreservedSeparatelyFromPublicationStatus: manifest.releaseTitle === 'ECHOFRAME: LAST SIGNAL — Version 1.0' && typeof manifest.release === 'object',
     releaseMarkerExcludedFromOwnBundleDigest: bundle?.excluded?.includes(RELEASE_MARKER_RELATIVE) === true,
     releaseMarkerBoundToBundle: releaseMarker.productionBundleDigest === bundle.digest,
   },
   passed: true,
 });
-console.log(JSON.stringify({ passed: true, sourceArchive, webArchive, releaseMarker, externalDist: EXTERNAL_DIST, sourceManifestDigest: source.digest, productionBundleDigest: bundle?.digest }, null, 2));
+console.log(JSON.stringify({ passed: true, tests: manifest.tests, sourceArchive, webArchive, releaseMarker, externalDist: EXTERNAL_DIST, sourceManifestDigest: source.digest, productionBundleDigest: bundle?.digest }, null, 2));
