@@ -53,7 +53,6 @@ jobs:
         run: |
           python - <<'PY'
           from pathlib import Path
-
           lock = Path('candidate/package-lock.json')
           text = lock.read_text(encoding='utf-8')
           internal = 'https://packages.applied-caas-gateway1.internal.api.openai.org/artifactory/api/npm/npm-public/'
@@ -161,7 +160,11 @@ jobs:
           ]);
           const unexpected = (report.openGates || []).filter((gate) => !allowedOpen.has(gate));
           if (unexpected.length) throw new Error(`Unexpected pre-promotion gates: ${unexpected.join(', ')}`);
-          for (const gate of ['corePassed', 'chromiumPassed', 'firefoxPassed', 'deploymentPassed', 'determinismPassed', 'sourceSecurityPassed']) {
+          for (const gate of [
+            'canonicalUnchanged', 'baselineRecovered', 'chromiumPassed',
+            'firefoxGameCodeExecuted', 'firefoxPassed', 'deploymentChromiumPassed',
+            'determinismPassed', 'sourceAuditPassed', 'securityAuditPassed', 'npmAuditPassed',
+          ]) {
             if (report.checks?.[gate] !== true) throw new Error(`Required candidate gate is not green: ${gate}`);
           }
           console.log(JSON.stringify({ expectedCandidateState: true, openGates: report.openGates }, null, 2));
