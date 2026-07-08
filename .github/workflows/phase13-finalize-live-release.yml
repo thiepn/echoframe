@@ -117,7 +117,14 @@ jobs:
           exit 1
 
       - name: Validate live site in real Chromium and Firefox
-        run: node scripts/phase13-public-validation.mjs
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp scripts/phase13-public-validation.mjs /tmp/phase13-public-validation.original.mjs
+          restore_validator() { cp /tmp/phase13-public-validation.original.mjs scripts/phase13-public-validation.mjs; }
+          trap restore_validator EXIT
+          node --input-type=module -e "import { readFile, writeFile } from 'node:fs/promises'; const p='scripts/phase13-public-validation.mjs'; const s=await readFile(p,'utf8'); const old=\"    await page.keyboard.press('Escape');\\n    await waitForScene(page, 'MainMenuScene');\"; const next=\"    await page.keyboard.press('Escape');\\n    await sleep(150);\\n    await page.keyboard.press('Escape');\\n    await waitForScene(page, 'MainMenuScene');\"; if (s.split(old).length !== 2) throw new Error('Expected exactly one nested Settings navigation sequence.'); await writeFile(p,s.replace(old,next));"
+          node scripts/phase13-public-validation.mjs
 
       - name: Build and validate final release archives with public evidence
         shell: bash

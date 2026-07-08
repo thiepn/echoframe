@@ -24,7 +24,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          echo "Refreshing staged finalizer workflow status."
+          echo "Refreshing parse-safe validation harness patch status."
           runs="$(curl --fail-with-body --location \
             --header "Accept: application/vnd.github+json" \
             --header "Authorization: Bearer $GH_TOKEN" \
