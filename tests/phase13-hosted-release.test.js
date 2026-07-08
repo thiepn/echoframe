@@ -10,6 +10,7 @@ const lock = json('package-lock.json');
 const runtime = read('src/utils/version.js').match(/BUILD_VERSION\s*=\s*'([^']+)'/)?.[1];
 const releaseConstant = read('src/data/constants.js').match(/RELEASE_VERSION\s*=\s*'([^']+)'/)?.[1];
 const browserHarness = read('scripts/phase10-browser-validation.mjs');
+const hudScene = read('src/scenes/HUDScene.js');
 
 test('Phase 13 keeps package and runtime identity coherent', () => {
   assert.ok(['1.0.0-release-candidate', '1.0.0'].includes(pkg.version));
@@ -61,4 +62,11 @@ test('Phase 13 final identity removes candidate wording from production UI', () 
   assert.doesNotMatch(read('src/scenes/MainMenuScene.js'), /Release Candidate/);
   assert.doesNotMatch(read('src/utils/version.js'), /release-candidate/);
   assert.doesNotMatch(read('src/data/constants.js'), /release-candidate/);
+});
+
+test('Phase 13 HUD avoids redundant dynamic text rerasterization', () => {
+  assert.match(hudScene, /#setText\(target, value\)/);
+  assert.match(hudScene, /if \(target\.text !== normalized\) target\.setText\(normalized\)/);
+  assert.match(hudScene, /this\.#setText\(this\.bossText/);
+  assert.match(hudScene, /this\.#setText\(this\.encounterText/);
 });
