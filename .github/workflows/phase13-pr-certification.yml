@@ -51,10 +51,14 @@ jobs:
           npx playwright --version
 
       - name: Install dependencies
+        timeout-minutes: 10
         working-directory: candidate
-        run: npm ci
+        env:
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: "1"
+        run: npm ci --no-audit --no-fund --prefer-offline
 
       - name: Install real browsers
+        timeout-minutes: 15
         working-directory: candidate
         run: npx playwright install --with-deps chromium firefox
 
