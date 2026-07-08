@@ -26,7 +26,11 @@ jobs:
       - name: Decode frozen tooling payload from the source-controlled installer
         shell: bash
         run: |
-          awk '/^PAYLOAD$/{capture=0} capture{print} /<<.PAYLOAD./{capture=1}' .github/workflows/phase13-install-final-tooling.yml > /tmp/phase13-final-tooling.b64
+          awk '
+            /<<.PAYLOAD./ { capture=1; next }
+            /^[[:space:]]*PAYLOAD[[:space:]]*$/ { capture=0; exit }
+            capture { gsub(/^[[:space:]]+/, ""); print }
+          ' .github/workflows/phase13-install-final-tooling.yml > /tmp/phase13-final-tooling.b64
           test -s /tmp/phase13-final-tooling.b64
           base64 -d /tmp/phase13-final-tooling.b64 > /tmp/phase13-final-tooling.tar.gz
           tar -xzf /tmp/phase13-final-tooling.tar.gz -C "$GITHUB_WORKSPACE"
