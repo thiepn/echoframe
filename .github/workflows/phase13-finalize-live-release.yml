@@ -292,3 +292,5 @@ jobs:
             docs/screenshots/ECHOFRAME_v1_*.png
           if-no-files-found: error
           retention-days: 90
+
+# Release retry 3: certified 1,329-test core evidence synchronized to main.
