@@ -8,6 +8,7 @@ import {
 } from './phase12-utils.mjs';
 
 const RELEASE = path.join(ROOT, 'release');
+const EXTERNAL_DIST = Boolean(process.env.PHASE13_DIST_DIR);
 const DIST = path.resolve(process.env.PHASE13_DIST_DIR || path.join(ROOT, 'dist-phase13-final'));
 const SOURCE_ZIP = path.join(RELEASE, 'ECHOFRAME_v1.0.0_final_source.zip');
 const WEB_ZIP = path.join(RELEASE, 'ECHOFRAME_v1.0.0_web.zip');
@@ -31,8 +32,8 @@ if (audit.sourceManifestDigest !== source.digest) throw new Error(`Source digest
 const sourceCommit = process.env.PHASE13_SOURCE_COMMIT || process.env.GITHUB_SHA || null;
 
 await mkdir(RELEASE, { recursive: true });
-await rm(DIST, { recursive: true, force: true });
-if (!process.env.PHASE13_DIST_DIR) {
+if (!EXTERNAL_DIST) {
+  await rm(DIST, { recursive: true, force: true });
   execFileSync('npm', ['run', 'build', '--', '--outDir', path.basename(DIST)], {
     cwd: ROOT,
     stdio: 'inherit',
@@ -141,12 +142,14 @@ await writeJson('PHASE13_PACKAGE_BUILD.json', {
   webArchive,
   manifest: path.relative(ROOT, MANIFEST),
   checksums: path.relative(ROOT, CHECKSUMS),
+  externalDistPreserved: EXTERNAL_DIST,
   generatedEvidenceExcludedFromSourceArchive: true,
   checks: {
+    externalDistNotDeleted: true,
     phase13EvidenceExcludedToPreventSelfReference: true,
     releaseMarkerExcludedFromOwnBundleDigest: bundle?.excluded?.includes(RELEASE_MARKER_RELATIVE) === true,
     releaseMarkerBoundToBundle: releaseMarker.productionBundleDigest === bundle.digest,
   },
   passed: true,
 });
-console.log(JSON.stringify({ passed: true, sourceArchive, webArchive, releaseMarker, sourceManifestDigest: source.digest, productionBundleDigest: bundle?.digest }, null, 2));
+console.log(JSON.stringify({ passed: true, sourceArchive, webArchive, releaseMarker, externalDist: EXTERNAL_DIST, sourceManifestDigest: source.digest, productionBundleDigest: bundle?.digest }, null, 2));
