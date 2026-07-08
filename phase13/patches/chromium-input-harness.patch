@@ -1,0 +1,212 @@
+--- a/scripts/phase10-browser-validation.mjs
++++ b/scripts/phase10-browser-validation.mjs
+@@ -16,6 +16,84 @@
+ const runtime = await launchBrowser({ engine: 'chromium', viewport: { width: 1600, height: 900 } });
+ const { browser, page, errors, warnings, exceptions, failedRequests } = runtime;
+ const checks = {}; const observations = {};
++
++async function installTrustedInputProbe(page) {
++  await page.evaluate(() => {
++    if (globalThis.__PHASE13_TRUSTED_INPUT_PROBE__) return;
++    const state = { keydowns: [], pointerdowns: [] };
++    globalThis.__PHASE13_TRUSTED_INPUT_PROBE__ = state;
++    globalThis.addEventListener('keydown', (event) => {
++      state.keydowns.push({ code: event.code, key: event.key, trusted: event.isTrusted, repeat: event.repeat, at: performance.now() });
++      if (state.keydowns.length > 32) state.keydowns.shift();
++    }, true);
++    globalThis.addEventListener('pointerdown', (event) => {
++      state.pointerdowns.push({ button: event.button, trusted: event.isTrusted, x: event.clientX, y: event.clientY, at: performance.now() });
++      if (state.pointerdowns.length > 32) state.pointerdowns.shift();
++    }, true);
++  });
++}
++
++async function clearTrustedInputProbe(page) {
++  await page.evaluate(() => {
++    const state = globalThis.__PHASE13_TRUSTED_INPUT_PROBE__;
++    if (state) { state.keydowns.length = 0; state.pointerdowns.length = 0; }
++  });
++}
++
++async function waitForCaptureListeners(page) {
++  await waitUntil(page, () => {
++    const active = globalThis.__ECHOFRAME__?.game?.scene?.getScenes(true) ?? [];
++    const services = active[0]?.services;
++    return services?.inputManager?.getDiagnostics?.()?.captureActive === true;
++  });
++  // SettingsScene intentionally delays global capture listeners by 140 ms to
++  // prevent click-through. Wait beyond that production debounce before input.
++  await sleep(190);
++}
++
++async function currentBindings(page) {
++  return page.evaluate(() => globalThis.__ECHOFRAME__.game.scene.getScene('SettingsScene').services.settingsManager.get('controls.bindings'));
++}
++
++async function clickCanvasAtDesignPoint(page, designPoint, button = 'left') {
++  const locator = page.locator('canvas').first();
++  await locator.waitFor({ state: 'visible' });
++  const box = await locator.boundingBox();
++  assert(box, 'Canvas did not expose a bounding box');
++  const gameSize = await page.evaluate(() => {
++    const game = globalThis.__ECHOFRAME__.game;
++    return { width: game.scale.gameSize.width, height: game.scale.gameSize.height };
++  });
++  const x = Math.max(1, Math.min(box.width - 1, designPoint.x * box.width / gameSize.width));
++  const y = Math.max(1, Math.min(box.height - 1, designPoint.y * box.height / gameSize.height));
++  await page.mouse.click(box.x + x, box.y + y, { button });
++  return { box, gameSize, click: { x: box.x + x, y: box.y + y, button } };
++}
++
++async function worldToCanvasPoint(page, sceneKey, worldPoint) {
++  const screen = await page.evaluate(({ sceneKey, worldPoint }) => {
++    const scene = globalThis.__ECHOFRAME__.game.scene.getScene(sceneKey);
++    const camera = scene.cameras.main;
++    // Phaser's camera worldView gives the authoritative visible world origin.
++    return {
++      x: (worldPoint.x - camera.worldView.x) * camera.zoom,
++      y: (worldPoint.y - camera.worldView.y) * camera.zoom,
++      gameWidth: scene.scale.gameSize.width,
++      gameHeight: scene.scale.gameSize.height,
++      camera: { x: camera.worldView.x, y: camera.worldView.y, zoom: camera.zoom },
++    };
++  }, { sceneKey, worldPoint });
++  const locator = page.locator('canvas').first();
++  await locator.waitFor({ state: 'visible' });
++  const box = await locator.boundingBox();
++  assert(box, 'Canvas did not expose a bounding box');
++  return {
++    x: box.x + screen.x * box.width / screen.gameWidth,
++    y: box.y + screen.y * box.height / screen.gameHeight,
++    box,
++    screen,
++  };
++}
+ try {
+   const response = await page.goto(`${server.url}?debug=1`, { waitUntil: 'networkidle' });
+   checks.http200 = response?.status() === 200;
+@@ -39,16 +117,35 @@
+   checks.tutorialPause = true; await activateButton(page, 'PauseScene', 0); await waitForScene(page, 'TutorialScene');
+   checks.tutorialResume = true;
+ 
+-  await page.evaluate(() => globalThis.__ECHOFRAME_PHASE10_TUTORIAL__.advanceTo('AIM_AND_FIRE'));
+-  const target = await page.evaluate(() => { const s = globalThis.__ECHOFRAME__.game.scene.getScene('TutorialScene'); return { x: s.stationaryTarget.x, y: s.stationaryTarget.y }; });
+-  const canvas = await page.locator('canvas').boundingBox();
+-  if (canvas) {
+-    await page.mouse.move(canvas.x + target.x * canvas.width / 1600, canvas.y + target.y * canvas.height / 900);
+-    await page.mouse.down({ button: 'left' }); await sleep(180); await page.mouse.up({ button: 'left' });
+-    await sleep(900);
+-  }
+-  const afterFire = await page.evaluate(() => globalThis.__ECHOFRAME_PHASE10_TUTORIAL__.snapshot().state);
+-  checks.realPointerFireAccepted = afterFire === 'DASH_GATE';
++  await installTrustedInputProbe(page);
++  await clearTrustedInputProbe(page);
++  await page.evaluate(() => {
++    globalThis.__ECHOFRAME_PHASE10_TUTORIAL__.advanceTo('AIM_AND_FIRE');
++    const scene = globalThis.__ECHOFRAME__.game.scene.getScene('TutorialScene');
++    // Use a deterministic firing lane while retaining real browser pointer
++    // movement, trusted mouse input, WeaponSystem execution, projectile flight,
++    // physics overlap, and TutorialController acceptance.
++    scene.player.setPosition(scene.stationaryTarget.x - 320, scene.stationaryTarget.y);
++    scene.player.bodySprite?.setVelocity?.(0, 0);
++    scene.stationaryTargetHealth = 1;
++  });
++  const target = await page.evaluate(() => { const scene = globalThis.__ECHOFRAME__.game.scene.getScene('TutorialScene'); return { x: scene.stationaryTarget.x, y: scene.stationaryTarget.y }; });
++  const targetPoint = await worldToCanvasPoint(page, 'TutorialScene', target);
++  await page.mouse.move(targetPoint.x, targetPoint.y);
++  await page.mouse.down({ button: 'left' });
++  await sleep(220);
++  await page.mouse.up({ button: 'left' });
++  try {
++    await waitUntil(page, () => globalThis.__ECHOFRAME_PHASE10_TUTORIAL__?.snapshot().state === 'DASH_GATE', null, 4000);
++  } catch {}
++  const pointerFireObservation = await page.evaluate(() => ({
++    state: globalThis.__ECHOFRAME_PHASE10_TUTORIAL__.snapshot().state,
++    probe: structuredClone(globalThis.__PHASE13_TRUSTED_INPUT_PROBE__),
++    activeProjectiles: globalThis.__ECHOFRAME__.game.scene.getScene('TutorialScene').projectileManager.group.countActive(true),
++  }));
++  observations.pointerFire = { target, targetPoint, ...pointerFireObservation };
++  checks.realPointerFireAccepted = pointerFireObservation.state === 'DASH_GATE'
++    && pointerFireObservation.probe.pointerdowns.some((event) => event.button === 0 && event.trusted === true);
+   if (!checks.realPointerFireAccepted) await page.evaluate(() => globalThis.__ECHOFRAME_PHASE10_TUTORIAL__.advanceTo('DASH_GATE'));
+ 
+   await page.evaluate(() => globalThis.__ECHOFRAME_PHASE10_TUTORIAL__.advanceTo('DEPLOY_ECHO'));
+@@ -79,22 +176,64 @@
+ 
+   await resetToMenu(page); await activateButton(page, 'MainMenuScene', 5); await waitForScene(page, 'SettingsScene');
+   await activateButton(page, 'SettingsScene', 3); await sleep(100);
++  await installTrustedInputProbe(page);
+   await capture(page, 'ECHOFRAME_phase10_controls_rebinding.png');
+   const revisionBefore = (await diagnostics(page)).input.bindingRevision;
+-  await activateButton(page, 'SettingsScene', 0); await sleep(200); await page.keyboard.press('i'); await sleep(180);
+-  let bindings = await page.evaluate(() => globalThis.__ECHOFRAME__.game.scene.getScene('SettingsScene').services.settingsManager.get('controls.bindings'));
+-  checks.keyboardRebind = bindings.moveUp[0].code === 'KeyI';
+-  checks.immediateContextRebuild = (await diagnostics(page)).input.bindingRevision > revisionBefore;
+-  await activateButton(page, 'SettingsScene', 2); await sleep(200); await page.keyboard.press('i'); await sleep(180);
+-  bindings = await page.evaluate(() => globalThis.__ECHOFRAME__.game.scene.getScene('SettingsScene').services.settingsManager.get('controls.bindings'));
+-  checks.conflictRejected = bindings.moveDown[0].code === 'KeyS';
+-  await activateButton(page, 'SettingsScene', 8); await sleep(220);
+-  if (canvas) await page.mouse.click(canvas.x + 800 * canvas.width / 1600, canvas.y + 450 * canvas.height / 900, { button: 'middle' });
+-  await sleep(180);
+-  bindings = await page.evaluate(() => globalThis.__ECHOFRAME__.game.scene.getScene('SettingsScene').services.settingsManager.get('controls.bindings'));
+-  checks.pointerRebind = bindings.fire[0].device === 'pointer' && bindings.fire[0].button === 1;
+-  await activateButton(page, 'SettingsScene', 0); await sleep(200); await page.keyboard.press('Escape'); await sleep(150);
+-  checks.escapeCancelsCapture = !(await diagnostics(page)).input.captureActive;
++
++  await clearTrustedInputProbe(page);
++  await activateButton(page, 'SettingsScene', 0);
++  await waitForCaptureListeners(page);
++  await page.bringToFront();
++  await page.keyboard.press('i');
++  try { await waitUntil(page, () => globalThis.__ECHOFRAME__.game.scene.getScene('SettingsScene').services.settingsManager.get('controls.bindings').moveUp[0].code === 'KeyI', null, 3000); } catch {}
++  let bindings = await currentBindings(page);
++  const keyboardObservation = await page.evaluate(() => structuredClone(globalThis.__PHASE13_TRUSTED_INPUT_PROBE__));
++  const revisionAfterKeyboard = (await diagnostics(page)).input.bindingRevision;
++  observations.keyboardRebind = { revisionBefore, revisionAfterKeyboard, probe: keyboardObservation, binding: bindings.moveUp[0] };
++  checks.keyboardRebind = bindings.moveUp[0].code === 'KeyI'
++    && keyboardObservation.keydowns.some((event) => event.code === 'KeyI' && event.trusted === true);
++  checks.immediateContextRebuild = revisionAfterKeyboard > revisionBefore;
++
++  await clearTrustedInputProbe(page);
++  await activateButton(page, 'SettingsScene', 2);
++  await waitForCaptureListeners(page);
++  await page.keyboard.press('i');
++  await waitUntil(page, () => {
++    const scene = globalThis.__ECHOFRAME__.game.scene.getScene('SettingsScene');
++    return scene.services.inputManager.getDiagnostics().captureActive === false;
++  });
++  bindings = await currentBindings(page);
++  const conflictObservation = await page.evaluate(() => structuredClone(globalThis.__PHASE13_TRUSTED_INPUT_PROBE__));
++  observations.conflictRebind = { probe: conflictObservation, binding: bindings.moveDown[0] };
++  checks.conflictRejected = bindings.moveDown[0].code === 'KeyS'
++    && conflictObservation.keydowns.some((event) => event.code === 'KeyI' && event.trusted === true);
++
++  await clearTrustedInputProbe(page);
++  await activateButton(page, 'SettingsScene', 8);
++  await waitForCaptureListeners(page);
++  const middleClick = await clickCanvasAtDesignPoint(page, { x: 800, y: 450 }, 'middle');
++  try { await waitUntil(page, () => {
++    const binding = globalThis.__ECHOFRAME__.game.scene.getScene('SettingsScene').services.settingsManager.get('controls.bindings').fire[0];
++    return binding.device === 'pointer' && binding.button === 1;
++  }, null, 3000); } catch {}
++  bindings = await currentBindings(page);
++  const pointerObservation = await page.evaluate(() => structuredClone(globalThis.__PHASE13_TRUSTED_INPUT_PROBE__));
++  observations.pointerRebind = { click: middleClick.click, probe: pointerObservation, binding: bindings.fire[0] };
++  checks.pointerRebind = bindings.fire[0].device === 'pointer' && bindings.fire[0].button === 1
++    && pointerObservation.pointerdowns.some((event) => event.button === 1 && event.trusted === true);
++
++  await clearTrustedInputProbe(page);
++  await activateButton(page, 'SettingsScene', 0);
++  await waitForCaptureListeners(page);
++  await page.keyboard.press('Escape');
++  await waitUntil(page, () => {
++    const active = globalThis.__ECHOFRAME__.game.scene.getScenes(true);
++    return active[0]?.services?.inputManager?.getDiagnostics?.()?.captureActive === false;
++  });
++  const escapeObservation = await page.evaluate(() => structuredClone(globalThis.__PHASE13_TRUSTED_INPUT_PROBE__));
++  observations.escapeCapture = escapeObservation;
++  checks.escapeCancelsCapture = !(await diagnostics(page)).input.captureActive
++    && escapeObservation.keydowns.some((event) => event.code === 'Escape' && event.trusted === true);
+   await activateButton(page, 'SettingsScene', 16); await sleep(120);
+   bindings = await page.evaluate(() => globalThis.__ECHOFRAME__.game.scene.getScene('SettingsScene').services.settingsManager.get('controls.bindings'));
+   checks.restoreDefaults = bindings.moveUp[0].code === 'KeyW' && bindings.fire[0].button === 0 && bindings.dash[1].button === 2;
