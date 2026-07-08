@@ -1,0 +1,164 @@
+name: ECHOFRAME CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: echoframe-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  core-validation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Core validation and deterministic audits
+        run: npm run validate:core:phase10
+      - name: Phase 12 recovery/source binding
+        run: npm run recover:phase12
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: core-validation-evidence
+          path: |
+            docs/PHASE10_CORE_VALIDATION.json
+            docs/PHASE12_RECOVERY_REPORT.json
+            docs/PHASE12_RECOVERY_REPORT.md
+            docs/PHASE12_EVIDENCE_MAP.json
+          if-no-files-found: error
+      - name: Preserve exit behavior
+        if: always()
+        run: test -f docs/PHASE10_CORE_VALIDATION.json
+      - name: Explicit failure policy
+        run: echo "continue-on-error: false"
+
+  chromium-production:
+    needs: core-validation
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Chromium production validation
+        run: npm run validate:browser:phase12
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: chromium-production-evidence
+          path: |
+            docs/PHASE12_BROWSER_CHROMIUM_VALIDATION.json
+            docs/screenshots/ECHOFRAME_phase12_rc_*chromium.png
+          if-no-files-found: warn
+
+  firefox-production:
+    needs: core-validation
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps firefox
+      - name: Firefox production validation
+        run: npm run validate:browser:firefox:phase12
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: firefox-production-evidence
+          path: |
+            docs/PHASE12_BROWSER_FIREFOX_VALIDATION.json
+            docs/screenshots/ECHOFRAME_v1_*firefox.png
+          if-no-files-found: warn
+
+  static-deployment:
+    needs: core-validation
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Root and subpath static validation
+        run: npm run validate:deployment:phase12
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: static-deployment-evidence
+          path: docs/PHASE12_DEPLOYMENT_VALIDATION.json
+          if-no-files-found: error
+
+  cross-browser-determinism:
+    needs: [chromium-production, firefox-production]
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium firefox
+      - name: Cross-browser deterministic comparison
+        run: |
+          npm run validate:browser:firefox:phase12
+          npm run audit:determinism:phase12
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cross-browser-determinism-evidence
+          path: |
+            docs/PHASE12_BROWSER_FIREFOX_VALIDATION.json
+            docs/PHASE12_CROSS_BROWSER_DETERMINISM.json
+          if-no-files-found: warn
+
+  release-audit:
+    needs: [core-validation, chromium-production, firefox-production, static-deployment, cross-browser-determinism]
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: '*-evidence'
+          path: .phase12-ci-artifacts
+          merge-multiple: true
+      - name: Merge evidence
+        run: cp -f .phase12-ci-artifacts/PHASE*.json docs/ 2>/dev/null || true
+      - name: Certification aggregate
+        run: npm run audit:release:phase12
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: release-audit-evidence
+          path: docs/PHASE12_FINAL_RELEASE_AUDIT.json
+          if-no-files-found: error
