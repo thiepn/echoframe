@@ -1,5 +1,6 @@
 name: Phase 13 Hosted Performance Diagnostic
 
+# This targeted workflow exposes every real-browser performance attempt before the long final certification completes.
 on:
   push:
     branches:
