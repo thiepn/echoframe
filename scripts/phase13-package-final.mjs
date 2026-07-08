@@ -45,6 +45,10 @@ await rm(WEB_ZIP, { force: true });
 const sourceExclude = [
   '.git/*', 'node_modules/*', 'dist/*', 'dist-*/*', '.phase*/*', 'playwright-report/*', 'test-results/*',
   'release/*', '*.zip', '*.log', 'candidate/*',
+  // Generated Phase 13 evidence describes and validates the archive. Excluding it avoids a self-referential
+  // archive whose digest changes when its own validation/sign-off report is regenerated. The reports remain
+  // committed beside the release and are attached as workflow evidence.
+  'docs/PHASE13_*',
 ];
 execFileSync('zip', ['-q', '-r', SOURCE_ZIP, '.', ...sourceExclude.flatMap((pattern) => ['-x', pattern])], { cwd: ROOT, stdio: 'inherit' });
 execFileSync('zip', ['-q', '-r', WEB_ZIP, '.'], { cwd: DIST, stdio: 'inherit' });
@@ -87,7 +91,7 @@ const manifest = {
   publicDeployment: previousManifest?.publicDeployment ?? { status: 'pending', url: null },
   signoff: previousManifest?.signoff ?? { status: 'pending-public-validation', passed: false },
   tag: previousManifest?.tag ?? null,
-  releaseUrl: previousManifest?.releaseUrl ?? null,
+  release: previousManifest?.release ?? { status: 'pending' },
 };
 await writeFile(MANIFEST, `${JSON.stringify(manifest, null, 2)}\n`);
 await writeFile(CHECKSUMS, `${sourceArchive.sha256}  ${path.basename(SOURCE_ZIP)}\n${webArchive.sha256}  ${path.basename(WEB_ZIP)}\n`);
@@ -99,6 +103,10 @@ await writeJson('PHASE13_PACKAGE_BUILD.json', {
   webArchive,
   manifest: path.relative(ROOT, MANIFEST),
   checksums: path.relative(ROOT, CHECKSUMS),
+  generatedEvidenceExcludedFromSourceArchive: true,
+  checks: {
+    phase13EvidenceExcludedToPreventSelfReference: true,
+  },
   passed: true,
 });
 console.log(JSON.stringify({ passed: true, sourceArchive, webArchive, sourceManifestDigest: source.digest, productionBundleDigest: bundle?.digest }, null, 2));
