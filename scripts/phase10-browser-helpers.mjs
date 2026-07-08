@@ -61,7 +61,15 @@ export async function launchBrowser({ engine = 'chromium', headless = true, view
   const browser = await type.launch({
     headless,
     executablePath: executablePath || undefined,
-    args: engine === 'chromium' ? ['--no-sandbox', '--disable-dev-shm-usage', '--disable-gpu'] : [],
+    args: engine === 'chromium' ? [
+      '--no-sandbox',
+      '--disable-dev-shm-usage',
+      '--disable-background-timer-throttling',
+      '--disable-backgrounding-occluded-windows',
+      '--disable-renderer-backgrounding',
+      '--enable-webgl',
+      '--ignore-gpu-blocklist',
+    ] : [],
   });
   const context = await browser.newContext({ viewport, deviceScaleFactor: 1, acceptDownloads: true });
   const page = await context.newPage();
