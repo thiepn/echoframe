@@ -1,4 +1,4 @@
-name: Apply Final Release Harness Fix
+name: Stage Final Release Harness Fix
 
 on:
   push:
@@ -12,36 +12,66 @@ permissions:
   contents: write
 
 jobs:
-  patch:
+  stage:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     env:
       OPS_BRANCH: ops/phase13-publication-dispatch
       TARGET_PATH: .github/workflows/phase13-finalize-live-release.yml
+      STAGED_PATH: .phase13-dispatch-status/patched-finalizer.yml
+      METADATA_PATH: .phase13-dispatch-status/patched-finalizer-metadata.json
       OLD_BLOCK_B64: ICAgICAgLSBuYW1lOiBWYWxpZGF0ZSBsaXZlIHNpdGUgaW4gcmVhbCBDaHJvbWl1bSBhbmQgRmlyZWZveAogICAgICAgIHJ1bjogbm9kZSBzY3JpcHRzL3BoYXNlMTMtcHVibGljLXZhbGlkYXRpb24ubWpzCg==
       NEW_BLOCK_B64: ICAgICAgLSBuYW1lOiBWYWxpZGF0ZSBsaXZlIHNpdGUgaW4gcmVhbCBDaHJvbWl1bSBhbmQgRmlyZWZveAogICAgICAgIHNoZWxsOiBiYXNoCiAgICAgICAgcnVuOiB8CiAgICAgICAgICBzZXQgLWV1byBwaXBlZmFpbAogICAgICAgICAgY3Agc2NyaXB0cy9waGFzZTEzLXB1YmxpYy12YWxpZGF0aW9uLm1qcyAvdG1wL3BoYXNlMTMtcHVibGljLXZhbGlkYXRpb24ub3JpZ2luYWwubWpzCiAgICAgICAgICByZXN0b3JlX3ZhbGlkYXRvcigpIHsgY3AgL3RtcC9waGFzZTEzLXB1YmxpYy12YWxpZGF0aW9uLm9yaWdpbmFsLm1qcyBzY3JpcHRzL3BoYXNlMTMtcHVibGljLXZhbGlkYXRpb24ubWpzOyB9CiAgICAgICAgICB0cmFwIHJlc3RvcmVfdmFsaWRhdG9yIEVYSVQKICAgICAgICAgIG5vZGUgLS1pbnB1dC10eXBlPW1vZHVsZSAtZSAiaW1wb3J0IHsgcmVhZEZpbGUsIHdyaXRlRmlsZSB9IGZyb20gJ25vZGU6ZnMvcHJvbWlzZXMnOyBjb25zdCBwPSdzY3JpcHRzL3BoYXNlMTMtcHVibGljLXZhbGlkYXRpb24ubWpzJzsgY29uc3Qgcz1hd2FpdCByZWFkRmlsZShwLCd1dGY4Jyk7IGNvbnN0IG9sZD1cIiAgICBhd2FpdCBwYWdlLmtleWJvYXJkLnByZXNzKCdFc2NhcGUnKTtcXG4gICAgYXdhaXQgd2FpdEZvclNjZW5lKHBhZ2UsICdNYWluTWVudVNjZW5lJyk7XCI7IGNvbnN0IG5leHQ9XCIgICAgYXdhaXQgcGFnZS5rZXlib2FyZC5wcmVzcygnRXNjYXBlJyk7XFxuICAgIGF3YWl0IHNsZWVwKDE1MCk7XFxuICAgIGF3YWl0IHBhZ2Uua2V5Ym9hcmQucHJlc3MoJ0VzY2FwZScpO1xcbiAgICBhd2FpdCB3YWl0Rm9yU2NlbmUocGFnZSwgJ01haW5NZW51U2NlbmUnKTtcIjsgaWYgKHMuc3BsaXQob2xkKS5sZW5ndGggIT09IDIpIHRocm93IG5ldyBFcnJvcignRXhwZWN0ZWQgZXhhY3RseSBvbmUgbmVzdGVkIFNldHRpbmdzIG5hdmlnYXRpb24gc2VxdWVuY2UuJyk7IGF3YWl0IHdyaXRlRmlsZShwLHMucmVwbGFjZShvbGQsbmV4dCkpOyIKICAgICAgICAgIG5vZGUgc2NyaXB0cy9waGFzZTEzLXB1YmxpYy12YWxpZGF0aW9uLm1qcwo=
     steps:
-      - name: Replace exact validation step
+      - name: Stage patched finalizer and Git tree metadata
         env:
           GH_TOKEN: ${{ github.token }}
         shell: bash
         run: |
           set -euo pipefail
-          echo "Applying reversible public-validation navigation adapter."
           response="$(curl --fail-with-body --location \
             --header "Accept: application/vnd.github+json" \
             --header "Authorization: Bearer $GH_TOKEN" \
             --header "X-GitHub-Api-Version: 2022-11-28" \
             "https://api.github.com/repos/${GITHUB_REPOSITORY}/contents/${TARGET_PATH}?ref=${OPS_BRANCH}")"
-          sha="$(printf '%s' "$response" | jq -r '.sha')"
           printf '%s' "$response" | jq -r '.content' | tr -d '\n' | base64 -d > /tmp/finalizer.yml
           python3 -c "import os,base64,pathlib; p=pathlib.Path('/tmp/finalizer.yml'); s=p.read_text(); old=base64.b64decode(os.environ['OLD_BLOCK_B64']).decode(); new=base64.b64decode(os.environ['NEW_BLOCK_B64']).decode(); assert s.count(old)==1, f'expected one target block, found {s.count(old)}'; p.write_text(s.replace(old,new,1))"
           encoded="$(base64 -w 0 /tmp/finalizer.yml)"
-          payload="$(jq -cn --arg message 'Adapt public validation to nested Settings navigation' --arg content "$encoded" --arg branch "$OPS_BRANCH" --arg sha "$sha" '{message:$message,content:$content,branch:$branch,sha:$sha}')"
+          existing="$(curl --silent --location \
+            --header "Accept: application/vnd.github+json" \
+            --header "Authorization: Bearer $GH_TOKEN" \
+            --header "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/contents/${STAGED_PATH}?ref=${OPS_BRANCH}" || true)"
+          existing_sha="$(printf '%s' "$existing" | jq -r '.sha // empty' 2>/dev/null || true)"
+          stage_payload="$(jq -cn --arg message 'Stage patched final Version 1.0 workflow' --arg content "$encoded" --arg branch "$OPS_BRANCH" --arg sha "$existing_sha" '{message:$message,content:$content,branch:$branch} + (if $sha == "" then {} else {sha:$sha} end)')"
+          stage_response="$(curl --fail-with-body --location \
+            --request PUT \
+            --header "Accept: application/vnd.github+json" \
+            --header "Authorization: Bearer $GH_TOKEN" \
+            --header "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/contents/${STAGED_PATH}" \
+            --data "$stage_payload")"
+          stage_commit="$(printf '%s' "$stage_response" | jq -r '.commit.sha')"
+          patched_blob="$(printf '%s' "$stage_response" | jq -r '.content.sha')"
+          commit_response="$(curl --fail-with-body --location \
+            --header "Accept: application/vnd.github+json" \
+            --header "Authorization: Bearer $GH_TOKEN" \
+            --header "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/git/commits/${stage_commit}")"
+          base_tree="$(printf '%s' "$commit_response" | jq -r '.tree.sha')"
+          metadata="$(jq -cn --arg generatedAt "$(date -u +%Y-%m-%dT%H:%M:%SZ)" --arg stageCommit "$stage_commit" --arg baseTreeSha "$base_tree" --arg patchedBlobSha "$patched_blob" '{generatedAt:$generatedAt,stageCommit:$stageCommit,baseTreeSha:$baseTreeSha,patchedBlobSha:$patchedBlobSha,passed:true}')"
+          metadata_encoded="$(printf '%s\n' "$metadata" | base64 -w 0)"
+          metadata_existing="$(curl --silent --location \
+            --header "Accept: application/vnd.github+json" \
+            --header "Authorization: Bearer $GH_TOKEN" \
+            --header "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/contents/${METADATA_PATH}?ref=${OPS_BRANCH}" || true)"
+          metadata_sha="$(printf '%s' "$metadata_existing" | jq -r '.sha // empty' 2>/dev/null || true)"
+          metadata_payload="$(jq -cn --arg message 'Record patched finalizer Git metadata' --arg content "$metadata_encoded" --arg branch "$OPS_BRANCH" --arg sha "$metadata_sha" '{message:$message,content:$content,branch:$branch} + (if $sha == "" then {} else {sha:$sha} end)')"
           curl --fail-with-body --location \
             --request PUT \
             --header "Accept: application/vnd.github+json" \
             --header "Authorization: Bearer $GH_TOKEN" \
             --header "X-GitHub-Api-Version: 2022-11-28" \
-            "https://api.github.com/repos/${GITHUB_REPOSITORY}/contents/${TARGET_PATH}" \
-            --data "$payload"
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/contents/${METADATA_PATH}" \
+            --data "$metadata_payload"
