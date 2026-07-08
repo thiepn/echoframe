@@ -1,0 +1,18 @@
+{
+  "generatedAt": "2026-07-06T12:45:06.929Z",
+  "plans": 5000,
+  "exactDeterministicMatches": 5000,
+  "failures": {
+    "nondeterministic": 0,
+    "spawn": 0,
+    "playerOverlap": 0,
+    "lifetime": 0,
+    "damage": 0,
+    "fireRate": 0,
+    "upgradeInheritance": 0,
+    "mutableDescriptor": 0,
+    "nonFinite": 0
+  },
+  "hardFailureCount": 0,
+  "passed": true
+}

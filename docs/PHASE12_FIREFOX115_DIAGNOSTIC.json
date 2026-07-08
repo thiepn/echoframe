@@ -1,0 +1,45 @@
+{
+  "generatedAt": "2026-07-07T23:59:52Z",
+  "phase": 12,
+  "scope": "Obsolete Firefox 115 real-Gecko diagnostic; not release certification",
+  "acceptedAsCertification": false,
+  "browser": {
+    "browserName": "firefox",
+    "browserVersion": "115.0.3",
+    "platformName": "linux",
+    "acceptInsecureCerts": false,
+    "pageLoadStrategy": "normal",
+    "setWindowRect": true,
+    "timeouts": {
+      "implicit": 0,
+      "pageLoad": 300000,
+      "script": 30000
+    },
+    "strictFileInteractability": false,
+    "unhandledPromptBehavior": "dismiss and notify",
+    "moz:accessibilityChecks": false,
+    "moz:buildID": "20230726201356",
+    "moz:headless": true,
+    "moz:platformVersion": "4.4.0",
+    "moz:processID": 20626,
+    "moz:profile": "/tmp/echoframe-ff115-marionette-profile",
+    "moz:shutdownTimeout": 60000,
+    "moz:useNonSpecCompliantPointerOrigin": false,
+    "moz:webdriverClick": true,
+    "moz:windowless": false,
+    "capabilities": {
+      "alwaysMatch": {
+        "acceptInsecureCerts": true,
+        "pageLoadStrategy": "eager"
+      }
+    },
+    "proxy": {}
+  },
+  "gameCodeExecuted": false,
+  "checks": {},
+  "errors": [
+    "TimeoutError: globalThis.__ECHOFRAME__?.game"
+  ],
+  "passedDiagnostic": false,
+  "processLog": "*** You are running in headless mode.\n[GFX1-]: glxtest: cannot access /sys/bus/pci\n[GFX1-]: glxtest: Unable to open a connection to the X server\n[GFX1-]: No GPUs detected via PCI\n\n[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt\n[GFX1-]: Managed to allocate after flush.\n[WARN  rkv::backend::impl_safe::environment] `load_ratio()` is irrelevant for this storage backend.\n\nSession terminated, killing shell...Exiting due to channel error.\nExiting due to channel error.\nExiting due to channel error.\nExiting due to channel error.\nExiting due to channel error.\n ...killed.\n"
+}

@@ -1,0 +1,17 @@
+{
+  "generatedAt": "2026-07-07T22:27:37.219Z",
+  "phase": 11,
+  "packageVersion": "1.0.0-release-candidate",
+  "sourceManifestDigest": "3be6c352bb402201c24c32067bbd281dc0493008e19f469f1827ceebffd4fa78",
+  "chromiumPassed": true,
+  "firefoxPassed": false,
+  "presets": [
+    "default",
+    "reduced-motion",
+    "high-contrast-locator",
+    "minimal-hud",
+    "all-aids"
+  ],
+  "status": "blocked-real-firefox-required",
+  "passed": false
+}

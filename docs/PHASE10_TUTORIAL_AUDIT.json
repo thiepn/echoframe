@@ -1,0 +1,35 @@
+{
+  "generatedAt": "2026-07-08T00:01:59.428Z",
+  "timelines": 10000,
+  "replayedTimelines": 10000,
+  "scenarioCounts": {
+    "0": 1250,
+    "1": 1250,
+    "2": 1250,
+    "3": 1250,
+    "4": 1250,
+    "5": 1250,
+    "6": 1250,
+    "7": 1250,
+    "8": 1250,
+    "9": 1250,
+    "10": 1250,
+    "11": 1250,
+    "12": 1250,
+    "13": 1250,
+    "14": 1250,
+    "15": 1250
+  },
+  "hardFailures": {
+    "incorrectStepAdvancement": 0,
+    "skippedRequiredStep": 0,
+    "duplicateCompletion": 0,
+    "falseOwnershipAcceptance": 0,
+    "softLockState": 0,
+    "nonFiniteProgress": 0,
+    "timerAdvancedDuringPause": 0,
+    "scoreOrProgressionMutation": 0,
+    "deterministicMismatch": 0
+  },
+  "passed": true
+}

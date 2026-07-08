@@ -1,0 +1,8 @@
+import{DESIGN_HEIGHT,DESIGN_WIDTH}from'../data/constants.js';
+const cx=DESIGN_WIDTH/2,cy=DESIGN_HEIGHT/2;
+function rawPoint(point,transform){let x=Number(point.x)-cx,y=Number(point.y)-cy;if(transform.mirrorX)x=-x;if(transform.mirrorY)y=-y;const radians=(Number(transform.rotationDegrees)||0)*Math.PI/180;const rx=x*Math.cos(radians)-y*Math.sin(radians),ry=x*Math.sin(radians)+y*Math.cos(radians);return{x:Math.round((cx+rx)*1000)/1000,y:Math.round((cy+ry)*1000)/1000};}
+function rawVector(vector,transform){let x=Number(vector?.x)||0,y=Number(vector?.y)||0;if(transform.mirrorX)x=-x;if(transform.mirrorY)y=-y;const radians=(Number(transform.rotationDegrees)||0)*Math.PI/180;const rx=x*Math.cos(radians)-y*Math.sin(radians),ry=x*Math.sin(radians)+y*Math.cos(radians);return{x:Math.round(rx*1000)/1000,y:Math.round(ry*1000)/1000};}
+export function transformPoint(point,transform){return{...point,...rawPoint(point,transform)};}
+export function transformRect(rect,transform){const p=rawPoint(rect,transform);const quarter=Math.abs((Number(transform.rotationDegrees)||0)/90)%2===1;return{...rect,...p,width:quarter?rect.height:rect.width,height:quarter?rect.width:rect.height};}
+export function transformSocket(socket,transform){return{...socket,...rawPoint(socket,transform),facing:Object.freeze(rawVector(socket.facing,transform)),id:socket.id};}
+export function transformHazardSocket(socket,transform){const quarter=Math.abs((Number(transform.rotationDegrees)||0)/90)%2===1;return{...socket,...rawPoint(socket,transform),orientation:quarter?(socket.orientation==='horizontal'?'vertical':'horizontal'):socket.orientation,id:socket.id};}

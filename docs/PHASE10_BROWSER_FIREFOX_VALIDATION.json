@@ -1,0 +1,51 @@
+{
+  "generatedAt": "2026-07-07T17:30:07.260Z",
+  "browser": {
+    "executable": "/usr/bin/firefox",
+    "requestedEngine": "firefox",
+    "version": "Mozilla Firefox 140.12.0esr",
+    "managedExecutable": "/home/oai/.cache/ms-playwright/firefox-1532/firefox/firefox"
+  },
+  "sourceVersion": null,
+  "environment": {
+    "platform": "linux",
+    "arch": "x64",
+    "kernel": "4.4.0"
+  },
+  "status": "environment-blocked-before-game-execution",
+  "passed": false,
+  "checks": {},
+  "exceptions": [],
+  "consoleErrors": [],
+  "consoleWarnings": [],
+  "failedRequests": [],
+  "attempts": [
+    {
+      "kind": "direct-real-firefox-process-probe",
+      "exitCode": 11,
+      "signal": null,
+      "timedOut": false,
+      "output": "[GFX1-]: glxtest: Unable to open a connection to the X server\n[GFX1-]: No GPUs detected via PCI\n\n*** You are running in headless mode.\n[WARN  rkv::backend::impl_safe::environment] `load_ratio()` is irrelevant for this storage backend.\nwasm_rt_syscall_set_segue_base error: Invalid argument\nRedirecting call to abort() to mozalloc_abort\n\nExceptionHandler::GenerateDump attempting to generate:\u0000/tmp/echoframe-firefox-probe-home/.mozilla/firefox/vzhdqvwm.default-esr/minidumps/4bc2fbc1-445d-631c-a8cc-7d741b26e664.dmp\nExceptionHandler::GenerateDump cloned child 53828ExceptionHandler::WaitForContinueSignal waiting for continue signal...\n\nExceptionHandler::SendContinueSignalToChild sent continue signal to child\nExceptionHandler::GenerateDump minidump generation \u0000succeeded\n\u0000\n(crashreporter:53829): Gtk-WARNING **: 17:30:13.168: cannot open display: :0",
+      "gameCodeExecuted": false
+    }
+  ],
+  "environmentBlock": {
+    "stage": "real Firefox process startup",
+    "installedVersion": "Mozilla Firefox 140.12.0esr",
+    "reason": "The installed Firefox binary aborts before page creation because the execution kernel rejects the Firefox WASM/RLBox GS-base syscall.",
+    "directProbeExitCode": 11,
+    "directProbeEvidence": "[GFX1-]: glxtest: Unable to open a connection to the X server\n[GFX1-]: No GPUs detected via PCI\n\n*** You are running in headless mode.\n[WARN  rkv::backend::impl_safe::environment] `load_ratio()` is irrelevant for this storage backend.\nwasm_rt_syscall_set_segue_base error: Invalid argument\nRedirecting call to abort() to mozalloc_abort\n\nExceptionHandler::GenerateDump attempting to generate:\u0000/tmp/echoframe-firefox-probe-home/.mozilla/firefox/vzhdqvwm.default-esr/minidumps/4bc2fbc1-445d-631c-a8cc-7d741b26e664.dmp\nExceptionHandler::GenerateDump cloned child 53828ExceptionHandler::WaitForContinueSignal waiting for continue signal...\n\nExceptionHandler::SendContinueSignalToChild sent continue signal to child\nExceptionHandler::GenerateDump minidump generation \u0000succeeded\n\u0000\n(crashreporter:53829): Gtk-WARNING **: 17:30:13.168: cannot open display: :0",
+    "gameCodeExecuted": false,
+    "chromiumSubstitutionUsed": false,
+    "managedPlaywrightFirefoxPresent": false,
+    "note": "Changing Firefox sandbox and Graphite preferences did not change the pre-page abort. This is an execution-environment limitation, not a game exception."
+  },
+  "launchError": "Error: Real Firefox process aborted before game execution.",
+  "managedPlaywrightInstallAttempt": {
+    "attemptedAt": "2026-07-07T17:30:20.208Z",
+    "command": "npx playwright install firefox",
+    "succeeded": false,
+    "reason": "Browser download could not resolve cdn.playwright.dev or playwright.download.prss.microsoft.com in this execution environment (EAI_AGAIN).",
+    "gameCodeExecuted": false
+  }
+}

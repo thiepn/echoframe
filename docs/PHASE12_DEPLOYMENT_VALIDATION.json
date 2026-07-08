@@ -1,0 +1,18 @@
+{
+  "generatedAt": "2026-07-08T00:06:31.888Z",
+  "phase": 12,
+  "scope": "Phase 12 root/subpath deployment certification",
+  "packageVersion": "1.0.0-release-candidate",
+  "runtimeVersion": "1.0.0-release-candidate",
+  "sourceManifestDigest": "3eafc0a1a6b2ee2d9b804fa353e65c1b9758ef45c9c83c13e376e2c1e5efd4b4",
+  "productionBundleDigest": "34ba803c59ef10c3fb33e95410ba638dfeb7a8b9f1e10912abca4b5b69b3b764",
+  "chromiumBases": [],
+  "chromiumBasesPassed": true,
+  "firefoxBases": [],
+  "firefoxBasesPassed": false,
+  "firefoxStatus": "environment-blocked-before-game-execution",
+  "localChromiumPassed": true,
+  "passed": true,
+  "status": "chromium-local-bases-passed-supported-firefox-blocked",
+  "note": "Both local Chromium static bases passed. Supported Firefox could not execute on this kernel, so two-engine deployment certification remains open."
+}

@@ -1,0 +1,48 @@
+export const PLAYER_BALANCE = Object.freeze({
+  movement: Object.freeze({
+    maximumSpeed: 340,
+    acceleration: 2600,
+    deceleration: 3200,
+    collisionRadius: 18,
+    aimDeadZoneRadius: 24,
+    maximumDeltaMs: 32,
+  }),
+  dash: Object.freeze({
+    distance: 150,
+    durationMs: 160,
+    invulnerabilityMs: 190,
+    cooldownMs: 1200,
+    inputBufferMs: 120,
+    wallStopRecoveryMs: 60,
+  }),
+  weapon: Object.freeze({
+    damage: 10,
+    fireRate: 5,
+    fireIntervalMs: 200,
+    projectileSpeed: 850,
+    projectileLifetimeMs: 1400,
+    projectileRadius: 5,
+    criticalChance: 0.05,
+    criticalMultiplier: 1.6,
+    spawnOffset: 26,
+  }),
+  projectilePool: Object.freeze({
+    initialCapacity: 32,
+    expansionChunk: 16,
+    hardCap: 120,
+  }),
+  visuals: Object.freeze({
+    playerDiameter: 58,
+    aimLineStart: 34,
+    aimLineLength: 220,
+    muzzleFlashMs: 45,
+    targetFlashMs: 40,
+    movementTrailIntervalMs: 42,
+    dashTrailIntervalMs: 20,
+  }),
+  completion: Object.freeze({
+    requiredHits: 20,
+    requiredDashes: 3,
+    activationRadius: 78,
+  }),
+});

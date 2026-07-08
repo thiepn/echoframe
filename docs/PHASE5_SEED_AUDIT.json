@@ -1,0 +1,206 @@
+{
+  "generatedAt": "2026-07-05T20:58:33.332Z",
+  "difficulties": {
+    "relaxed": {
+      "runs": 100,
+      "descriptors": 1000,
+      "deterministicRunComparisons": 100,
+      "deterministicRunMatches": 100,
+      "deterministicDescriptorComparisons": 1000,
+      "deterministicDescriptorMatches": 1000,
+      "generationAttempts": 1993,
+      "maximumGenerationAttempts": 13,
+      "fallbacks": 0,
+      "rejectionReasons": {
+        "missing-required-role": 436,
+        "excessive-variety": 498,
+        "insufficient-variety": 54,
+        "exact-repeat": 29,
+        "body-block-risk": 52,
+        "projectile-saturation": 3,
+        "role-cap": 12
+      },
+      "enemyFrequency": {
+        "drifter": 1586,
+        "lancer": 585,
+        "sentry": 762,
+        "bulwark": 225,
+        "shard-carrier": 241,
+        "suppressor": 200
+      },
+      "roleFrequency": {
+        "PRESSURE": 1586,
+        "BURST": 585,
+        "RANGED": 762,
+        "DEFENDER": 225,
+        "SPAWNER": 241,
+        "CONTROL": 200
+      },
+      "patternFrequency": {
+        "INTRODUCTION": 200,
+        "RANGED_CROSS": 145,
+        "BURST_WINDOW": 79,
+        "RECOVERY": 200,
+        "MIXED_ESCALATION": 111,
+        "CONTROL_ZONE": 18,
+        "FINALE": 163,
+        "PRESSURE_LINE": 51,
+        "DEFENSIVE_CORE": 33
+      },
+      "spawnPointFrequency": {
+        "ne": 494,
+        "nw": 500,
+        "w": 517,
+        "n": 572,
+        "se": 522,
+        "e": 495,
+        "sw": 499
+      },
+      "actualThreatSum": 7488,
+      "absoluteThreatDeviationSum": 434,
+      "errors": [],
+      "averageGenerationAttempts": 1.993,
+      "averageActualThreat": 7.488,
+      "averageAbsoluteThreatDeviation": 0.434
+    },
+    "standard": {
+      "runs": 100,
+      "descriptors": 1000,
+      "deterministicRunComparisons": 100,
+      "deterministicRunMatches": 100,
+      "deterministicDescriptorComparisons": 1000,
+      "deterministicDescriptorMatches": 1000,
+      "generationAttempts": 1993,
+      "maximumGenerationAttempts": 13,
+      "fallbacks": 0,
+      "rejectionReasons": {
+        "missing-required-role": 436,
+        "excessive-variety": 498,
+        "insufficient-variety": 54,
+        "exact-repeat": 29,
+        "body-block-risk": 52,
+        "projectile-saturation": 3,
+        "role-cap": 12
+      },
+      "enemyFrequency": {
+        "drifter": 1586,
+        "lancer": 585,
+        "sentry": 762,
+        "bulwark": 225,
+        "shard-carrier": 241,
+        "suppressor": 200
+      },
+      "roleFrequency": {
+        "PRESSURE": 1586,
+        "BURST": 585,
+        "RANGED": 762,
+        "DEFENDER": 225,
+        "SPAWNER": 241,
+        "CONTROL": 200
+      },
+      "patternFrequency": {
+        "INTRODUCTION": 200,
+        "RANGED_CROSS": 145,
+        "BURST_WINDOW": 79,
+        "RECOVERY": 200,
+        "MIXED_ESCALATION": 111,
+        "CONTROL_ZONE": 18,
+        "FINALE": 163,
+        "PRESSURE_LINE": 51,
+        "DEFENSIVE_CORE": 33
+      },
+      "spawnPointFrequency": {
+        "s": 214,
+        "ne": 465,
+        "w": 481,
+        "n": 547,
+        "nw": 465,
+        "se": 484,
+        "e": 468,
+        "sw": 475
+      },
+      "actualThreatSum": 7488,
+      "absoluteThreatDeviationSum": 434,
+      "errors": [],
+      "averageGenerationAttempts": 1.993,
+      "averageActualThreat": 7.488,
+      "averageAbsoluteThreatDeviation": 0.434
+    },
+    "overclocked": {
+      "runs": 100,
+      "descriptors": 1000,
+      "deterministicRunComparisons": 100,
+      "deterministicRunMatches": 100,
+      "deterministicDescriptorComparisons": 1000,
+      "deterministicDescriptorMatches": 1000,
+      "generationAttempts": 1993,
+      "maximumGenerationAttempts": 13,
+      "fallbacks": 0,
+      "rejectionReasons": {
+        "missing-required-role": 436,
+        "excessive-variety": 498,
+        "insufficient-variety": 54,
+        "exact-repeat": 29,
+        "body-block-risk": 52,
+        "projectile-saturation": 3,
+        "role-cap": 12
+      },
+      "enemyFrequency": {
+        "drifter": 1586,
+        "lancer": 585,
+        "sentry": 762,
+        "bulwark": 225,
+        "shard-carrier": 241,
+        "suppressor": 200
+      },
+      "roleFrequency": {
+        "PRESSURE": 1586,
+        "BURST": 585,
+        "RANGED": 762,
+        "DEFENDER": 225,
+        "SPAWNER": 241,
+        "CONTROL": 200
+      },
+      "patternFrequency": {
+        "INTRODUCTION": 200,
+        "RANGED_CROSS": 145,
+        "BURST_WINDOW": 79,
+        "RECOVERY": 200,
+        "MIXED_ESCALATION": 111,
+        "CONTROL_ZONE": 18,
+        "FINALE": 163,
+        "PRESSURE_LINE": 51,
+        "DEFENSIVE_CORE": 33
+      },
+      "spawnPointFrequency": {
+        "s": 214,
+        "ne": 465,
+        "w": 481,
+        "n": 547,
+        "nw": 465,
+        "se": 484,
+        "e": 468,
+        "sw": 475
+      },
+      "actualThreatSum": 7488,
+      "absoluteThreatDeviationSum": 434,
+      "errors": [],
+      "averageGenerationAttempts": 1.993,
+      "averageActualThreat": 7.488,
+      "averageAbsoluteThreatDeviation": 0.434
+    }
+  },
+  "totals": {
+    "runs": 300,
+    "descriptors": 3000,
+    "deterministicRunComparisons": 300,
+    "deterministicRunMatches": 300,
+    "deterministicDescriptorComparisons": 3000,
+    "deterministicDescriptorMatches": 3000,
+    "generationAttempts": 5979,
+    "maximumGenerationAttempts": 13,
+    "fallbacks": 0,
+    "errors": [],
+    "averageGenerationAttempts": 1.993
+  }
+}

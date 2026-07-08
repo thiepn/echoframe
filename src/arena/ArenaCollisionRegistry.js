@@ -1,0 +1,1 @@
+export class ArenaCollisionRegistry{constructor(){this.handles=[];}add(handle){if(handle)this.handles.push(handle);return handle;}clear(){for(const handle of this.handles.splice(0))handle?.destroy?.();}get count(){return this.handles.length;}}

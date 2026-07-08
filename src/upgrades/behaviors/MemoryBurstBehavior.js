@@ -1,0 +1,1 @@
+export class MemoryBurstBehavior{descriptor(echo,profile){if(!profile)return null;return Object.freeze({x:echo.x,y:echo.y,radius:profile.radius,damage:profile.damage,sourceId:echo.instanceId,canCrit:false,canTriggerChain:false,canTriggerFragments:false,triggerDepth:1});}}

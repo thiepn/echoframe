@@ -1,0 +1,91 @@
+{
+  "generatedAt": "2026-07-08T00:03:12.479Z",
+  "phase": 11,
+  "scope": "Chromium release-candidate revalidation",
+  "packageVersion": "1.0.0-release-candidate",
+  "runtimeVersion": "1.0.0-release-candidate",
+  "sourceManifestDigest": "3eafc0a1a6b2ee2d9b804fa353e65c1b9758ef45c9c83c13e376e2c1e5efd4b4",
+  "productionBundleDigest": "34ba803c59ef10c3fb33e95410ba638dfeb7a8b9f1e10912abca4b5b69b3b764",
+  "browser": {
+    "engine": "chromium",
+    "executable": "/usr/bin/chromium",
+    "version": null
+  },
+  "environment": {
+    "platform": "linux",
+    "arch": "x64"
+  },
+  "basedOnFreshExecution": true,
+  "phase10HarnessReport": "PHASE10_BROWSER_CHROMIUM_VALIDATION.json",
+  "checks": {
+    "http200": true,
+    "title": true,
+    "releaseMode": true,
+    "freshTutorialIncomplete": true,
+    "freshRunCountZero": true,
+    "freshRoutesTutorial": true,
+    "noRunCreatedBeforeTutorial": true,
+    "tutorialPause": true,
+    "tutorialResume": true,
+    "realPointerFireAccepted": true,
+    "productionEchoDeployed": true,
+    "completionPersisted": true,
+    "oneRunStarted": true,
+    "tutorialScoreExcluded": true,
+    "combatOneStarts": true,
+    "returningBypassesTutorial": true,
+    "archiveReplayEntry": true,
+    "archiveReplayNoRunRecord": true,
+    "keyboardRebind": true,
+    "immediateContextRebuild": true,
+    "conflictRejected": true,
+    "pointerRebind": true,
+    "escapeCancelsCapture": true,
+    "restoreDefaults": true,
+    "reloadPersistence": true,
+    "accessibilityPage": true,
+    "credits": true,
+    "combatRegression": true,
+    "fullRouteVictory": true,
+    "fatalScreen": true,
+    "zeroExceptions": true,
+    "zeroConsoleErrors": true,
+    "zeroFailedRequests": true,
+    "warningsExplained": true
+  },
+  "observations": {
+    "route": {
+      "result": "victory",
+      "finalScore": 6988,
+      "recentRuns": 1,
+      "aggregate": {
+        "runsStarted": 4,
+        "runsCompleted": 1,
+        "victories": 1,
+        "defeats": 0,
+        "totalSimulationMs": 1003.3300000000002,
+        "totalScore": 6988,
+        "highestScore": 6988,
+        "totalEnemiesDefeated": 0,
+        "totalElitesDefeated": 1,
+        "totalBossesDefeated": 1
+      }
+    },
+    "finalDiagnostics": {
+      "title": "ECHOFRAME: LAST SIGNAL",
+      "fatalVisible": true
+    }
+  },
+  "exceptions": [],
+  "consoleErrors": [],
+  "consoleWarnings": [],
+  "failedRequests": [],
+  "screenshots": [
+    "ECHOFRAME_phase11_rc_main_menu_chromium.png",
+    "ECHOFRAME_phase11_rc_results_chromium.png",
+    "ECHOFRAME_phase11_rc_accessibility_chromium.png",
+    "ECHOFRAME_phase11_rc_credits_chromium.png"
+  ],
+  "commandError": null,
+  "passed": true
+}

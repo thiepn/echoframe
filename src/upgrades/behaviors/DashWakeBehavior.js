@@ -1,0 +1,1 @@
+export class DashWakeBehavior{descriptor({start,end,profile,source='player'}={}){if(!profile)return null;return Object.freeze({start:Object.freeze({...start}),end:Object.freeze({...end}),width:profile.width,lifetimeMs:profile.lifetimeMs,damage:profile.damage*(source==='echo'?profile.echoScalar:1),source,hitTargets:Object.freeze([])});}}

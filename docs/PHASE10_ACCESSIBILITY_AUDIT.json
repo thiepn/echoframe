@@ -1,0 +1,451 @@
+{
+  "generatedAt": "2026-07-08T00:02:05.318Z",
+  "presets": [
+    {
+      "name": "Default",
+      "settings": {
+        "audio": {
+          "masterVolume": 0.8,
+          "musicVolume": 0.6,
+          "effectsVolume": 0.8,
+          "muted": false
+        },
+        "visual": {
+          "screenShake": 0.7,
+          "reducedFlashes": false,
+          "reducedParticles": false,
+          "highContrast": false,
+          "damageNumbers": true,
+          "aimLine": true,
+          "hudOpacity": 0.9
+        },
+        "accessibility": {
+          "pauseOnFocusLoss": true,
+          "persistentPlayerLocator": false,
+          "largerTelegraphOutlines": false
+        },
+        "controls": {
+          "bindings": {
+            "moveUp": [
+              {
+                "device": "keyboard",
+                "code": "KeyW"
+              }
+            ],
+            "moveDown": [
+              {
+                "device": "keyboard",
+                "code": "KeyS"
+              }
+            ],
+            "moveLeft": [
+              {
+                "device": "keyboard",
+                "code": "KeyA"
+              }
+            ],
+            "moveRight": [
+              {
+                "device": "keyboard",
+                "code": "KeyD"
+              }
+            ],
+            "fire": [
+              {
+                "device": "pointer",
+                "button": 0
+              }
+            ],
+            "dash": [
+              {
+                "device": "keyboard",
+                "code": "ShiftLeft"
+              },
+              {
+                "device": "pointer",
+                "button": 2
+              }
+            ],
+            "deployEcho": [
+              {
+                "device": "keyboard",
+                "code": "Space"
+              }
+            ],
+            "pause": [
+              {
+                "device": "keyboard",
+                "code": "Escape"
+              }
+            ]
+          }
+        },
+        "gameplay": {
+          "lastDifficulty": "standard"
+        }
+      }
+    },
+    {
+      "name": "Reduced motion",
+      "settings": {
+        "audio": {
+          "masterVolume": 0.8,
+          "musicVolume": 0.6,
+          "effectsVolume": 0.8,
+          "muted": false
+        },
+        "visual": {
+          "screenShake": 0,
+          "reducedFlashes": true,
+          "reducedParticles": true,
+          "highContrast": false,
+          "damageNumbers": true,
+          "aimLine": true,
+          "hudOpacity": 0.9
+        },
+        "accessibility": {
+          "pauseOnFocusLoss": true,
+          "persistentPlayerLocator": false,
+          "largerTelegraphOutlines": false
+        },
+        "controls": {
+          "bindings": {
+            "moveUp": [
+              {
+                "device": "keyboard",
+                "code": "KeyW"
+              }
+            ],
+            "moveDown": [
+              {
+                "device": "keyboard",
+                "code": "KeyS"
+              }
+            ],
+            "moveLeft": [
+              {
+                "device": "keyboard",
+                "code": "KeyA"
+              }
+            ],
+            "moveRight": [
+              {
+                "device": "keyboard",
+                "code": "KeyD"
+              }
+            ],
+            "fire": [
+              {
+                "device": "pointer",
+                "button": 0
+              }
+            ],
+            "dash": [
+              {
+                "device": "keyboard",
+                "code": "ShiftLeft"
+              },
+              {
+                "device": "pointer",
+                "button": 2
+              }
+            ],
+            "deployEcho": [
+              {
+                "device": "keyboard",
+                "code": "Space"
+              }
+            ],
+            "pause": [
+              {
+                "device": "keyboard",
+                "code": "Escape"
+              }
+            ]
+          }
+        },
+        "gameplay": {
+          "lastDifficulty": "standard"
+        }
+      }
+    },
+    {
+      "name": "Visibility aids",
+      "settings": {
+        "audio": {
+          "masterVolume": 0.8,
+          "musicVolume": 0.6,
+          "effectsVolume": 0.8,
+          "muted": false
+        },
+        "visual": {
+          "screenShake": 0.7,
+          "reducedFlashes": false,
+          "reducedParticles": false,
+          "highContrast": true,
+          "damageNumbers": true,
+          "aimLine": true,
+          "hudOpacity": 0.9
+        },
+        "accessibility": {
+          "pauseOnFocusLoss": true,
+          "persistentPlayerLocator": true,
+          "largerTelegraphOutlines": true
+        },
+        "controls": {
+          "bindings": {
+            "moveUp": [
+              {
+                "device": "keyboard",
+                "code": "KeyW"
+              }
+            ],
+            "moveDown": [
+              {
+                "device": "keyboard",
+                "code": "KeyS"
+              }
+            ],
+            "moveLeft": [
+              {
+                "device": "keyboard",
+                "code": "KeyA"
+              }
+            ],
+            "moveRight": [
+              {
+                "device": "keyboard",
+                "code": "KeyD"
+              }
+            ],
+            "fire": [
+              {
+                "device": "pointer",
+                "button": 0
+              }
+            ],
+            "dash": [
+              {
+                "device": "keyboard",
+                "code": "ShiftLeft"
+              },
+              {
+                "device": "pointer",
+                "button": 2
+              }
+            ],
+            "deployEcho": [
+              {
+                "device": "keyboard",
+                "code": "Space"
+              }
+            ],
+            "pause": [
+              {
+                "device": "keyboard",
+                "code": "Escape"
+              }
+            ]
+          }
+        },
+        "gameplay": {
+          "lastDifficulty": "standard"
+        }
+      }
+    },
+    {
+      "name": "Minimal HUD effects",
+      "settings": {
+        "audio": {
+          "masterVolume": 0.8,
+          "musicVolume": 0.6,
+          "effectsVolume": 0.8,
+          "muted": false
+        },
+        "visual": {
+          "screenShake": 0.7,
+          "reducedFlashes": false,
+          "reducedParticles": false,
+          "highContrast": false,
+          "damageNumbers": false,
+          "aimLine": false,
+          "hudOpacity": 0.5
+        },
+        "accessibility": {
+          "pauseOnFocusLoss": true,
+          "persistentPlayerLocator": false,
+          "largerTelegraphOutlines": false
+        },
+        "controls": {
+          "bindings": {
+            "moveUp": [
+              {
+                "device": "keyboard",
+                "code": "KeyW"
+              }
+            ],
+            "moveDown": [
+              {
+                "device": "keyboard",
+                "code": "KeyS"
+              }
+            ],
+            "moveLeft": [
+              {
+                "device": "keyboard",
+                "code": "KeyA"
+              }
+            ],
+            "moveRight": [
+              {
+                "device": "keyboard",
+                "code": "KeyD"
+              }
+            ],
+            "fire": [
+              {
+                "device": "pointer",
+                "button": 0
+              }
+            ],
+            "dash": [
+              {
+                "device": "keyboard",
+                "code": "ShiftLeft"
+              },
+              {
+                "device": "pointer",
+                "button": 2
+              }
+            ],
+            "deployEcho": [
+              {
+                "device": "keyboard",
+                "code": "Space"
+              }
+            ],
+            "pause": [
+              {
+                "device": "keyboard",
+                "code": "Escape"
+              }
+            ]
+          }
+        },
+        "gameplay": {
+          "lastDifficulty": "standard"
+        }
+      }
+    },
+    {
+      "name": "All aids",
+      "settings": {
+        "audio": {
+          "masterVolume": 0.8,
+          "musicVolume": 0.6,
+          "effectsVolume": 0.8,
+          "muted": false
+        },
+        "visual": {
+          "screenShake": 0,
+          "reducedFlashes": true,
+          "reducedParticles": true,
+          "highContrast": true,
+          "damageNumbers": false,
+          "aimLine": false,
+          "hudOpacity": 0.5
+        },
+        "accessibility": {
+          "pauseOnFocusLoss": true,
+          "persistentPlayerLocator": true,
+          "largerTelegraphOutlines": true
+        },
+        "controls": {
+          "bindings": {
+            "moveUp": [
+              {
+                "device": "keyboard",
+                "code": "KeyW"
+              }
+            ],
+            "moveDown": [
+              {
+                "device": "keyboard",
+                "code": "KeyS"
+              }
+            ],
+            "moveLeft": [
+              {
+                "device": "keyboard",
+                "code": "KeyA"
+              }
+            ],
+            "moveRight": [
+              {
+                "device": "keyboard",
+                "code": "KeyD"
+              }
+            ],
+            "fire": [
+              {
+                "device": "pointer",
+                "button": 0
+              }
+            ],
+            "dash": [
+              {
+                "device": "keyboard",
+                "code": "ShiftLeft"
+              },
+              {
+                "device": "pointer",
+                "button": 2
+              }
+            ],
+            "deployEcho": [
+              {
+                "device": "keyboard",
+                "code": "Space"
+              }
+            ],
+            "pause": [
+              {
+                "device": "keyboard",
+                "code": "Escape"
+              }
+            ]
+          }
+        },
+        "gameplay": {
+          "lastDifficulty": "standard"
+        }
+      }
+    }
+  ],
+  "scenesPlannedForBrowserMatrix": [
+    "Tutorial",
+    "Early combat",
+    "Elite combat",
+    "Hazard arena",
+    "Boss Phase 2",
+    "Boss Phase 3",
+    "Results",
+    "Archive",
+    "Statistics",
+    "Settings"
+  ],
+  "checks": {
+    "presetCount": true,
+    "zeroShakePreserved": true,
+    "hudMinimumPreserved": true,
+    "tutorialReadsSettings": true,
+    "runUsesCameraAuthority": true,
+    "bossUsesCameraAuthority": true,
+    "hudOpacityConnected": true,
+    "locatorConnected": true,
+    "largerOutlinesConnected": true,
+    "noGameplayRngMutation": true
+  },
+  "findings": [],
+  "passed": true
+}

@@ -1,0 +1,166 @@
+{
+  "generatedAt": "2026-07-07T16:11:32.427Z",
+  "measurementBuild": "validation instrumentation over release-candidate gameplay code; production bundle measured separately",
+  "startup": {
+    "bootToMenuMs": 1466.7501190000003,
+    "firstTutorialStartupMs": 110.18000700000084,
+    "repeatTutorialStartupMs": 53.61749800000143,
+    "settingsStartupMs": 40.989442000000054,
+    "bindingContextRebuildAverageMs": 0.11029999999981374,
+    "archiveStartupMs": 85.99046200000157,
+    "statisticsStartupMs": 79.40815199999997,
+    "combatOneStartupMs": 227.51520600000003,
+    "bossStartupMs": 207.1575120000016,
+    "resultsStartupMs": 84.32250500000009,
+    "saveSerializationBytesBrowser": 5885,
+    "saveMigrationAverageMs": 0.10345267200000015
+  },
+  "microbenchmarks": {
+    "bindingNormalization": {
+      "iterations": 25000,
+      "totalMs": 289.8439099999996,
+      "averageMicroseconds": 11.593756399999982,
+      "lastValueType": "object"
+    },
+    "legacyBindingMigration": {
+      "iterations": 10000,
+      "totalMs": 343.4934680000006,
+      "averageMicroseconds": 34.349346800000056,
+      "lastValueType": "object"
+    },
+    "saveNormalization": {
+      "iterations": 5000,
+      "totalMs": 345.51662600000054,
+      "averageMicroseconds": 69.1033252000001,
+      "lastValueType": "object"
+    },
+    "saveSerialization": {
+      "iterations": 10000,
+      "totalMs": 93.43954100000064,
+      "averageMicroseconds": 9.343954100000063,
+      "lastValueType": "string"
+    }
+  },
+  "saveSerializationBytes": 2001,
+  "bundle": {
+    "files": [
+      {
+        "filename": "assets/index-CDIjTugi.css",
+        "bytes": 1922,
+        "gzipBytes": 869
+      },
+      {
+        "filename": "assets/index-DmFyu5ce.js",
+        "bytes": 1799479,
+        "gzipBytes": 472654
+      },
+      {
+        "filename": "favicon.svg",
+        "bytes": 374,
+        "gzipBytes": 254
+      },
+      {
+        "filename": "index.html",
+        "bytes": 1215,
+        "gzipBytes": 627
+      },
+      {
+        "filename": "manifest.webmanifest",
+        "bytes": 467,
+        "gzipBytes": 298
+      }
+    ],
+    "fileCount": 5,
+    "totalDistBytes": 1803457,
+    "totalDistGzipBytes": 474702,
+    "totalJavaScriptBytes": 1799479,
+    "totalJavaScriptGzipBytes": 472654,
+    "largestAsset": {
+      "filename": "assets/index-DmFyu5ce.js",
+      "bytes": 1799479,
+      "gzipBytes": 472654
+    },
+    "phase9JavaScriptBytes": 1751956,
+    "phase9JavaScriptGzipBytes": 460410,
+    "changeBytes": 47523,
+    "gzipChangeBytes": 12244,
+    "changePercent": 2.712568123856992,
+    "gzipChangePercent": 2.6593688234399773
+  },
+  "frames": {
+    "tutorial": {
+      "samples": 180,
+      "averageFrameMs": 16.60444444444444,
+      "minimumFps": 59.52380952380888,
+      "averageFps": 60.22483940042828,
+      "p95FrameMs": 16.700000000000728,
+      "p99FrameMs": 16.800000000000182,
+      "maximumFrameMs": 16.800000000000182,
+      "framesOver50Ms": 0
+    },
+    "normalCombat": {
+      "samples": 506,
+      "averageFrameMs": 17.75276679841896,
+      "minimumFps": 7.5018754688672065,
+      "averageFps": 56.32924779302901,
+      "p95FrameMs": 16.799999999999272,
+      "p99FrameMs": 50,
+      "maximumFrameMs": 133.30000000000018,
+      "framesOver50Ms": 5
+    },
+    "spawnStress": {
+      "wallClockMs": 1218.369874,
+      "samples": 74,
+      "averageFrameMs": 16.666216216216206,
+      "minimumFps": 59.52380952380566,
+      "averageFps": 60.00162166545045,
+      "p95FrameMs": 16.700000000000728,
+      "p99FrameMs": 16.799999999999272,
+      "maximumFrameMs": 16.80000000000109,
+      "framesOver50Ms": 0
+    },
+    "boss": {
+      "samples": 492,
+      "averageFrameMs": 16.872154471544334,
+      "minimumFps": 14.992503748126182,
+      "averageFps": 59.2692534724327,
+      "p95FrameMs": 16.799999999999272,
+      "p99FrameMs": 16.80000000000291,
+      "maximumFrameMs": 66.69999999999891,
+      "framesOver50Ms": 1
+    }
+  },
+  "runtimePeaks": {
+    "listeners": 46,
+    "inputContexts": 1,
+    "keyObjects": 13,
+    "audioContexts": 1
+  },
+  "browser": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/144.0.0.0 Safari/537.36",
+  "exceptions": [],
+  "consoleErrors": [],
+  "consoleWarnings": [
+    {
+      "type": "warning",
+      "text": "drifter pool exhausted. {capacity: 12, active: 12, available: 0, hardCap: 12, peakActive: 12}"
+    }
+  ],
+  "failedRequests": [],
+  "checks": {
+    "bootToMenuBounded": true,
+    "tutorialStartupBounded": true,
+    "sceneStartupsBounded": true,
+    "bindingRebuildBounded": true,
+    "migrationBounded": true,
+    "normalCombatP95Under20Ms": true,
+    "bossP95Under20Ms": true,
+    "tutorialP95Under20Ms": true,
+    "noRecurringSpawnHitchOver50Ms": true,
+    "transferUnder15MB": true,
+    "oneAudioContextMaximum": true,
+    "noExceptions": true,
+    "noConsoleErrors": true,
+    "noFailedRequests": true
+  },
+  "passed": true
+}

@@ -1,0 +1,23 @@
+{
+  "generatedAt": "2026-07-08T00:02:04.850Z",
+  "cases": 25000,
+  "supportedPointerButtons": [
+    0,
+    1,
+    2
+  ],
+  "maximumBindingsPerAction": 2,
+  "hardFailures": {
+    "invalidBindingAccepted": 0,
+    "validBindingRejected": 0,
+    "conflictMissed": 0,
+    "requiredActionMissing": 0,
+    "migrationMismatch": 0,
+    "roundTripMismatch": 0,
+    "duplicateDescriptor": 0,
+    "nonSerializableValue": 0,
+    "unboundedBindingList": 0,
+    "inputContextLeakSimulation": 0
+  },
+  "passed": true
+}

@@ -1,0 +1,2 @@
+import{getUpgrade,INITIAL_UNLOCKED_UPGRADE_IDS}from'./UpgradeCatalog.js';
+export function eligibleUpgrades({levels=new Map(),unlockedIds=INITIAL_UNLOCKED_UPGRADE_IDS,conflicts=[]}={}){const unlocked=new Set(unlockedIds),blocked=new Set(conflicts);return[...unlocked].map(getUpgrade).filter(Boolean).filter(d=>(levels.get(d.id)??0)<d.maxLevel&&!blocked.has(d.id)&&!d.conflicts.some(id=>(levels.get(id)??0)>0));}

@@ -1,0 +1,2 @@
+import{ARENA_TEMPLATE_DEFINITIONS,ARENA_TEMPLATES_BY_ID}from'../data/arenaTemplateDefinitions.js';
+export class ArenaTemplateCatalog{all(){return ARENA_TEMPLATE_DEFINITIONS;}get(id){return ARENA_TEMPLATES_BY_ID[id]??null;}eligible({requiredTags=[],forbiddenTags=[],excludeIds=[]}={}){const required=new Set(requiredTags),forbidden=new Set(forbiddenTags),excluded=new Set(excludeIds);return ARENA_TEMPLATE_DEFINITIONS.filter(t=>!excluded.has(t.id)&&[...required].every(tag=>t.tags.includes(tag))&&![...forbidden].some(tag=>t.tags.includes(tag)));}}

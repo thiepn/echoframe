@@ -1,0 +1,2 @@
+import{INITIAL_UNLOCKED_UPGRADE_IDS}from'../upgrades/UpgradeCatalog.js';
+export const PHASE4_UPGRADE_IDS=INITIAL_UNLOCKED_UPGRADE_IDS;

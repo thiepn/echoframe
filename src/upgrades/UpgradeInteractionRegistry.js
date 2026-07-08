@@ -1,0 +1,4 @@
+export const UPGRADE_INTERACTIONS=Object.freeze([
+ ['split-lens','fracture-round'],['split-lens','afterburn'],['piercing-signal','ricochet-matrix'],['arc-relay','fracture-round'],['extended-memory','twin-recall'],['stable-projection','resonant-damage'],['phantom-shield','null-absorption'],['memory-burst','arc-relay'],['memory-burst','fracture-round'],['dash-wake','twin-recall'],['vector-reversal','phase-recovery'],['kinetic-charge','compression-coil'],['slipstream','twin-recall'],['reactive-shell','last-frame'],['regenerative-circuit','segment-transition'],['deflection-pulse','walls'],['arena-hazard','last-frame'],['arena-hazard','reactive-shell'],
+].map(Object.freeze));
+export function canTriggerFrom(packet,kind){if((packet?.triggerDepth??0)>=3)return false;if(kind==='chain'&&packet?.canTriggerChain===false)return false;if(kind==='fragments'&&packet?.canTriggerFragments===false)return false;return true;}

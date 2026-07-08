@@ -1,0 +1,26 @@
+{
+  "generatedAt": "2026-07-07T22:25:11.481Z",
+  "phase": 11,
+  "packageVersion": "1.0.0-release-candidate",
+  "sourceManifestDigest": "3be6c352bb402201c24c32067bbd281dc0493008e19f469f1827ceebffd4fa78",
+  "metadata": {
+    "vulnerabilities": {
+      "info": 0,
+      "low": 0,
+      "moderate": 0,
+      "high": 0,
+      "critical": 0,
+      "total": 0
+    },
+    "dependencies": {
+      "prod": 3,
+      "dev": 119,
+      "optional": 34,
+      "peer": 0,
+      "peerOptional": 0,
+      "total": 121
+    }
+  },
+  "vulnerabilities": {},
+  "passed": true
+}

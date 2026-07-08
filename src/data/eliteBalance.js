@@ -1,0 +1,15 @@
+export const ELITE_BALANCE = Object.freeze({
+  generationVersion: 1,
+  spawnTelegraphMinimumMs: 1000,
+  spawnTelegraphMaximumMs: 1500,
+  maximumPrimaryElites: 1,
+  copyPlacementAttempts: 12,
+  copyPlacementRadius: 120,
+  copyMinimumPlayerDistance: 230,
+  copyMinimumEnemyDistance: 82,
+  anticipationFloorsMs: Object.freeze({ sentry: 500, lancer: 550, drifter: 550 }),
+  recoveryFloorMs: 300,
+  eliteChamberTargetDurationMs: Object.freeze([60000, 90000]),
+  modifierVarietyAcrossRun: true,
+  hostModifierPairAntiRepeat: true,
+});

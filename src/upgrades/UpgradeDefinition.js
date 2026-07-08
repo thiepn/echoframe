@@ -1,0 +1,2 @@
+function deepFreeze(value){if(!value||typeof value!=='object'||Object.isFrozen(value))return value;for(const child of Object.values(value))deepFreeze(child);return Object.freeze(value);}
+export function createUpgradeDefinition(data){const levels=(data.levels??[]).map((level,index)=>({level:index+1,...level}));return deepFreeze({...data,maxLevel:data.maxLevel??levels.length,levels,conflicts:[...(data.conflicts??[])],tags:[...(data.tags??[])],sourceEligibility:[...(data.sourceEligibility??['player'])],initiallyUnlocked:Boolean(data.initiallyUnlocked)});}

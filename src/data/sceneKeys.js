@@ -1,0 +1,17 @@
+export const SCENE_KEYS = Object.freeze({
+  boot: 'BootScene',
+  preload: 'PreloadScene',
+  mainMenu: 'MainMenuScene',
+  tutorial: 'TutorialScene',
+  run: 'RunScene',
+  hud: 'HUDScene',
+  upgrade: 'UpgradeScene',
+  recovery: 'RecoveryScene',
+  boss: 'BossScene',
+  pause: 'PauseScene',
+  results: 'ResultsScene',
+  archive: 'ArchiveScene',
+  statistics: 'StatisticsScene',
+  settings: 'SettingsScene',
+  credits: 'CreditsScene',
+});

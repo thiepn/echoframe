@@ -1,0 +1,11 @@
+{
+  "generatedAt": "2026-07-08T00:05:47.716Z",
+  "phase": 12,
+  "scope": "Final Version 1.0 30-minute active soak",
+  "packageVersion": "1.0.0-release-candidate",
+  "runtimeVersion": "1.0.0-release-candidate",
+  "sourceManifestDigest": "3eafc0a1a6b2ee2d9b804fa353e65c1b9758ef45c9c83c13e376e2c1e5efd4b4",
+  "status": "not-run-version-promotion-blocked",
+  "passed": false,
+  "reason": "Supported real Firefox certification did not pass, so Version 1.0 was not promoted and final-version evidence cannot be generated. Phase 10 long-session evidence remains historical only."
+}

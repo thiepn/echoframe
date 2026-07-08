@@ -1,0 +1,162 @@
+{
+  "generatedAt": "2026-07-07T22:26:52.125Z",
+  "phase": 11,
+  "passed": true,
+  "sourceArchive": {
+    "path": "/mnt/data/ECHOFRAME_phase10_release_candidate.zip",
+    "exists": true,
+    "sha256": "b95fa2753649d7c57071f2b3b56140cca3553cdd3fea05e56a859f89a245b2e2",
+    "expectedSha256": "b95fa2753649d7c57071f2b3b56140cca3553cdd3fea05e56a859f89a245b2e2",
+    "hashMatches": true,
+    "bytes": 2406043,
+    "rawEntryCount": 585,
+    "regularFileCount": 547,
+    "directoryEntryCount": 38,
+    "metricsDefinition": {
+      "rawEntryCount": "Every central-directory ZIP entry, including explicit directory entries.",
+      "regularFileCount": "Entries that do not end with / and contain repository files.",
+      "directoryEntryCount": "Explicit directory entries ending with /."
+    },
+    "repositoryRootDirectlyContained": true,
+    "exclusions": {
+      "nodeModules": true,
+      "dist": true,
+      "git": true,
+      "temporaryLogs": true,
+      "previousArchives": true
+    }
+  },
+  "packageVersion": "1.0.0-release-candidate",
+  "runtimeVersion": "1.0.0-release-candidate",
+  "canonical": {
+    "GAME_DESIGN.md": {
+      "expected": "556d99d05d7896c2b02bb653cb28e8a0cb631e223edf67e3e0c1236fd7811f71",
+      "actual": "556d99d05d7896c2b02bb653cb28e8a0cb631e223edf67e3e0c1236fd7811f71",
+      "unchanged": true
+    },
+    "TECHNICAL_SPEC.md": {
+      "expected": "8562235331a2dc229977db11a56fdb10ba0032494d4b0d0706f41bf24c903468",
+      "actual": "8562235331a2dc229977db11a56fdb10ba0032494d4b0d0706f41bf24c903468",
+      "unchanged": true
+    },
+    "ART_DIRECTION.md": {
+      "expected": "aa29931c92ada05c0693ea58730986bc8b9ce8c1b8fcbf78acb4d72be8d1529a",
+      "actual": "aa29931c92ada05c0693ea58730986bc8b9ce8c1b8fcbf78acb4d72be8d1529a",
+      "unchanged": true
+    },
+    "BALANCE_SPEC.md": {
+      "expected": "5fca70f1c890b1e13a3b8b17ab3c82da725491c0cca6146a7ad0a2b1f55fd107",
+      "actual": "5fca70f1c890b1e13a3b8b17ab3c82da725491c0cca6146a7ad0a2b1f55fd107",
+      "unchanged": true
+    },
+    "QA_CHECKLIST.md": {
+      "expected": "b120097203b11e7f2fe025ea5767e931395f5edc7059e9821f6ab5ce1c722122",
+      "actual": "b120097203b11e7f2fe025ea5767e931395f5edc7059e9821f6ab5ce1c722122",
+      "unchanged": true
+    }
+  },
+  "sourceManifest": {
+    "algorithm": "sha256(path+size+content)",
+    "digest": "3be6c352bb402201c24c32067bbd281dc0493008e19f469f1827ceebffd4fa78",
+    "fileCount": 470
+  },
+  "environment": {
+    "platform": "linux",
+    "arch": "x64",
+    "osRelease": "4.4.0",
+    "osType": "Linux",
+    "node": "v22.16.0",
+    "npm": "10.9.2",
+    "playwright": "Version 1.61.1",
+    "chromium": "Chromium 144.0.7559.96 built on Debian GNU/Linux 13 (trixie)",
+    "firefox": null
+  },
+  "sidecars": {
+    "sha256Present": true,
+    "packagePresent": true,
+    "cleanExtractionJsonPresent": true,
+    "cleanExtractionMarkdownPresent": true,
+    "cleanExtractionPassed": false
+  },
+  "phase10Reports": {
+    "PHASE10_CORE_VALIDATION.json": {
+      "exists": true,
+      "passed": true,
+      "status": null,
+      "generatedAt": "2026-07-07T22:25:09.406Z"
+    },
+    "PHASE10_BROWSER_CHROMIUM_VALIDATION.json": {
+      "exists": true,
+      "passed": true,
+      "status": null,
+      "generatedAt": "2026-07-07T22:23:31.288Z"
+    },
+    "PHASE10_BROWSER_FIREFOX_VALIDATION.json": {
+      "exists": true,
+      "passed": false,
+      "status": "environment-blocked-before-game-execution",
+      "generatedAt": "2026-07-07T17:30:07.260Z"
+    },
+    "PHASE10_DEPLOYMENT_VALIDATION.json": {
+      "exists": true,
+      "passed": true,
+      "status": null,
+      "generatedAt": "2026-07-07T22:25:23.129Z"
+    },
+    "PHASE10_LIFECYCLE_VALIDATION.json": {
+      "exists": true,
+      "passed": true,
+      "status": null,
+      "generatedAt": "2026-07-07T16:15:32.227Z"
+    },
+    "PHASE10_MENU_IDLE_VALIDATION.json": {
+      "exists": true,
+      "passed": true,
+      "status": null,
+      "generatedAt": "2026-07-07T16:46:02.681Z"
+    },
+    "PHASE10_ACTIVE_SOAK_VALIDATION.json": {
+      "exists": true,
+      "passed": true,
+      "status": null,
+      "generatedAt": "2026-07-07T17:28:01.030Z"
+    },
+    "PHASE10_PERFORMANCE_VALIDATION.json": {
+      "exists": true,
+      "passed": true,
+      "status": null,
+      "generatedAt": "2026-07-07T16:11:32.427Z"
+    },
+    "PHASE10_RELEASE_AUDIT.json": {
+      "exists": true,
+      "passed": false,
+      "status": null,
+      "generatedAt": "2026-07-07T17:31:49.495Z"
+    },
+    "PHASE10_RELEASE_SIGNOFF.json": {
+      "exists": true,
+      "passed": false,
+      "status": "release-candidate-not-signed-off",
+      "generatedAt": "2026-07-07T17:31:50.620Z"
+    }
+  },
+  "inconsistencies": [
+    "Phase 10 checklist contains unchecked packaging or clean-extraction items despite external sidecar evidence.",
+    "Phase 10 Firefox report has sourceVersion: null because game code never executed.",
+    "Package sidecar regular-file count (547) differs from raw ZIP-entry count (585); these are distinct metrics, not contradictory results."
+  ],
+  "currentOpenGates": [
+    "Real Firefox production game execution and certification",
+    "Cross-browser deterministic comparison using real Chromium and Firefox",
+    "Actual CI execution unavailable without a connected repository",
+    "Public GitHub Pages validation unavailable because no public URL was provided"
+  ],
+  "plannedFiles": [
+    ".github/workflows/ci.yml",
+    ".github/workflows/deploy.yml",
+    "scripts/phase11-*.mjs",
+    "tests/phase11-certification.test.js",
+    "docs/PHASE11_*",
+    "docs/BROWSER_SUPPORT.md"
+  ]
+}

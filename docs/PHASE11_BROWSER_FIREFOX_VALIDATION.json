@@ -1,0 +1,39 @@
+{
+  "generatedAt": "2026-07-07T22:25:31.326Z",
+  "phase": 11,
+  "scope": "Real Firefox/Gecko production validation",
+  "packageVersion": "1.0.0-release-candidate",
+  "runtimeVersion": "1.0.0-release-candidate",
+  "sourceManifestDigest": "3be6c352bb402201c24c32067bbd281dc0493008e19f469f1827ceebffd4fa78",
+  "productionBundleDigest": null,
+  "browser": {
+    "requestedEngine": "firefox",
+    "executable": null,
+    "version": null,
+    "playwrightVersion": "Version 1.61.1"
+  },
+  "environment": {
+    "platform": "linux",
+    "arch": "x64",
+    "kernel": "4.4.0",
+    "osType": "Linux"
+  },
+  "gameCodeExecuted": false,
+  "chromiumSubstitutionUsed": false,
+  "userAgentEmulationUsed": false,
+  "attempts": [],
+  "checks": {},
+  "exceptions": [],
+  "consoleErrors": [],
+  "consoleWarnings": [],
+  "failedRequests": [],
+  "status": "environment-blocked-no-firefox-executable",
+  "passed": false,
+  "environmentBlock": {
+    "stage": "browser discovery",
+    "reason": "No real Firefox executable is installed. Playwright browser download and apt package retrieval were attempted but DNS resolution is unavailable in this runner.",
+    "gameCodeExecuted": false,
+    "acceptableNextEnvironment": "Supported system Firefox, Playwright-managed Firefox, or GitHub Actions Ubuntu runner."
+  },
+  "launchError": "Error: No Firefox executable is available."
+}

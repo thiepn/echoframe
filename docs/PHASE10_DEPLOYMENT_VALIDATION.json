@@ -1,0 +1,190 @@
+{
+  "generatedAt": "2026-07-07T22:27:23.134Z",
+  "roots": [
+    {
+      "base": "/",
+      "outDir": "dist-deployment-root",
+      "fileCount": 5,
+      "totalBytes": 1803457,
+      "checks": {
+        "directLoad": true,
+        "productionMode": true,
+        "debugInert": true,
+        "correctBase": true,
+        "tutorialEntry": true,
+        "gameplayEntry": true,
+        "hardRefresh": true,
+        "savePersists": true,
+        "manifest": true,
+        "favicon": true,
+        "noSourceRequests": true,
+        "noAbsoluteRootBreakage": true,
+        "noLocalhostReferences": true,
+        "caseSensitiveAssets": true,
+        "zeroExceptions": true,
+        "zeroConsoleErrors": true,
+        "zeroFailedRequests": true
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "pathname": "/",
+          "status": 200,
+          "contentType": "text/html; charset=utf-8"
+        },
+        {
+          "method": "GET",
+          "pathname": "/assets/index-DmFyu5ce.js",
+          "status": 200,
+          "contentType": "text/javascript; charset=utf-8"
+        },
+        {
+          "method": "GET",
+          "pathname": "/assets/index-CDIjTugi.css",
+          "status": 200,
+          "contentType": "text/css; charset=utf-8"
+        },
+        {
+          "method": "GET",
+          "pathname": "/favicon.svg",
+          "status": 200,
+          "contentType": "image/svg+xml"
+        },
+        {
+          "method": "GET",
+          "pathname": "/",
+          "status": 200,
+          "contentType": "text/html; charset=utf-8"
+        },
+        {
+          "method": "GET",
+          "pathname": "/assets/index-CDIjTugi.css",
+          "status": 200,
+          "contentType": "text/css; charset=utf-8"
+        },
+        {
+          "method": "GET",
+          "pathname": "/assets/index-DmFyu5ce.js",
+          "status": 200,
+          "contentType": "text/javascript; charset=utf-8"
+        },
+        {
+          "method": "GET",
+          "pathname": "/favicon.svg",
+          "status": 200,
+          "contentType": "image/svg+xml"
+        },
+        {
+          "method": "GET",
+          "pathname": "/manifest.webmanifest",
+          "status": 200,
+          "contentType": "application/manifest+json; charset=utf-8"
+        },
+        {
+          "method": "GET",
+          "pathname": "/favicon.svg",
+          "status": 200,
+          "contentType": "image/svg+xml"
+        }
+      ],
+      "exceptions": [],
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "failedRequests": [],
+      "passed": true
+    },
+    {
+      "base": "/echoframe-test/",
+      "outDir": "dist-deployment-subpath",
+      "fileCount": 5,
+      "totalBytes": 1803502,
+      "checks": {
+        "directLoad": true,
+        "productionMode": true,
+        "debugInert": true,
+        "correctBase": true,
+        "tutorialEntry": true,
+        "gameplayEntry": true,
+        "hardRefresh": true,
+        "savePersists": true,
+        "manifest": true,
+        "favicon": true,
+        "noSourceRequests": true,
+        "noAbsoluteRootBreakage": true,
+        "noLocalhostReferences": true,
+        "caseSensitiveAssets": true,
+        "zeroExceptions": true,
+        "zeroConsoleErrors": true,
+        "zeroFailedRequests": true
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "pathname": "/echoframe-test/",
+          "status": 200,
+          "contentType": "text/html; charset=utf-8"
+        },
+        {
+          "method": "GET",
+          "pathname": "/echoframe-test/assets/index-B5zAKMnp.js",
+          "status": 200,
+          "contentType": "text/javascript; charset=utf-8"
+        },
+        {
+          "method": "GET",
+          "pathname": "/echoframe-test/assets/index-CDIjTugi.css",
+          "status": 200,
+          "contentType": "text/css; charset=utf-8"
+        },
+        {
+          "method": "GET",
+          "pathname": "/echoframe-test/favicon.svg",
+          "status": 200,
+          "contentType": "image/svg+xml"
+        },
+        {
+          "method": "GET",
+          "pathname": "/echoframe-test/",
+          "status": 200,
+          "contentType": "text/html; charset=utf-8"
+        },
+        {
+          "method": "GET",
+          "pathname": "/echoframe-test/assets/index-CDIjTugi.css",
+          "status": 200,
+          "contentType": "text/css; charset=utf-8"
+        },
+        {
+          "method": "GET",
+          "pathname": "/echoframe-test/assets/index-B5zAKMnp.js",
+          "status": 200,
+          "contentType": "text/javascript; charset=utf-8"
+        },
+        {
+          "method": "GET",
+          "pathname": "/echoframe-test/favicon.svg",
+          "status": 200,
+          "contentType": "image/svg+xml"
+        },
+        {
+          "method": "GET",
+          "pathname": "/echoframe-test/manifest.webmanifest",
+          "status": 200,
+          "contentType": "application/manifest+json; charset=utf-8"
+        },
+        {
+          "method": "GET",
+          "pathname": "/echoframe-test/favicon.svg",
+          "status": 200,
+          "contentType": "image/svg+xml"
+        }
+      ],
+      "exceptions": [],
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "failedRequests": [],
+      "passed": true
+    }
+  ],
+  "passed": true
+}

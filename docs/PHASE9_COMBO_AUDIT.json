@@ -1,0 +1,30 @@
+{
+  "generatedAt": "2026-07-08T00:01:55.649Z",
+  "scope": "10,000 deterministic combo event timelines.",
+  "timelines": 10000,
+  "highestObservedCombo": 36.2,
+  "maxMultiplier": 1.6,
+  "definitions": {
+    "normalKillGain": 1,
+    "eliteKillGain": 3,
+    "crossfireGain": 0.5,
+    "nearMissGain": 0.2,
+    "multiKillExtraGain": 0.5,
+    "multiKillWindowMs": 600,
+    "decayDelayMs": 2000,
+    "decayPerSecond": 1,
+    "multiplierPerPoint": 0.03,
+    "multiplierComboCap": 20,
+    "maximumMultiplier": 1.6
+  },
+  "failures": {
+    "formulaMismatches": 0,
+    "capViolations": 0,
+    "negativeCombo": 0,
+    "decayDuringPause": 0,
+    "wrongDamagePenalties": 0,
+    "wrongEventOrder": 0,
+    "nonFiniteValues": 0
+  },
+  "passed": true
+}

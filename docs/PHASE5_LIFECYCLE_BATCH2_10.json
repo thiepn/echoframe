@@ -1,0 +1,302 @@
+{
+  "generatedAt": "2026-07-05T20:40:09.486Z",
+  "browser": "Chromium headless via Chrome DevTools Protocol",
+  "totalCycles": 10,
+  "victories": 5,
+  "deaths": 5,
+  "restarts": 1,
+  "returnsToMenu": 9,
+  "mouseControlSelections": 3,
+  "keyboardFocusSelections": 2,
+  "difficulties": [
+    "overclocked",
+    "relaxed",
+    "standard"
+  ],
+  "uniqueSeeds": 10,
+  "diagnostics": {
+    "baseline": {
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listenerCount": 0,
+      "cleanupCount": 3,
+      "inputContexts": 1,
+      "audioContexts": 0,
+      "transitionCount": 2,
+      "hookPresent": false
+    },
+    "mainMenuSamples": 10,
+    "listenerRange": {
+      "min": 0,
+      "max": 0
+    },
+    "cleanupRange": {
+      "min": 3,
+      "max": 3
+    },
+    "inputContextRange": {
+      "min": 1,
+      "max": 1
+    },
+    "resultListenerRange": {
+      "min": 0,
+      "max": 0
+    },
+    "resultCleanupRange": {
+      "min": 3,
+      "max": 3
+    },
+    "final": {
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listenerCount": 0,
+      "cleanupCount": 3,
+      "inputContexts": 1,
+      "audioContexts": 1,
+      "transitionCount": 41,
+      "hookPresent": false
+    }
+  },
+  "leakChecks": {
+    "listenersStable": true,
+    "cleanupStable": true,
+    "inputContextsStable": true,
+    "runtimeHookCleared": true,
+    "browserExceptions": 0,
+    "consoleErrors": 0
+  },
+  "cycles": [
+    {
+      "cycle": 1,
+      "runId": "bc65850a-3fe7-49d9-b8ca-04192fafd346",
+      "seed": 684066995,
+      "difficultyId": "relaxed",
+      "listenerCount": 30,
+      "cleanupCount": 31,
+      "collisionHandles": 11,
+      "intendedResult": "victory",
+      "actualResult": "victory",
+      "upgradeControl": "mouse-button-control-path",
+      "resultDiagnostics": {
+        "activeScenes": [
+          "ResultsScene"
+        ],
+        "listenerCount": 0,
+        "cleanupCount": 3,
+        "inputContexts": 1,
+        "audioContexts": 1,
+        "transitionCount": 6,
+        "hookPresent": false
+      }
+    },
+    {
+      "cycle": 2,
+      "runId": "c1694493-fe65-4d32-b30d-c028ec7ea568",
+      "seed": 3938239292,
+      "difficultyId": "standard",
+      "listenerCount": 30,
+      "cleanupCount": 31,
+      "collisionHandles": 11,
+      "intendedResult": "death",
+      "actualResult": "death",
+      "upgradeControl": null,
+      "resultDiagnostics": {
+        "activeScenes": [
+          "ResultsScene"
+        ],
+        "listenerCount": 0,
+        "cleanupCount": 3,
+        "inputContexts": 1,
+        "audioContexts": 1,
+        "transitionCount": 9,
+        "hookPresent": false
+      }
+    },
+    {
+      "cycle": 3,
+      "runId": "aeca4efc-1822-43f2-a996-67b634c5c48a",
+      "seed": 2235235702,
+      "difficultyId": "overclocked",
+      "listenerCount": 30,
+      "cleanupCount": 31,
+      "collisionHandles": 11,
+      "intendedResult": "victory",
+      "actualResult": "victory",
+      "upgradeControl": "keyboard-focus-control-path",
+      "resultDiagnostics": {
+        "activeScenes": [
+          "ResultsScene"
+        ],
+        "listenerCount": 0,
+        "cleanupCount": 3,
+        "inputContexts": 1,
+        "audioContexts": 1,
+        "transitionCount": 14,
+        "hookPresent": false
+      }
+    },
+    {
+      "cycle": 4,
+      "runId": "96b6d7c5-878c-4fe8-975b-99c2abc07075",
+      "seed": 1279742483,
+      "difficultyId": "relaxed",
+      "listenerCount": 30,
+      "cleanupCount": 31,
+      "collisionHandles": 11,
+      "intendedResult": "death",
+      "actualResult": "death",
+      "upgradeControl": null,
+      "resultDiagnostics": {
+        "activeScenes": [
+          "ResultsScene"
+        ],
+        "listenerCount": 0,
+        "cleanupCount": 3,
+        "inputContexts": 1,
+        "audioContexts": 1,
+        "transitionCount": 17,
+        "hookPresent": false
+      }
+    },
+    {
+      "cycle": 5,
+      "runId": "e39498bd-d764-4adc-9222-a11c22593de5",
+      "seed": 3399091013,
+      "difficultyId": "standard",
+      "listenerCount": 30,
+      "cleanupCount": 31,
+      "collisionHandles": 11,
+      "intendedResult": "victory",
+      "actualResult": "victory",
+      "upgradeControl": "mouse-button-control-path",
+      "resultDiagnostics": {
+        "activeScenes": [
+          "ResultsScene"
+        ],
+        "listenerCount": 0,
+        "cleanupCount": 3,
+        "inputContexts": 1,
+        "audioContexts": 1,
+        "transitionCount": 22,
+        "hookPresent": false
+      }
+    },
+    {
+      "cycle": 6,
+      "runId": "25ecded8-d718-47f4-91c6-0e1f2fe4dc83",
+      "seed": 3476052312,
+      "difficultyId": "standard",
+      "listenerCount": 30,
+      "cleanupCount": 31,
+      "collisionHandles": 11,
+      "intendedResult": "death",
+      "actualResult": "death",
+      "upgradeControl": null,
+      "resultDiagnostics": {
+        "activeScenes": [
+          "ResultsScene"
+        ],
+        "listenerCount": 0,
+        "cleanupCount": 3,
+        "inputContexts": 1,
+        "audioContexts": 1,
+        "transitionCount": 24,
+        "hookPresent": false
+      }
+    },
+    {
+      "cycle": 7,
+      "runId": "7d9c348e-3c34-48ab-9702-a2860d6315f8",
+      "seed": 3721059946,
+      "difficultyId": "relaxed",
+      "listenerCount": 30,
+      "cleanupCount": 31,
+      "collisionHandles": 11,
+      "intendedResult": "victory",
+      "actualResult": "victory",
+      "upgradeControl": "keyboard-focus-control-path",
+      "resultDiagnostics": {
+        "activeScenes": [
+          "ResultsScene"
+        ],
+        "listenerCount": 0,
+        "cleanupCount": 3,
+        "inputContexts": 1,
+        "audioContexts": 1,
+        "transitionCount": 29,
+        "hookPresent": false
+      }
+    },
+    {
+      "cycle": 8,
+      "runId": "de4b6719-68d5-4fae-8f14-fc1f82a48304",
+      "seed": 2037326349,
+      "difficultyId": "standard",
+      "listenerCount": 30,
+      "cleanupCount": 31,
+      "collisionHandles": 11,
+      "intendedResult": "death",
+      "actualResult": "death",
+      "upgradeControl": null,
+      "resultDiagnostics": {
+        "activeScenes": [
+          "ResultsScene"
+        ],
+        "listenerCount": 0,
+        "cleanupCount": 3,
+        "inputContexts": 1,
+        "audioContexts": 1,
+        "transitionCount": 32,
+        "hookPresent": false
+      }
+    },
+    {
+      "cycle": 9,
+      "runId": "15bc3954-9e6c-488c-b84b-6aec2367c7e0",
+      "seed": 2395136031,
+      "difficultyId": "overclocked",
+      "listenerCount": 30,
+      "cleanupCount": 31,
+      "collisionHandles": 11,
+      "intendedResult": "victory",
+      "actualResult": "victory",
+      "upgradeControl": "mouse-button-control-path",
+      "resultDiagnostics": {
+        "activeScenes": [
+          "ResultsScene"
+        ],
+        "listenerCount": 0,
+        "cleanupCount": 3,
+        "inputContexts": 1,
+        "audioContexts": 1,
+        "transitionCount": 37,
+        "hookPresent": false
+      }
+    },
+    {
+      "cycle": 10,
+      "runId": "1fe9b864-3e52-47f0-a157-dc5328935378",
+      "seed": 3582567615,
+      "difficultyId": "relaxed",
+      "listenerCount": 30,
+      "cleanupCount": 31,
+      "collisionHandles": 11,
+      "intendedResult": "death",
+      "actualResult": "death",
+      "upgradeControl": null,
+      "resultDiagnostics": {
+        "activeScenes": [
+          "ResultsScene"
+        ],
+        "listenerCount": 0,
+        "cleanupCount": 3,
+        "inputContexts": 1,
+        "audioContexts": 1,
+        "transitionCount": 40,
+        "hookPresent": false
+      }
+    }
+  ]
+}

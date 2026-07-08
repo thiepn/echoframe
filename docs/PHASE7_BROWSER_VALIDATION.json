@@ -1,0 +1,170 @@
+{
+  "generatedAt": "2026-07-06T01:11:49.020Z",
+  "runtimeTemplates": [
+    {
+      "templateId": "open-circle",
+      "seed": 1,
+      "index": 0,
+      "wallCount": 4
+    },
+    {
+      "templateId": "split-pillars",
+      "seed": 1,
+      "index": 1,
+      "wallCount": 6
+    },
+    {
+      "templateId": "offset-core",
+      "seed": 1,
+      "index": 2,
+      "wallCount": 6
+    },
+    {
+      "templateId": "side-channels",
+      "seed": 1,
+      "index": 3,
+      "wallCount": 6
+    },
+    {
+      "templateId": "broken-ring",
+      "seed": 3,
+      "index": 2,
+      "wallCount": 7
+    },
+    {
+      "templateId": "twin-islands",
+      "seed": 3,
+      "index": 5,
+      "wallCount": 8
+    },
+    {
+      "templateId": "four-corners",
+      "seed": 6,
+      "index": 2,
+      "wallCount": 8
+    }
+  ],
+  "hazardCheck": {
+    "descriptor": "pulse-nodes",
+    "snapshot": {
+      "configurationId": "pulse-nodes",
+      "active": 3,
+      "warning": 0,
+      "count": 3,
+      "states": [
+        {
+          "id": "h-nw",
+          "state": "ACTIVE",
+          "remainingMs": 700,
+          "activationId": 1
+        },
+        {
+          "id": "h-ne",
+          "state": "ACTIVE",
+          "remainingMs": 700,
+          "activationId": 1
+        },
+        {
+          "id": "h-c",
+          "state": "ACTIVE",
+          "remainingMs": 700,
+          "activationId": 1
+        }
+      ]
+    },
+    "validation": {
+      "valid": true,
+      "reasons": [],
+      "navigation": {
+        "valid": true,
+        "reasons": [],
+        "visitedCells": 322,
+        "walkableCells": 362,
+        "coverage": 0.8895027624309392,
+        "routeWidthPx": 90
+      },
+      "sockets": {
+        "valid": true,
+        "reasons": []
+      },
+      "hazards": {
+        "valid": true,
+        "reasons": [],
+        "safeAreaRatio": 0.64
+      }
+    }
+  },
+  "allUpgradeGrant": {
+    "count": 24,
+    "levels": {
+      "split-lens": 2,
+      "piercing-signal": 3,
+      "arc-relay": 3,
+      "fracture-round": 3,
+      "compression-coil": 3,
+      "ricochet-matrix": 2,
+      "extended-memory": 3,
+      "twin-recall": 1,
+      "resonant-damage": 3,
+      "phantom-shield": 3,
+      "stable-projection": 3,
+      "memory-burst": 3,
+      "dash-wake": 3,
+      "phase-recovery": 3,
+      "kinetic-charge": 3,
+      "vector-reversal": 2,
+      "slipstream": 3,
+      "afterburn": 3,
+      "emergency-repair": 3,
+      "reactive-shell": 3,
+      "null-absorption": 3,
+      "last-frame": 1,
+      "regenerative-circuit": 3,
+      "deflection-pulse": 3
+    }
+  },
+  "checks": {
+    "sevenTemplates": true,
+    "fixedBossDescriptor": true,
+    "multipleTransforms": true,
+    "bothHazardsPresentInAudit": true,
+    "noHazardRecovery": true,
+    "obstacleCollision": true,
+    "dashWallStop": true,
+    "fullRoster": true,
+    "allTwentyFourUpgrades": true,
+    "pauseSafe": true,
+    "resize": true,
+    "sevenSelections": true,
+    "recovery": true,
+    "bossReady": true,
+    "noVictoryResult": true,
+    "returnToMenu": true
+  },
+  "route": [
+    "upgrade-1",
+    "upgrade-2",
+    "upgrade-3",
+    "upgrade-4",
+    "upgrade-5",
+    "upgrade-6",
+    "upgrade-7"
+  ],
+  "results": {
+    "result": "boss-handoff",
+    "bossReady": true,
+    "bossImplemented": false,
+    "preBossComplete": true,
+    "segments": 8,
+    "upgrades": 7,
+    "status": "BOSS_READY",
+    "victories": 0
+  },
+  "exceptions": 0,
+  "consoleErrors": 0,
+  "warnings": 0,
+  "exceptionDetails": [],
+  "consoleErrorDetails": [],
+  "warningDetails": [],
+  "passed": true
+}

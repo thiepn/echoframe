@@ -1,0 +1,151 @@
+{
+  "generatedAt": "2026-07-05T20:38:18.340Z",
+  "browser": "Chromium headless via Chrome DevTools Protocol",
+  "viewport": "1600x900; resize validation at 1280x720",
+  "bootstrap": {
+    "runId": "1ecdbb16-0036-4f4b-afc6-8167cbba1eee",
+    "seed": 1125198171,
+    "difficultyId": "standard"
+  },
+  "checks": {
+    "mainMenuBoot": true,
+    "runAndHudLaunch": true,
+    "sixEnemyRoster": true,
+    "friendlyEcho": true,
+    "carrierShardRelease": true,
+    "carrierFiniteCoordinates": true,
+    "carrierWallSafePlacement": true,
+    "suppressorField": true,
+    "bulwarkDirectionalMitigation": true,
+    "lancerStateCycle": [
+      "SPAWNING",
+      "ACTIVE",
+      "ATTACK_ANTICIPATION",
+      "ATTACK_LOCK",
+      "ATTACK_EXECUTION",
+      "RECOVERY"
+    ],
+    "lancerTravelPixels": 632.05,
+    "pauseSafeTimers": true,
+    "resize": {
+      "innerWidth": 1280,
+      "innerHeight": 720,
+      "canvasWidth": 1280,
+      "canvasHeight": 720
+    },
+    "mouseUpgradeSelection": true,
+    "keyboardUpgradeSelection": true,
+    "chamber2": true,
+    "victoryResults": true,
+    "returnToMenu": true
+  },
+  "snapshots": {
+    "initial": {
+      "activeScenes": [
+        "RunScene",
+        "HUDScene"
+      ],
+      "listenerCount": 30,
+      "cleanupCount": 31
+    },
+    "fullRosterCounts": {
+      "drifter": 1,
+      "sentry": 1,
+      "lancer": 1,
+      "shard-carrier": 1,
+      "bulwark": 1,
+      "suppressor": 1
+    },
+    "echoState": "PLAYBACK",
+    "carrier": {
+      "shards": [
+        {
+          "x": 1302.2632261131241,
+          "y": 703.0377947018934,
+          "targetX": 1183.4307216319698,
+          "targetY": 719.73617422616,
+          "state": "TRAVELING"
+        },
+        {
+          "x": 1302.2632261131241,
+          "y": 703.0377947018934,
+          "targetX": 1396.8260040269986,
+          "targetY": 629.1603215912676,
+          "state": "TRAVELING"
+        },
+        {
+          "x": 1302.2632261131241,
+          "y": 703.0377947018934,
+          "targetX": 1233.6600661949067,
+          "targetY": 498.22176395909366,
+          "state": "TRAVELING"
+        }
+      ],
+      "placement": {
+        "valid": true,
+        "requestedCount": 3,
+        "points": [
+          {
+            "x": 1183.4307216319698,
+            "y": 719.73617422616
+          },
+          {
+            "x": 1396.8260040269986,
+            "y": 629.1603215912676
+          },
+          {
+            "x": 1233.6600661949067,
+            "y": 498.22176395909366
+          }
+        ],
+        "rejectionReasons": {
+          "wall-clearance": 24,
+          "hazard-spacing": 1
+        }
+      }
+    },
+    "suppression": {
+      "active": true,
+      "scalar": 0.45,
+      "sourceIds": [
+        "suppressor-9"
+      ]
+    },
+    "bulwark": {
+      "protectedZone": "front",
+      "protectedDamage": 4.4,
+      "vulnerableZone": "rear",
+      "vulnerableDamage": 20
+    },
+    "chamber2": {
+      "chamberIndex": 2,
+      "selectedUpgradeLevels": "{\"compression-coil\":1}"
+    },
+    "results": {
+      "result": "victory",
+      "activeScenes": [
+        "ResultsScene"
+      ]
+    },
+    "finalDiagnostics": {
+      "activeScenes": [
+        "MainMenuScene"
+      ],
+      "listenerCount": 0,
+      "cleanupCount": 3,
+      "audio": {
+        "contextCount": 1,
+        "contextState": "running",
+        "activeVoices": 0,
+        "initializationFailed": false,
+        "bufferCount": 44
+      },
+      "transitionCount": 12
+    }
+  },
+  "browserErrors": {
+    "exceptions": [],
+    "consoleErrors": [],
+    "severeLogs": []
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "generatedAt": "2026-07-07T06:06:37.732Z",
+  "scope": "Static audit of src/**/*.js plus immutable canonical document hashes.",
+  "sourceFiles": 310,
+  "importEdges": 452,
+  "missingImports": [],
+  "circularImports": [],
+  "mathRandomInGameplayGeneration": [],
+  "invalidArenaBoundsReads": [],
+  "directHealthMutationOutsideComponent": [],
+  "canonicalDocuments": {
+    "GAME_DESIGN.md": {
+      "expectedSha256": "556d99d05d7896c2b02bb653cb28e8a0cb631e223edf67e3e0c1236fd7811f71",
+      "currentSha256": "556d99d05d7896c2b02bb653cb28e8a0cb631e223edf67e3e0c1236fd7811f71",
+      "match": true
+    },
+    "TECHNICAL_SPEC.md": {
+      "expectedSha256": "8562235331a2dc229977db11a56fdb10ba0032494d4b0d0706f41bf24c903468",
+      "currentSha256": "8562235331a2dc229977db11a56fdb10ba0032494d4b0d0706f41bf24c903468",
+      "match": true
+    },
+    "ART_DIRECTION.md": {
+      "expectedSha256": "aa29931c92ada05c0693ea58730986bc8b9ce8c1b8fcbf78acb4d72be8d1529a",
+      "currentSha256": "aa29931c92ada05c0693ea58730986bc8b9ce8c1b8fcbf78acb4d72be8d1529a",
+      "match": true
+    },
+    "BALANCE_SPEC.md": {
+      "expectedSha256": "5fca70f1c890b1e13a3b8b17ab3c82da725491c0cca6146a7ad0a2b1f55fd107",
+      "currentSha256": "5fca70f1c890b1e13a3b8b17ab3c82da725491c0cca6146a7ad0a2b1f55fd107",
+      "match": true
+    },
+    "QA_CHECKLIST.md": {
+      "expectedSha256": "b120097203b11e7f2fe025ea5767e931395f5edc7059e9821f6ab5ce1c722122",
+      "currentSha256": "b120097203b11e7f2fe025ea5767e931395f5edc7059e9821f6ab5ce1c722122",
+      "match": true
+    }
+  },
+  "passed": true
+}

@@ -1,0 +1,12 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { SeededRandom } from '../src/utils/SeededRandom.js';
+import { createRotatingFanPlan, validateRotatingFanPlan } from '../src/boss/attacks/RotatingFanAttack.js';
+import { createTargetedLineVolleyPlan, validateLineVolleyPlan } from '../src/boss/attacks/TargetedLineVolleyAttack.js';
+import { createDrifterSummonPlan } from '../src/boss/attacks/DrifterSummonAttack.js';
+import { BossRandomStreams } from '../src/boss/BossRandomStreams.js';
+
+for (let seed = 1; seed <= 18; seed += 1) test(`fan emission ${seed} has canonical count, speed, finite angles, and safe gap`, () => { const plan=createRotatingFanPlan({rng:new SeededRandom(seed),phase:seed%3===0?'DELETE':'OBSERVE',playerAngle:seed/7,firstUse:seed===1,emissionIndex:seed%3}); const check=validateRotatingFanPlan(plan); assert.equal(check.valid,true); assert.ok(plan.count>=8&&plan.count<=12); assert.equal(plan.damage,12); assert.equal(plan.speed,330); assert.ok(plan.gapWidth>=55*Math.PI/180); });
+for (let seed = 1; seed <= 10; seed += 1) test(`line volley ${seed} locks canonical values and leaves a route`, () => { const plan=createTargetedLineVolleyPlan({rng:new SeededRandom(seed),phase:seed>5?'DELETE':'OBSERVE',player:{x:400+seed*60,y:200+seed*35},firstUse:seed===1}); const check=validateLineVolleyPlan(plan); assert.equal(check.valid,true); assert.ok([2,3].includes(plan.count)); assert.equal(plan.telegraphMs,seed===1?1050:800); assert.equal(plan.lockMs,150); assert.equal(plan.damage,18); assert.ok(check.maximumGap>=90); });
+for (let seed = 1; seed <= 5; seed += 1) test(`summon plan ${seed} respects count, sockets, and threat cap`, () => { const sockets=Array.from({length:12},(_,i)=>({id:`s${i}`,x:i*10,y:i*20})); const plan=createDrifterSummonPlan({rng:new SeededRandom(seed),phase:seed%2?'OBSERVE':'IMITATE',sockets,activeThreat:seed%3,threatCap:8}); assert.ok(plan.count>=2&&plan.count<=4); assert.ok(plan.count+seed%3<=8); assert.equal(plan.sockets.length,plan.count); assert.equal(plan.spawnMs,700); });
+for (let seed = 1; seed <= 5; seed += 1) test(`named boss random streams ${seed} reproduce and isolate gameplay streams`, () => { const a=new BossRandomStreams(seed,'standard',1),b=new BossRandomStreams(seed,'standard',1); assert.deepEqual(a.snapshot(),b.snapshot()); const attack=a.attackSelection.next(); a.cosmeticVariation.next(); assert.equal(attack,b.attackSelection.next()); assert.notEqual(a.fanPattern.next(),a.linePattern.next()); });

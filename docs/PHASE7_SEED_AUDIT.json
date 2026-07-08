@@ -1,0 +1,100 @@
+{
+  "generatedAt": "2026-07-06T01:11:10.733Z",
+  "scope": "300 full Phase 7 plans, 2,400 segments, 2,100 offers, and deterministic encounter/arena regeneration.",
+  "difficulties": {
+    "relaxed": {
+      "plans": 100,
+      "segments": 800,
+      "offers": 700,
+      "descriptors": 3000,
+      "fallbacks": 0,
+      "errors": []
+    },
+    "standard": {
+      "plans": 100,
+      "segments": 800,
+      "offers": 700,
+      "descriptors": 3000,
+      "fallbacks": 0,
+      "errors": []
+    },
+    "overclocked": {
+      "plans": 100,
+      "segments": 800,
+      "offers": 700,
+      "descriptors": 3000,
+      "fallbacks": 0,
+      "errors": []
+    }
+  },
+  "totals": {
+    "runPlans": 300,
+    "segments": 2400,
+    "upgradeOffers": 2100,
+    "encounterDescriptors": 9000,
+    "exactRunPlanMatches": 300,
+    "exactArenaSequenceMatches": 300,
+    "exactEncounterMatches": 9000,
+    "exactEliteMatches": 300,
+    "exactUpgradeOfferMatches": 2100,
+    "recoveryDescriptorMatches": 300,
+    "bossHandoffDescriptorMatches": 300,
+    "fallbackCount": 0,
+    "generationErrors": 0,
+    "rejectionReasons": {
+      "insufficient-variety": 1974,
+      "missing-required-role": 4065,
+      "exact-repeat": 795,
+      "role-cap": 1020,
+      "body-block-risk": 1698,
+      "projectile-saturation": 180,
+      "threat-too-low": 72
+    },
+    "templateFrequency": {
+      "open-circle": 837,
+      "split-pillars": 354,
+      "offset-core": 117,
+      "side-channels": 276,
+      "boss-chamber": 300,
+      "broken-ring": 312,
+      "twin-islands": 93,
+      "four-corners": 111
+    },
+    "hazardFrequency": {
+      "none": 1473,
+      "pulse-nodes": 495,
+      "conduit-sweep": 432
+    },
+    "upgradeCategoryFrequency": {
+      "Weapon": 2211,
+      "Echo": 1533,
+      "Defense": 1221,
+      "Mobility": 1335
+    },
+    "upgradeIdFrequency": {
+      "arc-relay": 411,
+      "resonant-damage": 456,
+      "reactive-shell": 312,
+      "split-lens": 345,
+      "compression-coil": 381,
+      "emergency-repair": 318,
+      "fracture-round": 348,
+      "ricochet-matrix": 360,
+      "piercing-signal": 366,
+      "extended-memory": 327,
+      "slipstream": 348,
+      "phantom-shield": 366,
+      "last-frame": 300,
+      "phase-recovery": 327,
+      "stable-projection": 384,
+      "regenerative-circuit": 291,
+      "kinetic-charge": 324,
+      "dash-wake": 336
+    },
+    "maxedFilterEvents": 0,
+    "lockedFilterEvents": 0,
+    "lowHealthWeightingEvents": 300,
+    "errors": [],
+    "passed": true
+  }
+}

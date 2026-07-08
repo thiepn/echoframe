@@ -1,0 +1,22 @@
+{
+  "generatedAt": "2026-07-08T00:06:53.885Z",
+  "phase": 12,
+  "packageVersion": "1.0.0-release-candidate",
+  "runtimeVersion": "1.0.0-release-candidate",
+  "testTotal": 1319,
+  "retainedPhase11Tests": 1299,
+  "newPhase12Tests": 20,
+  "lintPassed": true,
+  "buildPassed": true,
+  "scoreAuditPassed": true,
+  "comboAuditPassed": true,
+  "progressionAuditPassed": true,
+  "statisticsAuditPassed": true,
+  "tutorialAuditPassed": true,
+  "bindingAuditPassed": true,
+  "accessibilityAuditPassed": true,
+  "sourceAuditPassed": true,
+  "securityAuditPassed": true,
+  "npmAuditPassed": true,
+  "passed": true
+}

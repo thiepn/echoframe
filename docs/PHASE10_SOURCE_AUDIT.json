@@ -1,0 +1,20 @@
+{
+  "generatedAt": "2026-07-08T00:02:08.298Z",
+  "filesAudited": 604,
+  "importEdges": 837,
+  "canonicalDocumentHashes": {
+    "GAME_DESIGN.md": "556d99d05d7896c2b02bb653cb28e8a0cb631e223edf67e3e0c1236fd7811f71",
+    "TECHNICAL_SPEC.md": "8562235331a2dc229977db11a56fdb10ba0032494d4b0d0706f41bf24c903468",
+    "ART_DIRECTION.md": "aa29931c92ada05c0693ea58730986bc8b9ce8c1b8fcbf78acb4d72be8d1529a",
+    "BALANCE_SPEC.md": "5fca70f1c890b1e13a3b8b17ab3c82da725491c0cca6146a7ad0a2b1f55fd107",
+    "QA_CHECKLIST.md": "b120097203b11e7f2fe025ea5767e931395f5edc7059e9821f6ab5ce1c722122"
+  },
+  "findings": [],
+  "severityTotals": {
+    "Critical": 0,
+    "High": 0,
+    "Medium": 0,
+    "Low": 0
+  },
+  "passed": true
+}
