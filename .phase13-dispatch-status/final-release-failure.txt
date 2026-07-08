@@ -1,117 +1,175 @@
-run_id=28970552734
-job_id=85964869559
+run_id=28971415801
+job_id=85967784479
 
 
 --- ERROR SUMMARY ---
-2026-07-08T19:40:13.4551010Z ##[group]Environment details
-2026-07-08T19:40:15.8019325Z node: v22.23.1
-2026-07-08T19:40:15.8019851Z npm: 10.9.8
-2026-07-08T19:40:15.8020899Z yarn: 1.22.22
-2026-07-08T19:40:15.8022031Z ##[endgroup]
-2026-07-08T19:40:15.8045606Z [command]/opt/hostedtoolcache/node/22.23.1/x64/bin/npm config get cache
-2026-07-08T19:40:16.0591661Z /home/runner/.npm
-2026-07-08T19:40:16.2242677Z Cache hit for: node-cache-Linux-x64-npm-80f3bee76afba30096b3d2ca33b8d35414bbe5282e544505c83e6ecb10dc64dd
-2026-07-08T19:40:16.2356244Z (node:2192) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
-2026-07-08T19:40:17.1903131Z Received 53782530 of 53782530 (100.0%), 62.9 MBs/sec
-2026-07-08T19:40:17.1904349Z Cache Size: ~51 MB (53782530 B)
-2026-07-08T19:40:17.1936644Z [command]/usr/bin/tar -xf /home/runner/work/_temp/17ec99b5-cfa3-4759-b7c8-08c04f1f22bf/cache.tzst -P -C /home/runner/work/echoframe/echoframe --use-compress-program unzstd
-2026-07-08T19:40:17.2964329Z Cache restored successfully
-2026-07-08T19:40:17.2992958Z Cache restored from key: node-cache-Linux-x64-npm-80f3bee76afba30096b3d2ca33b8d35414bbe5282e544505c83e6ecb10dc64dd
-2026-07-08T19:40:17.3186662Z ##[group]Run npm ci --no-audit --no-fund --prefer-offline
-2026-07-08T19:40:17.3187207Z [36;1mnpm ci --no-audit --no-fund --prefer-offline[0m
-2026-07-08T19:40:17.3405060Z shell: /usr/bin/bash -e {0}
+2026-07-08T19:54:46.9075315Z ##[endgroup]
+2026-07-08T19:54:47.0430565Z Found in cache @ /opt/hostedtoolcache/node/22.23.1/x64
+2026-07-08T19:54:47.0434056Z (node:2351) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-07-08T19:54:47.0435381Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-07-08T19:54:47.0436730Z ##[group]Environment details
+2026-07-08T19:54:47.4417901Z node: v22.23.1
+2026-07-08T19:54:47.4418748Z npm: 10.9.8
+2026-07-08T19:54:47.4419350Z yarn: 1.22.22
+2026-07-08T19:54:47.4420857Z ##[endgroup]
+2026-07-08T19:54:47.4441146Z [command]/opt/hostedtoolcache/node/22.23.1/x64/bin/npm config get cache
+2026-07-08T19:54:47.5487729Z /home/runner/.npm
+2026-07-08T19:54:47.6178945Z Cache hit for: node-cache-Linux-x64-npm-80f3bee76afba30096b3d2ca33b8d35414bbe5282e544505c83e6ecb10dc64dd
+2026-07-08T19:54:47.6281664Z (node:2351) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-07-08T19:54:47.9855342Z Received 53782530 of 53782530 (100.0%), 154.5 MBs/sec
+2026-07-08T19:54:47.9856446Z Cache Size: ~51 MB (53782530 B)
+2026-07-08T19:54:47.9887785Z [command]/usr/bin/tar -xf /home/runner/work/_temp/11e4a0f6-5e9e-4b83-8450-4f65d20d44dc/cache.tzst -P -C /home/runner/work/echoframe/echoframe --use-compress-program unzstd
+2026-07-08T19:54:48.0905290Z Cache restored successfully
+2026-07-08T19:54:48.0933088Z Cache restored from key: node-cache-Linux-x64-npm-80f3bee76afba30096b3d2ca33b8d35414bbe5282e544505c83e6ecb10dc64dd
+2026-07-08T19:54:48.1133004Z ##[group]Run npm ci --no-audit --no-fund --prefer-offline
+2026-07-08T19:54:48.1133521Z [36;1mnpm ci --no-audit --no-fund --prefer-offline[0m
+2026-07-08T19:54:48.1304501Z shell: /usr/bin/bash -e {0}
+2026-07-08T19:54:48.1304766Z env:
+2026-07-08T19:54:48.1305049Z   PHASE13_PUBLIC_URL: https://thiepn.github.io/echoframe/
+2026-07-08T19:54:48.1305550Z   PHASE13_SOURCE_DIGEST: aa6a12f481ed233b01ee8ff397883b924706ca3bd004f4a7b9b8464750de842e
+2026-07-08T19:54:48.1306055Z   PHASE13_SOURCE_COMMIT: bee4e6be76484fc5edef1bfa7cf7ddaf2660bc6d
 --
-2026-07-08T19:40:21.4461850Z [36;1mset -euo pipefail[0m
-2026-07-08T19:40:21.4462280Z [36;1mtest "$(node -p "require('./package.json').version")" = "1.0.0"[0m
-2026-07-08T19:40:21.4462720Z [36;1mnode --input-type=module - <<'NODE'[0m
-2026-07-08T19:40:21.4463085Z [36;1mimport path from 'node:path';[0m
-2026-07-08T19:40:21.4463410Z [36;1mimport { readFile } from 'node:fs/promises';[0m
-2026-07-08T19:40:21.4463818Z [36;1mimport { sourceManifest } from './scripts/phase12-utils.mjs';[0m
-2026-07-08T19:40:21.4464451Z [36;1mconst audit = JSON.parse(await readFile(path.resolve('docs/PHASE13_NONPUBLIC_RELEASE_AUDIT.json'), 'utf8'));[0m
-2026-07-08T19:40:21.4465043Z [36;1mconst manifest = await sourceManifest();[0m
-2026-07-08T19:40:21.4465554Z [36;1mif (audit.passed !== true) throw new Error('Non-public release audit is not passed.');[0m
-2026-07-08T19:40:21.4466473Z [36;1mif (audit.sourceManifestDigest !== manifest.digest) throw new Error(`Source digest mismatch: audit=${audit.sourceManifestDigest} current=${manifest.digest}`);[0m
-2026-07-08T19:40:21.4467505Z [36;1mif (manifest.digest !== process.env.PHASE13_SOURCE_DIGEST) throw new Error(`Unexpected certified digest: ${manifest.digest}`);[0m
-2026-07-08T19:40:21.4468307Z [36;1mconsole.log(JSON.stringify({ passed: true, sourceManifestDigest: manifest.digest }, null, 2));[0m
-2026-07-08T19:40:21.4468783Z [36;1mNODE[0m
-2026-07-08T19:40:21.4504627Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
-2026-07-08T19:40:21.4504995Z env:
-2026-07-08T19:40:21.4505312Z   PHASE13_PUBLIC_URL: https://thiepn.github.io/echoframe/
-2026-07-08T19:40:21.4505834Z   PHASE13_SOURCE_DIGEST: aa6a12f481ed233b01ee8ff397883b924706ca3bd004f4a7b9b8464750de842e
-2026-07-08T19:40:21.4506382Z   PHASE13_SOURCE_COMMIT: bee4e6be76484fc5edef1bfa7cf7ddaf2660bc6d
-2026-07-08T19:40:21.4506928Z   PHASE13_DEPLOYED_BUNDLE_DIGEST: 286f9423a223610fd6699b6d03d9458d941dab64c5b05c2a070d699d4155eeb8
+2026-07-08T19:54:48.1310707Z ##[endgroup]
+2026-07-08T19:54:51.3328951Z 
+2026-07-08T19:54:51.3336689Z added 91 packages in 3s
+2026-07-08T19:54:51.3934821Z ##[group]Run set -euo pipefail
+2026-07-08T19:54:51.3935168Z [36;1mset -euo pipefail[0m
+2026-07-08T19:54:51.3935561Z [36;1mtest "$(node -p "require('./package.json').version")" = "1.0.0"[0m
+2026-07-08T19:54:51.3935970Z [36;1mnode --input-type=module - <<'NODE'[0m
+2026-07-08T19:54:51.3936298Z [36;1mimport path from 'node:path';[0m
+2026-07-08T19:54:51.3936611Z [36;1mimport { readFile } from 'node:fs/promises';[0m
+2026-07-08T19:54:51.3937029Z [36;1mimport { sourceManifest } from './scripts/phase12-utils.mjs';[0m
+2026-07-08T19:54:51.3938100Z [36;1mconst audit = JSON.parse(await readFile(path.resolve('docs/PHASE13_NONPUBLIC_RELEASE_AUDIT.json'), 'utf8'));[0m
+2026-07-08T19:54:51.3938683Z [36;1mconst manifest = await sourceManifest();[0m
+2026-07-08T19:54:51.3939164Z [36;1mif (audit.passed !== true) throw new Error('Non-public release audit is not passed.');[0m
+2026-07-08T19:54:51.3940083Z [36;1mif (audit.sourceManifestDigest !== manifest.digest) throw new Error(`Source digest mismatch: audit=${audit.sourceManifestDigest} current=${manifest.digest}`);[0m
+2026-07-08T19:54:51.3941089Z [36;1mif (manifest.digest !== process.env.PHASE13_SOURCE_DIGEST) throw new Error(`Unexpected certified digest: ${manifest.digest}`);[0m
+2026-07-08T19:54:51.3941888Z [36;1mconsole.log(JSON.stringify({ passed: true, sourceManifestDigest: manifest.digest }, null, 2));[0m
+2026-07-08T19:54:51.3942357Z [36;1mNODE[0m
+2026-07-08T19:54:51.3977543Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-07-08T19:54:51.3977909Z env:
+2026-07-08T19:54:51.3978192Z   PHASE13_PUBLIC_URL: https://thiepn.github.io/echoframe/
+2026-07-08T19:54:51.3978704Z   PHASE13_SOURCE_DIGEST: aa6a12f481ed233b01ee8ff397883b924706ca3bd004f4a7b9b8464750de842e
+2026-07-08T19:54:51.3979236Z   PHASE13_SOURCE_COMMIT: bee4e6be76484fc5edef1bfa7cf7ddaf2660bc6d
+2026-07-08T19:54:51.3979789Z   PHASE13_DEPLOYED_BUNDLE_DIGEST: 286f9423a223610fd6699b6d03d9458d941dab64c5b05c2a070d699d4155eeb8
+2026-07-08T19:54:51.3980374Z   PHASE13_DIST_DIR: /home/runner/work/echoframe/echoframe/dist-pages
+2026-07-08T19:54:51.3983308Z   GH_TOKEN: ***
+2026-07-08T19:54:51.3983517Z ##[endgroup]
+2026-07-08T19:54:51.6139251Z {
 --
-2026-07-08T19:40:54.5112870Z [36;1mconst bundle = await productionBundleDigest(process.env.PHASE13_DIST_DIR, { exclude: ['phase13-release.json'] });[0m
-2026-07-08T19:40:54.5113431Z [36;1mconst checks = {[0m
-2026-07-08T19:40:54.5113701Z [36;1m  version: marker.version === '1.0.0',[0m
-2026-07-08T19:40:54.5114143Z [36;1m  sourceCommit: marker.sourceCommit === process.env.PHASE13_SOURCE_COMMIT,[0m
-2026-07-08T19:40:54.5114746Z [36;1m  sourceDigest: marker.sourceManifestDigest === process.env.PHASE13_SOURCE_DIGEST,[0m
-2026-07-08T19:40:54.5115625Z [36;1m  bundleDigest: marker.productionBundleDigest === process.env.PHASE13_DEPLOYED_BUNDLE_DIGEST && bundle.digest === process.env.PHASE13_DEPLOYED_BUNDLE_DIGEST,[0m
-2026-07-08T19:40:54.5117101Z [36;1m  fileCount: marker.productionFileCount === bundle.fileCount,[0m
-2026-07-08T19:40:54.5117722Z [36;1m};[0m
-2026-07-08T19:40:54.5118556Z [36;1mif (!Object.values(checks).every(Boolean)) throw new Error(`Certified bundle identity failed: ${JSON.stringify(checks)}`);[0m
-2026-07-08T19:40:54.5120363Z [36;1mconsole.log(JSON.stringify({ passed: true, checks, marker, bundleDigest: bundle.digest }, null, 2));[0m
-2026-07-08T19:40:54.5121201Z [36;1mNODE[0m
-2026-07-08T19:40:54.5161113Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
-2026-07-08T19:40:54.5161731Z env:
-2026-07-08T19:40:54.5162201Z   PHASE13_PUBLIC_URL: https://thiepn.github.io/echoframe/
-2026-07-08T19:40:54.5163088Z   PHASE13_SOURCE_DIGEST: aa6a12f481ed233b01ee8ff397883b924706ca3bd004f4a7b9b8464750de842e
-2026-07-08T19:40:54.5164020Z   PHASE13_SOURCE_COMMIT: bee4e6be76484fc5edef1bfa7cf7ddaf2660bc6d
-2026-07-08T19:40:54.5164956Z   PHASE13_DEPLOYED_BUNDLE_DIGEST: 286f9423a223610fd6699b6d03d9458d941dab64c5b05c2a070d699d4155eeb8
+2026-07-08T19:55:18.7124998Z [36;1mnode --input-type=module - <<'NODE'[0m
+2026-07-08T19:55:18.7125336Z [36;1mimport { readFile } from 'node:fs/promises';[0m
+2026-07-08T19:55:18.7126056Z [36;1mimport { productionBundleDigest } from './scripts/phase12-utils.mjs';[0m
+2026-07-08T19:55:18.7127489Z [36;1mconst marker = JSON.parse(await readFile(`${process.env.PHASE13_DIST_DIR}/phase13-release.json`, 'utf8'));[0m
+2026-07-08T19:55:18.7128849Z [36;1mconst bundle = await productionBundleDigest(process.env.PHASE13_DIST_DIR, { exclude: ['phase13-release.json'] });[0m
+2026-07-08T19:55:18.7129816Z [36;1mconst checks = {[0m
+2026-07-08T19:55:18.7130245Z [36;1m  version: marker.version === '1.0.0',[0m
+2026-07-08T19:55:18.7130976Z [36;1m  sourceCommit: marker.sourceCommit === process.env.PHASE13_SOURCE_COMMIT,[0m
+2026-07-08T19:55:18.7131821Z [36;1m  sourceDigest: marker.sourceManifestDigest === process.env.PHASE13_SOURCE_DIGEST,[0m
+2026-07-08T19:55:18.7133079Z [36;1m  bundleDigest: marker.productionBundleDigest === process.env.PHASE13_DEPLOYED_BUNDLE_DIGEST && bundle.digest === process.env.PHASE13_DEPLOYED_BUNDLE_DIGEST,[0m
+2026-07-08T19:55:18.7134040Z [36;1m  fileCount: marker.productionFileCount === bundle.fileCount,[0m
+2026-07-08T19:55:18.7134566Z [36;1m};[0m
+2026-07-08T19:55:18.7135088Z [36;1mif (!Object.values(checks).every(Boolean)) throw new Error(`Certified bundle identity failed: ${JSON.stringify(checks)}`);[0m
+2026-07-08T19:55:18.7135935Z [36;1mconsole.log(JSON.stringify({ passed: true, checks, marker, bundleDigest: bundle.digest }, null, 2));[0m
+2026-07-08T19:55:18.7136454Z [36;1mNODE[0m
+2026-07-08T19:55:18.7175130Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-07-08T19:55:18.7175496Z env:
+2026-07-08T19:55:18.7175781Z   PHASE13_PUBLIC_URL: https://thiepn.github.io/echoframe/
+2026-07-08T19:55:18.7176379Z   PHASE13_SOURCE_DIGEST: aa6a12f481ed233b01ee8ff397883b924706ca3bd004f4a7b9b8464750de842e
+2026-07-08T19:55:18.7176954Z   PHASE13_SOURCE_COMMIT: bee4e6be76484fc5edef1bfa7cf7ddaf2660bc6d
+2026-07-08T19:55:18.7177721Z   PHASE13_DEPLOYED_BUNDLE_DIGEST: 286f9423a223610fd6699b6d03d9458d941dab64c5b05c2a070d699d4155eeb8
+2026-07-08T19:55:18.7178323Z   PHASE13_DIST_DIR: /home/runner/work/echoframe/echoframe/dist-pages
+2026-07-08T19:55:18.7181361Z   GH_TOKEN: ***
+2026-07-08T19:55:18.7181785Z   CHROMIUM_EXECUTABLE: /home/runner/.cache/ms-playwright/chromium-1228/chrome-linux64/chrome
+2026-07-08T19:55:18.7182429Z   FIREFOX_EXECUTABLE: /home/runner/.cache/ms-playwright/firefox-1532/firefox/firefox
 --
-2026-07-08T19:40:56.2193069Z   PHASE13_SOURCE_COMMIT: bee4e6be76484fc5edef1bfa7cf7ddaf2660bc6d
-2026-07-08T19:40:56.2193612Z   PHASE13_DEPLOYED_BUNDLE_DIGEST: 286f9423a223610fd6699b6d03d9458d941dab64c5b05c2a070d699d4155eeb8
-2026-07-08T19:40:56.2194180Z   PHASE13_DIST_DIR: /home/runner/work/echoframe/echoframe/dist-pages
-2026-07-08T19:40:56.2196893Z   GH_TOKEN: ***
-2026-07-08T19:40:56.2197306Z   CHROMIUM_EXECUTABLE: /home/runner/.cache/ms-playwright/chromium-1228/chrome-linux64/chrome
-2026-07-08T19:40:56.2197948Z   FIREFOX_EXECUTABLE: /home/runner/.cache/ms-playwright/firefox-1532/firefox/firefox
-2026-07-08T19:40:56.2198376Z ##[endgroup]
-2026-07-08T19:41:52.2532394Z node:internal/modules/run_main:123
-2026-07-08T19:41:52.2532986Z     triggerUncaughtException(
-2026-07-08T19:41:52.2533466Z     ^
-2026-07-08T19:41:52.2533652Z 
-2026-07-08T19:41:52.2533993Z page.waitForFunction: Timeout 30000ms exceeded.
-2026-07-08T19:41:52.2534918Z     at waitForScene (/home/runner/work/echoframe/echoframe/scripts/phase10-browser-helpers.mjs:91:14)
-2026-07-08T19:41:52.2535767Z     at validateEngine (/home/runner/work/echoframe/echoframe/scripts/phase13-public-validation.mjs:96:11)
-2026-07-08T19:41:52.2536570Z     at async file:///home/runner/work/echoframe/echoframe/scripts/phase13-public-validation.mjs:153:18 {
-2026-07-08T19:41:52.2537058Z   log: [],
-2026-07-08T19:41:52.2537302Z   name: 'TimeoutError'
-2026-07-08T19:41:52.2537533Z }
-2026-07-08T19:41:52.2537632Z 
-2026-07-08T19:41:52.2537728Z Node.js v22.23.1
-2026-07-08T19:41:52.2651366Z ##[error]Process completed with exit code 1.
-2026-07-08T19:41:52.2773403Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
-2026-07-08T19:41:52.2774727Z ##[group]Run actions/upload-artifact@v4
-2026-07-08T19:41:52.2775008Z with:
-2026-07-08T19:41:52.2775310Z   name: phase13-final-live-release-evidence
-2026-07-08T19:41:52.2775721Z   path: release/*
+2026-07-08T19:55:19.2837428Z   PHASE13_SOURCE_COMMIT: bee4e6be76484fc5edef1bfa7cf7ddaf2660bc6d
+2026-07-08T19:55:19.2838270Z   PHASE13_DEPLOYED_BUNDLE_DIGEST: 286f9423a223610fd6699b6d03d9458d941dab64c5b05c2a070d699d4155eeb8
+2026-07-08T19:55:19.2838891Z   PHASE13_DIST_DIR: /home/runner/work/echoframe/echoframe/dist-pages
+2026-07-08T19:55:19.2841910Z   GH_TOKEN: ***
+2026-07-08T19:55:19.2842315Z   CHROMIUM_EXECUTABLE: /home/runner/.cache/ms-playwright/chromium-1228/chrome-linux64/chrome
+2026-07-08T19:55:19.2842943Z   FIREFOX_EXECUTABLE: /home/runner/.cache/ms-playwright/firefox-1532/firefox/firefox
+2026-07-08T19:55:19.2843370Z ##[endgroup]
+2026-07-08T19:55:19.4292797Z ##[group]Run set -euo pipefail
+2026-07-08T19:55:19.4293128Z [36;1mset -euo pipefail[0m
+2026-07-08T19:55:19.4293590Z [36;1mcp scripts/phase13-public-validation.mjs /tmp/phase13-public-validation.original.mjs[0m
+2026-07-08T19:55:19.4294360Z [36;1mrestore_validator() { cp /tmp/phase13-public-validation.original.mjs scripts/phase13-public-validation.mjs; }[0m
+2026-07-08T19:55:19.4294907Z [36;1mtrap restore_validator EXIT[0m
+2026-07-08T19:55:19.4296880Z [36;1mnode --input-type=module -e "import { readFile, writeFile } from 'node:fs/promises'; const p='scripts/phase13-public-validation.mjs'; const s=await readFile(p,'utf8'); const old=\"    await page.keyboard.press('Escape');\\n    await waitForScene(page, 'MainMenuScene');\"; const next=\"    await page.keyboard.press('Escape');\\n    await sleep(150);\\n    await page.keyboard.press('Escape');\\n    await waitForScene(page, 'MainMenuScene');\"; if (s.split(old).length !== 2) throw new Error('Expected exactly one nested Settings navigation sequence.'); await writeFile(p,s.replace(old,next));"[0m
+2026-07-08T19:55:19.4299007Z [36;1mnode scripts/phase13-public-validation.mjs[0m
+2026-07-08T19:55:19.4327847Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-07-08T19:55:19.4328197Z env:
+2026-07-08T19:55:19.4328480Z   PHASE13_PUBLIC_URL: https://thiepn.github.io/echoframe/
+2026-07-08T19:55:19.4328996Z   PHASE13_SOURCE_DIGEST: aa6a12f481ed233b01ee8ff397883b924706ca3bd004f4a7b9b8464750de842e
+2026-07-08T19:55:19.4329539Z   PHASE13_SOURCE_COMMIT: bee4e6be76484fc5edef1bfa7cf7ddaf2660bc6d
+2026-07-08T19:55:19.4330083Z   PHASE13_DEPLOYED_BUNDLE_DIGEST: 286f9423a223610fd6699b6d03d9458d941dab64c5b05c2a070d699d4155eeb8
+2026-07-08T19:55:19.4330653Z   PHASE13_DIST_DIR: /home/runner/work/echoframe/echoframe/dist-pages
+2026-07-08T19:55:19.4333706Z   GH_TOKEN: ***
+2026-07-08T19:55:19.4334121Z   CHROMIUM_EXECUTABLE: /home/runner/.cache/ms-playwright/chromium-1228/chrome-linux64/chrome
+2026-07-08T19:55:19.4334698Z   FIREFOX_EXECUTABLE: /home/runner/.cache/ms-playwright/firefox-1532/firefox/firefox
+2026-07-08T19:55:19.4335077Z ##[endgroup]
+--
+2026-07-08T19:56:20.7496596Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-07-08T19:56:20.7496945Z env:
+2026-07-08T19:56:20.7497498Z   PHASE13_PUBLIC_URL: https://thiepn.github.io/echoframe/
+2026-07-08T19:56:20.7498008Z   PHASE13_SOURCE_DIGEST: aa6a12f481ed233b01ee8ff397883b924706ca3bd004f4a7b9b8464750de842e
+2026-07-08T19:56:20.7498535Z   PHASE13_SOURCE_COMMIT: bee4e6be76484fc5edef1bfa7cf7ddaf2660bc6d
+2026-07-08T19:56:20.7499070Z   PHASE13_DEPLOYED_BUNDLE_DIGEST: 286f9423a223610fd6699b6d03d9458d941dab64c5b05c2a070d699d4155eeb8
+2026-07-08T19:56:20.7499621Z   PHASE13_DIST_DIR: /home/runner/work/echoframe/echoframe/dist-pages
+2026-07-08T19:56:20.7502687Z   GH_TOKEN: ***
+2026-07-08T19:56:20.7503363Z   CHROMIUM_EXECUTABLE: /home/runner/.cache/ms-playwright/chromium-1228/chrome-linux64/chrome
+2026-07-08T19:56:20.7503985Z   FIREFOX_EXECUTABLE: /home/runner/.cache/ms-playwright/firefox-1532/firefox/firefox
+2026-07-08T19:56:20.7504418Z ##[endgroup]
+2026-07-08T19:56:20.7881471Z file:///home/runner/work/echoframe/echoframe/scripts/phase13-package-final.mjs:32
+2026-07-08T19:56:20.7882790Z   throw new Error(`Final core test evidence is invalid: tests=${testCommand?.tests} passed=${testCommand?.passed}`);
+2026-07-08T19:56:20.7883933Z         ^
+2026-07-08T19:56:20.7884201Z 
+2026-07-08T19:56:20.7884736Z Error: Final core test evidence is invalid: tests=1299 passed=true
+2026-07-08T19:56:20.7885676Z     at file:///home/runner/work/echoframe/echoframe/scripts/phase13-package-final.mjs:32:9
+2026-07-08T19:56:20.7886301Z 
+2026-07-08T19:56:20.7886449Z Node.js v22.23.1
+2026-07-08T19:56:20.7922547Z ##[error]Process completed with exit code 1.
+2026-07-08T19:56:20.8027788Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-07-08T19:56:20.8029007Z ##[group]Run actions/upload-artifact@v4
+2026-07-08T19:56:20.8029261Z with:
+2026-07-08T19:56:20.8029471Z   name: phase13-final-live-release-evidence
+2026-07-08T19:56:20.8029843Z   path: release/*
 docs/PHASE13_*
 docs/screenshots/ECHOFRAME_v1_*.png
 
-2026-07-08T19:41:52.2776104Z   if-no-files-found: error
-2026-07-08T19:41:52.2776353Z   retention-days: 90
-2026-07-08T19:41:52.2776592Z   compression-level: 6
-2026-07-08T19:41:52.2776832Z   overwrite: false
-2026-07-08T19:41:52.2777059Z   include-hidden-files: false
-2026-07-08T19:41:52.2777307Z env:
-2026-07-08T19:41:52.2777575Z   PHASE13_PUBLIC_URL: https://thiepn.github.io/echoframe/
-2026-07-08T19:41:52.2778110Z   PHASE13_SOURCE_DIGEST: aa6a12f481ed233b01ee8ff397883b924706ca3bd004f4a7b9b8464750de842e
-2026-07-08T19:41:52.2778645Z   PHASE13_SOURCE_COMMIT: bee4e6be76484fc5edef1bfa7cf7ddaf2660bc6d
---
-2026-07-08T19:41:52.4473866Z (node:3787) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
-2026-07-08T19:41:52.4475138Z (Use `node --trace-deprecation ...` to show where the warning was created)
-2026-07-08T19:41:52.4720828Z Multiple search paths detected. Calculating the least common ancestor of all paths
-2026-07-08T19:41:52.4724458Z The least common ancestor is /home/runner/work/echoframe/echoframe. This will be the root directory of the artifact
-2026-07-08T19:41:52.4725758Z With the provided path, there will be 41 files uploaded
-2026-07-08T19:41:52.4733385Z Artifact name is valid!
-2026-07-08T19:41:52.4734048Z Root directory input is valid!
-2026-07-08T19:41:52.7126800Z Beginning upload of artifact content to blob storage
-2026-07-08T19:41:52.9723188Z (node:3787) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
-2026-07-08T19:41:53.5020972Z Uploaded bytes 5685807
-2026-07-08T19:41:53.5501904Z Finished uploading artifact content to blob storage!
-2026-07-08T19:41:53.5503542Z SHA256 digest of uploaded artifact zip is e348222e94805e719c00dbfef66d6dc9f27b0c71c2f4c7edba54529e027f8753
-2026-07-08T19:41:53.5504960Z Finalizing artifact upload
-2026-07-08T19:41:53.7851586Z Artifact phase13-final-live-release-evidence.zip successfully finalized. Artifact ID 8179924745
-2026-07-08T19:41:53.7853378Z Artifact phase13-final-live-release-evidence has been successfully uploaded! Final size is 5685807 bytes. Artifact ID is 8179924745
-2026-07-08T19:41:53.7859850Z Artifact download URL: https://github.com/thiepn/echoframe/actions/runs/28970552734/artifacts/8179924745
-2026-07-08T19:41:53.8069257Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-07-08T19:56:20.8030179Z   if-no-files-found: error
+2026-07-08T19:56:20.8030397Z   retention-days: 90
+2026-07-08T19:56:20.8030595Z   compression-level: 6
+2026-07-08T19:56:20.8030787Z   overwrite: false
+2026-07-08T19:56:20.8030982Z   include-hidden-files: false
+2026-07-08T19:56:20.8031190Z env:
+2026-07-08T19:56:20.8031427Z   PHASE13_PUBLIC_URL: https://thiepn.github.io/echoframe/
+2026-07-08T19:56:20.8031945Z   PHASE13_SOURCE_DIGEST: aa6a12f481ed233b01ee8ff397883b924706ca3bd004f4a7b9b8464750de842e
+2026-07-08T19:56:20.8032479Z   PHASE13_SOURCE_COMMIT: bee4e6be76484fc5edef1bfa7cf7ddaf2660bc6d
+2026-07-08T19:56:20.8033008Z   PHASE13_DEPLOYED_BUNDLE_DIGEST: 286f9423a223610fd6699b6d03d9458d941dab64c5b05c2a070d699d4155eeb8
+2026-07-08T19:56:20.8033555Z   PHASE13_DIST_DIR: /home/runner/work/echoframe/echoframe/dist-pages
+2026-07-08T19:56:20.8036461Z   GH_TOKEN: ***
+2026-07-08T19:56:20.8036864Z   CHROMIUM_EXECUTABLE: /home/runner/.cache/ms-playwright/chromium-1228/chrome-linux64/chrome
+2026-07-08T19:56:20.8037928Z   FIREFOX_EXECUTABLE: /home/runner/.cache/ms-playwright/firefox-1532/firefox/firefox
+2026-07-08T19:56:20.8038338Z ##[endgroup]
+2026-07-08T19:56:20.9625133Z (node:4470) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-07-08T19:56:20.9626014Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-07-08T19:56:20.9829190Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-07-08T19:56:20.9830359Z The least common ancestor is /home/runner/work/echoframe/echoframe. This will be the root directory of the artifact
+2026-07-08T19:56:20.9831031Z With the provided path, there will be 43 files uploaded
+2026-07-08T19:56:20.9831535Z Artifact name is valid!
+2026-07-08T19:56:20.9831813Z Root directory input is valid!
+2026-07-08T19:56:21.1303592Z Beginning upload of artifact content to blob storage
+2026-07-08T19:56:21.3870468Z (node:4470) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-07-08T19:56:21.4934693Z Uploaded bytes 5726402
+2026-07-08T19:56:21.5078661Z Finished uploading artifact content to blob storage!
+2026-07-08T19:56:21.5080238Z SHA256 digest of uploaded artifact zip is aa203b26d2573111d3876f411db72c2b71955cea2cb7a0877db7c408c45f08b3
+2026-07-08T19:56:21.5082623Z Finalizing artifact upload
+2026-07-08T19:56:21.6665185Z Artifact phase13-final-live-release-evidence.zip successfully finalized. Artifact ID 8180269951
+2026-07-08T19:56:21.6666513Z Artifact phase13-final-live-release-evidence has been successfully uploaded! Final size is 5726402 bytes. Artifact ID is 8180269951
+2026-07-08T19:56:21.6672405Z Artifact download URL: https://github.com/thiepn/echoframe/actions/runs/28971415801/artifacts/8180269951
+2026-07-08T19:56:21.6859995Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-07-08T19:56:21.6861259Z Post job cleanup.
+2026-07-08T19:56:21.7692549Z [command]/usr/bin/git version
+2026-07-08T19:56:21.7733850Z git version 2.54.0
+2026-07-08T19:56:21.7776276Z Temporarily overriding HOME='/home/runner/work/_temp/25d3cc95-013e-4641-8112-b37c1c726238' before making global git config changes
