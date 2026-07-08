@@ -1,0 +1,5 @@
+Phase 13 publication retry.
+
+Certified source manifest remains unchanged because .phase13-* runtime coordination files are outside the source manifest and final source archive.
+Previous non-public certification source digest: aa6a12f481ed233b01ee8ff397883b924706ca3bd004f4a7b9b8464750de842e
+Previous merge commit: f8c5af3f5a344dd9e25fd1086823ec6fbe544ee4
