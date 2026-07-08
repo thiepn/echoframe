@@ -1,0 +1,91 @@
+name: Phase 13 Hosted Certification Bootstrap
+
+on:
+  push:
+    branches:
+      - release/v1.0.0-certification
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: phase13-bootstrap-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify-and-certify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify source archive is present
+        shell: bash
+        run: |
+          test -f ECHOFRAME_phase12_certification_candidate.zip
+          echo "8cbc7d526c80ae0ea1c506cf580518cc5abed93b7f653eeb2ca43b659db122ca  ECHOFRAME_phase12_certification_candidate.zip" | sha256sum -c -
+
+      - name: Extract verified candidate
+        shell: bash
+        run: |
+          mkdir candidate
+          unzip -q ECHOFRAME_phase12_certification_candidate.zip -d candidate
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: candidate/package-lock.json
+
+      - name: Record runner environment
+        working-directory: candidate
+        shell: bash
+        run: |
+          uname -a
+          node --version
+          npm --version
+          npx playwright --version
+
+      - name: Install dependencies
+        working-directory: candidate
+        run: npm ci
+
+      - name: Install real Chromium and Firefox
+        working-directory: candidate
+        run: npx playwright install --with-deps chromium firefox
+
+      - name: Core validation
+        working-directory: candidate
+        run: npm run validate:core:phase10
+
+      - name: Chromium production validation
+        working-directory: candidate
+        run: npm run validate:browser:phase12
+
+      - name: Firefox production validation
+        working-directory: candidate
+        run: npm run validate:browser:firefox:phase12
+
+      - name: Root and subpath deployment validation
+        working-directory: candidate
+        run: npm run validate:deployment:phase12
+
+      - name: Cross-browser deterministic comparison
+        working-directory: candidate
+        run: npm run audit:determinism:phase12
+
+      - name: Phase 12 release audit
+        working-directory: candidate
+        run: npm run audit:release:phase12
+
+      - name: Upload certification evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: phase13-bootstrap-evidence
+          path: |
+            candidate/docs/PHASE12_*.json
+            candidate/docs/screenshots/*.png
+          if-no-files-found: warn
+          retention-days: 30
