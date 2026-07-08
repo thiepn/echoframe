@@ -7,6 +7,7 @@ import {
   productionBundleDigest, readJson, runtimeVersion, sourceManifest, writeJson,
 } from './phase12-utils.mjs';
 
+const RETAINED_THROUGH_PHASE12 = 1319;
 const generatedAt = new Date().toISOString();
 const pkg = await packageMetadata();
 const runtime = await runtimeVersion();
@@ -48,6 +49,15 @@ const chromiumPerformance = await read('PHASE10_PERFORMANCE_VALIDATION.json');
 const firefoxPerformance = await read('PHASE13_FIREFOX_PERFORMANCE_VALIDATION.json');
 const bundle = await productionBundleDigest(path.join(ROOT, 'dist-validation'))
   ?? await productionBundleDigest(path.join(ROOT, 'dist'));
+const coreTestCommand = core?.commands?.find((entry) => entry.command === 'npm run test');
+const finalTestTotal = Number(coreTestCommand?.tests);
+const finalPhase13TestTotal = finalTestTotal - RETAINED_THROUGH_PHASE12;
+const finalTestEvidencePassed = Number.isInteger(finalTestTotal)
+  && finalTestTotal >= RETAINED_THROUGH_PHASE12
+  && finalPhase13TestTotal >= 10
+  && coreTestCommand?.passed === true
+  && coreTestCommand?.pass === finalTestTotal
+  && coreTestCommand?.fail === 0;
 
 const common = {
   generatedAt,
@@ -58,6 +68,13 @@ const common = {
   sourceManifestDigest: source.digest,
   sourceFileCount: source.fileCount,
   productionBundleDigest: bundle?.digest ?? chromium?.productionBundleDigest ?? firefox?.productionBundleDigest ?? null,
+  tests: {
+    total: Number.isInteger(finalTestTotal) ? finalTestTotal : null,
+    retainedThroughPhase12: RETAINED_THROUGH_PHASE12,
+    phase13: Number.isInteger(finalPhase13TestTotal) ? finalPhase13TestTotal : null,
+    passed: finalTestEvidencePassed,
+    source: 'PHASE10_CORE_VALIDATION.json',
+  },
   environment,
   workflow,
 };
@@ -132,7 +149,7 @@ const checks = {
   runtimeVersionFinal: runtime === '1.0.0',
   canonicalUnchanged: Object.values(canonical).every((entry) => entry.unchanged),
   corePassed: pass(core),
-  testTotalAtLeast1328: (core?.tests?.total ?? core?.testCount ?? core?.summary?.tests ?? 0) >= 1328 || pass(core),
+  finalTestEvidencePassed,
   chromiumPassed: pass(chromium),
   firefoxPassed: pass(firefox) && firefox?.gameCodeExecuted === true,
   chromiumStaticBasesPassed: pass(chromiumDeployment),
@@ -171,11 +188,11 @@ await writeJson('PHASE13_CI_VALIDATION.json', {
   passed: audit.passed,
 });
 
-const defects = `# Phase 13 Defect Register\n\n## Product defects\n\n- Critical: 0\n- High: 0\n- Release-blocking Medium: 0\n\n## Release-engineering defects resolved\n\n1. Phase 12 lockfile tarball URLs referenced an OpenAI-internal registry. The Phase 13 materialized lockfile uses public npm URLs while preserving versions and integrity hashes.\n2. Hosted Chromium input validation used stale canvas geometry and fixed capture timing. Phase 13 uses trusted-event telemetry, fresh geometry, state-based waits, and a deterministic close firing lane while retaining the production pointer → weapon → projectile → physics path.\n`;
+const defects = `# Phase 13 Defect Register\n\n## Product defects\n\n- Critical: 0\n- High: 0\n- Release-blocking Medium: 0\n\n## Release-engineering and performance defects resolved\n\n1. Phase 12 lockfile tarball URLs referenced an OpenAI-internal registry. Phase 13 uses public npm URLs while preserving versions and integrity hashes.\n2. Hosted Chromium input validation used stale canvas geometry and fixed capture timing. Phase 13 uses trusted-event telemetry, fresh geometry, state-based waits, and a deterministic close firing lane while retaining the production input path.\n3. Hosted requestAnimationFrame cadence reflected virtual-display throttling rather than browser main-thread game work. Phase 13 records Phaser prestep-to-postrender work with unchanged gameplay workloads and frame-time thresholds.\n4. The boss HUD rerasterized unchanged text on every telemetry event. Phase 13 caches text values and redraws only when visible content changes.\n5. Final package metadata used a stale fixed test count and a duplicate release field. Phase 13 derives test totals from passed core evidence and separates release title from publication status.\n`;
 await writeFile(path.join(DOCS, 'PHASE13_DEFECT_REGISTER.md'), defects);
 
 const checklistLines = Object.entries(checks).map(([key, value]) => `- [${value ? 'x' : ' '}] ${key}`).join('\n');
 await writeFile(path.join(DOCS, 'PHASE13_RELEASE_CHECKLIST.md'), `# Phase 13 Release Checklist\n\n${checklistLines}\n\n## Pending publication gates\n\n- [ ] source archive clean extraction\n- [ ] web archive clean extraction\n- [ ] GitHub Pages deployment\n- [ ] public Chromium validation\n- [ ] public Firefox validation\n- [ ] final audit and sign-off\n- [ ] v1.0.0 tag and GitHub Release\n`);
 
-console.log(JSON.stringify({ passed: audit.passed, sourceManifestDigest: source.digest, productionBundleDigest: common.productionBundleDigest, openGates: audit.openGates, workflow }, null, 2));
+console.log(JSON.stringify({ passed: audit.passed, tests: common.tests, sourceManifestDigest: source.digest, productionBundleDigest: common.productionBundleDigest, openGates: audit.openGates, workflow }, null, 2));
 if (!audit.passed) process.exitCode = 1;
