@@ -1,0 +1,287 @@
+name: Finalize ECHOFRAME Version 1.0 from Certified Live Pages
+
+on:
+  push:
+    branches:
+      - ops/phase13-publication-dispatch
+    paths:
+      - .github/workflows/phase13-finalize-live-release.yml
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: write
+
+concurrency:
+  group: phase13-version-1-final-live-release
+  cancel-in-progress: false
+
+env:
+  PHASE13_PUBLIC_URL: https://thiepn.github.io/echoframe/
+  PHASE13_SOURCE_DIGEST: aa6a12f481ed233b01ee8ff397883b924706ca3bd004f4a7b9b8464750de842e
+  PHASE13_SOURCE_COMMIT: bee4e6be76484fc5edef1bfa7cf7ddaf2660bc6d
+  PHASE13_DEPLOYED_BUNDLE_DIGEST: 286f9423a223610fd6699b6d03d9458d941dab64c5b05c2a070d699d4155eeb8
+  PHASE13_DIST_DIR: ${{ github.workspace }}/dist-pages
+  GH_TOKEN: ${{ github.token }}
+
+jobs:
+  finalize-release:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 150
+    steps:
+      - name: Checkout exact certified main source
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+          persist-credentials: true
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install exact dependencies
+        run: npm ci --no-audit --no-fund --prefer-offline
+        env:
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: '1'
+
+      - name: Verify certified final source identity
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(node -p "require('./package.json').version")" = "1.0.0"
+          node --input-type=module - <<'NODE'
+          import path from 'node:path';
+          import { readFile } from 'node:fs/promises';
+          import { sourceManifest } from './scripts/phase12-utils.mjs';
+          const audit = JSON.parse(await readFile(path.resolve('docs/PHASE13_NONPUBLIC_RELEASE_AUDIT.json'), 'utf8'));
+          const manifest = await sourceManifest();
+          if (audit.passed !== true) throw new Error('Non-public release audit is not passed.');
+          if (audit.sourceManifestDigest !== manifest.digest) throw new Error(`Source digest mismatch: audit=${audit.sourceManifestDigest} current=${manifest.digest}`);
+          if (manifest.digest !== process.env.PHASE13_SOURCE_DIGEST) throw new Error(`Unexpected certified digest: ${manifest.digest}`);
+          console.log(JSON.stringify({ passed: true, sourceManifestDigest: manifest.digest }, null, 2));
+          NODE
+
+      - name: Install real Chromium and Firefox
+        run: npx playwright install --with-deps chromium firefox
+
+      - name: Resolve browser paths
+        shell: bash
+        run: |
+          echo "CHROMIUM_EXECUTABLE=$(node -e "const {chromium}=require('playwright');process.stdout.write(chromium.executablePath())")" >> "$GITHUB_ENV"
+          echo "FIREFOX_EXECUTABLE=$(node -e "const {firefox}=require('playwright');process.stdout.write(firefox.executablePath())")" >> "$GITHUB_ENV"
+
+      - name: Recover exact certified deployed bundle
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/phase13-final-artifact "$PHASE13_DIST_DIR"
+          mkdir -p /tmp/phase13-final-artifact "$PHASE13_DIST_DIR"
+          gh run download 28948294260 \
+            --repo "$GITHUB_REPOSITORY" \
+            --name phase13-final-release-artifacts \
+            --dir /tmp/phase13-final-artifact
+          printf '%s  %s\n' \
+            '360f26a6a30196623fe35ed41368621c1744757a870de68517b7c47dca631706' \
+            '/tmp/phase13-final-artifact/release/ECHOFRAME_v1.0.0_web.zip' | sha256sum --check
+          unzip -q /tmp/phase13-final-artifact/release/ECHOFRAME_v1.0.0_web.zip -d "$PHASE13_DIST_DIR"
+          test "$(find "$PHASE13_DIST_DIR" -type f | wc -l)" -eq 6
+          node --input-type=module - <<'NODE'
+          import { readFile } from 'node:fs/promises';
+          import { productionBundleDigest } from './scripts/phase12-utils.mjs';
+          const marker = JSON.parse(await readFile(`${process.env.PHASE13_DIST_DIR}/phase13-release.json`, 'utf8'));
+          const bundle = await productionBundleDigest(process.env.PHASE13_DIST_DIR, { exclude: ['phase13-release.json'] });
+          const checks = {
+            version: marker.version === '1.0.0',
+            sourceCommit: marker.sourceCommit === process.env.PHASE13_SOURCE_COMMIT,
+            sourceDigest: marker.sourceManifestDigest === process.env.PHASE13_SOURCE_DIGEST,
+            bundleDigest: marker.productionBundleDigest === process.env.PHASE13_DEPLOYED_BUNDLE_DIGEST && bundle.digest === process.env.PHASE13_DEPLOYED_BUNDLE_DIGEST,
+            fileCount: marker.productionFileCount === bundle.fileCount,
+          };
+          if (!Object.values(checks).every(Boolean)) throw new Error(`Certified bundle identity failed: ${JSON.stringify(checks)}`);
+          console.log(JSON.stringify({ passed: true, checks, marker, bundleDigest: bundle.digest }, null, 2));
+          NODE
+
+      - name: Wait for public HTTPS site
+        shell: bash
+        run: |
+          set -euo pipefail
+          for attempt in $(seq 1 30); do
+            code="$(curl -L -s -o /dev/null -w '%{http_code}' "$PHASE13_PUBLIC_URL" || true)"
+            marker_code="$(curl -L -s -o /dev/null -w '%{http_code}' "${PHASE13_PUBLIC_URL}phase13-release.json" || true)"
+            if [[ "$code" == "200" && "$marker_code" == "200" ]]; then exit 0; fi
+            echo "Attempt $attempt: page=$code marker=$marker_code"
+            sleep 10
+          done
+          exit 1
+
+      - name: Validate live site in real Chromium and Firefox
+        run: node scripts/phase13-public-validation.mjs
+
+      - name: Build and validate final release archives with public evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/phase13-package-final.mjs
+          node scripts/phase13-validate-archives.mjs
+
+      - name: Require unused Version 1.0 publication target
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch --tags --force
+          if git rev-parse --verify --quiet refs/tags/v1.0.0 >/dev/null || gh release view v1.0.0 >/dev/null 2>&1; then
+            echo "v1.0.0 already exists; publication sign-off is withheld."
+            exit 1
+          fi
+
+      - name: Generate final audit and publication sign-off before tag creation
+        env:
+          PHASE13_TAG_NAME: v1.0.0
+        run: node scripts/phase13-final-signoff.mjs
+
+      - name: Repackage signed-off source and prove archive stability
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/phase13-package-final.mjs
+          node scripts/phase13-validate-archives.mjs
+          cp release/ECHOFRAME_v1.0.0_SHA256SUMS.txt /tmp/phase13-first-signed-checksums.txt
+          node scripts/phase13-package-final.mjs
+          node scripts/phase13-validate-archives.mjs
+          cmp /tmp/phase13-first-signed-checksums.txt release/ECHOFRAME_v1.0.0_SHA256SUMS.txt
+
+      - name: Commit signed-off final evidence and artifacts to main
+        id: final-commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          test "$(git rev-parse HEAD)" = "$(git rev-parse origin/main)"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/PHASE13_* docs/screenshots/ECHOFRAME_v1_* release/
+          git commit -m "Publish ECHOFRAME Version 1.0 evidence and artifacts"
+          git push origin HEAD:main
+          final_commit="$(git rev-parse HEAD)"
+          echo "final_commit=$final_commit" >> "$GITHUB_OUTPUT"
+
+      - name: Create annotated tag and draft release after sign-off
+        id: draft-release
+        env:
+          FINAL_COMMIT: ${{ steps.final-commit.outputs.final_commit }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --input-type=module - <<'NODE'
+          import { readFile } from 'node:fs/promises';
+          const signoff = JSON.parse(await readFile('docs/PHASE13_RELEASE_SIGNOFF.json', 'utf8'));
+          const audit = JSON.parse(await readFile('docs/PHASE13_FINAL_RELEASE_AUDIT.json', 'utf8'));
+          if (signoff.passed !== true || signoff.publicationAuthorized !== true || audit.passed !== true) {
+            throw new Error('Version 1.0 publication is not signed off.');
+          }
+          if (audit.tag?.status !== 'authorized-not-created') throw new Error(`Unexpected pre-publication tag status: ${audit.tag?.status}`);
+          NODE
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git tag -a v1.0.0 -m "ECHOFRAME: LAST SIGNAL — Version 1.0" "$FINAL_COMMIT"
+          git push origin refs/tags/v1.0.0
+          gh release create v1.0.0 --draft --title "ECHOFRAME: LAST SIGNAL — Version 1.0" --notes-file docs/RELEASE_NOTES_v1.0.0.md \
+            release/ECHOFRAME_v1.0.0_final_source.zip \
+            release/ECHOFRAME_v1.0.0_web.zip \
+            release/ECHOFRAME_v1.0.0_SHA256SUMS.txt \
+            release/ECHOFRAME_v1.0.0_RELEASE_MANIFEST.json
+          release_url="$(gh release view v1.0.0 --json url --jq .url)"
+          echo "release_url=$release_url" >> "$GITHUB_OUTPUT"
+
+      - name: Publish signed-off GitHub Release
+        run: gh release edit v1.0.0 --draft=false
+
+      - name: Verify annotated tag and downloaded release assets
+        id: verify-release
+        env:
+          FINAL_COMMIT: ${{ steps.final-commit.outputs.final_commit }}
+          RELEASE_URL: ${{ steps.draft-release.outputs.release_url }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch --tags --force
+          test "$(git cat-file -t v1.0.0)" = "tag"
+          test "$(git rev-list -n 1 v1.0.0)" = "$FINAL_COMMIT"
+          gh release view v1.0.0 --json url,isDraft,assets,tagName,targetCommitish > release/PHASE13_RELEASE_VERIFICATION.json
+          rm -rf /tmp/phase13-release-download
+          mkdir -p /tmp/phase13-release-download
+          gh release download v1.0.0 --dir /tmp/phase13-release-download
+          node --input-type=module - <<'NODE'
+          import { createHash } from 'node:crypto';
+          import { readFile, stat, writeFile } from 'node:fs/promises';
+          const sha256 = async (filename) => createHash('sha256').update(await readFile(filename)).digest('hex');
+          const report = JSON.parse(await readFile('release/PHASE13_RELEASE_VERIFICATION.json', 'utf8'));
+          if (report.isDraft) throw new Error('Release is still a draft.');
+          if (report.tagName !== 'v1.0.0') throw new Error(`Unexpected release tag: ${report.tagName}`);
+          const expected = [
+            'ECHOFRAME_v1.0.0_final_source.zip',
+            'ECHOFRAME_v1.0.0_web.zip',
+            'ECHOFRAME_v1.0.0_SHA256SUMS.txt',
+            'ECHOFRAME_v1.0.0_RELEASE_MANIFEST.json',
+          ];
+          const assets = [];
+          for (const name of expected) {
+            const asset = report.assets.find((entry) => entry.name === name);
+            if (!asset) throw new Error(`Missing release asset: ${name}`);
+            const localPath = `release/${name}`;
+            const remotePath = `/tmp/phase13-release-download/${name}`;
+            const local = await stat(localPath);
+            const remote = await stat(remotePath);
+            if (asset.size !== local.size || remote.size !== local.size) {
+              throw new Error(`Release asset size mismatch for ${name}: API=${asset.size} downloaded=${remote.size} local=${local.size}`);
+            }
+            const localHash = await sha256(localPath);
+            const remoteHash = await sha256(remotePath);
+            if (localHash !== remoteHash) throw new Error(`Release asset hash mismatch for ${name}: remote=${remoteHash} local=${localHash}`);
+            assets.push({ name, bytes: local.size, sha256: localHash });
+          }
+          const publication = {
+            generatedAt: new Date().toISOString(),
+            passed: true,
+            finalCommit: process.env.FINAL_COMMIT,
+            certifiedSourceCommit: process.env.PHASE13_SOURCE_COMMIT,
+            sourceManifestDigest: process.env.PHASE13_SOURCE_DIGEST,
+            productionBundleDigest: process.env.PHASE13_DEPLOYED_BUNDLE_DIGEST,
+            tag: {
+              name: 'v1.0.0',
+              url: `https://github.com/${process.env.GITHUB_REPOSITORY}/releases/tag/v1.0.0`,
+              annotated: true,
+            },
+            releaseUrl: report.url,
+            publicUrl: process.env.PHASE13_PUBLIC_URL,
+            workflowUrl: `https://github.com/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`,
+            assets,
+          };
+          await writeFile('release/PHASE13_PUBLICATION_VERIFICATION.json', `${JSON.stringify(publication, null, 2)}\n`);
+          console.log(JSON.stringify(publication, null, 2));
+          NODE
+
+      - name: Commit publication verification to main
+        id: verification-commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add release/PHASE13_RELEASE_VERIFICATION.json release/PHASE13_PUBLICATION_VERIFICATION.json
+          git commit -m "Record ECHOFRAME Version 1.0 publication verification"
+          git push origin HEAD:main
+          verification_commit="$(git rev-parse HEAD)"
+          echo "verification_commit=$verification_commit" >> "$GITHUB_OUTPUT"
+
+      - name: Upload complete publication evidence
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: phase13-final-live-release-evidence
+          path: |
+            release/*
+            docs/PHASE13_*
+            docs/screenshots/ECHOFRAME_v1_*.png
+          if-no-files-found: error
+          retention-days: 90
