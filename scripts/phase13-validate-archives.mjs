@@ -77,10 +77,10 @@ const webChecks = {
   onlyStaticRoots: webRoots.every((name) => allowedWebRoots.has(name)),
 };
 
-async function smoke(directory, engine, label) {
-  const server = await startStaticServer({ directory, base: '/' });
+async function smoke(directory, engine, label, base = '/echoframe/') {
+  const server = await startStaticServer({ directory, base });
   const runtime = await launchBrowser({ engine, viewport: { width: 1366, height: 768 } });
-  const result = { engine, label, checks: {}, exceptions: [], consoleErrors: [], failedRequests: [], passed: false };
+  const result = { engine, label, base, checks: {}, exceptions: [], consoleErrors: [], failedRequests: [], passed: false };
   try {
     const response = await runtime.page.goto(server.url, { waitUntil: 'networkidle' });
     result.checks.http200 = response?.status() === 200;
