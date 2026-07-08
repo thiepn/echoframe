@@ -1,0 +1,53 @@
+name: Bootstrap Certified gh-pages Branch
+
+on:
+  push:
+    branches:
+      - ops/phase13-publication-dispatch
+    paths:
+      - .github/workflows/phase13-bootstrap-gh-pages.yml
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  bootstrap:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Download certified final release artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/phase13-artifact /tmp/phase13-site
+          gh run download 28948294260 \
+            --repo "$GITHUB_REPOSITORY" \
+            --name phase13-final-release-artifacts \
+            --dir /tmp/phase13-artifact
+          unzip -q /tmp/phase13-artifact/release/ECHOFRAME_v1.0.0_web.zip -d /tmp/phase13-site
+          cd /tmp/phase13-site
+          printf '%s  %s\n' \
+            '360f26a6a30196623fe35ed41368621c1744757a870de68517b7c47dca631706' \
+            '/tmp/phase13-artifact/release/ECHOFRAME_v1.0.0_web.zip' | sha256sum --check
+          test "$(find . -type f | wc -l)" -eq 6
+          touch .nojekyll
+      - name: Publish immutable certified bundle to gh-pages
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          git clone "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" /tmp/phase13-pages-repo
+          cd /tmp/phase13-pages-repo
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git checkout --orphan gh-pages
+          git rm -rf . >/dev/null 2>&1 || true
+          cp -a /tmp/phase13-site/. .
+          git add -A
+          git commit -m 'Stage certified ECHOFRAME Version 1.0 Pages bundle'
+          git push --force origin gh-pages
