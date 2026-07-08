@@ -44,7 +44,7 @@
     "validate:browser:phase10": "node scripts/phase13-chromium-harness-runner.mjs",
     "validate:browser:firefox:phase10": "node scripts/phase10-firefox-validation.mjs",
     "validate:deployment:phase10": "node scripts/phase10-deployment-validation.mjs",
-    "validate:lifecycle:phase10": "node scripts/phase10-lifecycle-validation.mjs",
+    "validate:lifecycle:phase10": "npm run validate:performance:phase10 && node scripts/phase10-lifecycle-validation.mjs",
     "validate:idle:phase10": "node scripts/phase10-menu-idle-validation.mjs",
     "validate:soak:phase10": "node scripts/phase10-active-soak-validation.mjs",
     "validate:performance:phase10": "node scripts/phase13-xvfb-performance.mjs chromium",
