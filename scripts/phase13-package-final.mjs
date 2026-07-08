@@ -70,8 +70,15 @@ if (releaseMarker) {
 await rm(SOURCE_ZIP, { force: true });
 await rm(WEB_ZIP, { force: true });
 const sourceExclude = [
-  '.git/*', 'node_modules/*', 'dist/*', 'dist-*/*', '.phase*/*', 'playwright-report/*', 'test-results/*',
-  'release/*', '*.zip', '*.log', 'candidate/*',
+  '.git', '.git/*',
+  'node_modules', 'node_modules/*',
+  'dist', 'dist/*', 'dist-*', 'dist-*/*',
+  '.phase*', '.phase*/*',
+  'playwright-report', 'playwright-report/*',
+  'test-results', 'test-results/*',
+  'release', 'release/*',
+  'candidate', 'candidate/*',
+  '*.zip', '*.log',
   // Generated Phase 13 evidence describes and validates the archive. Excluding it avoids a self-referential
   // archive whose digest changes when its own validation/sign-off report is regenerated. The reports remain
   // committed beside the release and are attached as workflow evidence.
