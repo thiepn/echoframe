@@ -1,15 +1,43 @@
-# Phase 12 Current State
+# ECHOFRAME: LAST SIGNAL — Current State
 
-- Package/runtime: `1.0.0` / `1.0.0`
-- Tests: baseline 1299 plus Phase 12 release-closure tests
-- Source manifest: `3eafc0a1a6b2ee2d9b804fa353e65c1b9758ef45c9c83c13e376e2c1e5efd4b4`
-- Chromium: **passed**
-- Supported Firefox: **environment-blocked-before-game-execution**
-- Firefox game code executed: **false**
-- Final verdict: **release-candidate-signoff-withheld**
+## Product identity
 
-Version 1.0 promotion remains blocked until supported real Firefox and all final-version gates pass.
+- Package version: `1.0.0`
+- Runtime version: `1.0.0`
+- Release label: **Version 1.0**
+- Save schema: `2`
+- Production subtitle: **Fight with your past. Rebuild the signal.**
 
-## Phase 13 Version 1.0 promotion
+## Automated verification
 
-The hosted pre-promotion gate passed in real Chromium and real Firefox on Ubuntu 24.04. Package and runtime identity are now `1.0.0`. Final-version browser, lifecycle, long-session, packaging, Pages, and public-site evidence must still match the promoted source before publication sign-off.
+- Retained through Phase 12: `1,319` tests
+- Phase 13: `10` tests
+- Current total: `1,329` tests
+- Canonical design documents: byte-identical to the certified baseline
+- Chromium: real hosted production matrix required
+- Firefox: real hosted production matrix required
+- Root and repository-subpath hosting: required in both browsers
+- Cross-browser deterministic comparison: required with zero authoritative mismatches
+- Chromium lifecycle: 60 cycles required
+- Firefox lifecycle subset: at least 12 cycles required
+- Menu idle: 30 real minutes required
+- Active gameplay soak: 30 real minutes required
+- Firefox soak: 10 real minutes required
+
+## Release authority
+
+Publication is controlled by machine-readable evidence. This document does not independently claim that a workflow, deployment, tag, or release passed.
+
+Authoritative state is recorded in:
+
+- `PHASE13_CI_VALIDATION.json`
+- `PHASE13_NONPUBLIC_RELEASE_AUDIT.json`
+- `PHASE13_SOURCE_ARCHIVE_VALIDATION.json`
+- `PHASE13_WEB_ARCHIVE_VALIDATION.json`
+- `PHASE13_PUBLIC_DEPLOYMENT_VALIDATION.json`
+- `PHASE13_FINAL_RELEASE_AUDIT.json`
+- `PHASE13_RELEASE_SIGNOFF.json`
+- `PHASE13_RELEASE_CHECKLIST.md`
+- `../release/ECHOFRAME_v1.0.0_RELEASE_MANIFEST.json`
+
+The tag `v1.0.0` and GitHub Release may be created only when final sign-off reports `passed: true` and `publicationAuthorized: true`.
