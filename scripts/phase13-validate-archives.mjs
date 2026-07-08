@@ -2,7 +2,7 @@ import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
 import { access, mkdir, readFile, readdir, rm, stat } from 'node:fs/promises';
-import { ROOT, DOCS, EXPECTED_CANONICAL, readJson, writeJson } from './phase12-utils.mjs';
+import { ROOT, DOCS, EXPECTED_CANONICAL, productionBundleDigest, readJson, sourceManifest, writeJson } from './phase12-utils.mjs';
 import { startStaticServer, launchBrowser, waitForGame, waitForScene } from './phase10-browser-helpers.mjs';
 
 const RELEASE = path.join(ROOT, 'release');
@@ -48,12 +48,23 @@ sourceChecks.installLintTestsBuild = true;
 
 const allowedWebRoots = new Set(['index.html', 'manifest.webmanifest', 'favicon.svg', 'icon.svg', 'assets', 'phase13-release.json']);
 const webRoots = await readdir(webDir);
+const releaseMarker = await readJson(path.join(webDir, 'phase13-release.json'));
+const extractedBundle = await productionBundleDigest(webDir, { exclude: ['phase13-release.json'] });
+const currentSource = await sourceManifest();
 const webChecks = {
   index: await exists(path.join(webDir, 'index.html')),
   manifest: await exists(path.join(webDir, 'manifest.webmanifest')),
   favicon: await exists(path.join(webDir, 'favicon.svg')),
   assets: await exists(path.join(webDir, 'assets')),
-  releaseIdentityMarker: await exists(path.join(webDir, 'phase13-release.json')),
+  releaseIdentityMarker: Boolean(releaseMarker),
+  markerVersionFinal: releaseMarker?.version === '1.0.0',
+  markerSourceCommit: releaseMarker?.sourceCommit === manifest.sourceCommit,
+  markerSourceDigest: releaseMarker?.sourceManifestDigest === currentSource.digest
+    && releaseMarker?.sourceManifestDigest === manifest.sourceManifestDigest,
+  markerBundleDigest: releaseMarker?.productionBundleDigest === extractedBundle?.digest
+    && releaseMarker?.productionBundleDigest === manifest.productionBundleDigest,
+  markerFileCount: releaseMarker?.productionFileCount === extractedBundle?.fileCount,
+  digestDefinitionExcludesMarker: extractedBundle?.excluded?.includes('phase13-release.json') === true,
   noSource: !(await exists(path.join(webDir, 'src'))) && !(await exists(path.join(webDir, 'tests')),
   onlyStaticRoots: webRoots.every((name) => allowedWebRoots.has(name)),
 };
@@ -108,6 +119,8 @@ const webReport = {
   archiveSha256: await sha256(webZip),
   archiveBytes: (await stat(webZip)).size,
   expectedSha256: manifest.archives?.web?.sha256,
+  releaseMarker,
+  extractedBundleDigest: extractedBundle?.digest ?? null,
   checks: webChecks,
   browserSmoke: { chromium: webChromium, firefox: webFirefox },
   passed: Object.values(webChecks).every(Boolean) && webChromium.passed && webFirefox.passed
@@ -115,5 +128,5 @@ const webReport = {
 };
 await writeJson('PHASE13_SOURCE_ARCHIVE_VALIDATION.json', sourceReport);
 await writeJson('PHASE13_WEB_ARCHIVE_VALIDATION.json', webReport);
-console.log(JSON.stringify({ source: { passed: sourceReport.passed, sha256: sourceReport.archiveSha256 }, web: { passed: webReport.passed, sha256: webReport.archiveSha256 } }, null, 2));
+console.log(JSON.stringify({ source: { passed: sourceReport.passed, sha256: sourceReport.archiveSha256 }, web: { passed: webReport.passed, sha256: webReport.archiveSha256, bundleDigest: extractedBundle?.digest } }, null, 2));
 if (!sourceReport.passed || !webReport.passed) process.exitCode = 1;
