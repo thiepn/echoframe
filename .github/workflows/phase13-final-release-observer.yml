@@ -24,7 +24,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          echo "Refreshing final Version 1.0 release attempt 2 status."
+          echo "Refreshing final Version 1.0 release attempt 3 status."
           response="$(curl --fail-with-body --location \
             --header "Accept: application/vnd.github+json" \
             --header "Authorization: Bearer $GH_TOKEN" \
