@@ -71,21 +71,21 @@ export class HUDScene extends BaseScene {
     const healthRatio = t.health.maximumHealth ? t.health.currentHealth / t.health.maximumHealth : 0;
     this.trailingHealth = Math.max(this.trailingHealth, healthRatio);
     this.healthFill.displayWidth = 365 * Math.max(0, healthRatio);
-    this.healthText.setText(`${Math.ceil(t.health.currentHealth)} / ${Math.ceil(t.health.maximumHealth)}`);
+    this.#setText(this.healthText, `${Math.ceil(t.health.currentHealth)} / ${Math.ceil(t.health.maximumHealth)}`);
     const phase = encounter.phase ?? encounter.state ?? 'INITIALIZING';
     const suppression = t.suppression?.active ? ` · SUPPRESSED ×${t.suppression.scalar.toFixed(2)}` : '';
     const segmentLabel = t.segmentId ? String(t.segmentId).replace('-', ' ').toUpperCase() : `CHAMBER ${t.chamberIndex}`;
     const elite = t.enemies?.elite?.elites?.[0] ?? null;
     const eliteStatus = elite ? ` · ELITE ${String(elite.modifierId).toUpperCase()} ${String(elite.hostEnemyType).toUpperCase()}` : '';
-    this.statusText.setText(`SEGMENT ${(t.segmentIndex ?? 0) + 1}/6 · ${segmentLabel} · ${phase} · ${(encounter.pattern ?? encounter.label ?? 'DIRECTOR').toUpperCase()}${suppression}${eliteStatus}`);
+    this.#setText(this.statusText, `SEGMENT ${(t.segmentIndex ?? 0) + 1}/6 · ${segmentLabel} · ${phase} · ${(encounter.pattern ?? encounter.label ?? 'DIRECTOR').toUpperCase()}${suppression}${eliteStatus}`);
     const roster = Object.entries(TYPE_LABELS).map(([type, label]) => `${label}${counts[type] ?? 0}`).join(' ');
-    this.encounterText.setText([
+    this.#setText(this.encounterText, [
       `Seed ${encounter.seed ?? 0} · Encounter ${Math.min((encounter.stepIndex ?? 0) + 1, 5)}/5`,
       `Enemies ${t.enemies.active} · ${roster}`,
       `Threat ${encounter.activeThreat ?? 0}/${encounter.actualThreat ?? 0} · Queue ${encounter.spawnQueueLength ?? encounter.scheduledSpawns ?? 0}`,
       `Hostile ${t.hostileProjectilePool.active} · Shards ${t.carrierShardPool.active}`,
-      elite ? `Elite ${elite.modifierId} · Shield ${Math.ceil(elite.shieldAmount ?? 0)} · Split ${Math.ceil(elite.pendingCopyMs ?? 0)}ms` : `Elite none`,
-      `Upgrades ${(t.statistics.selectedUpgradeHistory ?? []).length}/5 · Latest ${t.statistics.selectedUpgrade ?? 'None'}`, 
+      elite ? `Elite ${elite.modifierId} · Shield ${Math.ceil(elite.shieldAmount ?? 0)} · Split ${Math.ceil(elite.pendingCopyMs ?? 0)}ms` : 'Elite none',
+      `Upgrades ${(t.statistics.selectedUpgradeHistory ?? []).length}/5 · Latest ${t.statistics.selectedUpgrade ?? 'None'}`,
     ]);
     const activeEcho = t.playback.activeCount > 0;
     let echoProgress = t.recorder.readinessProgress ?? Math.min(1, (t.recorder.recordingSpanMs ?? 0) / 3500);
@@ -95,11 +95,11 @@ export class HUDScene extends BaseScene {
       echoProgress = 1 - t.cooldown.normalizedRemaining;
       echoStatus = t.suppression?.active ? `ECHO COOLDOWN SUPPRESSED ${(t.cooldown.remainingMs / 1000).toFixed(1)}s` : `ECHO COOLDOWN ${(t.cooldown.remainingMs / 1000).toFixed(1)}s`;
     } else if (t.recorder.recordingSpanMs >= 3499) { echoProgress = 1; echoStatus = 'ECHO READY · PRESS SPACE'; }
-    this.echoLabel.setText(echoStatus);
+    this.#setText(this.echoLabel, echoStatus);
     this.echoFill.displayWidth = 440 * Math.max(0, Math.min(1, echoProgress));
-    this.echoDetail.setText(`Deployments ${t.statistics.echoDeployments} · Echo hits ${t.statistics.echoProjectileHits} · Crossfire ${t.statistics.crossfireEvents} · Recovery ${t.statistics.recoveryWindows}`);
+    this.#setText(this.echoDetail, `Deployments ${t.statistics.echoDeployments} · Echo hits ${t.statistics.echoProjectileHits} · Crossfire ${t.statistics.crossfireEvents} · Recovery ${t.statistics.recoveryWindows}`);
     const dash = t.player.dash;
-    this.dashText.setText(dash.active ? 'DASHING' : dash.cooldownRemainingMs > 0 ? `DASH ${(dash.cooldownRemainingMs / 1000).toFixed(1)}s` : 'DASH READY');
+    this.#setText(this.dashText, dash.active ? 'DASHING' : dash.cooldownRemainingMs > 0 ? `DASH ${(dash.cooldownRemainingMs / 1000).toFixed(1)}s` : 'DASH READY');
   }
   #renderBoss(t) {
     const boss = t.boss;
@@ -107,11 +107,12 @@ export class HUDScene extends BaseScene {
     const healthRatio = boss.maximumHealth ? boss.health / boss.maximumHealth : 0;
     this.trailingBossHealth = Math.max(this.trailingBossHealth, healthRatio);
     this.bossFill.displayWidth = 500 * Math.max(0, healthRatio);
+    const phaseLabel = String(boss.phaseLabel ?? boss.phase).toUpperCase();
     const state = boss.transitioning ? 'TRANSITION' : boss.vulnerability?.vulnerable ? 'VULNERABLE' : 'CLOSED';
-    this.bossLabel.setText(`NULL ARCHITECT · ${String(boss.phaseLabel ?? boss.phase).toUpperCase()}`);
-    this.bossText.setText(`${Math.ceil(boss.health)} / ${Math.ceil(boss.maximumHealth)} · ${state}`);
-    this.statusText.setText(`BOSS · ${String(boss.phaseLabel ?? boss.phase).toUpperCase()} · ${(boss.activeAttackId ?? 'ASSESSING').toUpperCase()}`);
-    this.encounterText.setText([
+    this.#setText(this.bossLabel, `NULL ARCHITECT · ${phaseLabel}`);
+    this.#setText(this.bossText, `${Math.ceil(boss.health)} / ${Math.ceil(boss.maximumHealth)} · ${state}`);
+    this.#setText(this.statusText, `BOSS · ${phaseLabel} · ${(boss.activeAttackId ?? 'ASSESSING').toUpperCase()}`);
+    this.#setText(this.encounterText, [
       `Hostile Echoes ${boss.hostileEchoCount ?? 0}`,
       `Boss projectiles ${boss.projectiles?.active ?? 0}`,
       `Summon threat ${boss.summons?.activeThreat ?? 0}/8`,
@@ -122,18 +123,18 @@ export class HUDScene extends BaseScene {
     const healthRatioPlayer = t.health.maximumHealth ? t.health.currentHealth / t.health.maximumHealth : 0;
     this.trailingHealth = Math.max(this.trailingHealth, healthRatioPlayer);
     this.healthFill.displayWidth = 365 * Math.max(0, healthRatioPlayer);
-    this.healthText.setText(`${Math.ceil(t.health.currentHealth)} / ${Math.ceil(t.health.maximumHealth)}`);
+    this.#setText(this.healthText, `${Math.ceil(t.health.currentHealth)} / ${Math.ceil(t.health.maximumHealth)}`);
     const activeEcho = t.playback.activeCount > 0;
     let echoProgress = t.recorder.readinessProgress ?? Math.min(1, (t.recorder.recordingSpanMs ?? 0) / 3500);
     let echoStatus = `RECORDING ${Math.round(echoProgress * 100)}%`;
     if (activeEcho) { echoProgress = 1; echoStatus = `FRIENDLY ECHO ACTIVE ${t.playback.activeCount}`; }
     else if (!t.cooldown.isReady) { echoProgress = 1 - t.cooldown.normalizedRemaining; echoStatus = `ECHO COOLDOWN ${(t.cooldown.remainingMs / 1000).toFixed(1)}s`; }
     else if (t.recorder.recordingSpanMs >= 3499) { echoProgress = 1; echoStatus = 'ECHO READY · PRESS SPACE'; }
-    this.echoLabel.setText(echoStatus);
+    this.#setText(this.echoLabel, echoStatus);
     this.echoFill.displayWidth = 440 * Math.max(0, Math.min(1, echoProgress));
-    this.echoDetail.setText(`Player damage ${Math.round(boss.telemetry?.bossDamageByPlayer ?? 0)} · Echo damage ${Math.round(boss.telemetry?.bossDamageByEcho ?? 0)} · Crossfire ${Math.round(boss.telemetry?.crossfireDamage ?? 0)}`);
+    this.#setText(this.echoDetail, `Player damage ${Math.round(boss.telemetry?.bossDamageByPlayer ?? 0)} · Echo damage ${Math.round(boss.telemetry?.bossDamageByEcho ?? 0)} · Crossfire ${Math.round(boss.telemetry?.crossfireDamage ?? 0)}`);
     const dash = t.player.dash;
-    this.dashText.setText(dash.active ? 'DASHING' : dash.cooldownRemainingMs > 0 ? `DASH ${(dash.cooldownRemainingMs / 1000).toFixed(1)}s` : 'DASH READY');
+    this.#setText(this.dashText, dash.active ? 'DASHING' : dash.cooldownRemainingMs > 0 ? `DASH ${(dash.cooldownRemainingMs / 1000).toFixed(1)}s` : 'DASH READY');
   }
   #renderScore(t) {
     const score = t.score ?? {};
@@ -141,11 +142,11 @@ export class HUDScene extends BaseScene {
     const current = Math.max(0, Math.round(score.currentScore ?? 0));
     const comboValue = Math.max(0, Number(combo.combo) || 0);
     const multiplier = Math.max(1, Number(combo.multiplier) || 1);
-    this.scoreText.setText(`SCORE ${current.toLocaleString('en-US')}`);
-    this.comboText.setText(`COMBO ${comboValue.toFixed(1)} · ${multiplier.toFixed(2)}×`);
+    this.#setText(this.scoreText, `SCORE ${current.toLocaleString('en-US')}`);
+    this.#setText(this.comboText, `COMBO ${comboValue.toFixed(1)} · ${multiplier.toFixed(2)}×`);
     const elapsed = Math.max(0, Number(t.elapsedSimulationMs) || 0);
     const seconds = Math.floor(elapsed / 1000);
-    this.timerText.setText(`${String(Math.floor(seconds / 60)).padStart(2, '0')}:${String(seconds % 60).padStart(2, '0')}`);
+    this.#setText(this.timerText, `${String(Math.floor(seconds / 60)).padStart(2, '0')}:${String(seconds % 60).padStart(2, '0')}`);
     const sinceGain = Math.max(0, elapsed - (Number(combo.lastGainMs) || 0));
     const graceRatio = comboValue <= 0 ? 0 : Math.max(0, Math.min(1, 1 - Math.max(0, sinceGain - 2000) / 1000));
     this.comboDecay.displayWidth = 220 * graceRatio;
@@ -161,8 +162,16 @@ export class HUDScene extends BaseScene {
     slot.__phase9Tween = this.tweens.add({ targets: slot, y: 58, alpha: 0, duration: this.services.settingsManager.get('visual.reducedParticles', false) ? 450 : 800, onComplete: () => slot.setVisible(false) });
   }
 
+  #setText(target, value) {
+    if (!target) return;
+    const normalized = Array.isArray(value) ? value.join('\n') : String(value);
+    if (target.text !== normalized) target.setText(normalized);
+  }
+
   #setBossVisible(visible) {
-    for (const object of [this.bossPanel, this.bossLabel, this.bossTrack, this.bossTrail, this.bossFill, this.bossText]) object?.setVisible(visible);
+    for (const object of [this.bossPanel, this.bossLabel, this.bossTrack, this.bossTrail, this.bossFill, this.bossText]) {
+      if (object && object.visible !== visible) object.setVisible(visible);
+    }
   }
   #opacity() {
     const alpha = this.services.settingsManager.get('visual.hudOpacity', 1);
