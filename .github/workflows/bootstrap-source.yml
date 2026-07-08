@@ -1,0 +1,48 @@
+name: Bootstrap ECHOFRAME Source
+
+on:
+  push:
+    branches: [release/v1.0.0-certification]
+    paths: [_bootstrap/READY]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: echoframe-bootstrap
+  cancel-in-progress: false
+
+jobs:
+  expand-source:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Verify transport files
+        run: |
+          test -f _bootstrap/chunk-00
+          test -f _bootstrap/chunk-01
+          test -f _bootstrap/chunk-02
+          test -f _bootstrap/chunk-03
+          test "$(cat _bootstrap/SHA256)" = "1fcd0a764d13fc1c99dc85409a96e8be76ce0a114ca279555c50774e778b84f0"
+      - name: Reconstruct and verify archive
+        run: |
+          cat _bootstrap/chunk-* | base64 --decode > /tmp/phase13-source.tar.xz
+          echo "1fcd0a764d13fc1c99dc85409a96e8be76ce0a114ca279555c50774e778b84f0  /tmp/phase13-source.tar.xz" | sha256sum -c -
+      - name: Expand exact source tree
+        run: |
+          mkdir -p /tmp/phase13-source
+          tar -xJf /tmp/phase13-source.tar.xz -C /tmp/phase13-source
+          rsync -a --delete --exclude=.git /tmp/phase13-source/ECHOFRAME_phase13_repo_seed/ ./
+          test -f package.json
+          test -f .github/workflows/ci.yml
+          test -f scripts/phase13-prepromotion-audit.mjs
+      - name: Commit expanded certification source
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Import Phase 13 hosted certification source"
+          git push origin HEAD:release/v1.0.0-certification
