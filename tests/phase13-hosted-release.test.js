@@ -55,6 +55,10 @@ test('Phase 13 transformed runner supports required hosted Firefox gates', () =>
 test('Phase 13 evidence is source, version, commit, and workflow bound', () => {
   const source = read('scripts/phase13-evidence.mjs');
   for (const field of ['sourceManifestDigest', 'productionBundleDigest', 'commitSha', 'GITHUB_RUN_ID']) assert.match(source, new RegExp(field));
+  const packager = read('scripts/phase13-package-final.mjs');
+  assert.match(packager, /const actualTestTotal = Number\(testCommand\?\.tests\)/);
+  assert.match(packager, /releaseTitle: 'ECHOFRAME: LAST SIGNAL — Version 1\.0'/);
+  assert.doesNotMatch(packager, /tests: \{ total: 1328/);
 });
 
 test('Phase 13 final identity removes candidate wording from production UI', () => {
