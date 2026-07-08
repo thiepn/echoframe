@@ -31,6 +31,11 @@ const swiftShaderChromiumArgs = [
   '--use-gl=angle',
   '--enable-unsafe-swiftshader',
 ];
+const unthrottledEnvironment = {
+  vblank_mode: '0',
+  __GL_SYNC_TO_VBLANK: '0',
+  MESA_VK_WSI_PRESENT_MODE: 'immediate',
+};
 
 const attempts = engine === 'chromium'
   ? [
@@ -39,6 +44,7 @@ const attempts = engine === 'chromium'
         headless: true,
         xvfb: false,
         browserArgs: [],
+        environment: {},
         purpose: 'Unmodified Playwright Chromium baseline.',
       },
       {
@@ -46,27 +52,31 @@ const attempts = engine === 'chromium'
         headless: true,
         xvfb: false,
         browserArgs: unthrottledChromiumArgs,
+        environment: unthrottledEnvironment,
         purpose: 'Headless Chromium with host display and VSync pacing removed; gameplay work and acceptance thresholds remain unchanged.',
       },
       {
-        name: 'headless-swiftshader-unthrottled-benchmark',
+        name: 'headless-software-unthrottled-benchmark',
         headless: true,
         xvfb: false,
-        browserArgs: [...unthrottledChromiumArgs, ...swiftShaderChromiumArgs],
-        purpose: 'Headless software-rendered Chromium with host display pacing removed.',
+        browserArgs: [...unthrottledChromiumArgs, '--disable-gpu'],
+        environment: { ...unthrottledEnvironment, LIBGL_ALWAYS_SOFTWARE: '1' },
+        purpose: 'Headless software-composited Chromium with host display pacing removed.',
       },
       {
-        name: 'headed-xvfb-unthrottled-benchmark',
+        name: 'headed-xvfb-desktop-gl-unthrottled-benchmark',
         headless: false,
         xvfb: true,
-        browserArgs: unthrottledChromiumArgs,
-        purpose: 'Headed Chromium on Xvfb with virtual-display pacing removed.',
+        browserArgs: [...unthrottledChromiumArgs, '--use-gl=desktop'],
+        environment: unthrottledEnvironment,
+        purpose: 'Headed Chromium on Xvfb using desktop GL with virtual-display pacing removed.',
       },
       {
         name: 'headed-xvfb-swiftshader-unthrottled-benchmark',
         headless: false,
         xvfb: true,
         browserArgs: [...unthrottledChromiumArgs, ...swiftShaderChromiumArgs],
+        environment: { ...unthrottledEnvironment, LIBGL_ALWAYS_SOFTWARE: '1' },
         purpose: 'Headed software-rendered Chromium on Xvfb with virtual-display pacing removed.',
       },
     ]
@@ -76,6 +86,7 @@ const attempts = engine === 'chromium'
         headless: true,
         xvfb: false,
         browserArgs: [],
+        environment: {},
         purpose: 'Real Playwright Firefox in its supported headless mode.',
       },
       {
@@ -83,6 +94,7 @@ const attempts = engine === 'chromium'
         headless: false,
         xvfb: true,
         browserArgs: [],
+        environment: unthrottledEnvironment,
         purpose: 'Real Playwright Firefox on a virtual display.',
       },
     ];
@@ -150,16 +162,20 @@ function compactReport(report) {
   };
 }
 
+function attemptReportPath(index) {
+  return path.join(DOCS, `PHASE13_${engine.toUpperCase()}_PERFORMANCE_ATTEMPT_${index + 1}.json`);
+}
+
 async function runAttempt(attempt, index) {
   const token = `${engine}-${attempt.name}-${process.pid}-${index}`;
   const transformedPath = path.join(SCRIPTS, `.phase13-performance-${token}.mjs`);
   const executableWrapperPath = path.join(SCRIPTS, `.phase13-browser-${token}.sh`);
-  const attemptReportPath = path.join(DOCS, `PHASE13_${engine.toUpperCase()}_PERFORMANCE_ATTEMPT_${index + 1}.json`);
-  const env = { ...process.env };
+  const evidencePath = attemptReportPath(index);
+  const env = { ...process.env, ...attempt.environment };
   let xvfb = null;
 
   await rm(reportPath, { force: true });
-  await rm(attemptReportPath, { force: true });
+  await rm(evidencePath, { force: true });
 
   let source = await readFile(sourcePath, 'utf8');
   const launchNeedle = "launchBrowser({ engine: 'chromium', viewport";
@@ -189,7 +205,7 @@ async function runAttempt(attempt, index) {
         '+render',
         '-noreset',
         '-nolisten', 'tcp',
-      ], { stdio: ['ignore', 'ignore', 'inherit'] });
+      ], { stdio: ['ignore', 'ignore', 'inherit'], env });
       env.DISPLAY = display;
       await waitForXvfb(displayNumber, xvfb);
     } else {
@@ -224,6 +240,7 @@ async function runAttempt(attempt, index) {
       headless: attempt.headless,
       xvfb: attempt.xvfb,
       browserArgs: attempt.browserArgs,
+      environment: attempt.environment,
       realBrowserExecutable: browserExecutable,
       measurementScript: 'scripts/phase10-performance-validation.mjs',
       unchangedGameplayWorkload: true,
@@ -236,16 +253,17 @@ async function runAttempt(attempt, index) {
     if (report) {
       report.phase13PerformanceExecution = execution;
       await writeFile(reportPath, `${JSON.stringify(report, null, 2)}\n`);
-      await writeFile(attemptReportPath, `${JSON.stringify(report, null, 2)}\n`);
+      await writeFile(evidencePath, `${JSON.stringify(report, null, 2)}\n`);
     } else {
-      await writeFile(attemptReportPath, `${JSON.stringify({ ...execution, passed: false, reportMissing: true }, null, 2)}\n`);
+      await writeFile(evidencePath, `${JSON.stringify({ ...execution, passed: false, reportMissing: true }, null, 2)}\n`);
     }
 
     const passed = childResult.code === 0 && report?.passed === true;
     const result = {
       passed,
+      reportReadable: Boolean(report),
       execution,
-      evidenceFile: path.basename(attemptReportPath),
+      evidenceFile: path.basename(evidencePath),
       report: compactReport(report),
     };
     console.log(JSON.stringify(result, null, 2));
@@ -264,29 +282,35 @@ for (let index = 0; index < attempts.length; index += 1) {
     results.push(result);
     if (result.passed) break;
   } catch (error) {
+    const execution = {
+      engine,
+      attempt: index + 1,
+      attemptCount: attempts.length,
+      mode: attempts[index].name,
+      purpose: attempts[index].purpose,
+      headless: attempts[index].headless,
+      xvfb: attempts[index].xvfb,
+      browserArgs: attempts[index].browserArgs,
+      environment: attempts[index].environment,
+      unchangedGameplayWorkload: true,
+      unchangedAcceptanceChecks: true,
+      syntheticFrameData: false,
+    };
     const result = {
       passed: false,
-      execution: {
-        engine,
-        attempt: index + 1,
-        attemptCount: attempts.length,
-        mode: attempts[index].name,
-        purpose: attempts[index].purpose,
-        headless: attempts[index].headless,
-        xvfb: attempts[index].xvfb,
-        browserArgs: attempts[index].browserArgs,
-        unchangedGameplayWorkload: true,
-        unchangedAcceptanceChecks: true,
-        syntheticFrameData: false,
-      },
+      reportReadable: false,
+      execution,
+      evidenceFile: path.basename(attemptReportPath(index)),
       error: { name: error.name, message: error.message, stack: error.stack },
     };
     results.push(result);
+    await writeFile(attemptReportPath(index), `${JSON.stringify(result, null, 2)}\n`);
     console.error(JSON.stringify(result, null, 2));
   }
 }
 
 const selected = results.find((result) => result.passed) ?? null;
+const lastReadable = [...results].reverse().find((result) => result.reportReadable) ?? null;
 const summary = {
   generatedAt: new Date().toISOString(),
   phase: 13,
@@ -299,16 +323,25 @@ const summary = {
   syntheticFrameDataUsed: false,
   attempts: results,
   selectedMode: selected?.execution.mode ?? null,
+  canonicalEvidenceMode: (selected ?? lastReadable)?.execution.mode ?? null,
   passed: Boolean(selected),
 };
 await writeFile(attemptsSummaryPath, `${JSON.stringify(summary, null, 2)}\n`);
 
-try {
-  const finalReport = JSON.parse(await readFile(reportPath, 'utf8'));
+const canonicalSource = selected ?? lastReadable;
+if (canonicalSource) {
+  const finalReport = JSON.parse(await readFile(path.join(DOCS, canonicalSource.evidenceFile), 'utf8'));
   finalReport.phase13PerformanceAttempts = summary;
+  finalReport.passed = Boolean(selected) && finalReport.passed === true;
   await writeFile(reportPath, `${JSON.stringify(finalReport, null, 2)}\n`);
-} catch (error) {
-  console.error(`Unable to append performance-attempt summary to ${reportFilename}: ${error.message}`);
+} else {
+  await writeFile(reportPath, `${JSON.stringify({
+    generatedAt: summary.generatedAt,
+    measurementBuild: 'No browser attempt reached report generation.',
+    checks: {},
+    passed: false,
+    phase13PerformanceAttempts: summary,
+  }, null, 2)}\n`);
 }
 
 if (selected) {
