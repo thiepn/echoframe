@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-08T14:30:03.291Z",
+  "generatedAt": "2026-07-08T20:06:37.307Z",
   "sourceManifestDigest": "aa6a12f481ed233b01ee8ff397883b924706ca3bd004f4a7b9b8464750de842e",
   "productionBundleDigest": "286f9423a223610fd6699b6d03d9458d941dab64c5b05c2a070d699d4155eeb8",
   "productionDigestExcludes": [
@@ -20,14 +20,14 @@
     "source": "docs/PHASE10_CORE_VALIDATION.json"
   },
   "sourceArchive": {
-    "sha256": "e4b0c6a4fe7524d980927a114969d10181477efa3f3cec6021a0677e1c724085",
-    "bytes": 4008531,
-    "totalEntries": 721,
-    "regularFiles": 681,
+    "sha256": "0b3a8b6af3d2da8cbaa0d3f55de8016aba16335a2182e31c7e5fa3e6803aac15",
+    "bytes": 4112101,
+    "totalEntries": 723,
+    "regularFiles": 683,
     "directoryEntries": 40
   },
   "webArchive": {
-    "sha256": "360f26a6a30196623fe35ed41368621c1744757a870de68517b7c47dca631706",
+    "sha256": "30d0f39ca1fd1e430a4b67b4bfda5abce26478a92bb466758e0894213685a368",
     "bytes": 474321,
     "totalEntries": 7,
     "regularFiles": 6,
@@ -35,7 +35,7 @@
   },
   "manifest": "release/ECHOFRAME_v1.0.0_RELEASE_MANIFEST.json",
   "checksums": "release/ECHOFRAME_v1.0.0_SHA256SUMS.txt",
-  "externalDistPreserved": false,
+  "externalDistPreserved": true,
   "generatedEvidenceExcludedFromSourceArchive": true,
   "checks": {
     "externalDistNotDeleted": true,

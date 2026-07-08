@@ -25,10 +25,10 @@
 
 ## Pending publication gates
 
-- [ ] source archive clean extraction
-- [ ] web archive clean extraction
-- [ ] GitHub Pages deployment
-- [ ] public Chromium validation
-- [ ] public Firefox validation
-- [ ] final audit and sign-off
+- [x] source archive clean extraction
+- [x] web archive clean extraction
+- [x] GitHub Pages deployment
+- [x] public Chromium validation
+- [x] public Firefox validation
+- [x] final audit and sign-off
 - [ ] v1.0.0 tag and GitHub Release

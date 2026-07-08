@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-08T14:30:03.291Z",
+  "generatedAt": "2026-07-08T20:06:37.307Z",
   "releaseTitle": "ECHOFRAME: LAST SIGNAL — Version 1.0",
   "version": "1.0.0",
   "sourceCommit": "bee4e6be76484fc5edef1bfa7cf7ddaf2660bc6d",
@@ -71,15 +71,15 @@
   "archives": {
     "source": {
       "filename": "ECHOFRAME_v1.0.0_final_source.zip",
-      "sha256": "e4b0c6a4fe7524d980927a114969d10181477efa3f3cec6021a0677e1c724085",
-      "bytes": 4008531,
-      "totalEntries": 721,
-      "regularFiles": 681,
+      "sha256": "0b3a8b6af3d2da8cbaa0d3f55de8016aba16335a2182e31c7e5fa3e6803aac15",
+      "bytes": 4112101,
+      "totalEntries": 723,
+      "regularFiles": 683,
       "directoryEntries": 40
     },
     "web": {
       "filename": "ECHOFRAME_v1.0.0_web.zip",
-      "sha256": "360f26a6a30196623fe35ed41368621c1744757a870de68517b7c47dca631706",
+      "sha256": "30d0f39ca1fd1e430a4b67b4bfda5abce26478a92bb466758e0894213685a368",
       "bytes": 474321,
       "totalEntries": 7,
       "regularFiles": 6,
@@ -87,19 +87,23 @@
     }
   },
   "ci": {
-    "runId": "28948294260",
-    "runUrl": "https://github.com/thiepn/echoframe/actions/runs/28948294260"
+    "runId": "28971988233",
+    "runUrl": "https://github.com/thiepn/echoframe/actions/runs/28971988233"
   },
   "publicDeployment": {
-    "status": "pending",
-    "url": null
+    "status": "passed",
+    "url": "https://thiepn.github.io/echoframe/"
   },
   "signoff": {
-    "status": "pending-public-validation",
-    "passed": false
+    "status": "passed",
+    "passed": true,
+    "publicationAuthorized": true
   },
-  "tag": null,
+  "tag": {
+    "name": "v1.0.0",
+    "status": "authorized-not-created"
+  },
   "release": {
-    "status": "pending"
+    "status": "authorized-not-created"
   }
 }

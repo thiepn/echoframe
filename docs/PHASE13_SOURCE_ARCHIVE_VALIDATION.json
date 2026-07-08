@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-07-08T14:30:27.872Z",
+  "generatedAt": "2026-07-08T20:06:55.224Z",
   "archive": "ECHOFRAME_v1.0.0_final_source.zip",
-  "archiveSha256": "e4b0c6a4fe7524d980927a114969d10181477efa3f3cec6021a0677e1c724085",
-  "archiveBytes": 4008531,
-  "expectedSha256": "e4b0c6a4fe7524d980927a114969d10181477efa3f3cec6021a0677e1c724085",
+  "archiveSha256": "0b3a8b6af3d2da8cbaa0d3f55de8016aba16335a2182e31c7e5fa3e6803aac15",
+  "archiveBytes": 4112101,
+  "expectedSha256": "0b3a8b6af3d2da8cbaa0d3f55de8016aba16335a2182e31c7e5fa3e6803aac15",
   "forbiddenSourceEntries": [],
   "phase13EvidenceEntries": [],
   "checks": {
