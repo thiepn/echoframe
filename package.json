@@ -3,7 +3,7 @@
   "version": "1.0.0-release-candidate",
   "private": true,
   "type": "module",
-  "description": "ECHOFRAME: LAST SIGNAL \u2014 a deterministic desktop browser action-roguelite built around temporal Echo recording and replay.",
+  "description": "ECHOFRAME: LAST SIGNAL — a deterministic desktop browser action-roguelite built around temporal Echo recording and replay.",
   "engines": {
     "node": ">=20.19.0"
   },
@@ -78,7 +78,15 @@
     "package:candidate:phase12": "node scripts/phase12-package-candidate.mjs",
     "package:final:phase12": "node scripts/phase12-package-final.mjs",
     "validate:archives:candidate:phase12": "node scripts/phase12-validate-candidate-archives.mjs",
-    "audit:ci-structure:phase12": "node scripts/phase12-ci-validation.mjs"
+    "audit:ci-structure:phase12": "node scripts/phase12-ci-validation.mjs",
+    "validate:firefox-static:phase13": "node scripts/phase13-transformed-runner.mjs firefox-static",
+    "validate:accessibility:firefox:phase13": "node scripts/phase13-transformed-runner.mjs firefox-accessibility",
+    "validate:lifecycle:firefox:phase13": "node scripts/phase13-transformed-runner.mjs firefox-lifecycle",
+    "validate:soak:firefox:phase13": "node scripts/phase13-transformed-runner.mjs firefox-soak",
+    "validate:performance:firefox:phase13": "node scripts/phase13-transformed-runner.mjs firefox-performance",
+    "audit:prepromotion:phase13": "node scripts/phase13-evidence.mjs prepromotion",
+    "promote:phase13": "node scripts/phase13-promote.mjs",
+    "audit:final:phase13": "node scripts/phase13-evidence.mjs final"
   },
   "dependencies": {
     "phaser": "3.90.0"
