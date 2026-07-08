@@ -1,0 +1,228 @@
+{
+  "generatedAt": "2026-07-08T14:02:08.976Z",
+  "roots": [
+    {
+      "base": "/",
+      "outDir": "dist-deployment-root",
+      "fileCount": 5,
+      "totalBytes": 1803473,
+      "checks": {
+        "directLoad": true,
+        "productionMode": true,
+        "debugInert": true,
+        "correctBase": true,
+        "tutorialEntry": true,
+        "gameplayEntry": true,
+        "hardRefresh": true,
+        "savePersists": true,
+        "manifest": true,
+        "favicon": true,
+        "noSourceRequests": true,
+        "noAbsoluteRootBreakage": true,
+        "noLocalhostReferences": true,
+        "caseSensitiveAssets": true,
+        "zeroExceptions": true,
+        "zeroConsoleErrors": true,
+        "zeroFailedRequests": true
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "pathname": "/",
+          "status": 200,
+          "contentType": "text/html; charset=utf-8"
+        },
+        {
+          "method": "GET",
+          "pathname": "/assets/index-D_2YJ4FU.js",
+          "status": 200,
+          "contentType": "text/javascript; charset=utf-8"
+        },
+        {
+          "method": "GET",
+          "pathname": "/assets/index-CDIjTugi.css",
+          "status": 200,
+          "contentType": "text/css; charset=utf-8"
+        },
+        {
+          "method": "GET",
+          "pathname": "/favicon.svg",
+          "status": 200,
+          "contentType": "image/svg+xml"
+        },
+        {
+          "method": "GET",
+          "pathname": "/",
+          "status": 200,
+          "contentType": "text/html; charset=utf-8"
+        },
+        {
+          "method": "GET",
+          "pathname": "/assets/index-D_2YJ4FU.js",
+          "status": 200,
+          "contentType": "text/javascript; charset=utf-8"
+        },
+        {
+          "method": "GET",
+          "pathname": "/assets/index-CDIjTugi.css",
+          "status": 200,
+          "contentType": "text/css; charset=utf-8"
+        },
+        {
+          "method": "GET",
+          "pathname": "/manifest.webmanifest",
+          "status": 200,
+          "contentType": "application/manifest+json; charset=utf-8"
+        },
+        {
+          "method": "GET",
+          "pathname": "/favicon.svg",
+          "status": 200,
+          "contentType": "image/svg+xml"
+        }
+      ],
+      "exceptions": [],
+      "consoleErrors": [],
+      "consoleWarnings": [
+        {
+          "type": "warning",
+          "text": "[JavaScript Warning: \"Failed to create WebGL context: WebGL creation failed: \n* WebglAllowWindowsNativeGl:false restricts context creation on this system. ()\n* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)\" {file: \"http://127.0.0.1:42737/assets/index-D_2YJ4FU.js\" line: 1}]"
+        },
+        {
+          "type": "warning",
+          "text": "[JavaScript Warning: \"Failed to create WebGL context: WebGL creation failed: \n* WebglAllowWindowsNativeGl:false restricts context creation on this system. ()\n* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)\" {file: \"http://127.0.0.1:42737/assets/index-D_2YJ4FU.js\" line: 1}]"
+        },
+        {
+          "type": "warning",
+          "text": "[JavaScript Warning: \"An AudioContext was prevented from starting automatically. It must be created or resumed after a user gesture on the page.\" {file: \"http://127.0.0.1:42737/assets/index-D_2YJ4FU.js\" line: 64}]"
+        },
+        {
+          "type": "warning",
+          "text": "[JavaScript Warning: \"Failed to create WebGL context: WebGL creation failed: \n* WebglAllowWindowsNativeGl:false restricts context creation on this system. ()\n* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)\" {file: \"http://127.0.0.1:42737/assets/index-D_2YJ4FU.js\" line: 1}]"
+        },
+        {
+          "type": "warning",
+          "text": "[JavaScript Warning: \"Failed to create WebGL context: WebGL creation failed: \n* WebglAllowWindowsNativeGl:false restricts context creation on this system. ()\n* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)\" {file: \"http://127.0.0.1:42737/assets/index-D_2YJ4FU.js\" line: 1}]"
+        },
+        {
+          "type": "warning",
+          "text": "[JavaScript Warning: \"An AudioContext was prevented from starting automatically. It must be created or resumed after a user gesture on the page.\" {file: \"http://127.0.0.1:42737/assets/index-D_2YJ4FU.js\" line: 64}]"
+        }
+      ],
+      "failedRequests": [],
+      "passed": true
+    },
+    {
+      "base": "/echoframe-test/",
+      "outDir": "dist-deployment-subpath",
+      "fileCount": 5,
+      "totalBytes": 1803518,
+      "checks": {
+        "directLoad": true,
+        "productionMode": true,
+        "debugInert": true,
+        "correctBase": true,
+        "tutorialEntry": true,
+        "gameplayEntry": true,
+        "hardRefresh": true,
+        "savePersists": true,
+        "manifest": true,
+        "favicon": true,
+        "noSourceRequests": true,
+        "noAbsoluteRootBreakage": true,
+        "noLocalhostReferences": true,
+        "caseSensitiveAssets": true,
+        "zeroExceptions": true,
+        "zeroConsoleErrors": true,
+        "zeroFailedRequests": true
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "pathname": "/echoframe-test/",
+          "status": 200,
+          "contentType": "text/html; charset=utf-8"
+        },
+        {
+          "method": "GET",
+          "pathname": "/echoframe-test/assets/index-MEbUovi1.js",
+          "status": 200,
+          "contentType": "text/javascript; charset=utf-8"
+        },
+        {
+          "method": "GET",
+          "pathname": "/echoframe-test/assets/index-CDIjTugi.css",
+          "status": 200,
+          "contentType": "text/css; charset=utf-8"
+        },
+        {
+          "method": "GET",
+          "pathname": "/echoframe-test/favicon.svg",
+          "status": 200,
+          "contentType": "image/svg+xml"
+        },
+        {
+          "method": "GET",
+          "pathname": "/echoframe-test/",
+          "status": 200,
+          "contentType": "text/html; charset=utf-8"
+        },
+        {
+          "method": "GET",
+          "pathname": "/echoframe-test/assets/index-MEbUovi1.js",
+          "status": 200,
+          "contentType": "text/javascript; charset=utf-8"
+        },
+        {
+          "method": "GET",
+          "pathname": "/echoframe-test/assets/index-CDIjTugi.css",
+          "status": 200,
+          "contentType": "text/css; charset=utf-8"
+        },
+        {
+          "method": "GET",
+          "pathname": "/echoframe-test/manifest.webmanifest",
+          "status": 200,
+          "contentType": "application/manifest+json; charset=utf-8"
+        },
+        {
+          "method": "GET",
+          "pathname": "/echoframe-test/favicon.svg",
+          "status": 200,
+          "contentType": "image/svg+xml"
+        }
+      ],
+      "exceptions": [],
+      "consoleErrors": [],
+      "consoleWarnings": [
+        {
+          "type": "warning",
+          "text": "[JavaScript Warning: \"Failed to create WebGL context: WebGL creation failed: \n* WebglAllowWindowsNativeGl:false restricts context creation on this system. ()\n* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)\" {file: \"http://127.0.0.1:41133/echoframe-test/assets/index-MEbUovi1.js\" line: 1}]"
+        },
+        {
+          "type": "warning",
+          "text": "[JavaScript Warning: \"Failed to create WebGL context: WebGL creation failed: \n* WebglAllowWindowsNativeGl:false restricts context creation on this system. ()\n* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)\" {file: \"http://127.0.0.1:41133/echoframe-test/assets/index-MEbUovi1.js\" line: 1}]"
+        },
+        {
+          "type": "warning",
+          "text": "[JavaScript Warning: \"An AudioContext was prevented from starting automatically. It must be created or resumed after a user gesture on the page.\" {file: \"http://127.0.0.1:41133/echoframe-test/assets/index-MEbUovi1.js\" line: 64}]"
+        },
+        {
+          "type": "warning",
+          "text": "[JavaScript Warning: \"Failed to create WebGL context: WebGL creation failed: \n* WebglAllowWindowsNativeGl:false restricts context creation on this system. ()\n* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)\" {file: \"http://127.0.0.1:41133/echoframe-test/assets/index-MEbUovi1.js\" line: 1}]"
+        },
+        {
+          "type": "warning",
+          "text": "[JavaScript Warning: \"Failed to create WebGL context: WebGL creation failed: \n* WebglAllowWindowsNativeGl:false restricts context creation on this system. ()\n* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)\" {file: \"http://127.0.0.1:41133/echoframe-test/assets/index-MEbUovi1.js\" line: 1}]"
+        },
+        {
+          "type": "warning",
+          "text": "[JavaScript Warning: \"An AudioContext was prevented from starting automatically. It must be created or resumed after a user gesture on the page.\" {file: \"http://127.0.0.1:41133/echoframe-test/assets/index-MEbUovi1.js\" line: 64}]"
+        }
+      ],
+      "failedRequests": [],
+      "passed": true
+    }
+  ],
+  "passed": true
+}

@@ -1,0 +1,66 @@
+{
+  "generatedAt": "2026-07-08T14:29:33.275Z",
+  "phase": 13,
+  "packageVersion": "1.0.0",
+  "runtimeVersion": "1.0.0",
+  "sourceCommit": "bee4e6be76484fc5edef1bfa7cf7ddaf2660bc6d",
+  "sourceManifestDigest": "aa6a12f481ed233b01ee8ff397883b924706ca3bd004f4a7b9b8464750de842e",
+  "sourceFileCount": 513,
+  "productionBundleDigest": "af68188658e34fe2209090828236bc8f75cd69a847df202c846d75ebc9a700bb",
+  "tests": {
+    "total": 1329,
+    "retainedThroughPhase12": 1319,
+    "phase13": 10,
+    "passed": true,
+    "source": "PHASE10_CORE_VALIDATION.json"
+  },
+  "environment": {
+    "platform": "linux",
+    "arch": "x64",
+    "kernel": "6.17.0-1018-azure",
+    "osType": "Linux",
+    "node": "v22.23.1",
+    "npm": "10.9.8",
+    "playwright": "Version 1.61.1",
+    "chromium": "Google Chrome for Testing 149.0.7827.55",
+    "firefox": "Mozilla Firefox 151.0",
+    "git": "git version 2.54.0",
+    "gh": "gh version 2.96.0 (2026-07-02)\nhttps://github.com/cli/cli/releases/tag/v2.96.0",
+    "runnerImage": "ubuntu24"
+  },
+  "workflow": {
+    "repository": "thiepn/echoframe",
+    "runId": "28948294260",
+    "runNumber": "48",
+    "runAttempt": "1",
+    "sourceCommit": "bee4e6be76484fc5edef1bfa7cf7ddaf2660bc6d",
+    "url": "https://github.com/thiepn/echoframe/actions/runs/28948294260"
+  },
+  "report": {
+    "generatedAt": "2026-07-08T14:04:15.389Z",
+    "checks": {
+      "noAnalytics": true,
+      "noRemoteTelemetry": true,
+      "noEval": true,
+      "noDynamicScriptInjection": true,
+      "noUnsafeImportedHtml": true,
+      "noGameplayNetwork": true,
+      "clipboardGuarded": true,
+      "objectUrlsRevoked": true,
+      "fileInputsRemoved": true,
+      "productionDebugGuard": true
+    },
+    "findings": [],
+    "personalDataCollected": false,
+    "analyticsEnabled": false,
+    "remoteTelemetry": false,
+    "passed": true,
+    "phase": 12,
+    "scope": "Phase 12 security audit",
+    "packageVersion": "1.0.0",
+    "runtimeVersion": "1.0.0",
+    "sourceManifestDigest": "aa6a12f481ed233b01ee8ff397883b924706ca3bd004f4a7b9b8464750de842e",
+    "commandError": null
+  },
+  "passed": true
+}
