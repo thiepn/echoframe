@@ -10,7 +10,7 @@ on:
 
 permissions:
   actions: write
-  contents: read
+  contents: write
 
 jobs:
   dispatch:
@@ -20,8 +20,10 @@ jobs:
       - name: Dispatch certified Version 1.0 publisher on main
         env:
           GH_TOKEN: ${{ github.token }}
+          OPS_BRANCH: ops/phase13-publication-dispatch
         shell: bash
         run: |
+          set -euo pipefail
           echo "Issuing isolated Phase 13 publication dispatch."
           curl --fail-with-body --location \
             --request POST \
@@ -30,4 +32,15 @@ jobs:
             --header "X-GitHub-Api-Version: 2022-11-28" \
             "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/workflows/phase13-publish.yml/dispatches" \
             --data '{"ref":"main"}'
+
+          dispatched_at="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          marker="$(printf '{\n  \"dispatchedAt\": \"%s\",\n  \"dispatcherRunId\": \"%s\",\n  \"targetWorkflow\": \"phase13-publish.yml\",\n  \"targetRef\": \"main\",\n  \"passed\": true\n}\n' "$dispatched_at" "$GITHUB_RUN_ID")"
+          encoded="$(printf '%s' "$marker" | base64 -w 0)"
+          curl --fail-with-body --location \
+            --request PUT \
+            --header "Accept: application/vnd.github+json" \
+            --header "Authorization: Bearer $GH_TOKEN" \
+            --header "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/contents/.phase13-dispatch-status/success.json" \
+            --data "{\"message\":\"Record successful Phase 13 publication dispatch\",\"content\":\"$encoded\",\"branch\":\"$OPS_BRANCH\"}"
           echo "Dispatched Phase 13 Publish Version 1.0 on main without a main-branch push."
