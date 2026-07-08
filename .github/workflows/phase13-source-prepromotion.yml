@@ -1,128 +1,13 @@
-name: Phase 13 Source Pre-Promotion Certification
+name: Phase 13 Source Pre-Promotion Certification — Historical
 
 on:
-  pull_request:
-    branches:
-      - main
   workflow_dispatch:
 
 permissions:
   contents: read
 
-concurrency:
-  group: phase13-source-prepromotion-${{ github.event.pull_request.number || github.ref }}
-  cancel-in-progress: true
-
 jobs:
-  certify-source:
+  historical-status:
     runs-on: ubuntu-24.04
-    timeout-minutes: 120
     steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 1
-
-      - name: Require materialized release-candidate source
-        shell: bash
-        run: |
-          test -f package.json
-          test -f package-lock.json
-          test -f scripts/phase13-evidence.mjs
-          test -f scripts/phase13-promote.mjs
-          test -f tests/phase13-hosted-release.test.js
-          test "$(node -p "require('./package.json').version")" = "1.0.0-release-candidate"
-          ! grep -R "packages.applied-caas-gateway1.internal.api.openai.org" package-lock.json
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-          cache-dependency-path: package-lock.json
-
-      - name: Install exact dependencies
-        timeout-minutes: 10
-        env:
-          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: "1"
-        run: npm ci --no-audit --no-fund --prefer-offline
-
-      - name: Install real Chromium and Firefox
-        timeout-minutes: 15
-        run: npx playwright install --with-deps chromium firefox
-
-      - name: Resolve and record hosted environment
-        id: browsers
-        shell: bash
-        run: |
-          chromium_path="$(node -e "const { chromium } = require('playwright'); process.stdout.write(chromium.executablePath())")"
-          firefox_path="$(node -e "const { firefox } = require('playwright'); process.stdout.write(firefox.executablePath())")"
-          test -x "$chromium_path"
-          test -x "$firefox_path"
-          echo "chromium=$chromium_path" >> "$GITHUB_OUTPUT"
-          echo "firefox=$firefox_path" >> "$GITHUB_OUTPUT"
-          uname -a
-          node --version
-          npm --version
-          npx playwright --version
-          "$chromium_path" --version
-          MOZ_HEADLESS=1 "$firefox_path" --version
-
-      - name: Core validation — 1328 tests and deterministic audits
-        run: npm run validate:core:phase10
-
-      - name: Chromium production matrix
-        env:
-          CHROMIUM_EXECUTABLE: ${{ steps.browsers.outputs.chromium }}
-        run: npm run validate:browser:phase12
-
-      - name: Firefox production matrix
-        env:
-          FIREFOX_EXECUTABLE: ${{ steps.browsers.outputs.firefox }}
-        run: npm run validate:browser:firefox:phase12
-
-      - name: Chromium root and project-subpath validation
-        env:
-          CHROMIUM_EXECUTABLE: ${{ steps.browsers.outputs.chromium }}
-        run: npm run validate:deployment:phase12
-
-      - name: Firefox root and project-subpath validation
-        env:
-          FIREFOX_EXECUTABLE: ${{ steps.browsers.outputs.firefox }}
-        run: npm run validate:firefox-static:phase13
-
-      - name: Cross-browser deterministic comparison
-        env:
-          CHROMIUM_EXECUTABLE: ${{ steps.browsers.outputs.chromium }}
-          FIREFOX_EXECUTABLE: ${{ steps.browsers.outputs.firefox }}
-        run: npm run audit:determinism:phase12
-
-      - name: Chromium five-preset accessibility matrix
-        env:
-          CHROMIUM_EXECUTABLE: ${{ steps.browsers.outputs.chromium }}
-        run: npm run validate:accessibility:phase10
-
-      - name: Firefox five-preset accessibility matrix
-        env:
-          FIREFOX_EXECUTABLE: ${{ steps.browsers.outputs.firefox }}
-        run: npm run validate:accessibility:firefox:phase13
-
-      - name: Source, security, and npm audits
-        run: npm run audit:source-security:phase12
-
-      - name: Evidence-derived pre-promotion audit
-        env:
-          CHROMIUM_EXECUTABLE: ${{ steps.browsers.outputs.chromium }}
-          FIREFOX_EXECUTABLE: ${{ steps.browsers.outputs.firefox }}
-        run: npm run audit:prepromotion:phase13
-
-      - name: Upload pre-promotion evidence
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: phase13-source-prepromotion-evidence
-          path: |
-            docs/PHASE10_ACCESSIBILITY_BROWSER_VALIDATION.json
-            docs/PHASE12_*.json
-            docs/PHASE13_*.json
-            docs/screenshots/*.png
-          if-no-files-found: warn
-          retention-days: 30
+      - run: echo "Completed source pre-promotion workflow retained as historical evidence; no longer automatic."
