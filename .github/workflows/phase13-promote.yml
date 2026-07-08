@@ -1,0 +1,75 @@
+name: Phase 13 Promote Version 1.0
+
+on:
+  push:
+    branches:
+      - release/v1.0.0-certification
+    paths:
+      - docs/PHASE13_PREPROMOTION_AUDIT.json
+
+permissions:
+  contents: write
+
+concurrency:
+  group: phase13-promote-v1
+  cancel-in-progress: false
+
+jobs:
+  promote:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: release/v1.0.0-certification
+          fetch-depth: 0
+          persist-credentials: true
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Verify evidence-gated release candidate
+        shell: bash
+        run: |
+          test "$(node -p "require('./package.json').version")" = "1.0.0-release-candidate"
+          test -f docs/PHASE13_PREPROMOTION_AUDIT.json
+          node --input-type=module - <<'NODE'
+          import path from 'node:path';
+          import { readFile } from 'node:fs/promises';
+          import { sourceManifest } from './scripts/phase12-utils.mjs';
+          const audit = JSON.parse(await readFile(path.resolve('docs/PHASE13_PREPROMOTION_AUDIT.json'), 'utf8'));
+          const manifest = await sourceManifest();
+          if (audit.passed !== true) throw new Error('Pre-promotion audit is not passed.');
+          if (audit.sourceManifestDigest !== manifest.digest) throw new Error(`Source digest mismatch: audit=${audit.sourceManifestDigest} current=${manifest.digest}`);
+          if ((audit.openGates || []).length !== 0) throw new Error(`Open pre-promotion gates: ${(audit.openGates || []).join(', ')}`);
+          console.log(JSON.stringify({ auditPassed: true, sourceManifestDigest: manifest.digest }, null, 2));
+          NODE
+
+      - name: Install exact dependencies
+        env:
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: "1"
+        run: npm ci --no-audit --no-fund --prefer-offline
+
+      - name: Apply Version 1.0 promotion
+        run: npm run promote:phase13
+
+      - name: Validate promoted identity and source
+        shell: bash
+        run: |
+          test "$(node -p "require('./package.json').version")" = "1.0.0"
+          npm run lint
+          npm run test
+          npm run build
+          ! grep -R "Version 1.0 Release Candidate" src
+          ! grep -R "1.0.0-release-candidate" src
+
+      - name: Commit promoted Version 1.0 source
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add package.json package-lock.json src tests README.md docs/CURRENT_STATE.md docs/VALIDATION_REPORT.md docs/BROWSER_SUPPORT.md docs/CHANGELOG.md docs/RELEASE_NOTES_v1.0.0.md
+          git commit -m "Promote ECHOFRAME to Version 1.0"
+          git push origin HEAD:release/v1.0.0-certification
