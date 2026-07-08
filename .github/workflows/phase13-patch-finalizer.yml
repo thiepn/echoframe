@@ -49,14 +49,8 @@ jobs:
           from pathlib import Path
           validator = Path('scripts/phase13-public-validation.mjs')
           source = validator.read_text()
-          old_navigation = \"\"\"    await page.keyboard.press('Escape');
-              await waitForScene(page, 'MainMenuScene');
-          \"\"\"
-          new_navigation = \"\"\"    await page.keyboard.press('Escape');
-              await sleep(150);
-              await page.keyboard.press('Escape');
-              await waitForScene(page, 'MainMenuScene');
-          \"\"\"
+          old_navigation = "    await page.keyboard.press('Escape');\\n    await waitForScene(page, 'MainMenuScene');"
+          new_navigation = "    await page.keyboard.press('Escape');\\n    await sleep(150);\\n    await page.keyboard.press('Escape');\\n    await waitForScene(page, 'MainMenuScene');"
           if source.count(old_navigation) != 1:
               raise SystemExit(f'Expected one nested Settings navigation sequence, found {source.count(old_navigation)}')
           validator.write_text(source.replace(old_navigation, new_navigation, 1))
