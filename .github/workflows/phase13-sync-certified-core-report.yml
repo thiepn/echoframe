@@ -25,6 +25,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          echo "Synchronizing certified 1,329-test core evidence to main."
           rm -rf /tmp/phase13-core-artifact /tmp/phase13-core-source
           mkdir -p /tmp/phase13-core-artifact /tmp/phase13-core-source
           gh run download 28948294260 \
