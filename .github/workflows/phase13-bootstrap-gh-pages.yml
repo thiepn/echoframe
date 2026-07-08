@@ -23,24 +23,26 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          rm -rf /tmp/phase13-artifact /tmp/phase13-site
           mkdir -p /tmp/phase13-artifact /tmp/phase13-site
           gh run download 28948294260 \
             --repo "$GITHUB_REPOSITORY" \
             --name phase13-final-release-artifacts \
             --dir /tmp/phase13-artifact
-          unzip -q /tmp/phase13-artifact/release/ECHOFRAME_v1.0.0_web.zip -d /tmp/phase13-site
-          cd /tmp/phase13-site
           printf '%s  %s\n' \
             '360f26a6a30196623fe35ed41368621c1744757a870de68517b7c47dca631706' \
             '/tmp/phase13-artifact/release/ECHOFRAME_v1.0.0_web.zip' | sha256sum --check
-          test "$(find . -type f | wc -l)" -eq 6
-          touch .nojekyll
+          unzip -q /tmp/phase13-artifact/release/ECHOFRAME_v1.0.0_web.zip -d /tmp/phase13-site
+          test "$(find /tmp/phase13-site -type f | wc -l)" -eq 6
+          touch /tmp/phase13-site/.nojekyll
       - name: Publish immutable certified bundle to gh-pages
         env:
           GH_TOKEN: ${{ github.token }}
+          OPS_BRANCH: ops/phase13-publication-dispatch
         shell: bash
         run: |
           set -euo pipefail
+          rm -rf /tmp/phase13-pages-repo
           git clone "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" /tmp/phase13-pages-repo
           cd /tmp/phase13-pages-repo
           git config user.name 'github-actions[bot]'
@@ -51,3 +53,13 @@ jobs:
           git add -A
           git commit -m 'Stage certified ECHOFRAME Version 1.0 Pages bundle'
           git push --force origin gh-pages
+          commit_sha="$(git rev-parse HEAD)"
+          marker="$(printf '{\n  \"publishedAt\": \"%s\",\n  \"branch\": \"gh-pages\",\n  \"commit\": \"%s\",\n  \"webArchiveSha256\": \"360f26a6a30196623fe35ed41368621c1744757a870de68517b7c47dca631706\",\n  \"passed\": true\n}\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$commit_sha")"
+          encoded="$(printf '%s' "$marker" | base64 -w 0)"
+          curl --fail-with-body --location \
+            --request PUT \
+            --header "Accept: application/vnd.github+json" \
+            --header "Authorization: Bearer $GH_TOKEN" \
+            --header "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/contents/.phase13-dispatch-status/gh-pages-bootstrap.json" \
+            --data "$(jq -cn --arg message 'Record certified gh-pages bootstrap' --arg content "$encoded" --arg branch "$OPS_BRANCH" '{message:$message,content:$content,branch:$branch}')"
