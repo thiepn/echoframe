@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.0 — Phase 13
+
+- Certified the release candidate in real Playwright-managed Chromium and Firefox on GitHub-hosted Ubuntu 24.04.
+- Replaced internal package-registry lockfile URLs with portable public npm URLs while preserving versions and integrity hashes.
+- Hardened trusted pointer and rebinding validation with fresh canvas geometry and state-based capture waits.
+- Promoted package, runtime, release constant, and production UI identity to Version 1.0.
+- Preserved save schema 2, deterministic gameplay, balance, progression, and canonical design documents.
+
 ## Phase 11 certification candidate — unreleased
 
 - Added source-bound Phase 11 recovery and evidence mapping.

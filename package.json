@@ -1,6 +1,6 @@
 {
   "name": "echoframe",
-  "version": "1.0.0-release-candidate",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
   "description": "ECHOFRAME: LAST SIGNAL — a deterministic desktop browser action-roguelite built around temporal Echo recording and replay.",

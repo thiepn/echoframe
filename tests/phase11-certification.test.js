@@ -9,10 +9,10 @@ const read = (relative) => readFileSync(path.join(ROOT, relative), 'utf8');
 const json = (relative) => JSON.parse(read(relative));
 
 const contracts = [
-  ['Phase 11 · package remains release candidate before Firefox certification', () => assert.equal(json('package.json').version, '1.0.0-release-candidate')],
+  ['Phase 13 · package is final after hosted Firefox certification', () => assert.equal(json('package.json').version, '1.0.0')],
   ['Phase 11 · package lock matches package identity', () => assert.equal(json('package-lock.json').version, json('package.json').version)],
-  ['Phase 11 · runtime version remains release candidate before certification', () => assert.match(read('src/utils/version.js'), /1\.0\.0-release-candidate/)],
-  ['Phase 11 · release constant remains release candidate before certification', () => assert.match(read('src/data/constants.js'), /1\.0\.0-release-candidate/)],
+  ['Phase 13 · runtime version is final after certification', () => assert.match(read('src/utils/version.js'), /BUILD_VERSION\s*=\s*'1\.0\.0'/)],
+  ['Phase 13 · release constant is final after certification', () => assert.match(read('src/data/constants.js'), /RELEASE_VERSION\s*=\s*'1\.0\.0'/)],
   ['Phase 11 · CI has a core validation job', () => assert.match(read('.github/workflows/ci.yml'), /core-validation:/)],
   ['Phase 11 · CI has a Chromium production job', () => assert.match(read('.github/workflows/ci.yml'), /chromium-production:/)],
   ['Phase 11 · CI has a Firefox production job', () => assert.match(read('.github/workflows/ci.yml'), /firefox-production:/)],

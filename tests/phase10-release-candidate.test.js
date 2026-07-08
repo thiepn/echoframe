@@ -403,14 +403,14 @@ productionFiles.forEach((file, index) => phase10Test(`production file contract $
   }
 }));
 const metadataChecks = [
-  () => assert.equal(JSON.parse(readFileSync(new URL('../package.json', import.meta.url))).version, '1.0.0-release-candidate'),
-  () => assert.match(readFileSync(new URL('../src/utils/version.js', import.meta.url), 'utf8'), /1\.0\.0-release-candidate/),
+  () => assert.equal(JSON.parse(readFileSync(new URL('../package.json', import.meta.url))).version, '1.0.0'),
+  () => assert.match(readFileSync(new URL('../src/utils/version.js', import.meta.url), 'utf8'), /BUILD_VERSION\s*=\s*'1\.0\.0'/),
   () => assert.match(readFileSync(new URL('../index.html', import.meta.url), 'utf8'), /deterministic desktop browser action-roguelite/),
   () => assert.doesNotMatch(readFileSync(new URL('../index.html', import.meta.url), 'utf8'), /prototype/i),
   () => assert.doesNotMatch(readFileSync(new URL('../public/manifest.webmanifest', import.meta.url), 'utf8'), /prototype/i),
   () => assert.equal(JSON.parse(readFileSync(new URL('../public/manifest.webmanifest', import.meta.url))).start_url, '.'),
   () => assert.match(readFileSync(new URL('../vite.config.js', import.meta.url), 'utf8'), /normalizeBase/),
-  () => assert.match(readFileSync(new URL('../src/scenes/MainMenuScene.js', import.meta.url), 'utf8'), /Version 1\.0 Release Candidate/),
+  () => assert.match(readFileSync(new URL('../src/scenes/MainMenuScene.js', import.meta.url), 'utf8'), /Version 1\.0 ·/),
   () => assert.match(readFileSync(new URL('../src/scenes/CreditsScene.js', import.meta.url), 'utf8'), /Phaser 3\.90\.0/),
 ];
 metadataChecks.forEach((fn, index) => phase10Test(`release metadata contract ${index + 1}`, fn));

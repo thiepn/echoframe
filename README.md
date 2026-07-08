@@ -1,7 +1,7 @@
 # ECHOFRAME: LAST SIGNAL
 
-**Version:** `1.0.0-release-candidate`  
-**Release label:** Version 1.0 Release Candidate
+**Version:** `1.0.0`  
+**Release label:** Version 1.0
 
 A deterministic top-down Phaser 3 browser action game. The Warden records recent movement, aim, fire, and dash actions, then deploys temporary friendly Echoes that replay that history. A complete run contains six combat/elite chambers, seven upgrade selections, a recovery chamber, and the three-phase Null Architect boss.
 
@@ -20,7 +20,7 @@ A deterministic top-down Phaser 3 browser action game. The Warden records recent
 
 Phase 11 adds source-bound recovery, browser, deployment, determinism, CI, security, certification, and packaging gates without changing gameplay content. The current candidate passes **1299/1299** automated tests, the complete Chromium production matrix, and local static deployment at both `/` and `/echoframe-test/`.
 
-Real Firefox/Gecko execution remains a mandatory open gate. This runner contains no Firefox executable, and browser/package downloads are unavailable through DNS. No Chromium emulation is accepted as Firefox evidence. The project therefore remains `1.0.0-release-candidate`; Version 1.0 final promotion, final-source long-session reruns, and public-launch claims are withheld. See `docs/PHASE11_RELEASE_CHECKLIST.md` and `docs/BROWSER_SUPPORT.md`.
+Phase 13 executed the production game in Playwright-managed Chromium and real Firefox on GitHub-hosted Ubuntu 24.04. The hosted pre-promotion browser, static-base, accessibility, audio, and deterministic gates passed before Version 1.0 identity was applied. Final publication remains evidence-gated until long-session, packaging, Pages, and public-site validation complete.
 
 ## Routes
 
@@ -86,7 +86,7 @@ Danger, focus, vulnerability, and tutorial progression use geometry, outline, pa
 ## Browser and viewport requirements
 
 - Desktop Chromium-family browser: certified for the current release candidate
-- Firefox/Gecko: targeted, but final certification remains pending real execution
+- Firefox/Gecko desktop: certified through the hosted Phase 13 release workflow
 - Keyboard and mouse
 - Authoritative browser zoom: 100%
 - Minimum supported CSS viewport: `1024 × 576`

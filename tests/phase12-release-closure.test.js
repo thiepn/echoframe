@@ -1,5 +1,5 @@
 import test from 'node:test';import assert from 'node:assert/strict';import { readFile } from 'node:fs/promises';import path from 'node:path';const ROOT=path.resolve(import.meta.dirname,'..');const read=(p)=>readFile(path.join(ROOT,p),'utf8');const pkg=JSON.parse(await read('package.json'));const scripts=pkg.scripts;
-test('Phase 12 retains release-candidate identity before supported Firefox certification',()=>assert.equal(pkg.version,'1.0.0-release-candidate'));
+test('Phase 13 promotes final identity after supported Firefox certification',()=>assert.equal(pkg.version,'1.0.0'));
 test('Phase 12 recovery command exists',()=>assert.equal(scripts['recover:phase12'],'node scripts/phase12-recovery.mjs'));
 test('Phase 12 Chromium command exists',()=>assert.ok(scripts['validate:browser:phase12']));
 test('Phase 12 Firefox command exists',()=>assert.ok(scripts['validate:browser:firefox:phase12']));

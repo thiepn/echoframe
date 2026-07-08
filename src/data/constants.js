@@ -28,6 +28,6 @@ export const SAVE_KEYS = Object.freeze({
 
 export const SAVE_SCHEMA_VERSION = 2;
 export const RECENT_RUN_LIMIT = 50;
-export const RELEASE_VERSION = '1.0.0-release-candidate';
+export const RELEASE_VERSION = '1.0.0';
 // Retained internal alias for legacy modules; not user-visible.
 export const FOUNDATION_VERSION = RELEASE_VERSION;

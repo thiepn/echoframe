@@ -157,7 +157,7 @@ test('release package and runtime version metadata stay aligned while legacy Pha
   const packageJson = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8'));
   const runtimeVersionSource = readFileSync(new URL('../src/utils/version.js', import.meta.url), 'utf8');
   const constantsSource = readFileSync(new URL('../src/data/constants.js', import.meta.url), 'utf8');
-  assert.equal(packageJson.version, '1.0.0-release-candidate');
+  assert.equal(packageJson.version, '1.0.0');
   assert.match(runtimeVersionSource, new RegExp(`BUILD_VERSION = ['"]${packageJson.version}['"]`));
   assert.match(constantsSource, new RegExp(`RELEASE_VERSION = ['"]${packageJson.version}['"]`));
   assert.match(constantsSource, /FOUNDATION_VERSION = RELEASE_VERSION/);

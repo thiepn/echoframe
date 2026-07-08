@@ -15,7 +15,7 @@ export class MainMenuScene extends MenuSceneBase {
     });
     this.add.image(310, 250, 'foundation-player-emblem').setScale(1.7);
     this.add.image(DESIGN_WIDTH - 310, 250, 'foundation-echo-emblem').setScale(1.7);
-    this.add.text(DESIGN_WIDTH / 2, 150, `Version 1.0 Release Candidate · ${BUILD_VERSION}`, { fontFamily: 'monospace', fontSize: '16px', color: PALETTE.mutedText }).setOrigin(0.5);
+    this.add.text(DESIGN_WIDTH / 2, 150, `Version 1.0 · ${BUILD_VERSION}`, { fontFamily: 'monospace', fontSize: '16px', color: PALETTE.mutedText }).setOrigin(0.5);
     if ((save.progression.unseenUnlockIds ?? []).length > 0) {
       this.add.text(DESIGN_WIDTH / 2 + 245, 346, `${save.progression.unseenUnlockIds.length} NEW`, { fontFamily: 'monospace', fontSize: '13px', color: '#ffd166', backgroundColor: '#080b14ee', padding: { x: 7, y: 3 } }).setOrigin(0, 0.5);
     }

@@ -2,11 +2,8 @@
 
 ## Certified
 
-- Chromium desktop Linux: Phase 12 production revalidation passed.
-
-## Required before final Version 1.0
-
-- Current supported Firefox/Gecko: environment-blocked-before-game-execution. Game execution: false.
+- Chromium desktop Linux: hosted Phase 13 production validation passed.
+- Firefox/Gecko desktop Linux: hosted Phase 13 production validation passed with real game execution.
 
 ## Not claimed
 
@@ -15,4 +12,4 @@
 - Touch controls
 - Gamepad controls
 
-The product remains `1.0.0-release-candidate`.
+The product identity is `1.0.0`. Public-site support claims remain gated on final Pages validation.
