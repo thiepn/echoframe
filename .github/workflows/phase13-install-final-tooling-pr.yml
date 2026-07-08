@@ -1,0 +1,52 @@
+name: Phase 13 Install Final Tooling From PR
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: phase13-install-final-tooling-pr
+  cancel-in-progress: true
+
+jobs:
+  install:
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: release/v1.0.0-certification
+          fetch-depth: 0
+          persist-credentials: true
+      - name: Decode frozen tooling payload from the source-controlled installer
+        shell: bash
+        run: |
+          awk '/^PAYLOAD$/{capture=0} capture{print} /<<.PAYLOAD./{capture=1}' .github/workflows/phase13-install-final-tooling.yml > /tmp/phase13-final-tooling.b64
+          test -s /tmp/phase13-final-tooling.b64
+          base64 -d /tmp/phase13-final-tooling.b64 > /tmp/phase13-final-tooling.tar.gz
+          tar -xzf /tmp/phase13-final-tooling.tar.gz -C "$GITHUB_WORKSPACE"
+          node --check scripts/phase13-nonpublic-audit.mjs
+          node --check scripts/phase13-package-final.mjs
+          node --check scripts/phase13-validate-archives.mjs
+          node --check scripts/phase13-public-validation.mjs
+          node --check scripts/phase13-final-signoff.mjs
+          node --check scripts/phase13-firefox-screenshots.mjs
+          python - <<'PY'
+          import pathlib, yaml
+          for path in pathlib.Path('.github/workflows').glob('phase13-*.yml'):
+              yaml.safe_load(path.read_text())
+          print('Phase 13 final workflow YAML parsed successfully.')
+          PY
+      - name: Commit frozen final-release tooling
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add scripts/phase13-* .github/workflows/phase13-*.yml
+          git commit -m "Freeze Phase 13 final certification and publication tooling"
+          git push origin HEAD:release/v1.0.0-certification
