@@ -35,6 +35,26 @@ jobs:
           test -f candidate/package.json
           test -f candidate/package-lock.json
 
+      - name: Normalize lockfile registry for hosted runners
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          lock = Path('candidate/package-lock.json')
+          text = lock.read_text(encoding='utf-8')
+          internal = 'https://packages.applied-caas-gateway1.internal.api.openai.org/artifactory/api/npm/npm-public/'
+          public = 'https://registry.npmjs.org/'
+          replacements = text.count(internal)
+          if replacements == 0:
+              raise SystemExit('Expected internal registry URLs were not found; refusing an untracked lockfile transformation.')
+          text = text.replace(internal, public)
+          if 'packages.applied-caas-gateway1.internal.api.openai.org' in text:
+              raise SystemExit('Internal registry URL remains after normalization.')
+          lock.write_text(text, encoding='utf-8')
+          print(f'Normalized {replacements} lockfile tarball URLs to registry.npmjs.org')
+          PY
+
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -92,6 +112,7 @@ jobs:
         with:
           name: phase13-pr-certification-evidence
           path: |
+            candidate/package-lock.json
             candidate/docs/PHASE12_*.json
             candidate/docs/screenshots/*.png
           if-no-files-found: warn
