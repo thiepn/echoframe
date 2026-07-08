@@ -1,50 +1,13 @@
-name: Phase 13 Install Final Tooling From PR
+name: Phase 13 Final Tooling Installer — Historical
 
 on:
-  pull_request:
-    branches: [main]
   workflow_dispatch:
 
 permissions:
-  contents: write
-
-concurrency:
-  group: phase13-install-final-tooling-pr
-  cancel-in-progress: true
+  contents: read
 
 jobs:
-  install:
-    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
+  historical-status:
     runs-on: ubuntu-24.04
-    timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: release/v1.0.0-certification
-          fetch-depth: 0
-          persist-credentials: true
-      - name: Decode frozen tooling payload from the source-controlled installer
-        shell: bash
-        run: |
-          awk '
-            /<<.PAYLOAD./ { capture=1; next }
-            /^[[:space:]]*PAYLOAD[[:space:]]*$/ { capture=0; exit }
-            capture { gsub(/^[[:space:]]+/, ""); print }
-          ' .github/workflows/phase13-install-final-tooling.yml > /tmp/phase13-final-tooling.b64
-          test -s /tmp/phase13-final-tooling.b64
-          base64 -d /tmp/phase13-final-tooling.b64 > /tmp/phase13-final-tooling.tar.gz
-          tar -xzf /tmp/phase13-final-tooling.tar.gz -C "$GITHUB_WORKSPACE"
-          node --check scripts/phase13-nonpublic-audit.mjs
-          node --check scripts/phase13-package-final.mjs
-          node --check scripts/phase13-validate-archives.mjs
-          node --check scripts/phase13-public-validation.mjs
-          node --check scripts/phase13-final-signoff.mjs
-          node --check scripts/phase13-firefox-screenshots.mjs
-      - name: Commit frozen final-release JavaScript utilities
-        shell: bash
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add scripts/phase13-nonpublic-audit.mjs scripts/phase13-package-final.mjs scripts/phase13-validate-archives.mjs scripts/phase13-public-validation.mjs scripts/phase13-final-signoff.mjs scripts/phase13-firefox-screenshots.mjs
-          git commit -m "Freeze Phase 13 final release utilities"
-          git push origin HEAD:release/v1.0.0-certification
+      - run: echo "Completed final-tooling installer retained as historical evidence; no longer automatic."
