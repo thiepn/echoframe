@@ -1,4 +1,5 @@
 import path from 'node:path';
+import { execFileSync } from 'node:child_process';
 import { readFile, writeFile } from 'node:fs/promises';
 import {
   ROOT, DOCS, canonicalHashes, packageMetadata, readJson, runtimeVersion, sourceManifest, writeJson,
@@ -14,9 +15,19 @@ const pkg = await packageMetadata();
 const runtime = await runtimeVersion();
 const source = await sourceManifest();
 const canonical = await canonicalHashes();
-const releaseUrl = process.env.PHASE13_RELEASE_URL || null;
 const tagName = process.env.PHASE13_TAG_NAME || 'v1.0.0';
-const releasePrepared = process.env.PHASE13_RELEASE_PREPARED === 'true';
+
+function localTagExists(name) {
+  try {
+    execFileSync('git', ['rev-parse', '--verify', '--quiet', `refs/tags/${name}`], {
+      cwd: ROOT,
+      stdio: 'ignore',
+    });
+    return true;
+  } catch {
+    return false;
+  }
+}
 
 const checks = {
   packageVersionFinal: pkg.version === '1.0.0',
@@ -34,50 +45,53 @@ const checks = {
   manifestWebArchiveMatches: manifest?.archives?.web?.sha256 === webArchive?.archiveSha256,
   criticalDefectsZero: true,
   highDefectsZero: true,
-  releasePrepared,
+  tagAbsentBeforeSignoff: !localTagExists(tagName),
 };
 const openGates = Object.entries(checks).filter(([, value]) => value !== true).map(([key]) => key);
 const generatedAt = new Date().toISOString();
 const audit = {
   generatedAt,
   phase: 13,
-  scope: 'Phase 13 final Version 1.0 release audit',
+  scope: 'Phase 13 final Version 1.0 release audit and publication authorization',
   packageVersion: pkg.version,
   runtimeVersion: runtime,
   sourceManifestDigest: source.digest,
   productionBundleDigest: manifest.productionBundleDigest,
   canonical,
   publicUrl: publicDeployment?.url ?? null,
-  tag: { name: tagName, prepared: releasePrepared },
-  release: { url: releaseUrl, prepared: releasePrepared },
+  tag: { name: tagName, status: openGates.length === 0 ? 'authorized-not-created' : 'withheld' },
+  release: { status: openGates.length === 0 ? 'authorized-not-created' : 'withheld' },
   archiveHashes: {
     source: sourceArchive?.archiveSha256 ?? null,
     web: webArchive?.archiveSha256 ?? null,
   },
   checks,
   openGates,
+  publicationAuthorized: openGates.length === 0,
   passed: openGates.length === 0,
 };
 await writeJson('PHASE13_FINAL_RELEASE_AUDIT.json', audit);
 await writeJson('PHASE13_RELEASE_SIGNOFF.json', {
   generatedAt,
   phase: 13,
-  scope: 'Evidence-derived Version 1.0 sign-off',
+  scope: 'Evidence-derived Version 1.0 publication sign-off',
   sourceManifestDigest: source.digest,
   productionBundleDigest: manifest.productionBundleDigest,
-  tag: tagName,
-  releaseUrl,
+  intendedTag: tagName,
   publicUrl: publicDeployment?.url ?? null,
   auditReport: 'PHASE13_FINAL_RELEASE_AUDIT.json',
+  publicationAuthorized: audit.passed,
   passed: audit.passed,
-  verdict: audit.passed ? 'version-1.0-final-certified-publicly-validated-and-release-prepared' : 'version-1.0-signoff-withheld',
+  verdict: audit.passed
+    ? 'version-1.0-final-certified-publicly-validated-and-authorized-for-tag-and-release'
+    : 'version-1.0-signoff-withheld',
   openGates,
 });
 
 manifest.publicDeployment = { status: publicDeployment?.passed ? 'passed' : 'failed', url: publicDeployment?.url ?? null };
-manifest.signoff = { status: audit.passed ? 'passed' : 'withheld', passed: audit.passed };
-manifest.tag = tagName;
-manifest.releaseUrl = releaseUrl;
+manifest.signoff = { status: audit.passed ? 'passed' : 'withheld', passed: audit.passed, publicationAuthorized: audit.passed };
+manifest.tag = { name: tagName, status: audit.passed ? 'authorized-not-created' : 'withheld' };
+manifest.release = { status: audit.passed ? 'authorized-not-created' : 'withheld' };
 await writeFile(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
 
 const checklistPath = path.join(DOCS, 'PHASE13_RELEASE_CHECKLIST.md');
@@ -91,5 +105,12 @@ checklist = checklist
   .replace('- [ ] final audit and sign-off', `- [${audit.passed ? 'x' : ' '}] final audit and sign-off`);
 await writeFile(checklistPath, checklist);
 
-console.log(JSON.stringify({ passed: audit.passed, openGates, sourceManifestDigest: source.digest, publicUrl: audit.publicUrl, releaseUrl }, null, 2));
+console.log(JSON.stringify({
+  passed: audit.passed,
+  publicationAuthorized: audit.publicationAuthorized,
+  openGates,
+  sourceManifestDigest: source.digest,
+  publicUrl: audit.publicUrl,
+  tagStatus: audit.tag.status,
+}, null, 2));
 if (!audit.passed) process.exitCode = 1;
