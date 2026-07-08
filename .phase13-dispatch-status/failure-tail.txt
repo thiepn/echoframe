@@ -1,0 +1,143 @@
+publication_run_id=28969703352
+failed_job_id=85961940704
+
+2026-07-08T19:25:54.7791757Z [command]/usr/bin/git log -1 --format=%H
+2026-07-08T19:25:54.7819634Z 3f81105fc76083a998b52dac923ee0ee18aab187
+2026-07-08T19:25:54.8124797Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-07-08T19:25:54.8127452Z ##[group]Run actions/setup-node@v4
+2026-07-08T19:25:54.8128325Z with:
+2026-07-08T19:25:54.8129101Z   node-version: 22
+2026-07-08T19:25:54.8129885Z   cache: npm
+2026-07-08T19:25:54.8130669Z   always-auth: false
+2026-07-08T19:25:54.8131479Z   check-latest: false
+2026-07-08T19:25:54.8135303Z   token: ***
+2026-07-08T19:25:54.8136101Z env:
+2026-07-08T19:25:54.8136987Z   PHASE13_SOURCE_COMMIT: 3f81105fc76083a998b52dac923ee0ee18aab187
+2026-07-08T19:25:54.8137974Z ##[endgroup]
+2026-07-08T19:25:55.0253177Z Found in cache @ /opt/hostedtoolcache/node/22.23.1/x64
+2026-07-08T19:25:55.0258578Z (node:2303) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-07-08T19:25:55.0260190Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-07-08T19:25:55.0262202Z ##[group]Environment details
+2026-07-08T19:25:59.4597087Z node: v22.23.1
+2026-07-08T19:25:59.4597407Z npm: 10.9.8
+2026-07-08T19:25:59.4597619Z yarn: 1.22.22
+2026-07-08T19:25:59.4598289Z ##[endgroup]
+2026-07-08T19:25:59.4633588Z [command]/opt/hostedtoolcache/node/22.23.1/x64/bin/npm config get cache
+2026-07-08T19:25:59.8221223Z /home/runner/.npm
+2026-07-08T19:26:00.1053092Z npm cache is not found
+2026-07-08T19:26:00.1190985Z ##[group]Run npm ci --no-audit --no-fund --prefer-offline
+2026-07-08T19:26:00.1191501Z [36;1mnpm ci --no-audit --no-fund --prefer-offline[0m
+2026-07-08T19:26:00.1424992Z shell: /usr/bin/bash -e {0}
+2026-07-08T19:26:00.1425299Z env:
+2026-07-08T19:26:00.1425588Z   PHASE13_SOURCE_COMMIT: 3f81105fc76083a998b52dac923ee0ee18aab187
+2026-07-08T19:26:00.1425970Z   PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
+2026-07-08T19:26:00.1426245Z ##[endgroup]
+2026-07-08T19:26:05.8606837Z 
+2026-07-08T19:26:05.8613488Z added 91 packages in 6s
+2026-07-08T19:26:05.9118208Z ##[group]Run test "$(node -p "require('./package.json').version")" = "1.0.0"
+2026-07-08T19:26:05.9118814Z [36;1mtest "$(node -p "require('./package.json').version")" = "1.0.0"[0m
+2026-07-08T19:26:05.9119236Z [36;1mnode --input-type=module - <<'NODE'[0m
+2026-07-08T19:26:05.9119560Z [36;1mimport path from 'node:path';[0m
+2026-07-08T19:26:05.9119885Z [36;1mimport { readFile } from 'node:fs/promises';[0m
+2026-07-08T19:26:05.9120300Z [36;1mimport { sourceManifest } from './scripts/phase12-utils.mjs';[0m
+2026-07-08T19:26:05.9120940Z [36;1mconst audit = JSON.parse(await readFile(path.resolve('docs/PHASE13_NONPUBLIC_RELEASE_AUDIT.json'), 'utf8'));[0m
+2026-07-08T19:26:05.9121514Z [36;1mconst manifest = await sourceManifest();[0m
+2026-07-08T19:26:05.9121982Z [36;1mif (audit.passed !== true) throw new Error('Non-public release audit is not passed.');[0m
+2026-07-08T19:26:05.9122861Z [36;1mif (audit.sourceManifestDigest !== manifest.digest) throw new Error(`Source digest mismatch: audit=${audit.sourceManifestDigest} current=${manifest.digest}`);[0m
+2026-07-08T19:26:05.9124061Z [36;1mconsole.log(JSON.stringify({ passed: true, sourceManifestDigest: manifest.digest }, null, 2));[0m
+2026-07-08T19:26:05.9124862Z [36;1mNODE[0m
+2026-07-08T19:26:05.9159470Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-07-08T19:26:05.9159843Z env:
+2026-07-08T19:26:05.9160131Z   PHASE13_SOURCE_COMMIT: 3f81105fc76083a998b52dac923ee0ee18aab187
+2026-07-08T19:26:05.9160510Z ##[endgroup]
+2026-07-08T19:26:06.1348264Z {
+2026-07-08T19:26:06.1348563Z   "passed": true,
+2026-07-08T19:26:06.1349150Z   "sourceManifestDigest": "aa6a12f481ed233b01ee8ff397883b924706ca3bd004f4a7b9b8464750de842e"
+2026-07-08T19:26:06.1349643Z }
+2026-07-08T19:26:06.1450511Z ##[group]Run npm run build -- --outDir dist-pages
+2026-07-08T19:26:06.1451244Z [36;1mnpm run build -- --outDir dist-pages[0m
+2026-07-08T19:26:06.1499572Z shell: /usr/bin/bash -e {0}
+2026-07-08T19:26:06.1500002Z env:
+2026-07-08T19:26:06.1500496Z   PHASE13_SOURCE_COMMIT: 3f81105fc76083a998b52dac923ee0ee18aab187
+2026-07-08T19:26:06.1501144Z   VITE_BASE_PATH: /echoframe/
+2026-07-08T19:26:06.1501567Z ##[endgroup]
+2026-07-08T19:26:06.2626494Z 
+2026-07-08T19:26:06.2627328Z > echoframe@1.0.0 build
+2026-07-08T19:26:06.2628135Z > vite build --outDir dist-pages
+2026-07-08T19:26:06.2628644Z 
+2026-07-08T19:26:06.5635888Z [36mvite v8.1.3 [32mbuilding client environment for production...[36m[39m
+2026-07-08T19:26:06.5735412Z [2K
+2026-07-08T19:26:06.9263460Z transforming...✓ 305 modules transformed.
+2026-07-08T19:26:07.1850664Z rendering chunks...
+2026-07-08T19:26:07.4201846Z computing gzip size...
+2026-07-08T19:26:07.4454516Z dist-pages/index.html                     1.23 kB │ gzip:   0.63 kB
+2026-07-08T19:26:07.4456041Z dist-pages/assets/index-CDIjTugi.css      1.92 kB │ gzip:   0.86 kB
+2026-07-08T19:26:07.4457472Z dist-pages/assets/index-ClSWFShc.js   1,799.50 kB │ gzip: 475.23 kB
+2026-07-08T19:26:07.4458178Z 
+2026-07-08T19:26:07.4458876Z [32m✓ built in 883ms[39m
+2026-07-08T19:26:07.4466320Z [33m[plugin builtin:vite-reporter] 
+2026-07-08T19:26:07.4467194Z (!) Some chunks are larger than 1500 kB after minification. Consider:
+2026-07-08T19:26:07.4468068Z - Using dynamic import() to code-split the application
+2026-07-08T19:26:07.4469551Z - Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+2026-07-08T19:26:07.4471260Z - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+2026-07-08T19:26:07.4704843Z ##[group]Run node --input-type=module - <<'NODE'
+2026-07-08T19:26:07.4705260Z [36;1mnode --input-type=module - <<'NODE'[0m
+2026-07-08T19:26:07.4705593Z [36;1mimport { writeFile } from 'node:fs/promises';[0m
+2026-07-08T19:26:07.4706084Z [36;1mimport { sourceManifest, productionBundleDigest } from './scripts/phase12-utils.mjs';[0m
+2026-07-08T19:26:07.4706572Z [36;1mconst source = await sourceManifest();[0m
+2026-07-08T19:26:07.4706953Z [36;1mconst bundle = await productionBundleDigest('dist-pages');[0m
+2026-07-08T19:26:07.4707304Z [36;1mconst marker = {[0m
+2026-07-08T19:26:07.4707559Z [36;1m  generatedAt: new Date().toISOString(),[0m
+2026-07-08T19:26:07.4707851Z [36;1m  version: '1.0.0',[0m
+2026-07-08T19:26:07.4708110Z [36;1m  sourceCommit: process.env.GITHUB_SHA,[0m
+2026-07-08T19:26:07.4708428Z [36;1m  sourceManifestDigest: source.digest,[0m
+2026-07-08T19:26:07.4708741Z [36;1m  productionBundleDigest: bundle.digest,[0m
+2026-07-08T19:26:07.4709078Z [36;1m  productionFileCount: bundle.fileCount,[0m
+2026-07-08T19:26:07.4709366Z [36;1m};[0m
+2026-07-08T19:26:07.4709759Z [36;1mawait writeFile('dist-pages/phase13-release.json', `${JSON.stringify(marker, null, 2)}\n`);[0m
+2026-07-08T19:26:07.4710527Z [36;1mawait writeFile(process.env.GITHUB_OUTPUT, `source_digest=${source.digest}\nbundle_digest=${bundle.digest}\n`, { flag: 'a' });[0m
+2026-07-08T19:26:07.4711139Z [36;1mconsole.log(JSON.stringify(marker, null, 2));[0m
+2026-07-08T19:26:07.4711440Z [36;1mNODE[0m
+2026-07-08T19:26:07.4743291Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-07-08T19:26:07.4743876Z env:
+2026-07-08T19:26:07.4744221Z   PHASE13_SOURCE_COMMIT: 3f81105fc76083a998b52dac923ee0ee18aab187
+2026-07-08T19:26:07.4744569Z ##[endgroup]
+2026-07-08T19:26:07.6690499Z {
+2026-07-08T19:26:07.6690925Z   "generatedAt": "2026-07-08T19:26:07.667Z",
+2026-07-08T19:26:07.6691292Z   "version": "1.0.0",
+2026-07-08T19:26:07.6691670Z   "sourceCommit": "3f81105fc76083a998b52dac923ee0ee18aab187",
+2026-07-08T19:26:07.6692607Z   "sourceManifestDigest": "aa6a12f481ed233b01ee8ff397883b924706ca3bd004f4a7b9b8464750de842e",
+2026-07-08T19:26:07.6693466Z   "productionBundleDigest": "286f9423a223610fd6699b6d03d9458d941dab64c5b05c2a070d699d4155eeb8",
+2026-07-08T19:26:07.6694239Z   "productionFileCount": 5
+2026-07-08T19:26:07.6694502Z }
+2026-07-08T19:26:07.6826180Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-07-08T19:26:07.6827452Z ##[group]Run actions/configure-pages@v5
+2026-07-08T19:26:07.6827724Z with:
+2026-07-08T19:26:07.6827912Z   enablement: true
+2026-07-08T19:26:07.6851469Z   token: ***
+2026-07-08T19:26:07.6851721Z env:
+2026-07-08T19:26:07.6852012Z   PHASE13_SOURCE_COMMIT: 3f81105fc76083a998b52dac923ee0ee18aab187
+2026-07-08T19:26:07.6852382Z ##[endgroup]
+2026-07-08T19:26:08.0677446Z ##[warning]Get Pages site failed. Error: Not Found - https://docs.github.com/rest/pages/pages#get-a-apiname-pages-site
+2026-07-08T19:26:08.2424650Z ##[error]Create Pages site failed. Error: Resource not accessible by integration - https://docs.github.com/rest/pages/pages#create-a-apiname-pages-site
+2026-07-08T19:26:08.2427590Z ##[error]HttpError: Resource not accessible by integration - https://docs.github.com/rest/pages/pages#create-a-apiname-pages-site
+2026-07-08T19:26:08.2614516Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-07-08T19:26:08.2615776Z Post job cleanup.
+2026-07-08T19:26:08.3450028Z [command]/usr/bin/git version
+2026-07-08T19:26:08.3494768Z git version 2.54.0
+2026-07-08T19:26:08.3579371Z Temporarily overriding HOME='/home/runner/work/_temp/04d5c1b9-91de-44c7-8526-c32fd65dfe0f' before making global git config changes
+2026-07-08T19:26:08.3581082Z Adding repository directory to the temporary git global config as a safe directory
+2026-07-08T19:26:08.3587353Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/echoframe/echoframe
+2026-07-08T19:26:08.3629816Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-07-08T19:26:08.3669750Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-07-08T19:26:08.3929527Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-07-08T19:26:08.3957582Z http.https://github.com/.extraheader
+2026-07-08T19:26:08.3969958Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-07-08T19:26:08.4008862Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-07-08T19:26:08.4274887Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-07-08T19:26:08.4314813Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-07-08T19:26:08.4701150Z Evaluate and set job outputs
+2026-07-08T19:26:08.4706788Z Set output 'source_digest'
+2026-07-08T19:26:08.4708572Z Set output 'bundle_digest'
+2026-07-08T19:26:08.4709703Z Cleaning up orphan processes
+2026-07-08T19:26:08.4975063Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/configure-pages@v5, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
