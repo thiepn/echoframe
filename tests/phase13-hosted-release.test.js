@@ -59,6 +59,10 @@ test('Phase 13 evidence is source, version, commit, and workflow bound', () => {
   assert.match(packager, /const actualTestTotal = Number\(testCommand\?\.tests\)/);
   assert.match(packager, /releaseTitle: 'ECHOFRAME: LAST SIGNAL — Version 1\.0'/);
   assert.doesNotMatch(packager, /tests: \{ total: 1328/);
+  const finalAudit = read('scripts/phase13-nonpublic-audit.mjs');
+  assert.match(finalAudit, /const finalTestEvidencePassed = Number\.isInteger\(finalTestTotal\)/);
+  assert.match(finalAudit, /finalPhase13TestTotal >= 10/);
+  assert.doesNotMatch(finalAudit, /testTotalAtLeast1328/);
 });
 
 test('Phase 13 final identity removes candidate wording from production UI', () => {
