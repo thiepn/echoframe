@@ -1,51 +1,200 @@
 import path from 'node:path';
-import { readFile, rm, writeFile } from 'node:fs/promises';
+import { access, chmod, readFile, rm, writeFile } from 'node:fs/promises';
 import { spawn } from 'node:child_process';
-import { pathToFileURL } from 'node:url';
 
 const ROOT = path.resolve(new URL('..', import.meta.url).pathname);
 const SCRIPTS = path.join(ROOT, 'scripts');
+const DOCS = path.join(ROOT, 'docs');
 const engine = process.argv[2] ?? 'chromium';
 if (!['chromium', 'firefox'].includes(engine)) throw new Error(`Unsupported performance engine: ${engine}`);
 
-let xvfb = null;
-if (process.env.CI && !process.env.DISPLAY) {
-  const display = `:${90 + (process.pid % 9)}`;
-  xvfb = spawn('Xvfb', [display, '-screen', '0', '1920x1080x24', '-nolisten', 'tcp'], {
-    stdio: ['ignore', 'ignore', 'inherit'],
-  });
-  process.env.DISPLAY = display;
-  await new Promise((resolve, reject) => {
-    const timer = setTimeout(resolve, 1200);
-    xvfb.once('error', (error) => { clearTimeout(timer); reject(error); });
-    xvfb.once('exit', (code) => {
-      if (code !== null && code !== 0) { clearTimeout(timer); reject(new Error(`Xvfb exited before browser launch with code ${code}`)); }
-    });
-  });
+const sourcePath = path.join(SCRIPTS, 'phase10-performance-validation.mjs');
+const reportFilename = engine === 'firefox'
+  ? 'PHASE13_FIREFOX_PERFORMANCE_VALIDATION.json'
+  : 'PHASE10_PERFORMANCE_VALIDATION.json';
+const reportPath = path.join(DOCS, reportFilename);
+const executableEnvName = engine === 'firefox' ? 'FIREFOX_EXECUTABLE' : 'CHROMIUM_EXECUTABLE';
+const browserExecutable = process.env[executableEnvName];
+if (!browserExecutable) throw new Error(`${executableEnvName} must point to the installed Playwright browser executable.`);
+await access(browserExecutable);
+
+const attempts = engine === 'chromium'
+  ? [
+      { name: 'headless-default', headless: true, xvfb: false, chromiumArgs: [] },
+      {
+        name: 'headless-swiftshader',
+        headless: true,
+        xvfb: false,
+        chromiumArgs: ['--use-angle=swiftshader', '--use-gl=angle', '--enable-unsafe-swiftshader'],
+      },
+      {
+        name: 'headed-xvfb-swiftshader',
+        headless: false,
+        xvfb: true,
+        chromiumArgs: ['--use-angle=swiftshader', '--use-gl=angle', '--enable-unsafe-swiftshader'],
+      },
+    ]
+  : [
+      { name: 'headless-default', headless: true, xvfb: false, chromiumArgs: [] },
+      { name: 'headed-xvfb', headless: false, xvfb: true, chromiumArgs: [] },
+    ];
+
+function shellQuote(value) {
+  return `'${String(value).replaceAll("'", "'\\''")}'`;
 }
 
-let source = await readFile(path.join(SCRIPTS, 'phase10-performance-validation.mjs'), 'utf8');
-const launchNeedle = "launchBrowser({ engine: 'chromium', viewport";
-const launchReplacement = `launchBrowser({ engine: '${engine}', headless: false, viewport`;
-if ((source.split(launchNeedle).length - 1) !== 1) throw new Error('Expected exactly one Chromium performance launch call.');
-source = source.replace(launchNeedle, launchReplacement);
-if (engine === 'firefox') {
-  const reportNeedle = "writeJson('PHASE10_PERFORMANCE_VALIDATION.json'";
-  if ((source.split(reportNeedle).length - 1) !== 1) throw new Error('Expected exactly one performance report write.');
-  source = source.replace(reportNeedle, "writeJson('PHASE13_FIREFOX_PERFORMANCE_VALIDATION.json'");
-}
-
-const target = path.join(SCRIPTS, `.phase13-xvfb-${engine}-performance-${process.pid}.mjs`);
-await writeFile(target, source);
-try {
-  await import(`${pathToFileURL(target).href}?run=${Date.now()}`);
-} finally {
-  await rm(target, { force: true });
-  if (xvfb && xvfb.exitCode === null) {
-    xvfb.kill('SIGTERM');
-    await new Promise((resolve) => {
-      const timer = setTimeout(resolve, 1000);
-      xvfb.once('exit', () => { clearTimeout(timer); resolve(); });
-    });
+async function waitForXvfb(displayNumber, processHandle) {
+  const socketPath = `/tmp/.X11-unix/X${displayNumber}`;
+  const deadline = Date.now() + 10_000;
+  while (Date.now() < deadline) {
+    if (processHandle.exitCode !== null) {
+      throw new Error(`Xvfb exited before browser launch with code ${processHandle.exitCode}`);
+    }
+    try {
+      await access(socketPath);
+      return;
+    } catch {
+      await new Promise((resolve) => setTimeout(resolve, 100));
+    }
   }
+  throw new Error(`Timed out waiting for Xvfb socket ${socketPath}`);
+}
+
+async function stopProcess(processHandle) {
+  if (!processHandle || processHandle.exitCode !== null) return;
+  processHandle.kill('SIGTERM');
+  await new Promise((resolve) => {
+    const timer = setTimeout(() => {
+      if (processHandle.exitCode === null) processHandle.kill('SIGKILL');
+      resolve();
+    }, 1500);
+    processHandle.once('exit', () => {
+      clearTimeout(timer);
+      resolve();
+    });
+  });
+}
+
+async function runChild(target, env) {
+  return new Promise((resolve, reject) => {
+    const child = spawn(process.execPath, [target], {
+      cwd: ROOT,
+      env,
+      stdio: 'inherit',
+    });
+    child.once('error', reject);
+    child.once('exit', (code, signal) => resolve({ code, signal }));
+  });
+}
+
+async function runAttempt(attempt, index) {
+  const token = `${engine}-${attempt.name}-${process.pid}-${index}`;
+  const transformedPath = path.join(SCRIPTS, `.phase13-performance-${token}.mjs`);
+  const executableWrapperPath = path.join(SCRIPTS, `.phase13-browser-${token}.sh`);
+  const attemptReportPath = path.join(DOCS, `PHASE13_${engine.toUpperCase()}_PERFORMANCE_ATTEMPT_${index + 1}.json`);
+  const env = { ...process.env };
+  let xvfb = null;
+
+  await rm(reportPath, { force: true });
+  await rm(attemptReportPath, { force: true });
+
+  let source = await readFile(sourcePath, 'utf8');
+  const launchNeedle = "launchBrowser({ engine: 'chromium', viewport";
+  const launchReplacement = `launchBrowser({ engine: '${engine}', headless: ${attempt.headless}, viewport`;
+  if ((source.split(launchNeedle).length - 1) !== 1) {
+    throw new Error('Expected exactly one Chromium performance launch call.');
+  }
+  source = source.replace(launchNeedle, launchReplacement);
+  if (engine === 'firefox') {
+    const reportNeedle = "writeJson('PHASE10_PERFORMANCE_VALIDATION.json'";
+    if ((source.split(reportNeedle).length - 1) !== 1) {
+      throw new Error('Expected exactly one performance report write.');
+    }
+    source = source.replace(reportNeedle, "writeJson('PHASE13_FIREFOX_PERFORMANCE_VALIDATION.json'");
+  }
+  await writeFile(transformedPath, source);
+
+  try {
+    if (attempt.xvfb) {
+      const displayNumber = 90 + ((process.pid + index) % 9);
+      const display = `:${displayNumber}`;
+      xvfb = spawn('Xvfb', [
+        display,
+        '-screen', '0', '1920x1080x24',
+        '-ac',
+        '+extension', 'GLX',
+        '+render',
+        '-noreset',
+        '-nolisten', 'tcp',
+      ], { stdio: ['ignore', 'ignore', 'inherit'] });
+      env.DISPLAY = display;
+      await waitForXvfb(displayNumber, xvfb);
+    } else {
+      delete env.DISPLAY;
+    }
+
+    if (engine === 'chromium' && attempt.chromiumArgs.length > 0) {
+      const command = [browserExecutable, ...attempt.chromiumArgs].map(shellQuote).join(' ');
+      await writeFile(executableWrapperPath, `#!/bin/sh\nexec ${command} "$@"\n`);
+      await chmod(executableWrapperPath, 0o755);
+      env.CHROMIUM_EXECUTABLE = executableWrapperPath;
+    } else {
+      env[executableEnvName] = browserExecutable;
+    }
+
+    console.log(`Phase 13 ${engine} performance attempt ${index + 1}/${attempts.length}: ${attempt.name}`);
+    const childResult = await runChild(transformedPath, env);
+    let report = null;
+    try {
+      report = JSON.parse(await readFile(reportPath, 'utf8'));
+    } catch (error) {
+      console.error(`Performance attempt ${attempt.name} did not produce a readable report: ${error.message}`);
+    }
+
+    const execution = {
+      engine,
+      attempt: index + 1,
+      attemptCount: attempts.length,
+      mode: attempt.name,
+      headless: attempt.headless,
+      xvfb: attempt.xvfb,
+      chromiumArgs: attempt.chromiumArgs,
+      unchangedAcceptanceChecks: true,
+      childExitCode: childResult.code,
+      childSignal: childResult.signal,
+    };
+
+    if (report) {
+      report.phase13PerformanceExecution = execution;
+      await writeFile(reportPath, `${JSON.stringify(report, null, 2)}\n`);
+      await writeFile(attemptReportPath, `${JSON.stringify(report, null, 2)}\n`);
+    } else {
+      await writeFile(attemptReportPath, `${JSON.stringify({ ...execution, passed: false, reportMissing: true }, null, 2)}\n`);
+    }
+
+    const passed = childResult.code === 0 && report?.passed === true;
+    console.log(JSON.stringify({ engine, mode: attempt.name, passed, childResult, checks: report?.checks ?? null }, null, 2));
+    return { passed, execution, checks: report?.checks ?? null };
+  } finally {
+    await rm(transformedPath, { force: true });
+    await rm(executableWrapperPath, { force: true });
+    await stopProcess(xvfb);
+  }
+}
+
+const results = [];
+for (let index = 0; index < attempts.length; index += 1) {
+  const result = await runAttempt(attempts[index], index);
+  results.push(result);
+  if (result.passed) {
+    console.log(`Phase 13 ${engine} performance certification passed using ${result.execution.mode}.`);
+    process.exitCode = 0;
+    break;
+  }
+}
+
+if (!results.some((result) => result.passed)) {
+  console.error(`Phase 13 ${engine} performance certification failed in every supported browser mode.`);
+  console.error(JSON.stringify(results, null, 2));
+  process.exitCode = 1;
 }
