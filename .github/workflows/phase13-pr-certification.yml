@@ -82,27 +82,55 @@ jobs:
         working-directory: candidate
         run: npx playwright install --with-deps chromium firefox
 
+      - name: Resolve Playwright browser paths
+        id: browser-paths
+        working-directory: candidate
+        shell: bash
+        run: |
+          chromium_path="$(node -e "const { chromium } = require('playwright'); process.stdout.write(chromium.executablePath())")"
+          firefox_path="$(node -e "const { firefox } = require('playwright'); process.stdout.write(firefox.executablePath())")"
+          test -x "$chromium_path"
+          test -x "$firefox_path"
+          echo "chromium=$chromium_path" >> "$GITHUB_OUTPUT"
+          echo "firefox=$firefox_path" >> "$GITHUB_OUTPUT"
+          "$chromium_path" --version
+          MOZ_HEADLESS=1 "$firefox_path" --version
+
       - name: Core validation
         working-directory: candidate
         run: npm run validate:core:phase10
 
       - name: Chromium production validation
         working-directory: candidate
+        env:
+          CHROMIUM_EXECUTABLE: ${{ steps.browser-paths.outputs.chromium }}
         run: npm run validate:browser:phase12
 
       - name: Firefox production validation
+        if: always()
         working-directory: candidate
+        env:
+          FIREFOX_EXECUTABLE: ${{ steps.browser-paths.outputs.firefox }}
         run: npm run validate:browser:firefox:phase12
 
       - name: Root and subpath validation
+        if: always()
         working-directory: candidate
+        env:
+          CHROMIUM_EXECUTABLE: ${{ steps.browser-paths.outputs.chromium }}
+          FIREFOX_EXECUTABLE: ${{ steps.browser-paths.outputs.firefox }}
         run: npm run validate:deployment:phase12
 
       - name: Cross-browser determinism
+        if: always()
         working-directory: candidate
+        env:
+          CHROMIUM_EXECUTABLE: ${{ steps.browser-paths.outputs.chromium }}
+          FIREFOX_EXECUTABLE: ${{ steps.browser-paths.outputs.firefox }}
         run: npm run audit:determinism:phase12
 
       - name: Candidate release audit
+        if: always()
         working-directory: candidate
         run: npm run audit:release:phase12
 
@@ -113,6 +141,7 @@ jobs:
           name: phase13-pr-certification-evidence
           path: |
             candidate/package-lock.json
+            candidate/docs/PHASE11_*.json
             candidate/docs/PHASE12_*.json
             candidate/docs/screenshots/*.png
           if-no-files-found: warn
