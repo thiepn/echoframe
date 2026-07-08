@@ -1,15 +1,75 @@
-# Validation Report
+# ECHOFRAME: LAST SIGNAL — Validation Report
 
-## Phase 12
+## Version 1.0 validation model
 
-- Source manifest: `3eafc0a1a6b2ee2d9b804fa353e65c1b9758ef45c9c83c13e376e2c1e5efd4b4`
-- Package/runtime: `1.0.0` / `1.0.0`
-- Chromium: passed
-- Supported Firefox: environment-blocked-before-game-execution
-- Final sign-off: withheld
+Version 1.0 is certified through executable reports generated from one exact source commit. Stored prose is descriptive only; machine-readable reports and workflow results control release authorization.
 
-Phase 10 and Phase 11 reports remain historical evidence. Final Version 1.0 lifecycle, idle, soak, performance, packaging, CI, and public-deployment evidence has not been generated because the Firefox pre-promotion gate remains blocked.
+Required final gates include:
 
-## Phase 13 hosted certification
+- `1,329` automated tests
+- ESLint and production build
+- deterministic score, combo, progression, statistics, tutorial, binding, accessibility, source, security, and npm audits
+- real hosted Chromium production matrix
+- real hosted Firefox production matrix with game execution
+- root and `/echoframe-test/` static validation in both engines
+- cross-browser deterministic comparison
+- accessibility and Web Audio certification
+- 60-cycle Chromium lifecycle
+- Firefox lifecycle subset
+- 30-minute menu idle
+- 30-minute active gameplay soak
+- 10-minute Firefox soak
+- Chromium and Firefox performance validation
+- source and web archive clean-extraction validation
+- GitHub Pages deployment of the certified build
+- public Chromium and Firefox validation
+- final audit and publication sign-off
+- annotated `v1.0.0` tag and verified GitHub Release assets
 
-The release candidate passed hosted Chromium, real Firefox, root/subpath, accessibility, audio, save-compatibility, and cross-browser deterministic pre-promotion gates. Version 1.0 identity was applied only after the evidence-derived pre-promotion audit passed. Final sign-off remains dependent on the promoted-source lifecycle, long-session, archive, Pages, and public-site reports.
+## Evidence map
+
+Core and browser evidence:
+
+- `PHASE10_CORE_VALIDATION.json`
+- `PHASE12_BROWSER_CHROMIUM_VALIDATION.json`
+- `PHASE12_BROWSER_FIREFOX_VALIDATION.json`
+- `PHASE12_DEPLOYMENT_VALIDATION.json`
+- `PHASE12_CROSS_BROWSER_DETERMINISM.json`
+- `PHASE13_FINAL_CHROMIUM_VALIDATION.json`
+- `PHASE13_FINAL_FIREFOX_VALIDATION.json`
+- `PHASE13_FINAL_CROSS_BROWSER_DETERMINISM.json`
+
+Lifecycle, soak, and performance:
+
+- `PHASE10_LIFECYCLE_VALIDATION.json`
+- `PHASE13_FIREFOX_LIFECYCLE_VALIDATION.json`
+- `PHASE10_MENU_IDLE_VALIDATION.json`
+- `PHASE10_ACTIVE_SOAK_VALIDATION.json`
+- `PHASE13_FIREFOX_SOAK_VALIDATION.json`
+- `PHASE10_PERFORMANCE_VALIDATION.json`
+- `PHASE13_FIREFOX_PERFORMANCE_VALIDATION.json`
+- `PHASE13_PERFORMANCE_VALIDATION.json`
+
+Packaging and publication:
+
+- `PHASE13_NONPUBLIC_RELEASE_AUDIT.json`
+- `PHASE13_PACKAGE_BUILD.json`
+- `PHASE13_SOURCE_ARCHIVE_VALIDATION.json`
+- `PHASE13_WEB_ARCHIVE_VALIDATION.json`
+- `PHASE13_PUBLIC_DEPLOYMENT_VALIDATION.json`
+- `PHASE13_FINAL_RELEASE_AUDIT.json`
+- `PHASE13_RELEASE_SIGNOFF.json`
+- `PHASE13_RELEASE_CHECKLIST.md`
+- `../release/ECHOFRAME_v1.0.0_RELEASE_MANIFEST.json`
+- `../release/PHASE13_PUBLICATION_VERIFICATION.json`
+
+## Evidence rules
+
+- Browser evidence must come from real installed Chromium or Firefox, not emulation.
+- Final evidence must match the exact Version 1.0 source-manifest digest.
+- Long-session gates use real wall-clock duration.
+- Performance thresholds are not weakened for hosted execution.
+- Canonical documents remain byte-identical.
+- Critical, High, and release-blocking Medium defect totals must be zero.
+- Public launch is not claimed until the actual HTTPS Pages URL passes both browser validators.
+- Tag and release creation occur only after evidence-derived final sign-off.
