@@ -1,0 +1,238 @@
+name: Phase 13 Publish Version 1.0
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - 'docs/PHASE13_*.json'
+      - 'docs/PHASE13_*.md'
+      - 'docs/screenshots/ECHOFRAME_v1_*.png'
+      - 'release/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+env:
+  PHASE13_SOURCE_COMMIT: ${{ github.sha }}
+
+concurrency:
+  group: phase13-version-1-publication
+  cancel-in-progress: false
+
+jobs:
+  build-pages:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    outputs:
+      source_digest: ${{ steps.identity.outputs.source_digest }}
+      bundle_digest: ${{ steps.identity.outputs.bundle_digest }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci --no-audit --no-fund --prefer-offline
+        env: { PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: '1' }
+      - name: Verify certified final source
+        shell: bash
+        run: |
+          test "$(node -p "require('./package.json').version")" = "1.0.0"
+          node --input-type=module - <<'NODE'
+          import path from 'node:path';
+          import { readFile } from 'node:fs/promises';
+          import { sourceManifest } from './scripts/phase12-utils.mjs';
+          const audit = JSON.parse(await readFile(path.resolve('docs/PHASE13_NONPUBLIC_RELEASE_AUDIT.json'), 'utf8'));
+          const manifest = await sourceManifest();
+          if (audit.passed !== true) throw new Error('Non-public release audit is not passed.');
+          if (audit.sourceManifestDigest !== manifest.digest) throw new Error(`Source digest mismatch: audit=${audit.sourceManifestDigest} current=${manifest.digest}`);
+          console.log(JSON.stringify({ passed: true, sourceManifestDigest: manifest.digest }, null, 2));
+          NODE
+      - name: Build exact Pages output
+        run: npm run build -- --outDir dist-pages
+        env: { VITE_BASE_PATH: '/echoframe/' }
+      - name: Bind deployed output to source
+        id: identity
+        shell: bash
+        run: |
+          node --input-type=module - <<'NODE'
+          import { writeFile } from 'node:fs/promises';
+          import { sourceManifest, productionBundleDigest } from './scripts/phase12-utils.mjs';
+          const source = await sourceManifest();
+          const bundle = await productionBundleDigest('dist-pages');
+          const marker = {
+            generatedAt: new Date().toISOString(),
+            version: '1.0.0',
+            sourceCommit: process.env.GITHUB_SHA,
+            sourceManifestDigest: source.digest,
+            productionBundleDigest: bundle.digest,
+            productionFileCount: bundle.fileCount,
+          };
+          await writeFile('dist-pages/phase13-release.json', `${JSON.stringify(marker, null, 2)}\n`);
+          await writeFile(process.env.GITHUB_OUTPUT, `source_digest=${source.digest}\nbundle_digest=${bundle.digest}\n`, { flag: 'a' });
+          console.log(JSON.stringify(marker, null, 2));
+          NODE
+      - uses: actions/configure-pages@v5
+        with: { enablement: true }
+      - uses: actions/upload-pages-artifact@v3
+        with: { path: dist-pages }
+      - uses: actions/upload-artifact@v4
+        with:
+          name: phase13-pages-dist
+          path: dist-pages
+          if-no-files-found: error
+          retention-days: 30
+
+  deploy-pages:
+    needs: build-pages
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    outputs:
+      page_url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy exact certified Pages artifact
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+  validate-package-release:
+    needs: [build-pages, deploy-pages]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    env:
+      PHASE13_PUBLIC_URL: ${{ needs.deploy-pages.outputs.page_url }}
+      PHASE13_SOURCE_DIGEST: ${{ needs.build-pages.outputs.source_digest }}
+      PHASE13_DEPLOYED_BUNDLE_DIGEST: ${{ needs.build-pages.outputs.bundle_digest }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci --no-audit --no-fund --prefer-offline
+        env: { PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: '1' }
+      - run: npx playwright install --with-deps chromium firefox
+      - name: Resolve browser paths
+        shell: bash
+        run: |
+          echo "CHROMIUM_EXECUTABLE=$(node -e "const {chromium}=require('playwright');process.stdout.write(chromium.executablePath())")" >> "$GITHUB_ENV"
+          echo "FIREFOX_EXECUTABLE=$(node -e "const {firefox}=require('playwright');process.stdout.write(firefox.executablePath())")" >> "$GITHUB_ENV"
+      - uses: actions/download-artifact@v4
+        with:
+          name: phase13-pages-dist
+          path: dist-pages
+      - name: Wait for public HTTPS deployment
+        shell: bash
+        run: |
+          for attempt in $(seq 1 30); do
+            code="$(curl -L -s -o /dev/null -w '%{http_code}' "$PHASE13_PUBLIC_URL" || true)"
+            if [[ "$code" == "200" ]]; then exit 0; fi
+            echo "Attempt $attempt: HTTP $code"
+            sleep 10
+          done
+          exit 1
+      - name: Validate public site in real Chromium and Firefox
+        run: node scripts/phase13-public-validation.mjs
+      - name: Rebuild final archives with public evidence
+        env: { PHASE13_DIST_DIR: '${{ github.workspace }}/dist-pages' }
+        shell: bash
+        run: |
+          node scripts/phase13-package-final.mjs
+          node scripts/phase13-validate-archives.mjs
+      - name: Prepare controlled draft tag and release
+        id: draft-release
+        shell: bash
+        run: |
+          if git rev-parse v1.0.0 >/dev/null 2>&1 || gh release view v1.0.0 >/dev/null 2>&1; then
+            echo "v1.0.0 already exists; refusing to overwrite an unrelated release."
+            exit 1
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git tag -a v1.0.0 -m "ECHOFRAME: LAST SIGNAL — Version 1.0" "$GITHUB_SHA"
+          git push origin v1.0.0
+          gh release create v1.0.0 --draft --title "ECHOFRAME: LAST SIGNAL — Version 1.0" --notes-file docs/RELEASE_NOTES_v1.0.0.md \
+            release/ECHOFRAME_v1.0.0_final_source.zip \
+            release/ECHOFRAME_v1.0.0_web.zip \
+            release/ECHOFRAME_v1.0.0_SHA256SUMS.txt \
+            release/ECHOFRAME_v1.0.0_RELEASE_MANIFEST.json
+          release_url="$(gh release view v1.0.0 --json url --jq .url)"
+          echo "release_url=$release_url" >> "$GITHUB_OUTPUT"
+      - name: Generate evidence-derived final audit and sign-off
+        env:
+          PHASE13_RELEASE_PREPARED: 'true'
+          PHASE13_TAG_NAME: v1.0.0
+          PHASE13_RELEASE_URL: ${{ steps.draft-release.outputs.release_url }}
+        run: node scripts/phase13-final-signoff.mjs
+      - name: Repackage source with final audit and validate exact archives
+        env: { PHASE13_DIST_DIR: '${{ github.workspace }}/dist-pages' }
+        shell: bash
+        run: |
+          node scripts/phase13-package-final.mjs
+          node scripts/phase13-validate-archives.mjs
+          node scripts/phase13-package-final.mjs
+          node scripts/phase13-validate-archives.mjs
+      - name: Commit final reports and release artifacts
+        id: final-commit
+        shell: bash
+        run: |
+          git checkout -B main origin/main
+          mkdir -p docs/screenshots release
+          git add docs/PHASE13_* docs/screenshots/ECHOFRAME_v1_* release/
+          git commit -m "Publish ECHOFRAME Version 1.0 evidence and artifacts"
+          git push origin HEAD:main
+          final_commit="$(git rev-parse HEAD)"
+          echo "final_commit=$final_commit" >> "$GITHUB_OUTPUT"
+      - name: Move controlled draft tag to final evidence commit
+        shell: bash
+        run: |
+          git tag -fa v1.0.0 -m "ECHOFRAME: LAST SIGNAL — Version 1.0" "${{ steps.final-commit.outputs.final_commit }}"
+          git push origin refs/tags/v1.0.0 --force
+      - name: Replace draft assets with final verified archives
+        shell: bash
+        run: |
+          gh release upload v1.0.0 --clobber \
+            release/ECHOFRAME_v1.0.0_final_source.zip \
+            release/ECHOFRAME_v1.0.0_web.zip \
+            release/ECHOFRAME_v1.0.0_SHA256SUMS.txt \
+            release/ECHOFRAME_v1.0.0_RELEASE_MANIFEST.json
+          gh release edit v1.0.0 --draft=false
+      - name: Verify tag, release, and attached assets
+        shell: bash
+        run: |
+          git fetch --tags --force
+          test "$(git rev-list -n 1 v1.0.0)" = "${{ steps.final-commit.outputs.final_commit }}"
+          gh release view v1.0.0 --json url,isDraft,assets > release/PHASE13_RELEASE_VERIFICATION.json
+          node --input-type=module - <<'NODE'
+          import { readFile, stat } from 'node:fs/promises';
+          const report = JSON.parse(await readFile('release/PHASE13_RELEASE_VERIFICATION.json', 'utf8'));
+          if (report.isDraft) throw new Error('Release is still a draft.');
+          const expected = [
+            'ECHOFRAME_v1.0.0_final_source.zip',
+            'ECHOFRAME_v1.0.0_web.zip',
+            'ECHOFRAME_v1.0.0_SHA256SUMS.txt',
+            'ECHOFRAME_v1.0.0_RELEASE_MANIFEST.json',
+          ];
+          for (const name of expected) {
+            const asset = report.assets.find((entry) => entry.name === name);
+            if (!asset) throw new Error(`Missing release asset: ${name}`);
+            const local = await stat(`release/${name}`);
+            if (asset.size !== local.size) throw new Error(`Release asset size mismatch for ${name}: remote=${asset.size} local=${local.size}`);
+          }
+          console.log(JSON.stringify({ releaseUrl: report.url, assets: report.assets.map(({name,size})=>({name,size})) }, null, 2));
+          NODE
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: phase13-published-release-evidence
+          path: |
+            release/*
+            docs/PHASE13_*
+            docs/screenshots/ECHOFRAME_v1_*.png
+          if-no-files-found: error
+          retention-days: 90
