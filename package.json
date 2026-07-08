@@ -47,7 +47,7 @@
     "validate:lifecycle:phase10": "npm run validate:performance:phase10 && node scripts/phase10-lifecycle-validation.mjs",
     "validate:idle:phase10": "node scripts/phase10-menu-idle-validation.mjs",
     "validate:soak:phase10": "node scripts/phase10-active-soak-validation.mjs",
-    "validate:performance:phase10": "node scripts/phase13-xvfb-performance.mjs chromium",
+    "validate:performance:phase10": "node scripts/phase13-performance-certification.mjs chromium",
     "validate:core:phase10": "node scripts/phase10-core-validation.mjs",
     "docs:phase10": "node scripts/phase10-generate-release-docs.mjs",
     "package:phase10": "node scripts/phase10-package-release.mjs",
@@ -83,7 +83,7 @@
     "validate:accessibility:firefox:phase13": "node scripts/phase13-transformed-runner.mjs firefox-accessibility",
     "validate:lifecycle:firefox:phase13": "node scripts/phase13-transformed-runner.mjs firefox-lifecycle",
     "validate:soak:firefox:phase13": "node scripts/phase13-transformed-runner.mjs firefox-soak",
-    "validate:performance:firefox:phase13": "node scripts/phase13-xvfb-performance.mjs firefox",
+    "validate:performance:firefox:phase13": "node scripts/phase13-performance-certification.mjs firefox",
     "audit:prepromotion:phase13": "node scripts/phase13-evidence.mjs prepromotion",
     "promote:phase13": "node scripts/phase13-promote.mjs",
     "audit:final:phase13": "node scripts/phase13-evidence.mjs final"
