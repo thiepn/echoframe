@@ -1,0 +1,75 @@
+name: Phase 13 Materialize Source From Certified Archive
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: phase13-materialize-pr
+  cancel-in-progress: true
+
+jobs:
+  materialize:
+    if: github.event.pull_request.head.repo.full_name == github.repository || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Skip when source is already materialized
+        id: state
+        shell: bash
+        run: |
+          if test -f package.json; then
+            echo "needed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "needed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Verify and transform source
+        if: steps.state.outputs.needed == 'true'
+        shell: bash
+        run: |
+          echo "8cbc7d526c80ae0ea1c506cf580518cc5abed93b7f653eeb2ca43b659db122ca  ECHOFRAME_phase12_certification_candidate.zip" | sha256sum -c -
+          rm -rf /tmp/phase13-materialized
+          mkdir -p /tmp/phase13-materialized
+          unzip -q ECHOFRAME_phase12_certification_candidate.zip -d /tmp/phase13-materialized
+          python - <<'PY'
+          from pathlib import Path
+          lock = Path('/tmp/phase13-materialized/package-lock.json')
+          text = lock.read_text(encoding='utf-8')
+          internal = 'https://packages.applied-caas-gateway1.internal.api.openai.org/artifactory/api/npm/npm-public/'
+          count = text.count(internal)
+          if count != 121:
+              raise SystemExit(f'Expected 121 internal registry URLs, found {count}.')
+          lock.write_text(text.replace(internal, 'https://registry.npmjs.org/'), encoding='utf-8')
+          PY
+          cd /tmp/phase13-materialized
+          patch --forward -p1 < "$GITHUB_WORKSPACE/phase13/patches/chromium-input-harness.patch"
+          rm -rf .github node_modules dist dist-* .phase* playwright-report test-results
+          node --check scripts/phase10-browser-validation.mjs
+
+      - name: Commit transformed source without workflow mutation
+        if: steps.state.outputs.needed == 'true'
+        shell: bash
+        run: |
+          git fetch origin release/v1.0.0-certification
+          git checkout -B release/v1.0.0-certification origin/release/v1.0.0-certification
+          rsync -a --exclude='.github/' /tmp/phase13-materialized/ ./
+          test -f package.json
+          test -f package-lock.json
+          ! grep -R "packages.applied-caas-gateway1.internal.api.openai.org" package-lock.json
+          node --check scripts/phase10-browser-validation.mjs
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Materialize certified Phase 12 source"
+          git push origin HEAD:release/v1.0.0-certification
