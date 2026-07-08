@@ -73,7 +73,7 @@ const webChecks = {
     && releaseMarker?.productionBundleDigest === manifest.productionBundleDigest,
   markerFileCount: releaseMarker?.productionFileCount === extractedBundle?.fileCount,
   digestDefinitionExcludesMarker: extractedBundle?.excluded?.includes('phase13-release.json') === true,
-  noSource: !(await exists(path.join(webDir, 'src'))) && !(await exists(path.join(webDir, 'tests')),
+  noSource: !(await exists(path.join(webDir, 'src'))) && !(await exists(path.join(webDir, 'tests'))),
   onlyStaticRoots: webRoots.every((name) => allowedWebRoots.has(name)),
 };
 
