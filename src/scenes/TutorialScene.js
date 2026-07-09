@@ -143,7 +143,7 @@ export class TutorialScene extends BaseScene {
       .setVisible(false);
     this.recordingTitle = this.add.text(DESIGN_WIDTH / 2 - 320, DESIGN_HEIGHT - 100, 'ECHO MEMORY', { fontFamily: 'monospace', fontSize: '13px', color: '#c7baff', fontStyle: 'bold' }).setDepth(101).setVisible(false);
     this.recordingTrack = this.add.rectangle(DESIGN_WIDTH / 2 - 320, DESIGN_HEIGHT - 70, 520, 10, PALETTE.background, 1).setOrigin(0, 0.5).setDepth(101).setVisible(false);
-    this.recordingFill = this.add.rectangle(DESIGN_WIDTH / 2 - 320, DESIGN_HEIGHT - 70, 0, 10, PALETTE.echoViolet, 0.9).setOrigin(0, 0.5).setDepth(102).setVisible(false);
+    this.recordingFill = this.add.rectangle(DESIGN_WIDTH / 2 - 320, DESIGN_HEIGHT - 70, 520, 10, PALETTE.echoViolet, 0.9).setOrigin(0, 0.5).setScale(0, 1).setDepth(102).setVisible(false);
     this.recordingShotMarkers = Array.from({ length: 4 }, (_, index) => this.add.circle(DESIGN_WIDTH / 2 - 320 + ((index + 1) / 5) * 520, DESIGN_HEIGHT - 70, 5, PALETTE.warningYellow, 0.2).setStrokeStyle(2, PALETTE.warningYellow, 0.55).setDepth(103).setVisible(false));
     this.recordingStateText = this.add.text(DESIGN_WIDTH / 2 + 320, DESIGN_HEIGHT - 82, '', { fontFamily: 'monospace', fontSize: '13px', color: PALETTE.mutedText, align: 'right' }).setOrigin(1, 0.5).setDepth(102).setVisible(false);
     this.tutorialHudObjects = [this.objectivePanel, this.stepText, this.objectiveText, this.hintText, this.progressText, this.pauseHint, this.recordingPanel, this.recordingTitle, this.recordingTrack, this.recordingFill, this.recordingStateText, ...this.recordingShotMarkers];
@@ -456,7 +456,7 @@ export class TutorialScene extends BaseScene {
     const locked = state === TUTORIAL_STATES.deployEcho && this.recordingLockState !== 'recording';
     const progress = locked ? 1 : Math.max(0, Math.min(1, diagnostics.readinessProgress ?? diagnostics.progress ?? diagnostics.recordingSpanMs / 3500));
     const shots = locked ? 4 : Math.min(4, this.controller.pathCheckpointIndex >= TUTORIAL_ARENA.recordingPath.length ? this.recordingWindowFireEvents : diagnostics.fireEventCount ?? 0);
-    this.recordingFill.displayWidth = 520 * progress;
+    this.recordingFill.setScale(progress, 1);
     this.recordingFill.setFillStyle(locked ? PALETTE.successMint : PALETTE.echoViolet, 0.9);
     this.recordingShotMarkers.forEach((marker, index) => marker.setFillStyle(index < shots ? PALETTE.warningYellow : PALETTE.surfaceHighlight, index < shots ? 1 : 0.2));
     const label = this.recordingLockState === 'deployed'

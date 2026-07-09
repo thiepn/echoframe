@@ -134,4 +134,6 @@ test('tutorial scene keeps failed deploys on lesson 5 and exposes explicit re-re
   assert.match(source, /Phaser\.Input\.Keyboard\.JustDown\(this\.rerecordKey\)/);
   assert.match(source, /this\.inputContext\.suppressHeldActions\(\)/);
   assert.match(source, /MEMORY LOCKED/);
+  assert.match(source, /this\.recordingFill\.setScale\(progress, 1\)/);
+  assert.doesNotMatch(source, /this\.recordingFill\.displayWidth/);
 });
