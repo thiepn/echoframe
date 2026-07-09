@@ -9,7 +9,8 @@
          advanceTo(TUTORIAL_STATES.deployEcho);
          this.player.setPosition(TUTORIAL_ARENA.shieldTarget.x + 230, TUTORIAL_ARENA.shieldTarget.y);
          this.simulationTimeMs = Math.max(this.simulationTimeMs, 6000);
-@@ -213,12 +213,18 @@
+@@ -212,13 +212,19 @@
+         this.echoRecorder.forceReady(snapshot, this.simulationTimeMs);
          for (let index = 0; index < 4; index += 1) this.services.eventBus.emit('weapon:fired', { direction: { x: -1, y: 0 }, projectileMetadata: { damage: 1, speed: 850, lifetimeMs: 1200, radius: 4, critical: false }, weaponEventId: `tutorial-debug-${index}` });
          const descriptor = this.echoRecorder.createReplayDescriptor(this.simulationTimeMs, createEchoLoadoutSnapshot({ ...this.weaponSystem.getEchoLoadoutSource(), echoDamageScalar: 1 }));
 -        const fireEvents = descriptor?.fireEvents.length ?? 0;
@@ -33,7 +34,7 @@
        complete: () => { advanceTo(TUTORIAL_STATES.enterSignalGate); this.player.setPosition(TUTORIAL_ARENA.signalGate.x, TUTORIAL_ARENA.signalGate.y); return true; },
 --- a/scripts/phase10-browser-validation.mjs
 +++ b/scripts/phase10-browser-validation.mjs
-@@ -151,9 +151,29 @@
+@@ -149,8 +149,27 @@
    if (!checks.realPointerFireAccepted) await page.evaluate(() => globalThis.__ECHOFRAME_PHASE10_TUTORIAL__.advanceTo('DASH_GATE'));
  
    await page.evaluate(() => globalThis.__ECHOFRAME_PHASE10_TUTORIAL__.advanceTo('DEPLOY_ECHO'));
