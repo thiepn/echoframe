@@ -204,21 +204,28 @@ export class TutorialScene extends BaseScene {
         this.shieldArc.setVisible(Boolean(visible));
         return true;
       },
-      forceEchoVisual: () => {
+      prepareLockedEcho: () => {
         advanceTo(TUTORIAL_STATES.deployEcho);
         this.player.setPosition(TUTORIAL_ARENA.shieldTarget.x + 230, TUTORIAL_ARENA.shieldTarget.y);
         this.simulationTimeMs = Math.max(this.simulationTimeMs, 6000);
         const snapshot = this.playerController.getSnapshot();
+        this.echoRecorder.setEnabled(true);
         this.echoRecorder.forceReady(snapshot, this.simulationTimeMs);
         for (let index = 0; index < 4; index += 1) this.services.eventBus.emit('weapon:fired', { direction: { x: -1, y: 0 }, projectileMetadata: { damage: 1, speed: 850, lifetimeMs: 1200, radius: 4, critical: false }, weaponEventId: `tutorial-debug-${index}` });
         const descriptor = this.echoRecorder.createReplayDescriptor(this.simulationTimeMs, createEchoLoadoutSnapshot({ ...this.weaponSystem.getEchoLoadoutSource(), echoDamageScalar: 1 }));
-        const fireEvents = descriptor?.fireEvents.length ?? 0;
         if (descriptor) {
           this.lockedReplayDescriptor = descriptor;
           this.recordingLockState = 'locked';
-          this.#deployEcho();
+          this.echoRecorder.setEnabled(false);
+          this.inputContext.suppressHeldActions();
+          this.#updatePresentation();
         }
-        return { deployed: this.recordingLockState === 'deployed', fireEvents };
+        return { locked: Boolean(descriptor), fireEvents: descriptor?.fireEvents.length ?? 0, descriptorDurationMs: descriptor?.durationMs ?? 0 };
+      },
+      forceEchoVisual: () => {
+        const prepared = hooks.prepareLockedEcho();
+        if (prepared.locked) this.#deployEcho();
+        return { deployed: this.recordingLockState === 'deployed', fireEvents: prepared.fireEvents };
       },
       forceEchoSuccess: () => { advanceTo(TUTORIAL_STATES.deployEcho); return this.controller.echoRearHit({ source: 'echo', rear: true, defeated: true }); },
       complete: () => { advanceTo(TUTORIAL_STATES.enterSignalGate); this.player.setPosition(TUTORIAL_ARENA.signalGate.x, TUTORIAL_ARENA.signalGate.y); return true; },
