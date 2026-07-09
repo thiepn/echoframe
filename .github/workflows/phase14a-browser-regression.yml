@@ -5,7 +5,7 @@ on:
     branches:
       - fix/v1.0.1-tutorial-repair
     paths:
-      - .phase14a/tutorial-browser-regression.patch
+      - .phase14a/apply-browser-regression.mjs
       - .github/workflows/phase14a-browser-regression.yml
   workflow_dispatch:
 
@@ -32,13 +32,11 @@ jobs:
           node-version: 22
           cache: npm
 
-      - name: Apply reviewable browser regression patch
+      - name: Apply deterministic browser regression transformation
         shell: bash
         run: |
           set -euo pipefail
-          echo "Applying trusted Space-input tutorial regression coverage."
-          git apply --check .phase14a/tutorial-browser-regression.patch
-          git apply .phase14a/tutorial-browser-regression.patch
+          node .phase14a/apply-browser-regression.mjs
           node --check src/scenes/TutorialScene.js
           node --check scripts/phase10-browser-validation.mjs
 
