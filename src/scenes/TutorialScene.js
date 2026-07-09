@@ -7,6 +7,7 @@ import { TEXTURE_KEYS } from '../graphics/TextureFactory.js';
 import { EchoPrototypeStatistics } from '../state/EchoPrototypeStatistics.js';
 import { TUTORIAL_STEPS } from '../tutorial/TutorialStepCatalog.js';
 import { TutorialController } from '../tutorial/TutorialController.js';
+import { evaluateTutorialRecording } from '../tutorial/TutorialRecordingLock.js';
 import { TUTORIAL_STATES } from '../tutorial/TutorialState.js';
 import { createEchoLoadoutSnapshot } from '../systems/EchoLoadoutSnapshot.js';
 import { EchoPlaybackSystem } from '../systems/EchoPlaybackSystem.js';
@@ -27,6 +28,15 @@ export class TutorialScene extends BaseScene {
     super(SCENE_KEYS.tutorial, services);
     this.simulationTimeMs = 0;
     this.exiting = false;
+    this.lockedReplayDescriptor = null;
+    this.recordingLockState = 'idle';
+    this.recordingFailureReason = null;
+    this.recordingPathSamples = [];
+    this.recordingPathSampleElapsedMs = 0;
+    this.recordingWindowFireEvents = 0;
+    this.tutorialStatusMessage = null;
+    this.tutorialStatusColor = PALETTE.mutedText;
+    this.tutorialStatusUntilMs = 0;
   }
 
   create() {
@@ -38,6 +48,8 @@ export class TutorialScene extends BaseScene {
     this.returnTo = this.sceneData.returnTo ?? SCENE_KEYS.mainMenu;
     this.statistics = new EchoPrototypeStatistics();
     this.controller = new TutorialController({ eventBus: this.services.eventBus, entrySource: this.entryMode });
+    this.rerecordKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R);
+    this.cleanup.add(() => this.input.keyboard.removeKey(this.rerecordKey));
 
     this.#createArena();
     this.#createPresentation();
@@ -123,7 +135,18 @@ export class TutorialScene extends BaseScene {
     this.hintText = this.add.text(DESIGN_WIDTH / 2, 111, '', { fontFamily: 'monospace', fontSize: '15px', color: PALETTE.mutedText, align: 'center' }).setOrigin(0.5).setDepth(101);
     this.progressText = this.add.text(1260, 42, '', { fontFamily: 'monospace', fontSize: '16px', color: '#ffd166' }).setOrigin(1, 0).setDepth(101);
     this.pauseHint = this.add.text(1510, 865, 'Esc — Pause', { fontFamily: 'monospace', fontSize: '15px', color: PALETTE.mutedText }).setOrigin(1, 1).setDepth(101);
-    this.tutorialHudObjects = [this.objectivePanel, this.stepText, this.objectiveText, this.hintText, this.progressText, this.pauseHint];
+
+    this.recordingPathVisual = this.add.graphics().setDepth(18).setVisible(false);
+    this.recordingPanel = this.add.rectangle(DESIGN_WIDTH / 2, DESIGN_HEIGHT - 72, 700, 74, PALETTE.surface, 0.94)
+      .setStrokeStyle(highContrast ? 4 : 2, PALETTE.echoViolet, 0.9)
+      .setDepth(100)
+      .setVisible(false);
+    this.recordingTitle = this.add.text(DESIGN_WIDTH / 2 - 320, DESIGN_HEIGHT - 100, 'ECHO MEMORY', { fontFamily: 'monospace', fontSize: '13px', color: '#c7baff', fontStyle: 'bold' }).setDepth(101).setVisible(false);
+    this.recordingTrack = this.add.rectangle(DESIGN_WIDTH / 2 - 320, DESIGN_HEIGHT - 70, 520, 10, PALETTE.background, 1).setOrigin(0, 0.5).setDepth(101).setVisible(false);
+    this.recordingFill = this.add.rectangle(DESIGN_WIDTH / 2 - 320, DESIGN_HEIGHT - 70, 0, 10, PALETTE.echoViolet, 0.9).setOrigin(0, 0.5).setDepth(102).setVisible(false);
+    this.recordingShotMarkers = Array.from({ length: 4 }, (_, index) => this.add.circle(DESIGN_WIDTH / 2 - 320 + ((index + 1) / 5) * 520, DESIGN_HEIGHT - 70, 5, PALETTE.warningYellow, 0.2).setStrokeStyle(2, PALETTE.warningYellow, 0.55).setDepth(103).setVisible(false));
+    this.recordingStateText = this.add.text(DESIGN_WIDTH / 2 + 320, DESIGN_HEIGHT - 82, '', { fontFamily: 'monospace', fontSize: '13px', color: PALETTE.mutedText, align: 'right' }).setOrigin(1, 0.5).setDepth(102).setVisible(false);
+    this.tutorialHudObjects = [this.objectivePanel, this.stepText, this.objectiveText, this.hintText, this.progressText, this.pauseHint, this.recordingPanel, this.recordingTitle, this.recordingTrack, this.recordingFill, this.recordingStateText, ...this.recordingShotMarkers];
     for (const object of this.tutorialHudObjects) object.setAlpha(hudOpacity);
   }
 
@@ -168,7 +191,7 @@ export class TutorialScene extends BaseScene {
       return this.controller.snapshot();
     };
     const hooks = {
-      snapshot: () => ({ ...this.controller.snapshot(), simulationTimeMs: this.simulationTimeMs, entryMode: this.entryMode, diagnostics: this.echoRecorder.getDiagnostics() }),
+      snapshot: () => ({ ...this.controller.snapshot(), simulationTimeMs: this.simulationTimeMs, entryMode: this.entryMode, diagnostics: this.echoRecorder.getDiagnostics(), recordingLockState: this.recordingLockState, hasLockedReplay: Boolean(this.lockedReplayDescriptor), lockedFireEvents: this.lockedReplayDescriptor?.fireEvents.length ?? 0 }),
       advanceTo,
       resetCurrentStep: () => {
         if ([TUTORIAL_STATES.recordPath, TUTORIAL_STATES.deployEcho].includes(this.controller.state)) this.controller.retryRecording();
@@ -189,8 +212,13 @@ export class TutorialScene extends BaseScene {
         this.echoRecorder.forceReady(snapshot, this.simulationTimeMs);
         for (let index = 0; index < 4; index += 1) this.services.eventBus.emit('weapon:fired', { direction: { x: -1, y: 0 }, projectileMetadata: { damage: 1, speed: 850, lifetimeMs: 1200, radius: 4, critical: false }, weaponEventId: `tutorial-debug-${index}` });
         const descriptor = this.echoRecorder.createReplayDescriptor(this.simulationTimeMs, createEchoLoadoutSnapshot({ ...this.weaponSystem.getEchoLoadoutSource(), echoDamageScalar: 1 }));
-        const echo = descriptor ? this.echoPlaybackSystem.deploy(descriptor) : null;
-        return { deployed: Boolean(echo), fireEvents: descriptor?.fireEvents.length ?? 0 };
+        const fireEvents = descriptor?.fireEvents.length ?? 0;
+        if (descriptor) {
+          this.lockedReplayDescriptor = descriptor;
+          this.recordingLockState = 'locked';
+          this.#deployEcho();
+        }
+        return { deployed: this.recordingLockState === 'deployed', fireEvents };
       },
       forceEchoSuccess: () => { advanceTo(TUTORIAL_STATES.deployEcho); return this.controller.echoRearHit({ source: 'echo', rear: true, defeated: true }); },
       complete: () => { advanceTo(TUTORIAL_STATES.enterSignalGate); this.player.setPosition(TUTORIAL_ARENA.signalGate.x, TUTORIAL_ARENA.signalGate.y); return true; },
@@ -251,7 +279,9 @@ export class TutorialScene extends BaseScene {
     this.projectileManager.update(safeDelta);
     this.echoProjectileManager.update(safeDelta);
     this.echoPlaybackSystem.update(safeDelta);
-    this.echoRecorder.update(safeDelta, this.simulationTimeMs, this.playerController.getSnapshot(), { enabled: [TUTORIAL_STATES.recordPath, TUTORIAL_STATES.deployEcho].includes(this.controller.state) });
+    const recordingEnabled = this.controller.state === TUTORIAL_STATES.recordPath && !this.lockedReplayDescriptor;
+    this.echoRecorder.update(safeDelta, this.simulationTimeMs, this.playerController.getSnapshot(), { enabled: recordingEnabled });
+    this.#captureRecordingPath(safeDelta);
 
     this.#checkObjectives();
     this.#updatePresentation();
@@ -271,10 +301,9 @@ export class TutorialScene extends BaseScene {
       const index = this.controller.pathCheckpointIndex;
       const point = TUTORIAL_ARENA.recordingPath[index];
       if (point && distance(this.player, point) <= MARKER_RADIUS) this.controller.pathCheckpoint(index, 'player');
-      if (this.controller.pathCheckpointIndex >= TUTORIAL_ARENA.recordingPath.length) {
-        const diagnostics = this.echoRecorder.getDiagnostics();
-        this.controller.recordingQualified({ fireEvents: diagnostics.fireEventCount, spanMs: diagnostics.recordingSpanMs });
-      }
+      if (this.controller.pathCheckpointIndex >= TUTORIAL_ARENA.recordingPath.length) this.#tryLockRecording();
+    } else if (state === TUTORIAL_STATES.deployEcho && Phaser.Input.Keyboard.JustDown(this.rerecordKey)) {
+      this.#beginRerecord();
     } else if (state === TUTORIAL_STATES.deployEcho && this.inputContext.justPressed('deployEcho')) {
       this.#deployEcho();
     } else if (state === TUTORIAL_STATES.enterSignalGate) {
@@ -282,28 +311,97 @@ export class TutorialScene extends BaseScene {
     }
   }
 
+  #tryLockRecording() {
+    const loadout = createEchoLoadoutSnapshot({ ...this.weaponSystem.getEchoLoadoutSource(), echoDamageScalar: 1 });
+    const candidate = evaluateTutorialRecording({
+      recorder: this.echoRecorder,
+      deploymentTimeMs: this.simulationTimeMs,
+      loadoutSnapshot: loadout,
+      pathCount: this.controller.pathCheckpointIndex,
+    });
+    this.recordingWindowFireEvents = candidate.fireEvents;
+    if (!candidate.accepted) {
+      this.recordingLockState = 'recording';
+      if (candidate.reason !== this.recordingFailureReason) {
+        this.recordingFailureReason = candidate.reason;
+        const message = candidate.reason === 'insufficient-fire-events'
+          ? 'Path complete. Keep firing until four shots are inside the Echo memory window.'
+          : 'Path complete. Keep moving and firing until 3.5 seconds of Echo memory are ready.';
+        this.#showStatus(message, false);
+      }
+      return false;
+    }
+
+    this.lockedReplayDescriptor = candidate.descriptor;
+    this.recordingLockState = 'locked';
+    this.recordingFailureReason = null;
+    this.echoRecorder.setEnabled(false);
+    this.inputContext.suppressHeldActions();
+    const advanced = this.controller.recordingQualified({ fireEvents: candidate.fireEvents, spanMs: candidate.spanMs });
+    if (advanced) this.#showStatus('Recording locked. Release the controls, then press Space to deploy.', true);
+    return advanced;
+  }
+
   #deployEcho() {
-    const sourceLoadout = this.weaponSystem.getEchoLoadoutSource();
-    const loadout = createEchoLoadoutSnapshot({ ...sourceLoadout, echoDamageScalar: 1 });
-    const descriptor = this.echoRecorder.createReplayDescriptor(this.simulationTimeMs, loadout);
-    if (!descriptor || descriptor.fireEvents.length < 4) {
-      this.controller.retryRecording();
-      this.echoRecorder.reset();
-      this.echoRecorder.start(this.simulationTimeMs, this.playerController.getSnapshot());
-      this.#showStatus('Recording was not usable. Follow all four markers while firing, then deploy again.', false);
+    const descriptor = this.lockedReplayDescriptor;
+    if (!descriptor) {
+      this.#showStatus('No locked recording is available. Press R to re-record lesson 4.', false);
       return;
     }
     const echo = this.echoPlaybackSystem.deploy(descriptor);
     if (!echo) {
-      this.#showStatus('Echo deployment unavailable. Release the key and try again.', false);
+      this.#showStatus('Echo deployment unavailable. Release Space and try again.', false);
       return;
     }
-    this.#showStatus('Echo deployed. Move clear and watch the replay strike from the rear.', true);
+    this.lockedReplayDescriptor = null;
+    this.recordingLockState = 'deployed';
+    this.inputContext.suppressHeldActions();
+    this.#showStatus('Echo deployed. Move clear and watch the replay strike from the rear. Press R to re-record if it misses.', true);
+  }
+
+  #beginRerecord() {
+    if (this.controller.state !== TUTORIAL_STATES.deployEcho || !this.controller.retryRecording()) return false;
+    this.lockedReplayDescriptor = null;
+    this.recordingLockState = 'recording';
+    this.recordingFailureReason = null;
+    this.recordingPathSamples = [];
+    this.recordingPathSampleElapsedMs = 0;
+    this.recordingWindowFireEvents = 0;
+    this.echoPlaybackSystem.clear('tutorial-explicit-rerecord');
+    this.inputContext.suppressHeldActions();
+    this.#syncStep();
+    this.#showStatus('Re-recording started. Follow all four markers while firing.', true);
+    return true;
+  }
+
+  #captureRecordingPath(deltaMs) {
+    if (this.controller.state !== TUTORIAL_STATES.recordPath || this.lockedReplayDescriptor) return;
+    this.recordingPathSampleElapsedMs += deltaMs;
+    if (this.recordingPathSampleElapsedMs < 90) return;
+    this.recordingPathSampleElapsedMs = 0;
+    this.recordingPathSamples.push({ x: this.player.x, y: this.player.y });
+    if (this.recordingPathSamples.length > 80) this.recordingPathSamples.shift();
+  }
+
+  #renderRecordingPath(visible) {
+    this.recordingPathVisual.clear().setVisible(visible);
+    if (!visible || this.recordingPathSamples.length < 2) return;
+    this.recordingPathVisual.lineStyle(4, PALETTE.echoViolet, this.recordingLockState === 'locked' ? 0.75 : 0.32);
+    this.recordingPathVisual.beginPath();
+    this.recordingPathVisual.moveTo(this.recordingPathSamples[0].x, this.recordingPathSamples[0].y);
+    for (const point of this.recordingPathSamples.slice(1)) this.recordingPathVisual.lineTo(point.x, point.y);
+    this.recordingPathVisual.strokePath();
   }
 
   #syncStep() {
     const state = this.controller.state;
     if (state === TUTORIAL_STATES.recordPath) {
+      this.lockedReplayDescriptor = null;
+      this.recordingLockState = 'recording';
+      this.recordingFailureReason = null;
+      this.recordingPathSamples = [];
+      this.recordingPathSampleElapsedMs = 0;
+      this.recordingWindowFireEvents = 0;
       this.echoRecorder.reset();
       this.echoRecorder.start(this.simulationTimeMs, this.playerController.getSnapshot());
       this.echoPlaybackSystem.clear('tutorial-record-reset');
@@ -328,13 +426,38 @@ export class TutorialScene extends BaseScene {
     const step = TUTORIAL_STEPS[state] ?? TUTORIAL_STEPS[TUTORIAL_STATES.intro];
     this.stepText.setText(step.number ? `LESSON ${step.number} / 6` : 'FIRST SIGNAL');
     this.objectiveText.setText(step.objective);
-    this.hintText.setText(this.#bindingHint(state));
+    const statusActive = this.tutorialStatusMessage && this.simulationTimeMs < this.tutorialStatusUntilMs;
+    this.hintText
+      .setText(statusActive ? this.tutorialStatusMessage : this.#bindingHint(state))
+      .setColor(statusActive ? this.tutorialStatusColor : PALETTE.mutedText);
     const diagnostics = this.echoRecorder?.getDiagnostics?.() ?? { recordingSpanMs: 0, fireEventCount: 0 };
     if (state === TUTORIAL_STATES.moveCheckpoints) this.progressText.setText(`${this.controller.moveCheckpointIndex} / 3`);
     else if (state === TUTORIAL_STATES.recordPath) this.progressText.setText(`${this.controller.pathCheckpointIndex}/4  ·  ${Math.min(3.5, diagnostics.recordingSpanMs / 1000).toFixed(1)}s  ·  ${diagnostics.fireEventCount}/4 shots`);
+    else if (state === TUTORIAL_STATES.deployEcho) this.progressText.setText(this.recordingLockState === 'deployed' ? 'ECHO ACTIVE' : 'RECORDING LOCKED');
     else this.progressText.setText('');
     this.movementMarkers.forEach((marker, index) => marker.setAlpha(index === this.controller.moveCheckpointIndex ? 1 : 0.42));
     this.pathMarkers.forEach((marker, index) => marker.setAlpha(index === this.controller.pathCheckpointIndex ? 1 : 0.42));
+    this.#updateRecordingPresentation(state, diagnostics);
+  }
+
+  #updateRecordingPresentation(state, diagnostics) {
+    const visible = [TUTORIAL_STATES.recordPath, TUTORIAL_STATES.deployEcho].includes(state);
+    for (const object of [this.recordingPanel, this.recordingTitle, this.recordingTrack, this.recordingFill, this.recordingStateText, ...this.recordingShotMarkers]) object.setVisible(visible);
+    this.#renderRecordingPath(visible);
+    if (!visible) return;
+
+    const locked = state === TUTORIAL_STATES.deployEcho && this.recordingLockState !== 'recording';
+    const progress = locked ? 1 : Math.max(0, Math.min(1, diagnostics.readinessProgress ?? diagnostics.progress ?? diagnostics.recordingSpanMs / 3500));
+    const shots = locked ? 4 : Math.min(4, this.controller.pathCheckpointIndex >= TUTORIAL_ARENA.recordingPath.length ? this.recordingWindowFireEvents : diagnostics.fireEventCount ?? 0);
+    this.recordingFill.displayWidth = 520 * progress;
+    this.recordingFill.setFillStyle(locked ? PALETTE.successMint : PALETTE.echoViolet, 0.9);
+    this.recordingShotMarkers.forEach((marker, index) => marker.setFillStyle(index < shots ? PALETTE.warningYellow : PALETTE.surfaceHighlight, index < shots ? 1 : 0.2));
+    const label = this.recordingLockState === 'deployed'
+      ? 'ECHO ACTIVE\nR — RE-RECORD'
+      : locked
+        ? 'MEMORY LOCKED\nSPACE — DEPLOY · R — RE-RECORD'
+        : `RECORDING ${Math.round(progress * 100)}%\n${shots}/4 SHOTS IN MEMORY`;
+    this.recordingStateText.setText(label).setColor(locked ? '#72f1b8' : PALETTE.mutedText);
   }
 
   #bindingHint(state) {
@@ -345,17 +468,18 @@ export class TutorialScene extends BaseScene {
       [TUTORIAL_STATES.moveCheckpoints]: `Movement bindings: ${labels('moveUp')} · ${labels('moveLeft')} · ${labels('moveDown')} · ${labels('moveRight')}`,
       [TUTORIAL_STATES.aimAndFire]: `Aim with pointer · Fire: ${labels('fire')}`,
       [TUTORIAL_STATES.dashGate]: `Dash: ${labels('dash')}`,
-      [TUTORIAL_STATES.recordPath]: `Move through markers while holding ${labels('fire')}`,
-      [TUTORIAL_STATES.deployEcho]: `Deploy Echo: ${labels('deployEcho')}`,
+      [TUTORIAL_STATES.recordPath]: `Move through markers while holding ${labels('fire')} · The memory locks only when the final 3.5s contain four shots`,
+      [TUTORIAL_STATES.deployEcho]: `Deploy Echo: ${labels('deployEcho')} · Re-record: R`,
       [TUTORIAL_STATES.enterSignalGate]: 'Move into the open signal gate.',
     };
     return hints[state] ?? '';
   }
 
   #showStatus(message, success) {
-    this.hintText.setColor(success ? '#72f1b8' : '#ffd166').setText(message);
-    const timer = this.time.delayedCall(2200, () => this.hintText.setColor(PALETTE.mutedText));
-    this.cleanup.trackTimer(timer);
+    this.tutorialStatusMessage = message;
+    this.tutorialStatusColor = success ? '#72f1b8' : '#ffd166';
+    this.tutorialStatusUntilMs = this.simulationTimeMs + 2600;
+    this.hintText.setColor(this.tutorialStatusColor).setText(message);
   }
 
   #pause(source) {
