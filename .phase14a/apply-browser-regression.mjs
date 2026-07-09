@@ -66,7 +66,7 @@ await replaceExactlyOnce(
   await sleep(180);
   const failedDeployState = await page.evaluate(() => globalThis.__ECHOFRAME_PHASE10_TUTORIAL__.snapshot());
   checks.failedEchoDeployStaysLessonFive = failedDeployState.state === 'DEPLOY_ECHO'
-    && failedDeployState.recordingLockState !== 'recording';
+    && failedDeployState.hasLockedReplay === false;
 
   const preparedEcho = await page.evaluate(() => globalThis.__ECHOFRAME_PHASE10_TUTORIAL__.prepareLockedEcho());
   await sleep(4000);
