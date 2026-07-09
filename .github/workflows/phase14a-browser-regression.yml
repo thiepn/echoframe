@@ -36,6 +36,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          echo "Applying trusted Space-input tutorial regression coverage."
           git apply --check .phase14a/tutorial-browser-regression.patch
           git apply .phase14a/tutorial-browser-regression.patch
           node --check src/scenes/TutorialScene.js
