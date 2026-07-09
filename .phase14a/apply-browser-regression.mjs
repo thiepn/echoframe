@@ -33,6 +33,7 @@ await replaceExactlyOnce(
         this.player.setPosition(TUTORIAL_ARENA.shieldTarget.x + 230, TUTORIAL_ARENA.shieldTarget.y);
         this.simulationTimeMs = Math.max(this.simulationTimeMs, 6000);
         const snapshot = this.playerController.getSnapshot();
+        this.echoRecorder.setEnabled(true);
         this.echoRecorder.forceReady(snapshot, this.simulationTimeMs);
         for (let index = 0; index < 4; index += 1) this.services.eventBus.emit('weapon:fired', { direction: { x: -1, y: 0 }, projectileMetadata: { damage: 1, speed: 850, lifetimeMs: 1200, radius: 4, critical: false }, weaponEventId: \`tutorial-debug-\${index}\` });
         const descriptor = this.echoRecorder.createReplayDescriptor(this.simulationTimeMs, createEchoLoadoutSnapshot({ ...this.weaponSystem.getEchoLoadoutSource(), echoDamageScalar: 1 }));
