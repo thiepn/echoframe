@@ -1,0 +1,73 @@
+name: Phase 14A Fix Recording Bar Geometry
+
+on:
+  push:
+    branches:
+      - fix/v1.0.1-tutorial-repair
+    paths:
+      - .github/workflows/phase14a-fix-recording-bar.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fix-and-validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/v1.0.1-tutorial-repair
+          fetch-depth: 0
+          persist-credentials: true
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Correct recording progress geometry
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+
+          scene_path = Path('src/scenes/TutorialScene.js')
+          scene = scene_path.read_text()
+          old_create = "this.recordingFill = this.add.rectangle(DESIGN_WIDTH / 2 - 320, DESIGN_HEIGHT - 70, 0, 10, PALETTE.echoViolet, 0.9).setOrigin(0, 0.5).setDepth(102).setVisible(false);"
+          new_create = "this.recordingFill = this.add.rectangle(DESIGN_WIDTH / 2 - 320, DESIGN_HEIGHT - 70, 520, 10, PALETTE.echoViolet, 0.9).setOrigin(0, 0.5).setScale(0, 1).setDepth(102).setVisible(false);"
+          old_update = "this.recordingFill.displayWidth = 520 * progress;"
+          new_update = "this.recordingFill.setScale(progress, 1);"
+          assert scene.count(old_create) == 1, scene.count(old_create)
+          assert scene.count(old_update) == 1, scene.count(old_update)
+          scene_path.write_text(scene.replace(old_create, new_create).replace(old_update, new_update))
+
+          test_path = Path('tests/tutorialRecordingLock.test.js')
+          tests = test_path.read_text()
+          old_assert = "  assert.match(source, /MEMORY LOCKED/);\n});"
+          new_assert = "  assert.match(source, /MEMORY LOCKED/);\n  assert.match(source, /this\\.recordingFill\\.setScale\\(progress, 1\\)/);\n  assert.doesNotMatch(source, /this\\.recordingFill\\.displayWidth/);\n});"
+          assert tests.count(old_assert) == 1, tests.count(old_assert)
+          test_path.write_text(tests.replace(old_assert, new_assert))
+          PY
+          node --check src/scenes/TutorialScene.js
+          node --check tests/tutorialRecordingLock.test.js
+
+      - name: Install and validate
+        run: |
+          npm ci --no-audit --no-fund --prefer-offline
+          npm run lint
+          npm run test
+          npm run build
+
+      - name: Commit validated geometry fix
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/scenes/TutorialScene.js tests/tutorialRecordingLock.test.js
+          git diff --cached --check
+          git commit -m "Fix tutorial Echo memory progress geometry"
+          git push origin HEAD:fix/v1.0.1-tutorial-repair
