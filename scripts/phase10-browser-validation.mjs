@@ -149,8 +149,27 @@ try {
   if (!checks.realPointerFireAccepted) await page.evaluate(() => globalThis.__ECHOFRAME_PHASE10_TUTORIAL__.advanceTo('DASH_GATE'));
 
   await page.evaluate(() => globalThis.__ECHOFRAME_PHASE10_TUTORIAL__.advanceTo('DEPLOY_ECHO'));
-  const echoVisual = await page.evaluate(() => globalThis.__ECHOFRAME_PHASE10_TUTORIAL__.forceEchoVisual());
-  checks.productionEchoDeployed = echoVisual.deployed && echoVisual.fireEvents >= 4;
+  await page.keyboard.press('Space');
+  await sleep(180);
+  const failedDeployState = await page.evaluate(() => globalThis.__ECHOFRAME_PHASE10_TUTORIAL__.snapshot());
+  checks.failedEchoDeployStaysLessonFive = failedDeployState.state === 'DEPLOY_ECHO'
+    && failedDeployState.hasLockedReplay === false;
+
+  const preparedEcho = await page.evaluate(() => globalThis.__ECHOFRAME_PHASE10_TUTORIAL__.prepareLockedEcho());
+  await sleep(4000);
+  const lockedAfterDelay = await page.evaluate(() => globalThis.__ECHOFRAME_PHASE10_TUTORIAL__.snapshot());
+  checks.lockedEchoSurvivesLessonDelay = preparedEcho.locked
+    && preparedEcho.fireEvents >= 4
+    && lockedAfterDelay.state === 'DEPLOY_ECHO'
+    && lockedAfterDelay.recordingLockState === 'locked'
+    && lockedAfterDelay.hasLockedReplay === true;
+
+  await page.keyboard.press('Space');
+  await waitUntil(page, () => globalThis.__ECHOFRAME_PHASE10_TUTORIAL__?.snapshot().recordingLockState === 'deployed');
+  const deployedEcho = await page.evaluate(() => globalThis.__ECHOFRAME_PHASE10_TUTORIAL__.snapshot());
+  checks.productionEchoDeployed = deployedEcho.state === 'DEPLOY_ECHO'
+    && deployedEcho.recordingLockState === 'deployed'
+    && deployedEcho.hasLockedReplay === false;
   await sleep(250); await capture(page, 'ECHOFRAME_phase10_tutorial_echo.png');
   await page.evaluate(() => globalThis.__ECHOFRAME_PHASE10_TUTORIAL__.forceEchoSuccess());
   await page.evaluate(() => globalThis.__ECHOFRAME_PHASE10_TUTORIAL__.complete());
