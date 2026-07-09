@@ -1,0 +1,262 @@
+
+--- FINAL LOG TAIL ---
+2026-07-09T18:54:16.9775093Z   type: 'test'
+2026-07-09T18:54:16.9791235Z   ...
+2026-07-09T18:54:16.9792252Z # Subtest: invalid arrays are replaced and valid arrays are de-duplicated
+2026-07-09T18:54:16.9793079Z ok 1310 - invalid arrays are replaced and valid arrays are de-duplicated
+2026-07-09T18:54:16.9793550Z   ---
+2026-07-09T18:54:16.9793976Z   duration_ms: 0.69283
+2026-07-09T18:54:16.9794612Z   type: 'test'
+2026-07-09T18:54:16.9795057Z   ...
+2026-07-09T18:54:16.9795611Z # Subtest: unsupported schema is reported
+2026-07-09T18:54:16.9796176Z ok 1311 - unsupported schema is reported
+2026-07-09T18:54:16.9796573Z   ---
+2026-07-09T18:54:16.9797043Z   duration_ms: 0.651063
+2026-07-09T18:54:16.9797484Z   type: 'test'
+2026-07-09T18:54:16.9797881Z   ...
+2026-07-09T18:54:16.9892263Z # Subtest: rejects duplicate transition tokens
+2026-07-09T18:54:16.9905754Z ok 1312 - rejects duplicate transition tokens
+2026-07-09T18:54:16.9906170Z   ---
+2026-07-09T18:54:16.9906911Z   duration_ms: 1.356316
+2026-07-09T18:54:16.9907364Z   type: 'test'
+2026-07-09T18:54:16.9907746Z   ...
+2026-07-09T18:54:16.9908427Z # Subtest: locks input until a deferred transition completes
+2026-07-09T18:54:16.9909094Z ok 1313 - locks input until a deferred transition completes
+2026-07-09T18:54:16.9909476Z   ---
+2026-07-09T18:54:16.9909888Z   duration_ms: 0.301312
+2026-07-09T18:54:16.9910253Z   type: 'test'
+2026-07-09T18:54:16.9910588Z   ...
+2026-07-09T18:54:16.9911176Z # Subtest: preserves overlay and replacement descriptors
+2026-07-09T18:54:16.9911734Z ok 1314 - preserves overlay and replacement descriptors
+2026-07-09T18:54:16.9912063Z   ---
+2026-07-09T18:54:16.9912394Z   duration_ms: 1.743817
+2026-07-09T18:54:16.9912724Z   type: 'test'
+2026-07-09T18:54:16.9913030Z   ...
+2026-07-09T18:54:16.9913610Z # Subtest: close-overlay descriptor carries resume targets
+2026-07-09T18:54:16.9914170Z ok 1315 - close-overlay descriptor carries resume targets
+2026-07-09T18:54:16.9914773Z   ---
+2026-07-09T18:54:16.9915173Z   duration_ms: 0.248102
+2026-07-09T18:54:16.9915525Z   type: 'test'
+2026-07-09T18:54:16.9915849Z   ...
+2026-07-09T18:54:16.9964155Z # Subtest: SnapshotRingBuffer starts empty and appends in order
+2026-07-09T18:54:16.9972114Z ok 1316 - SnapshotRingBuffer starts empty and appends in order
+2026-07-09T18:54:16.9972674Z   ---
+2026-07-09T18:54:16.9973114Z   duration_ms: 1.450821
+2026-07-09T18:54:16.9973506Z   type: 'test'
+2026-07-09T18:54:16.9973867Z   ...
+2026-07-09T18:54:16.9974857Z # Subtest: SnapshotRingBuffer wraps while preserving logical order
+2026-07-09T18:54:16.9976050Z ok 1317 - SnapshotRingBuffer wraps while preserving logical order
+2026-07-09T18:54:16.9976448Z   ---
+2026-07-09T18:54:16.9976839Z   duration_ms: 1.037612
+2026-07-09T18:54:16.9977217Z   type: 'test'
+2026-07-09T18:54:16.9977578Z   ...
+2026-07-09T18:54:16.9985223Z # Subtest: SnapshotRingBuffer finds surrounding samples and handles boundaries
+2026-07-09T18:54:16.9987744Z ok 1318 - SnapshotRingBuffer finds surrounding samples and handles boundaries
+2026-07-09T18:54:16.9988086Z   ---
+2026-07-09T18:54:16.9988422Z   duration_ms: 0.498959
+2026-07-09T18:54:16.9988759Z   type: 'test'
+2026-07-09T18:54:16.9989100Z   ...
+2026-07-09T18:54:16.9995093Z # Subtest: SnapshotRingBuffer handles one sample, duplicate timestamps, range extraction, and clear
+2026-07-09T18:54:16.9997256Z ok 1319 - SnapshotRingBuffer handles one sample, duplicate timestamps, range extraction, and clear
+2026-07-09T18:54:16.9997905Z   ---
+2026-07-09T18:54:16.9998260Z   duration_ms: 0.507846
+2026-07-09T18:54:16.9998594Z   type: 'test'
+2026-07-09T18:54:16.9998909Z   ...
+2026-07-09T18:54:17.0562720Z # Subtest: loads a valid primary save
+2026-07-09T18:54:17.0580346Z ok 1320 - loads a valid primary save
+2026-07-09T18:54:17.0580858Z   ---
+2026-07-09T18:54:17.0581288Z   duration_ms: 3.868202
+2026-07-09T18:54:17.0581682Z   type: 'test'
+2026-07-09T18:54:17.0582070Z   ...
+2026-07-09T18:54:17.0582709Z # Subtest: recovers from corrupt primary using backup
+2026-07-09T18:54:17.0583378Z ok 1321 - recovers from corrupt primary using backup
+2026-07-09T18:54:17.0583862Z   ---
+2026-07-09T18:54:17.0584267Z   duration_ms: 1.127529
+2026-07-09T18:54:17.0584935Z   type: 'test'
+2026-07-09T18:54:17.0585320Z   ...
+2026-07-09T18:54:17.0586057Z # Subtest: falls back to defaults when primary and backup are corrupt
+2026-07-09T18:54:17.0586790Z ok 1322 - falls back to defaults when primary and backup are corrupt
+2026-07-09T18:54:17.0587447Z   ---
+2026-07-09T18:54:17.0587852Z   duration_ms: 0.606981
+2026-07-09T18:54:17.0588251Z   type: 'test'
+2026-07-09T18:54:17.0588615Z   ...
+2026-07-09T18:54:17.0589344Z # Subtest: backs up the previous valid primary before overwrite
+2026-07-09T18:54:17.0590048Z ok 1323 - backs up the previous valid primary before overwrite
+2026-07-09T18:54:17.0590447Z   ---
+2026-07-09T18:54:17.0590848Z   duration_ms: 1.402492
+2026-07-09T18:54:17.0591236Z   type: 'test'
+2026-07-09T18:54:17.0591600Z   ...
+2026-07-09T18:54:17.0592268Z # Subtest: recent run history is capped at fifty records
+2026-07-09T18:54:17.0593359Z ok 1324 - recent run history is capped at fifty records
+2026-07-09T18:54:17.0593794Z   ---
+2026-07-09T18:54:17.0594203Z   duration_ms: 3.162028
+2026-07-09T18:54:17.0594859Z   type: 'test'
+2026-07-09T18:54:17.0595230Z   ...
+2026-07-09T18:54:17.0599277Z # Subtest: SaveManager skips writes when an update makes no meaningful change
+2026-07-09T18:54:17.0602053Z ok 1325 - SaveManager skips writes when an update makes no meaningful change
+2026-07-09T18:54:17.0602537Z   ---
+2026-07-09T18:54:17.0602953Z   duration_ms: 0.724138
+2026-07-09T18:54:17.0603300Z   type: 'test'
+2026-07-09T18:54:17.0603611Z   ...
+2026-07-09T18:54:17.0683790Z # Subtest: tutorial recording qualification uses the actual replay window
+2026-07-09T18:54:17.0684857Z ok 1326 - tutorial recording qualification uses the actual replay window
+2026-07-09T18:54:17.0685251Z   ---
+2026-07-09T18:54:17.0685602Z   duration_ms: 9.459995
+2026-07-09T18:54:17.0685949Z   type: 'test'
+2026-07-09T18:54:17.0686318Z   ...
+2026-07-09T18:54:17.0687107Z # Subtest: shots outside the rolling replay window cannot advance lesson 4
+2026-07-09T18:54:17.0687853Z ok 1327 - shots outside the rolling replay window cannot advance lesson 4
+2026-07-09T18:54:17.0688249Z   ---
+2026-07-09T18:54:17.0698307Z   duration_ms: 3.478026
+2026-07-09T18:54:17.0698747Z   type: 'test'
+2026-07-09T18:54:17.0698990Z   ...
+2026-07-09T18:54:17.0699480Z # Subtest: locked tutorial replay remains stable while lesson 5 waits
+2026-07-09T18:54:17.0699901Z ok 1328 - locked tutorial replay remains stable while lesson 5 waits
+2026-07-09T18:54:17.0700120Z   ---
+2026-07-09T18:54:17.0700351Z   duration_ms: 3.558316
+2026-07-09T18:54:17.0700575Z   type: 'test'
+2026-07-09T18:54:17.0700785Z   ...
+2026-07-09T18:54:17.0701223Z # Subtest: completed replay data does not bypass an incomplete marker path
+2026-07-09T18:54:17.0701655Z ok 1329 - completed replay data does not bypass an incomplete marker path
+2026-07-09T18:54:17.0701860Z   ---
+2026-07-09T18:54:17.0702078Z   duration_ms: 3.2654
+2026-07-09T18:54:17.0702300Z   type: 'test'
+2026-07-09T18:54:17.0702502Z   ...
+2026-07-09T18:54:17.0703003Z # Subtest: tutorial scene keeps failed deploys on lesson 5 and exposes explicit re-recording
+2026-07-09T18:54:17.0703485Z ok 1330 - tutorial scene keeps failed deploys on lesson 5 and exposes explicit re-recording
+2026-07-09T18:54:17.0703692Z   ---
+2026-07-09T18:54:17.0704153Z   duration_ms: 0.815539
+2026-07-09T18:54:17.0705001Z   type: 'test'
+2026-07-09T18:54:17.0705348Z   ...
+2026-07-09T18:54:17.0820886Z # Subtest: first held update fires immediately
+2026-07-09T18:54:17.0821349Z ok 1331 - first held update fires immediately
+2026-07-09T18:54:17.0821503Z   ---
+2026-07-09T18:54:17.0821622Z   duration_ms: 1.433159
+2026-07-09T18:54:17.0821729Z   type: 'test'
+2026-07-09T18:54:17.0821903Z   ...
+2026-07-09T18:54:17.0822261Z # Subtest: held fire respects interval
+2026-07-09T18:54:17.0822603Z ok 1332 - held fire respects interval
+2026-07-09T18:54:17.0822765Z   ---
+2026-07-09T18:54:17.0822880Z   duration_ms: 0.265725
+2026-07-09T18:54:17.0822997Z   type: 'test'
+2026-07-09T18:54:17.0823092Z   ...
+2026-07-09T18:54:17.0823319Z # Subtest: dash or transition rejection does not fire
+2026-07-09T18:54:17.0823551Z ok 1333 - dash or transition rejection does not fire
+2026-07-09T18:54:17.0823644Z   ---
+2026-07-09T18:54:17.0823754Z   duration_ms: 0.293256
+2026-07-09T18:54:17.0823856Z   type: 'test'
+2026-07-09T18:54:17.0823951Z   ...
+2026-07-09T18:54:17.0824218Z # Subtest: release and fresh press fires without phantom queue
+2026-07-09T18:54:17.0824712Z ok 1334 - release and fresh press fires without phantom queue
+2026-07-09T18:54:17.0824810Z   ---
+2026-07-09T18:54:17.0824919Z   duration_ms: 0.297063
+2026-07-09T18:54:17.0825018Z   type: 'test'
+2026-07-09T18:54:17.0825107Z   ...
+2026-07-09T18:54:17.0825201Z 1..1334
+2026-07-09T18:54:17.0825302Z # tests 1334
+2026-07-09T18:54:17.0825398Z # suites 0
+2026-07-09T18:54:17.0825497Z # pass 1334
+2026-07-09T18:54:17.0825590Z # fail 0
+2026-07-09T18:54:17.0825691Z # cancelled 0
+2026-07-09T18:54:17.0825788Z # skipped 0
+2026-07-09T18:54:17.0826112Z # todo 0
+2026-07-09T18:54:17.0826248Z # duration_ms 2352.180856
+2026-07-09T18:54:17.1971036Z 
+2026-07-09T18:54:17.1971594Z > echoframe@1.0.0 build
+2026-07-09T18:54:17.1971807Z > vite build
+2026-07-09T18:54:17.1971825Z 
+2026-07-09T18:54:17.3806656Z [36mvite v8.1.3 [32mbuilding client environment for production...[36m[39m
+2026-07-09T18:54:17.3914919Z [2K
+2026-07-09T18:54:17.6899436Z transforming...✓ 306 modules transformed.
+2026-07-09T18:54:17.9329694Z rendering chunks...
+2026-07-09T18:54:18.1453573Z computing gzip size...
+2026-07-09T18:54:18.1703883Z dist/index.html                     1.23 kB │ gzip:   0.63 kB
+2026-07-09T18:54:18.1705015Z dist/assets/index-CDIjTugi.css      1.92 kB │ gzip:   0.86 kB
+2026-07-09T18:54:18.1705622Z dist/assets/index-CEBd1vVp.js   1,805.86 kB │ gzip: 476.81 kB
+2026-07-09T18:54:18.1705899Z 
+2026-07-09T18:54:18.1708286Z [32m✓ built in 789ms[39m
+2026-07-09T18:54:18.1715083Z [33m[plugin builtin:vite-reporter] 
+2026-07-09T18:54:18.1716422Z (!) Some chunks are larger than 1500 kB after minification. Consider:
+2026-07-09T18:54:18.1717496Z - Using dynamic import() to code-split the application
+2026-07-09T18:54:18.1718923Z - Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+2026-07-09T18:54:18.1720579Z - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+2026-07-09T18:54:30.2331395Z {
+2026-07-09T18:54:30.2332114Z   "source": {
+2026-07-09T18:54:30.2332813Z     "passed": true,
+2026-07-09T18:54:30.2333698Z     "sha256": "3973d5ef8c09a4b32f344710a839f447f985e8a100a33c90ae1aeca573d672ce",
+2026-07-09T18:54:30.2334912Z     "forbiddenSourceEntries": []
+2026-07-09T18:54:30.2335553Z   },
+2026-07-09T18:54:30.2336020Z   "web": {
+2026-07-09T18:54:30.2336525Z     "passed": true,
+2026-07-09T18:54:30.2337376Z     "sha256": "5c9565175e23396c69ddac4f153beec036de1222b462c75b807421304829c2f7",
+2026-07-09T18:54:30.2338614Z     "bundleDigest": "98c2d3dc9bf9c9e0e59f0928ab8ce47e885ff0e2a4d4f093245fa2dd334bce0a"
+2026-07-09T18:54:30.2339539Z   }
+2026-07-09T18:54:30.2340002Z }
+2026-07-09T18:54:30.2567544Z ##[group]Run rm -rf /tmp/phase13-final-output
+2026-07-09T18:54:30.2567978Z [36;1mrm -rf /tmp/phase13-final-output[0m
+2026-07-09T18:54:30.2568501Z [36;1mmkdir -p /tmp/phase13-final-output/docs/screenshots /tmp/phase13-final-output/release[0m
+2026-07-09T18:54:30.2569320Z [36;1mcp -f docs/PHASE13_* /tmp/phase13-final-output/docs/ 2>/dev/null || true[0m
+2026-07-09T18:54:30.2569986Z [36;1mcp -f docs/screenshots/ECHOFRAME_v1_*.png /tmp/phase13-final-output/docs/screenshots/ 2>/dev/null || true[0m
+2026-07-09T18:54:30.2570591Z [36;1mcp -f release/* /tmp/phase13-final-output/release/[0m
+2026-07-09T18:54:30.2602788Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-07-09T18:54:30.2603168Z env:
+2026-07-09T18:54:30.2603477Z   PHASE13_SOURCE_COMMIT: 7706501f1745ab2d3a2cdde479d9f4c06ce34b55
+2026-07-09T18:54:30.2604040Z   CHROMIUM_EXECUTABLE: /home/runner/.cache/ms-playwright/chromium-1228/chrome-linux64/chrome
+2026-07-09T18:54:30.2604985Z   FIREFOX_EXECUTABLE: /home/runner/.cache/ms-playwright/firefox-1532/firefox/firefox
+2026-07-09T18:54:30.2605429Z ##[endgroup]
+2026-07-09T18:54:30.2802575Z ##[group]Run git fetch origin release/v1.0.0-certification
+2026-07-09T18:54:30.2803062Z [36;1mgit fetch origin release/v1.0.0-certification[0m
+2026-07-09T18:54:30.2803614Z [36;1mgit checkout -B release/v1.0.0-certification origin/release/v1.0.0-certification[0m
+2026-07-09T18:54:30.2804134Z [36;1mmkdir -p docs/screenshots release[0m
+2026-07-09T18:54:30.2805045Z [36;1mcp -f /tmp/phase13-final-output/docs/PHASE13_* docs/ 2>/dev/null || true[0m
+2026-07-09T18:54:30.2805964Z [36;1mcp -f /tmp/phase13-final-output/docs/screenshots/* docs/screenshots/ 2>/dev/null || true[0m
+2026-07-09T18:54:30.2806518Z [36;1mcp -f /tmp/phase13-final-output/release/* release/[0m
+2026-07-09T18:54:30.2806910Z [36;1mgit config user.name "github-actions[bot]"[0m
+2026-07-09T18:54:30.2807379Z [36;1mgit config user.email "41898282+github-actions[bot]@users.noreply.github.com"[0m
+2026-07-09T18:54:30.2807928Z [36;1mgit add docs/PHASE13_* docs/screenshots/ECHOFRAME_v1_* release/[0m
+2026-07-09T18:54:30.2808441Z [36;1mgit commit -m "Record final Version 1.0 certification evidence"[0m
+2026-07-09T18:54:30.2808885Z [36;1mgit push origin HEAD:release/v1.0.0-certification[0m
+2026-07-09T18:54:30.2839132Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-07-09T18:54:30.2839503Z env:
+2026-07-09T18:54:30.2839854Z   PHASE13_SOURCE_COMMIT: 7706501f1745ab2d3a2cdde479d9f4c06ce34b55
+2026-07-09T18:54:30.2840415Z   CHROMIUM_EXECUTABLE: /home/runner/.cache/ms-playwright/chromium-1228/chrome-linux64/chrome
+2026-07-09T18:54:30.2841027Z   FIREFOX_EXECUTABLE: /home/runner/.cache/ms-playwright/firefox-1532/firefox/firefox
+2026-07-09T18:54:30.2841454Z ##[endgroup]
+2026-07-09T18:54:30.4224067Z From https://github.com/thiepn/echoframe
+2026-07-09T18:54:30.4225106Z  * branch            release/v1.0.0-certification -> FETCH_HEAD
+2026-07-09T18:54:30.4685730Z error: Your local changes to the following files would be overwritten by checkout:
+2026-07-09T18:54:30.4686634Z 	docs/PHASE10_CORE_VALIDATION.json
+2026-07-09T18:54:30.4687247Z 	docs/PHASE13_PACKAGE_BUILD.json
+2026-07-09T18:54:30.4687845Z 	docs/PHASE13_RELEASE_CHECKLIST.md
+2026-07-09T18:54:30.4688446Z 	docs/PHASE13_SOURCE_ARCHIVE_VALIDATION.json
+2026-07-09T18:54:30.4688920Z 	docs/PHASE13_WEB_ARCHIVE_VALIDATION.json
+2026-07-09T18:54:30.4689313Z 	docs/screenshots/ECHOFRAME_v1_combat_firefox.png
+2026-07-09T18:54:30.4689734Z 	docs/screenshots/ECHOFRAME_v1_controls_firefox.png
+2026-07-09T18:54:30.4690129Z 	docs/screenshots/ECHOFRAME_v1_credits.png
+2026-07-09T18:54:30.4690554Z 	docs/screenshots/ECHOFRAME_v1_main_menu_chromium.png
+2026-07-09T18:54:30.4691004Z 	docs/screenshots/ECHOFRAME_v1_main_menu_firefox.png
+2026-07-09T18:54:30.4691435Z 	docs/screenshots/ECHOFRAME_v1_tutorial_firefox.png
+2026-07-09T18:54:30.4691834Z 	release/ECHOFRAME_v1.0.0_RELEASE_MANIFEST.json
+2026-07-09T18:54:30.4692211Z 	release/ECHOFRAME_v1.0.0_SHA256SUMS.txt
+2026-07-09T18:54:30.4692572Z 	release/ECHOFRAME_v1.0.0_final_source.zip
+2026-07-09T18:54:30.4692919Z 	release/ECHOFRAME_v1.0.0_web.zip
+2026-07-09T18:54:30.4693407Z Please commit your changes or stash them before you switch branches.
+2026-07-09T18:54:30.4693804Z Aborting
+2026-07-09T18:54:30.4707938Z ##[error]Process completed with exit code 1.
+2026-07-09T18:54:30.4823535Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-07-09T18:54:30.4825155Z Post job cleanup.
+2026-07-09T18:54:30.5640436Z [command]/usr/bin/git version
+2026-07-09T18:54:30.5683598Z git version 2.54.0
+2026-07-09T18:54:30.5758015Z Temporarily overriding HOME='/home/runner/work/_temp/5c2e8308-49ba-46b1-ad2a-4dba59d351f6' before making global git config changes
+2026-07-09T18:54:30.5759627Z Adding repository directory to the temporary git global config as a safe directory
+2026-07-09T18:54:30.5762958Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/echoframe/echoframe
+2026-07-09T18:54:30.5800576Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-07-09T18:54:30.5841656Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-07-09T18:54:30.6093748Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-07-09T18:54:30.6121776Z http.https://github.com/.extraheader
+2026-07-09T18:54:30.6133968Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-07-09T18:54:30.6169079Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-07-09T18:54:30.6430914Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-07-09T18:54:30.6470716Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-07-09T18:54:30.6870301Z Cleaning up orphan processes
+2026-07-09T18:54:30.7235154Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/download-artifact@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
