@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-07-08T14:29:33.275Z",
+  "generatedAt": "2026-07-10T02:05:53.421Z",
   "phase": 13,
   "packageVersion": "1.0.0",
   "runtimeVersion": "1.0.0",
-  "sourceCommit": "bee4e6be76484fc5edef1bfa7cf7ddaf2660bc6d",
-  "sourceManifestDigest": "aa6a12f481ed233b01ee8ff397883b924706ca3bd004f4a7b9b8464750de842e",
-  "sourceFileCount": 513,
-  "productionBundleDigest": "af68188658e34fe2209090828236bc8f75cd69a847df202c846d75ebc9a700bb",
+  "sourceCommit": "ab2585027c16ad9e58e4f816659244d3155f0d60",
+  "sourceManifestDigest": "d46d0eba1eaed15994ae04d56e160a6e92e7ec2fa69b7ca7c39bdc99567b343b",
+  "sourceFileCount": 514,
+  "productionBundleDigest": "64e3f835133f6d069a7530e0280401e36e23b6651387081461e045873f8492b9",
   "tests": {
-    "total": 1329,
+    "total": 1334,
     "retainedThroughPhase12": 1319,
-    "phase13": 10,
+    "phase13": 15,
     "passed": true,
     "source": "PHASE10_CORE_VALIDATION.json"
   },
@@ -30,14 +30,14 @@
   },
   "workflow": {
     "repository": "thiepn/echoframe",
-    "runId": "28948294260",
-    "runNumber": "48",
+    "runId": "29062661839",
+    "runNumber": "66",
     "runAttempt": "1",
-    "sourceCommit": "bee4e6be76484fc5edef1bfa7cf7ddaf2660bc6d",
-    "url": "https://github.com/thiepn/echoframe/actions/runs/28948294260"
+    "sourceCommit": "ab2585027c16ad9e58e4f816659244d3155f0d60",
+    "url": "https://github.com/thiepn/echoframe/actions/runs/29062661839"
   },
   "report": {
-    "generatedAt": "2026-07-08T14:04:15.389Z",
+    "generatedAt": "2026-07-10T01:41:14.251Z",
     "checks": {
       "noAnalytics": true,
       "noRemoteTelemetry": true,
@@ -59,7 +59,7 @@
     "scope": "Phase 12 security audit",
     "packageVersion": "1.0.0",
     "runtimeVersion": "1.0.0",
-    "sourceManifestDigest": "aa6a12f481ed233b01ee8ff397883b924706ca3bd004f4a7b9b8464750de842e",
+    "sourceManifestDigest": "d46d0eba1eaed15994ae04d56e160a6e92e7ec2fa69b7ca7c39bdc99567b343b",
     "commandError": null
   },
   "passed": true

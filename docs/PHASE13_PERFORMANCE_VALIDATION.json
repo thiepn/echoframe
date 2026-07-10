@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-07-08T14:29:33.275Z",
+  "generatedAt": "2026-07-10T02:05:53.421Z",
   "phase": 13,
   "packageVersion": "1.0.0",
   "runtimeVersion": "1.0.0",
-  "sourceCommit": "bee4e6be76484fc5edef1bfa7cf7ddaf2660bc6d",
-  "sourceManifestDigest": "aa6a12f481ed233b01ee8ff397883b924706ca3bd004f4a7b9b8464750de842e",
-  "sourceFileCount": 513,
-  "productionBundleDigest": "af68188658e34fe2209090828236bc8f75cd69a847df202c846d75ebc9a700bb",
+  "sourceCommit": "ab2585027c16ad9e58e4f816659244d3155f0d60",
+  "sourceManifestDigest": "d46d0eba1eaed15994ae04d56e160a6e92e7ec2fa69b7ca7c39bdc99567b343b",
+  "sourceFileCount": 514,
+  "productionBundleDigest": "64e3f835133f6d069a7530e0280401e36e23b6651387081461e045873f8492b9",
   "tests": {
-    "total": 1329,
+    "total": 1334,
     "retainedThroughPhase12": 1319,
-    "phase13": 10,
+    "phase13": 15,
     "passed": true,
     "source": "PHASE10_CORE_VALIDATION.json"
   },
@@ -30,52 +30,52 @@
   },
   "workflow": {
     "repository": "thiepn/echoframe",
-    "runId": "28948294260",
-    "runNumber": "48",
+    "runId": "29062661839",
+    "runNumber": "66",
     "runAttempt": "1",
-    "sourceCommit": "bee4e6be76484fc5edef1bfa7cf7ddaf2660bc6d",
-    "url": "https://github.com/thiepn/echoframe/actions/runs/28948294260"
+    "sourceCommit": "ab2585027c16ad9e58e4f816659244d3155f0d60",
+    "url": "https://github.com/thiepn/echoframe/actions/runs/29062661839"
   },
   "chromium": {
-    "generatedAt": "2026-07-08T14:08:07.815Z",
+    "generatedAt": "2026-07-10T01:45:08.649Z",
     "measurementBuild": "validation instrumentation over release-candidate gameplay code; production bundle measured separately",
     "startup": {
-      "bootToMenuMs": 3239.447924,
-      "firstTutorialStartupMs": 639.1804520000005,
-      "repeatTutorialStartupMs": 753.5472799999989,
-      "settingsStartupMs": 754.6522970000005,
-      "bindingContextRebuildAverageMs": 0.06429999999993015,
-      "archiveStartupMs": 864.9222249999984,
-      "statisticsStartupMs": 875.4297119999974,
-      "combatOneStartupMs": 1761.7273449999993,
-      "bossStartupMs": 2253.3763680000047,
-      "resultsStartupMs": 791.275416000004,
+      "bootToMenuMs": 3914.9445540000015,
+      "firstTutorialStartupMs": 625.7755919999981,
+      "repeatTutorialStartupMs": 615.6031669999975,
+      "settingsStartupMs": 618.1064360000018,
+      "bindingContextRebuildAverageMs": 0.04370000000006985,
+      "archiveStartupMs": 728.3886549999988,
+      "statisticsStartupMs": 856.0576529999998,
+      "combatOneStartupMs": 1811.7474120000006,
+      "bossStartupMs": 2300.399891000001,
+      "resultsStartupMs": 789.0636200000008,
       "saveSerializationBytesBrowser": 5893,
-      "saveMigrationAverageMs": 0.06685338040000002
+      "saveMigrationAverageMs": 0.06823271360000008
     },
     "microbenchmarks": {
       "bindingNormalization": {
         "iterations": 25000,
-        "totalMs": 167.1871259999998,
-        "averageMicroseconds": 6.687485039999992,
+        "totalMs": 176.35480400000006,
+        "averageMicroseconds": 7.054192160000002,
         "lastValueType": "object"
       },
       "legacyBindingMigration": {
         "iterations": 10000,
-        "totalMs": 230.74412400000028,
-        "averageMicroseconds": 23.07441240000003,
+        "totalMs": 231.03113200000007,
+        "averageMicroseconds": 23.103113200000006,
         "lastValueType": "object"
       },
       "saveNormalization": {
         "iterations": 5000,
-        "totalMs": 218.89483999999993,
-        "averageMicroseconds": 43.778967999999985,
+        "totalMs": 225.64800200000036,
+        "averageMicroseconds": 45.12960040000007,
         "lastValueType": "object"
       },
       "saveSerialization": {
         "iterations": 10000,
-        "totalMs": 56.10674400000016,
-        "averageMicroseconds": 5.610674400000017,
+        "totalMs": 58.54061299999967,
+        "averageMicroseconds": 5.854061299999966,
         "lastValueType": "string"
       }
     },
@@ -88,9 +88,9 @@
           "gzipBytes": 869
         },
         {
-          "filename": "assets/index-D_2YJ4FU.js",
-          "bytes": 1799495,
-          "gzipBytes": 472670
+          "filename": "assets/index-CSRyickm.js",
+          "bytes": 1805855,
+          "gzipBytes": 474305
         },
         {
           "filename": "favicon.svg",
@@ -100,7 +100,7 @@
         {
           "filename": "index.html",
           "bytes": 1215,
-          "gzipBytes": 631
+          "gzipBytes": 627
         },
         {
           "filename": "manifest.webmanifest",
@@ -109,21 +109,21 @@
         }
       ],
       "fileCount": 5,
-      "totalDistBytes": 1803473,
-      "totalDistGzipBytes": 474722,
-      "totalJavaScriptBytes": 1799495,
-      "totalJavaScriptGzipBytes": 472670,
+      "totalDistBytes": 1809833,
+      "totalDistGzipBytes": 476353,
+      "totalJavaScriptBytes": 1805855,
+      "totalJavaScriptGzipBytes": 474305,
       "largestAsset": {
-        "filename": "assets/index-D_2YJ4FU.js",
-        "bytes": 1799495,
-        "gzipBytes": 472670
+        "filename": "assets/index-CSRyickm.js",
+        "bytes": 1805855,
+        "gzipBytes": 474305
       },
       "phase9JavaScriptBytes": 1751956,
       "phase9JavaScriptGzipBytes": 460410,
-      "changeBytes": 47539,
-      "gzipChangeBytes": 12260,
-      "changePercent": 2.713481388802002,
-      "gzipChangePercent": 2.662843986881258
+      "changeBytes": 53899,
+      "gzipChangeBytes": 13895,
+      "changePercent": 3.0765042044434905,
+      "gzipChangePercent": 3.017962251037119
     },
     "frames": {
       "tutorial": {
@@ -135,15 +135,15 @@
         },
         "excludesExternalPresentationWait": true,
         "includesGameUpdateAndRenderSubmission": true,
-        "samples": 13,
-        "averageFrameMs": 1.6538461538192888,
-        "minimumFps": 285.7142857142857,
-        "averageFps": 604.6511628005196,
-        "minimumFpsEquivalent": 285.7142857142857,
-        "averageFpsEquivalent": 604.6511628005196,
-        "p95FrameMs": 2.3999999999068677,
-        "p99FrameMs": 2.3999999999068677,
-        "maximumFrameMs": 3.5,
+        "samples": 16,
+        "averageFrameMs": 1.3062500000087311,
+        "minimumFps": 400,
+        "averageFps": 765.5502392293328,
+        "minimumFpsEquivalent": 400,
+        "averageFpsEquivalent": 765.5502392293328,
+        "p95FrameMs": 1.7999999999301508,
+        "p99FrameMs": 1.7999999999301508,
+        "maximumFrameMs": 2.5,
         "framesOver50Ms": 0
       },
       "normalCombat": {
@@ -155,19 +155,19 @@
         },
         "excludesExternalPresentationWait": true,
         "includesGameUpdateAndRenderSubmission": true,
-        "samples": 74,
-        "averageFrameMs": 4.329729729734764,
-        "minimumFps": 12.738853503184714,
-        "averageFps": 230.9612983767602,
-        "minimumFpsEquivalent": 12.738853503184714,
-        "averageFpsEquivalent": 230.9612983767602,
-        "p95FrameMs": 10.800000000046566,
-        "p99FrameMs": 20.79999999993015,
-        "maximumFrameMs": 78.5,
+        "samples": 68,
+        "averageFrameMs": 5.95588235293604,
+        "minimumFps": 7.02740688685645,
+        "averageFps": 167.90123456804602,
+        "minimumFpsEquivalent": 7.02740688685645,
+        "averageFpsEquivalent": 167.90123456804602,
+        "p95FrameMs": 11,
+        "p99FrameMs": 19.70000000006985,
+        "maximumFrameMs": 142.30000000004657,
         "framesOver50Ms": 1
       },
       "spawnStress": {
-        "wallClockMs": 1501.5344990000012,
+        "wallClockMs": 1611.2090810000009,
         "measurementMode": "phaser-main-thread-frame-work",
         "measurementUnit": "milliseconds of browser main-thread game work per Phaser frame",
         "eventNames": {
@@ -177,14 +177,14 @@
         "excludesExternalPresentationWait": true,
         "includesGameUpdateAndRenderSubmission": true,
         "samples": 6,
-        "averageFrameMs": 2.733333333317811,
-        "minimumFps": 322.58064516371314,
-        "averageFps": 365.853658538663,
-        "minimumFpsEquivalent": 322.58064516371314,
-        "averageFpsEquivalent": 365.853658538663,
-        "p95FrameMs": 2.900000000023283,
-        "p99FrameMs": 2.900000000023283,
-        "maximumFrameMs": 3.099999999976717,
+        "averageFrameMs": 3.5666666666511446,
+        "minimumFps": 156.24999999943157,
+        "averageFps": 280.3738317769211,
+        "minimumFpsEquivalent": 156.24999999943157,
+        "averageFpsEquivalent": 280.3738317769211,
+        "p95FrameMs": 5.599999999976717,
+        "p99FrameMs": 5.599999999976717,
+        "maximumFrameMs": 6.400000000023283,
         "framesOver50Ms": 0
       },
       "boss": {
@@ -196,15 +196,15 @@
         },
         "excludesExternalPresentationWait": true,
         "includesGameUpdateAndRenderSubmission": true,
-        "samples": 41,
-        "averageFrameMs": 6.812195121938158,
-        "minimumFps": 70.42253521149854,
-        "averageFps": 146.79556032967636,
-        "minimumFpsEquivalent": 70.42253521149854,
-        "averageFpsEquivalent": 146.79556032967636,
-        "p95FrameMs": 10.5,
-        "p99FrameMs": 12.599999999976717,
-        "maximumFrameMs": 14.199999999953434,
+        "samples": 40,
+        "averageFrameMs": 8.207499999998253,
+        "minimumFps": 67.56756756735497,
+        "averageFps": 121.83978068842069,
+        "minimumFpsEquivalent": 67.56756756735497,
+        "averageFpsEquivalent": 121.83978068842069,
+        "p95FrameMs": 14,
+        "p99FrameMs": 14.400000000023283,
+        "maximumFrameMs": 14.800000000046566,
         "framesOver50Ms": 0
       }
     },
@@ -214,25 +214,25 @@
       "keyObjects": 13,
       "audioContexts": 1
     },
-    "browser": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+    "browser": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/150.0.0.0 Safari/537.36",
     "exceptions": [],
     "consoleErrors": [],
     "consoleWarnings": [
       {
         "type": "warning",
-        "text": "[.WebGL-0xb44000ed400]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+        "text": "[.WebGL-0x161c000f0800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
       },
       {
         "type": "warning",
-        "text": "[.WebGL-0xb44000ed400]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+        "text": "[.WebGL-0x161c000f0800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
       },
       {
         "type": "warning",
-        "text": "[.WebGL-0xb44000ed400]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+        "text": "[.WebGL-0x161c000f0800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
       },
       {
         "type": "warning",
-        "text": "[.WebGL-0xb44000ed400]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)"
+        "text": "[.WebGL-0x161c000f0800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)"
       },
       {
         "type": "warning",
@@ -275,10 +275,10 @@
         "boss": 20
       },
       "sampleCounts": {
-        "tutorial": 13,
-        "normalCombat": 74,
+        "tutorial": 16,
+        "normalCombat": 68,
         "spawnStress": 6,
-        "boss": 41
+        "boss": 40
       },
       "checks": {
         "hostedFrameWorkMeasurement": true,
@@ -305,7 +305,7 @@
       "childSignal": null
     },
     "phase13PerformanceAttempts": {
-      "generatedAt": "2026-07-08T14:08:08.177Z",
+      "generatedAt": "2026-07-10T01:45:09.022Z",
       "phase": 13,
       "scope": "chromium hosted performance execution-mode audit",
       "engine": "chromium",
@@ -337,7 +337,7 @@
             "childSignal": null
           },
           "evidenceFile": "PHASE13_CHROMIUM_PERFORMANCE_ATTEMPT_1.json",
-          "browser": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+          "browser": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/150.0.0.0 Safari/537.36",
           "checks": {
             "bootToMenuBounded": true,
             "tutorialStartupBounded": true,
@@ -368,15 +368,15 @@
               },
               "excludesExternalPresentationWait": true,
               "includesGameUpdateAndRenderSubmission": true,
-              "samples": 13,
-              "averageFrameMs": 1.6538461538192888,
-              "minimumFps": 285.7142857142857,
-              "averageFps": 604.6511628005196,
-              "minimumFpsEquivalent": 285.7142857142857,
-              "averageFpsEquivalent": 604.6511628005196,
-              "p95FrameMs": 2.3999999999068677,
-              "p99FrameMs": 2.3999999999068677,
-              "maximumFrameMs": 3.5,
+              "samples": 16,
+              "averageFrameMs": 1.3062500000087311,
+              "minimumFps": 400,
+              "averageFps": 765.5502392293328,
+              "minimumFpsEquivalent": 400,
+              "averageFpsEquivalent": 765.5502392293328,
+              "p95FrameMs": 1.7999999999301508,
+              "p99FrameMs": 1.7999999999301508,
+              "maximumFrameMs": 2.5,
               "framesOver50Ms": 0
             },
             "normalCombat": {
@@ -388,19 +388,19 @@
               },
               "excludesExternalPresentationWait": true,
               "includesGameUpdateAndRenderSubmission": true,
-              "samples": 74,
-              "averageFrameMs": 4.329729729734764,
-              "minimumFps": 12.738853503184714,
-              "averageFps": 230.9612983767602,
-              "minimumFpsEquivalent": 12.738853503184714,
-              "averageFpsEquivalent": 230.9612983767602,
-              "p95FrameMs": 10.800000000046566,
-              "p99FrameMs": 20.79999999993015,
-              "maximumFrameMs": 78.5,
+              "samples": 68,
+              "averageFrameMs": 5.95588235293604,
+              "minimumFps": 7.02740688685645,
+              "averageFps": 167.90123456804602,
+              "minimumFpsEquivalent": 7.02740688685645,
+              "averageFpsEquivalent": 167.90123456804602,
+              "p95FrameMs": 11,
+              "p99FrameMs": 19.70000000006985,
+              "maximumFrameMs": 142.30000000004657,
               "framesOver50Ms": 1
             },
             "spawnStress": {
-              "wallClockMs": 1501.5344990000012,
+              "wallClockMs": 1611.2090810000009,
               "measurementMode": "phaser-main-thread-frame-work",
               "measurementUnit": "milliseconds of browser main-thread game work per Phaser frame",
               "eventNames": {
@@ -410,14 +410,14 @@
               "excludesExternalPresentationWait": true,
               "includesGameUpdateAndRenderSubmission": true,
               "samples": 6,
-              "averageFrameMs": 2.733333333317811,
-              "minimumFps": 322.58064516371314,
-              "averageFps": 365.853658538663,
-              "minimumFpsEquivalent": 322.58064516371314,
-              "averageFpsEquivalent": 365.853658538663,
-              "p95FrameMs": 2.900000000023283,
-              "p99FrameMs": 2.900000000023283,
-              "maximumFrameMs": 3.099999999976717,
+              "averageFrameMs": 3.5666666666511446,
+              "minimumFps": 156.24999999943157,
+              "averageFps": 280.3738317769211,
+              "minimumFpsEquivalent": 156.24999999943157,
+              "averageFpsEquivalent": 280.3738317769211,
+              "p95FrameMs": 5.599999999976717,
+              "p99FrameMs": 5.599999999976717,
+              "maximumFrameMs": 6.400000000023283,
               "framesOver50Ms": 0
             },
             "boss": {
@@ -429,15 +429,15 @@
               },
               "excludesExternalPresentationWait": true,
               "includesGameUpdateAndRenderSubmission": true,
-              "samples": 41,
-              "averageFrameMs": 6.812195121938158,
-              "minimumFps": 70.42253521149854,
-              "averageFps": 146.79556032967636,
-              "minimumFpsEquivalent": 70.42253521149854,
-              "averageFpsEquivalent": 146.79556032967636,
-              "p95FrameMs": 10.5,
-              "p99FrameMs": 12.599999999976717,
-              "maximumFrameMs": 14.199999999953434,
+              "samples": 40,
+              "averageFrameMs": 8.207499999998253,
+              "minimumFps": 67.56756756735497,
+              "averageFps": 121.83978068842069,
+              "minimumFpsEquivalent": 67.56756756735497,
+              "averageFpsEquivalent": 121.83978068842069,
+              "p95FrameMs": 14,
+              "p99FrameMs": 14.400000000023283,
+              "maximumFrameMs": 14.800000000046566,
               "framesOver50Ms": 0
             }
           }
@@ -448,7 +448,7 @@
       "passed": true
     },
     "phase13BrowserChannelSelection": {
-      "generatedAt": "2026-07-08T14:08:08.184Z",
+      "generatedAt": "2026-07-10T01:45:09.031Z",
       "phase": 13,
       "scope": "Hosted Chromium performance browser-channel selection",
       "policy": {
@@ -465,7 +465,7 @@
           "channel": "github-runner-stable-google-chrome",
           "childExitCode": 0,
           "childSignal": null,
-          "browser": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+          "browser": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/150.0.0.0 Safari/537.36",
           "selectedMode": "headless-hosted-frame-work",
           "checks": {
             "bootToMenuBounded": true,
@@ -495,7 +495,7 @@
         "channel": "github-runner-stable-google-chrome",
         "childExitCode": 0,
         "childSignal": null,
-        "browser": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+        "browser": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/150.0.0.0 Safari/537.36",
         "selectedMode": "headless-hosted-frame-work",
         "checks": {
           "bootToMenuBounded": true,
@@ -523,45 +523,45 @@
     }
   },
   "firefox": {
-    "generatedAt": "2026-07-08T14:08:34.733Z",
+    "generatedAt": "2026-07-10T01:45:35.843Z",
     "measurementBuild": "validation instrumentation over release-candidate gameplay code; production bundle measured separately",
     "startup": {
-      "bootToMenuMs": 979.2078730000003,
-      "firstTutorialStartupMs": 52.16018299999996,
-      "repeatTutorialStartupMs": 38.272844999999506,
-      "settingsStartupMs": 31.904258999999,
+      "bootToMenuMs": 1027.4709500000008,
+      "firstTutorialStartupMs": 52.4701500000001,
+      "repeatTutorialStartupMs": 36.40057900000102,
+      "settingsStartupMs": 29.77372699999978,
       "bindingContextRebuildAverageMs": 0.073,
-      "archiveStartupMs": 36.85812299999998,
-      "statisticsStartupMs": 33.10932099999991,
-      "combatOneStartupMs": 82.84517199999937,
-      "bossStartupMs": 86.16384099999777,
-      "resultsStartupMs": 41.1868089999989,
+      "archiveStartupMs": 35.94321300000047,
+      "statisticsStartupMs": 32.38056599999982,
+      "combatOneStartupMs": 89.5054680000012,
+      "bossStartupMs": 87.2088760000006,
+      "resultsStartupMs": 39.810599000000366,
       "saveSerializationBytesBrowser": 5885,
-      "saveMigrationAverageMs": 0.06680460699999995
+      "saveMigrationAverageMs": 0.0679117654
     },
     "microbenchmarks": {
       "bindingNormalization": {
         "iterations": 25000,
-        "totalMs": 169.24808900000016,
-        "averageMicroseconds": 6.769923560000006,
+        "totalMs": 174.15409799999998,
+        "averageMicroseconds": 6.966163919999999,
         "lastValueType": "object"
       },
       "legacyBindingMigration": {
         "iterations": 10000,
-        "totalMs": 219.5213759999997,
-        "averageMicroseconds": 21.95213759999997,
+        "totalMs": 223.4154480000002,
+        "averageMicroseconds": 22.341544800000023,
         "lastValueType": "object"
       },
       "saveNormalization": {
         "iterations": 5000,
-        "totalMs": 224.26234699999986,
-        "averageMicroseconds": 44.852469399999976,
+        "totalMs": 227.85110299999997,
+        "averageMicroseconds": 45.57022059999999,
         "lastValueType": "object"
       },
       "saveSerialization": {
         "iterations": 10000,
-        "totalMs": 55.891079999999874,
-        "averageMicroseconds": 5.589107999999987,
+        "totalMs": 57.652766000000156,
+        "averageMicroseconds": 5.765276600000016,
         "lastValueType": "string"
       }
     },
@@ -574,9 +574,9 @@
           "gzipBytes": 869
         },
         {
-          "filename": "assets/index-D_2YJ4FU.js",
-          "bytes": 1799495,
-          "gzipBytes": 472670
+          "filename": "assets/index-CSRyickm.js",
+          "bytes": 1805855,
+          "gzipBytes": 474305
         },
         {
           "filename": "favicon.svg",
@@ -586,7 +586,7 @@
         {
           "filename": "index.html",
           "bytes": 1215,
-          "gzipBytes": 631
+          "gzipBytes": 627
         },
         {
           "filename": "manifest.webmanifest",
@@ -595,21 +595,21 @@
         }
       ],
       "fileCount": 5,
-      "totalDistBytes": 1803473,
-      "totalDistGzipBytes": 474722,
-      "totalJavaScriptBytes": 1799495,
-      "totalJavaScriptGzipBytes": 472670,
+      "totalDistBytes": 1809833,
+      "totalDistGzipBytes": 476353,
+      "totalJavaScriptBytes": 1805855,
+      "totalJavaScriptGzipBytes": 474305,
       "largestAsset": {
-        "filename": "assets/index-D_2YJ4FU.js",
-        "bytes": 1799495,
-        "gzipBytes": 472670
+        "filename": "assets/index-CSRyickm.js",
+        "bytes": 1805855,
+        "gzipBytes": 474305
       },
       "phase9JavaScriptBytes": 1751956,
       "phase9JavaScriptGzipBytes": 460410,
-      "changeBytes": 47539,
-      "gzipChangeBytes": 12260,
-      "changePercent": 2.713481388802002,
-      "gzipChangePercent": 2.662843986881258
+      "changeBytes": 53899,
+      "gzipChangeBytes": 13895,
+      "changePercent": 3.0765042044434905,
+      "gzipChangePercent": 3.017962251037119
     },
     "frames": {
       "tutorial": {
@@ -621,15 +621,15 @@
         },
         "excludesExternalPresentationWait": true,
         "includesGameUpdateAndRenderSubmission": true,
-        "samples": 181,
-        "averageFrameMs": 2.889502762430939,
-        "minimumFps": 166.66666666666666,
-        "averageFps": 346.0803059273423,
-        "minimumFpsEquivalent": 166.66666666666666,
-        "averageFpsEquivalent": 346.0803059273423,
+        "samples": 180,
+        "averageFrameMs": 3.2888888888888888,
+        "minimumFps": 200,
+        "averageFps": 304.05405405405406,
+        "minimumFpsEquivalent": 200,
+        "averageFpsEquivalent": 304.05405405405406,
         "p95FrameMs": 4,
-        "p99FrameMs": 4,
-        "maximumFrameMs": 6,
+        "p99FrameMs": 5,
+        "maximumFrameMs": 5,
         "framesOver50Ms": 0
       },
       "normalCombat": {
@@ -641,19 +641,19 @@
         },
         "excludesExternalPresentationWait": true,
         "includesGameUpdateAndRenderSubmission": true,
-        "samples": 501,
-        "averageFrameMs": 7.387225548902196,
-        "minimumFps": 32.25806451612903,
-        "averageFps": 135.36881923804378,
-        "minimumFpsEquivalent": 32.25806451612903,
-        "averageFpsEquivalent": 135.36881923804378,
+        "samples": 502,
+        "averageFrameMs": 7.758964143426295,
+        "minimumFps": 35.714285714285715,
+        "averageFps": 128.8831835686778,
+        "minimumFpsEquivalent": 35.714285714285715,
+        "averageFpsEquivalent": 128.8831835686778,
         "p95FrameMs": 9,
-        "p99FrameMs": 14,
-        "maximumFrameMs": 31,
+        "p99FrameMs": 12,
+        "maximumFrameMs": 28,
         "framesOver50Ms": 0
       },
       "spawnStress": {
-        "wallClockMs": 1207.2804920000017,
+        "wallClockMs": 1214.3559399999976,
         "measurementMode": "phaser-main-thread-frame-work",
         "measurementUnit": "milliseconds of browser main-thread game work per Phaser frame",
         "eventNames": {
@@ -662,15 +662,15 @@
         },
         "excludesExternalPresentationWait": true,
         "includesGameUpdateAndRenderSubmission": true,
-        "samples": 74,
-        "averageFrameMs": 7.405405405405405,
-        "minimumFps": 100,
-        "averageFps": 135.03649635036496,
-        "minimumFpsEquivalent": 100,
-        "averageFpsEquivalent": 135.03649635036496,
-        "p95FrameMs": 8,
-        "p99FrameMs": 9,
-        "maximumFrameMs": 10,
+        "samples": 73,
+        "averageFrameMs": 8,
+        "minimumFps": 83.33333333333333,
+        "averageFps": 125,
+        "minimumFpsEquivalent": 83.33333333333333,
+        "averageFpsEquivalent": 125,
+        "p95FrameMs": 9,
+        "p99FrameMs": 10,
+        "maximumFrameMs": 12,
         "framesOver50Ms": 0
       },
       "boss": {
@@ -682,15 +682,15 @@
         },
         "excludesExternalPresentationWait": true,
         "includesGameUpdateAndRenderSubmission": true,
-        "samples": 485,
-        "averageFrameMs": 8.727835051546391,
-        "minimumFps": 66.66666666666667,
-        "averageFps": 114.57595086227263,
-        "minimumFpsEquivalent": 66.66666666666667,
-        "averageFpsEquivalent": 114.57595086227263,
-        "p95FrameMs": 13,
-        "p99FrameMs": 13,
-        "maximumFrameMs": 15,
+        "samples": 487,
+        "averageFrameMs": 9.15605749486653,
+        "minimumFps": 58.8235294117647,
+        "averageFps": 109.21731329894594,
+        "minimumFpsEquivalent": 58.8235294117647,
+        "averageFpsEquivalent": 109.21731329894594,
+        "p95FrameMs": 12,
+        "p99FrameMs": 14,
+        "maximumFrameMs": 17,
         "framesOver50Ms": 0
       }
     },
@@ -706,15 +706,15 @@
     "consoleWarnings": [
       {
         "type": "warning",
-        "text": "[JavaScript Warning: \"Failed to create WebGL context: WebGL creation failed: \n* WebglAllowWindowsNativeGl:false restricts context creation on this system. ()\n* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)\" {file: \"http://127.0.0.1:36749/assets/index-7J-ToV3C.js\" line: 1}]"
+        "text": "[JavaScript Warning: \"Failed to create WebGL context: WebGL creation failed: \n* WebglAllowWindowsNativeGl:false restricts context creation on this system. ()\n* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)\" {file: \"http://127.0.0.1:44893/assets/index-BIgZDK52.js\" line: 1}]"
       },
       {
         "type": "warning",
-        "text": "[JavaScript Warning: \"Failed to create WebGL context: WebGL creation failed: \n* WebglAllowWindowsNativeGl:false restricts context creation on this system. ()\n* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)\" {file: \"http://127.0.0.1:36749/assets/index-7J-ToV3C.js\" line: 1}]"
+        "text": "[JavaScript Warning: \"Failed to create WebGL context: WebGL creation failed: \n* WebglAllowWindowsNativeGl:false restricts context creation on this system. ()\n* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)\" {file: \"http://127.0.0.1:44893/assets/index-BIgZDK52.js\" line: 1}]"
       },
       {
         "type": "warning",
-        "text": "[JavaScript Warning: \"An AudioContext was prevented from starting automatically. It must be created or resumed after a user gesture on the page.\" {file: \"http://127.0.0.1:36749/assets/index-7J-ToV3C.js\" line: 64}]"
+        "text": "[JavaScript Warning: \"An AudioContext was prevented from starting automatically. It must be created or resumed after a user gesture on the page.\" {file: \"http://127.0.0.1:44893/assets/index-BIgZDK52.js\" line: 64}]"
       },
       {
         "type": "warning",
@@ -757,10 +757,10 @@
         "boss": 20
       },
       "sampleCounts": {
-        "tutorial": 181,
-        "normalCombat": 501,
-        "spawnStress": 74,
-        "boss": 485
+        "tutorial": 180,
+        "normalCombat": 502,
+        "spawnStress": 73,
+        "boss": 487
       },
       "checks": {
         "hostedFrameWorkMeasurement": true,
@@ -787,7 +787,7 @@
       "childSignal": null
     },
     "phase13PerformanceAttempts": {
-      "generatedAt": "2026-07-08T14:08:35.096Z",
+      "generatedAt": "2026-07-10T01:45:36.219Z",
       "phase": 13,
       "scope": "firefox hosted performance execution-mode audit",
       "engine": "firefox",
@@ -850,15 +850,15 @@
               },
               "excludesExternalPresentationWait": true,
               "includesGameUpdateAndRenderSubmission": true,
-              "samples": 181,
-              "averageFrameMs": 2.889502762430939,
-              "minimumFps": 166.66666666666666,
-              "averageFps": 346.0803059273423,
-              "minimumFpsEquivalent": 166.66666666666666,
-              "averageFpsEquivalent": 346.0803059273423,
+              "samples": 180,
+              "averageFrameMs": 3.2888888888888888,
+              "minimumFps": 200,
+              "averageFps": 304.05405405405406,
+              "minimumFpsEquivalent": 200,
+              "averageFpsEquivalent": 304.05405405405406,
               "p95FrameMs": 4,
-              "p99FrameMs": 4,
-              "maximumFrameMs": 6,
+              "p99FrameMs": 5,
+              "maximumFrameMs": 5,
               "framesOver50Ms": 0
             },
             "normalCombat": {
@@ -870,19 +870,19 @@
               },
               "excludesExternalPresentationWait": true,
               "includesGameUpdateAndRenderSubmission": true,
-              "samples": 501,
-              "averageFrameMs": 7.387225548902196,
-              "minimumFps": 32.25806451612903,
-              "averageFps": 135.36881923804378,
-              "minimumFpsEquivalent": 32.25806451612903,
-              "averageFpsEquivalent": 135.36881923804378,
+              "samples": 502,
+              "averageFrameMs": 7.758964143426295,
+              "minimumFps": 35.714285714285715,
+              "averageFps": 128.8831835686778,
+              "minimumFpsEquivalent": 35.714285714285715,
+              "averageFpsEquivalent": 128.8831835686778,
               "p95FrameMs": 9,
-              "p99FrameMs": 14,
-              "maximumFrameMs": 31,
+              "p99FrameMs": 12,
+              "maximumFrameMs": 28,
               "framesOver50Ms": 0
             },
             "spawnStress": {
-              "wallClockMs": 1207.2804920000017,
+              "wallClockMs": 1214.3559399999976,
               "measurementMode": "phaser-main-thread-frame-work",
               "measurementUnit": "milliseconds of browser main-thread game work per Phaser frame",
               "eventNames": {
@@ -891,15 +891,15 @@
               },
               "excludesExternalPresentationWait": true,
               "includesGameUpdateAndRenderSubmission": true,
-              "samples": 74,
-              "averageFrameMs": 7.405405405405405,
-              "minimumFps": 100,
-              "averageFps": 135.03649635036496,
-              "minimumFpsEquivalent": 100,
-              "averageFpsEquivalent": 135.03649635036496,
-              "p95FrameMs": 8,
-              "p99FrameMs": 9,
-              "maximumFrameMs": 10,
+              "samples": 73,
+              "averageFrameMs": 8,
+              "minimumFps": 83.33333333333333,
+              "averageFps": 125,
+              "minimumFpsEquivalent": 83.33333333333333,
+              "averageFpsEquivalent": 125,
+              "p95FrameMs": 9,
+              "p99FrameMs": 10,
+              "maximumFrameMs": 12,
               "framesOver50Ms": 0
             },
             "boss": {
@@ -911,15 +911,15 @@
               },
               "excludesExternalPresentationWait": true,
               "includesGameUpdateAndRenderSubmission": true,
-              "samples": 485,
-              "averageFrameMs": 8.727835051546391,
-              "minimumFps": 66.66666666666667,
-              "averageFps": 114.57595086227263,
-              "minimumFpsEquivalent": 66.66666666666667,
-              "averageFpsEquivalent": 114.57595086227263,
-              "p95FrameMs": 13,
-              "p99FrameMs": 13,
-              "maximumFrameMs": 15,
+              "samples": 487,
+              "averageFrameMs": 9.15605749486653,
+              "minimumFps": 58.8235294117647,
+              "averageFps": 109.21731329894594,
+              "minimumFpsEquivalent": 58.8235294117647,
+              "averageFpsEquivalent": 109.21731329894594,
+              "p95FrameMs": 12,
+              "p99FrameMs": 14,
+              "maximumFrameMs": 17,
               "framesOver50Ms": 0
             }
           }

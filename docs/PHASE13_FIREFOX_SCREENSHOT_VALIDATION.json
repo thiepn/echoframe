@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-08T14:01:29.289Z",
+  "generatedAt": "2026-07-10T01:38:26.259Z",
   "browser": "Firefox",
   "engineExecutable": "Playwright-managed",
   "base": "/",
@@ -14,6 +14,8 @@
     "tutorialPause": true,
     "tutorialResume": true,
     "realPointerFireAccepted": true,
+    "failedEchoDeployStaysLessonFive": true,
+    "lockedEchoSurvivesLessonDelay": true,
     "productionEchoDeployed": true,
     "completionPersisted": true,
     "oneRunStarted": true,
@@ -42,11 +44,11 @@
   "observations": {
     "pointerFire": {
       "target": {
-        "x": 340.20870888888896,
+        "x": 333.0534,
         "y": 720
       },
       "targetPoint": {
-        "x": 340.20870888888896,
+        "x": 333.0534,
         "y": 720,
         "box": {
           "x": 0,
@@ -55,7 +57,7 @@
           "height": 900
         },
         "screen": {
-          "x": 340.20870888888896,
+          "x": 333.0534,
           "y": 720,
           "gameWidth": 1600,
           "gameHeight": 900,
@@ -73,9 +75,9 @@
           {
             "button": 0,
             "trusted": true,
-            "x": 340,
+            "x": 333,
             "y": 720,
-            "at": 1538
+            "at": 1598
           }
         ]
       },
@@ -91,7 +93,7 @@
             "key": "i",
             "trusted": true,
             "repeat": false,
-            "at": 3880
+            "at": 8159
           }
         ],
         "pointerdowns": []
@@ -109,7 +111,7 @@
             "key": "i",
             "trusted": true,
             "repeat": false,
-            "at": 4111
+            "at": 8390
           }
         ],
         "pointerdowns": []
@@ -133,7 +135,7 @@
             "trusted": true,
             "x": 800,
             "y": 450,
-            "at": 4355
+            "at": 8648
           }
         ]
       },
@@ -149,7 +151,7 @@
           "key": "Escape",
           "trusted": true,
           "repeat": false,
-          "at": 4573
+          "at": 8871
         }
       ],
       "pointerdowns": []
@@ -163,7 +165,7 @@
         "runsCompleted": 1,
         "victories": 1,
         "defeats": 0,
-        "totalSimulationMs": 581.2253333333332,
+        "totalSimulationMs": 582.5773333333333,
         "totalScore": 6988,
         "highestScore": 6988,
         "totalEnemiesDefeated": 0,
@@ -181,27 +183,27 @@
   "consoleWarnings": [
     {
       "type": "warning",
-      "text": "[JavaScript Warning: \"Failed to create WebGL context: WebGL creation failed: \n* WebglAllowWindowsNativeGl:false restricts context creation on this system. ()\n* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)\" {file: \"http://127.0.0.1:38539/assets/index-7J-ToV3C.js\" line: 1}]"
+      "text": "[JavaScript Warning: \"Failed to create WebGL context: WebGL creation failed: \n* WebglAllowWindowsNativeGl:false restricts context creation on this system. ()\n* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)\" {file: \"http://127.0.0.1:32769/assets/index-BIgZDK52.js\" line: 1}]"
     },
     {
       "type": "warning",
-      "text": "[JavaScript Warning: \"Failed to create WebGL context: WebGL creation failed: \n* WebglAllowWindowsNativeGl:false restricts context creation on this system. ()\n* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)\" {file: \"http://127.0.0.1:38539/assets/index-7J-ToV3C.js\" line: 1}]"
+      "text": "[JavaScript Warning: \"Failed to create WebGL context: WebGL creation failed: \n* WebglAllowWindowsNativeGl:false restricts context creation on this system. ()\n* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)\" {file: \"http://127.0.0.1:32769/assets/index-BIgZDK52.js\" line: 1}]"
     },
     {
       "type": "warning",
-      "text": "[JavaScript Warning: \"An AudioContext was prevented from starting automatically. It must be created or resumed after a user gesture on the page.\" {file: \"http://127.0.0.1:38539/assets/index-7J-ToV3C.js\" line: 64}]"
+      "text": "[JavaScript Warning: \"An AudioContext was prevented from starting automatically. It must be created or resumed after a user gesture on the page.\" {file: \"http://127.0.0.1:32769/assets/index-BIgZDK52.js\" line: 64}]"
     },
     {
       "type": "warning",
-      "text": "[JavaScript Warning: \"Failed to create WebGL context: WebGL creation failed: \n* WebglAllowWindowsNativeGl:false restricts context creation on this system. ()\n* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)\" {file: \"http://127.0.0.1:38539/assets/index-7J-ToV3C.js\" line: 1}]"
+      "text": "[JavaScript Warning: \"Failed to create WebGL context: WebGL creation failed: \n* WebglAllowWindowsNativeGl:false restricts context creation on this system. ()\n* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)\" {file: \"http://127.0.0.1:32769/assets/index-BIgZDK52.js\" line: 1}]"
     },
     {
       "type": "warning",
-      "text": "[JavaScript Warning: \"Failed to create WebGL context: WebGL creation failed: \n* WebglAllowWindowsNativeGl:false restricts context creation on this system. ()\n* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)\" {file: \"http://127.0.0.1:38539/assets/index-7J-ToV3C.js\" line: 1}]"
+      "text": "[JavaScript Warning: \"Failed to create WebGL context: WebGL creation failed: \n* WebglAllowWindowsNativeGl:false restricts context creation on this system. ()\n* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)\" {file: \"http://127.0.0.1:32769/assets/index-BIgZDK52.js\" line: 1}]"
     },
     {
       "type": "warning",
-      "text": "[JavaScript Warning: \"An AudioContext was prevented from starting automatically. It must be created or resumed after a user gesture on the page.\" {file: \"http://127.0.0.1:38539/assets/index-7J-ToV3C.js\" line: 64}]"
+      "text": "[JavaScript Warning: \"An AudioContext was prevented from starting automatically. It must be created or resumed after a user gesture on the page.\" {file: \"http://127.0.0.1:32769/assets/index-BIgZDK52.js\" line: 64}]"
     }
   ],
   "failedRequests": [],

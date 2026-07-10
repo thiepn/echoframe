@@ -1,0 +1,69 @@
+{
+  "generatedAt": "2026-07-08T20:06:16.915Z",
+  "phase": 13,
+  "scope": "Phase 13 final Version 1.0 release audit and publication authorization",
+  "packageVersion": "1.0.0",
+  "runtimeVersion": "1.0.0",
+  "sourceManifestDigest": "aa6a12f481ed233b01ee8ff397883b924706ca3bd004f4a7b9b8464750de842e",
+  "productionBundleDigest": "286f9423a223610fd6699b6d03d9458d941dab64c5b05c2a070d699d4155eeb8",
+  "canonical": {
+    "GAME_DESIGN.md": {
+      "expected": "556d99d05d7896c2b02bb653cb28e8a0cb631e223edf67e3e0c1236fd7811f71",
+      "actual": "556d99d05d7896c2b02bb653cb28e8a0cb631e223edf67e3e0c1236fd7811f71",
+      "unchanged": true
+    },
+    "TECHNICAL_SPEC.md": {
+      "expected": "8562235331a2dc229977db11a56fdb10ba0032494d4b0d0706f41bf24c903468",
+      "actual": "8562235331a2dc229977db11a56fdb10ba0032494d4b0d0706f41bf24c903468",
+      "unchanged": true
+    },
+    "ART_DIRECTION.md": {
+      "expected": "aa29931c92ada05c0693ea58730986bc8b9ce8c1b8fcbf78acb4d72be8d1529a",
+      "actual": "aa29931c92ada05c0693ea58730986bc8b9ce8c1b8fcbf78acb4d72be8d1529a",
+      "unchanged": true
+    },
+    "BALANCE_SPEC.md": {
+      "expected": "5fca70f1c890b1e13a3b8b17ab3c82da725491c0cca6146a7ad0a2b1f55fd107",
+      "actual": "5fca70f1c890b1e13a3b8b17ab3c82da725491c0cca6146a7ad0a2b1f55fd107",
+      "unchanged": true
+    },
+    "QA_CHECKLIST.md": {
+      "expected": "b120097203b11e7f2fe025ea5767e931395f5edc7059e9821f6ab5ce1c722122",
+      "actual": "b120097203b11e7f2fe025ea5767e931395f5edc7059e9821f6ab5ce1c722122",
+      "unchanged": true
+    }
+  },
+  "publicUrl": "https://thiepn.github.io/echoframe/",
+  "tag": {
+    "name": "v1.0.0",
+    "status": "authorized-not-created"
+  },
+  "release": {
+    "status": "authorized-not-created"
+  },
+  "archiveHashes": {
+    "source": "4b73101b9d4a319628ffa928763e16f562c88772d9221c77310f429d71513734",
+    "web": "30d0f39ca1fd1e430a4b67b4bfda5abce26478a92bb466758e0894213685a368"
+  },
+  "checks": {
+    "packageVersionFinal": true,
+    "runtimeVersionFinal": true,
+    "sourceDigestMatchesCertified": true,
+    "canonicalUnchanged": true,
+    "nonPublicReleaseAuditPassed": true,
+    "publicChromiumPassed": true,
+    "publicFirefoxPassed": true,
+    "publicDeploymentPassed": true,
+    "sourceArchivePassed": true,
+    "webArchivePassed": true,
+    "manifestSourceDigestMatches": true,
+    "manifestSourceArchiveMatches": true,
+    "manifestWebArchiveMatches": true,
+    "criticalDefectsZero": true,
+    "highDefectsZero": true,
+    "tagAbsentBeforeSignoff": true
+  },
+  "openGates": [],
+  "publicationAuthorized": true,
+  "passed": true
+}

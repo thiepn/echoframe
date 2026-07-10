@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-08T14:04:14.491Z",
+  "generatedAt": "2026-07-10T01:41:13.317Z",
   "browser": "Firefox",
   "engineExecutable": "Playwright-managed",
   "productionBuild": "dist-accessibility-validation",
@@ -57,7 +57,8 @@
           "Move through the three signal markers in order.",
           "Movement bindings: W · A · S · D",
           "0 / 3",
-          "Esc — Pause"
+          "Esc — Pause",
+          "ECHO MEMORY"
         ]
       },
       "earlyCombat": {
@@ -6060,7 +6061,8 @@
           "Move through the three signal markers in order.",
           "Movement bindings: W · A · S · D",
           "0 / 3",
-          "Esc — Pause"
+          "Esc — Pause",
+          "ECHO MEMORY"
         ]
       },
       "earlyCombat": {
@@ -12063,7 +12065,8 @@
           "Move through the three signal markers in order.",
           "Movement bindings: W · A · S · D",
           "0 / 3",
-          "Esc — Pause"
+          "Esc — Pause",
+          "ECHO MEMORY"
         ]
       },
       "earlyCombat": {
@@ -18066,7 +18069,8 @@
           "Move through the three signal markers in order.",
           "Movement bindings: W · A · S · D",
           "0 / 3",
-          "Esc — Pause"
+          "Esc — Pause",
+          "ECHO MEMORY"
         ]
       },
       "earlyCombat": {
@@ -24069,7 +24073,8 @@
           "Move through the three signal markers in order.",
           "Movement bindings: W · A · S · D",
           "0 / 3",
-          "Esc — Pause"
+          "Esc — Pause",
+          "ECHO MEMORY"
         ]
       },
       "earlyCombat": {
@@ -30037,15 +30042,15 @@
   "consoleWarnings": [
     {
       "type": "warning",
-      "text": "[JavaScript Warning: \"Failed to create WebGL context: WebGL creation failed: \n* WebglAllowWindowsNativeGl:false restricts context creation on this system. ()\n* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)\" {file: \"http://127.0.0.1:40685/assets/index-7J-ToV3C.js\" line: 1}]"
+      "text": "[JavaScript Warning: \"Failed to create WebGL context: WebGL creation failed: \n* WebglAllowWindowsNativeGl:false restricts context creation on this system. ()\n* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)\" {file: \"http://127.0.0.1:41401/assets/index-BIgZDK52.js\" line: 1}]"
     },
     {
       "type": "warning",
-      "text": "[JavaScript Warning: \"Failed to create WebGL context: WebGL creation failed: \n* WebglAllowWindowsNativeGl:false restricts context creation on this system. ()\n* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)\" {file: \"http://127.0.0.1:40685/assets/index-7J-ToV3C.js\" line: 1}]"
+      "text": "[JavaScript Warning: \"Failed to create WebGL context: WebGL creation failed: \n* WebglAllowWindowsNativeGl:false restricts context creation on this system. ()\n* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)\" {file: \"http://127.0.0.1:41401/assets/index-BIgZDK52.js\" line: 1}]"
     },
     {
       "type": "warning",
-      "text": "[JavaScript Warning: \"An AudioContext was prevented from starting automatically. It must be created or resumed after a user gesture on the page.\" {file: \"http://127.0.0.1:40685/assets/index-7J-ToV3C.js\" line: 64}]"
+      "text": "[JavaScript Warning: \"An AudioContext was prevented from starting automatically. It must be created or resumed after a user gesture on the page.\" {file: \"http://127.0.0.1:41401/assets/index-BIgZDK52.js\" line: 64}]"
     }
   ],
   "failedRequests": [],

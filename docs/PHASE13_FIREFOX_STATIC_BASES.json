@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-07-08T14:02:08.976Z",
+  "generatedAt": "2026-07-10T01:39:06.665Z",
   "roots": [
     {
       "base": "/",
       "outDir": "dist-deployment-root",
       "fileCount": 5,
-      "totalBytes": 1803473,
+      "totalBytes": 1809833,
       "checks": {
         "directLoad": true,
         "productionMode": true,
@@ -34,7 +34,7 @@
         },
         {
           "method": "GET",
-          "pathname": "/assets/index-D_2YJ4FU.js",
+          "pathname": "/assets/index-CSRyickm.js",
           "status": 200,
           "contentType": "text/javascript; charset=utf-8"
         },
@@ -58,7 +58,7 @@
         },
         {
           "method": "GET",
-          "pathname": "/assets/index-D_2YJ4FU.js",
+          "pathname": "/assets/index-CSRyickm.js",
           "status": 200,
           "contentType": "text/javascript; charset=utf-8"
         },
@@ -86,27 +86,27 @@
       "consoleWarnings": [
         {
           "type": "warning",
-          "text": "[JavaScript Warning: \"Failed to create WebGL context: WebGL creation failed: \n* WebglAllowWindowsNativeGl:false restricts context creation on this system. ()\n* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)\" {file: \"http://127.0.0.1:42737/assets/index-D_2YJ4FU.js\" line: 1}]"
+          "text": "[JavaScript Warning: \"Failed to create WebGL context: WebGL creation failed: \n* WebglAllowWindowsNativeGl:false restricts context creation on this system. ()\n* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)\" {file: \"http://127.0.0.1:40331/assets/index-CSRyickm.js\" line: 1}]"
         },
         {
           "type": "warning",
-          "text": "[JavaScript Warning: \"Failed to create WebGL context: WebGL creation failed: \n* WebglAllowWindowsNativeGl:false restricts context creation on this system. ()\n* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)\" {file: \"http://127.0.0.1:42737/assets/index-D_2YJ4FU.js\" line: 1}]"
+          "text": "[JavaScript Warning: \"Failed to create WebGL context: WebGL creation failed: \n* WebglAllowWindowsNativeGl:false restricts context creation on this system. ()\n* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)\" {file: \"http://127.0.0.1:40331/assets/index-CSRyickm.js\" line: 1}]"
         },
         {
           "type": "warning",
-          "text": "[JavaScript Warning: \"An AudioContext was prevented from starting automatically. It must be created or resumed after a user gesture on the page.\" {file: \"http://127.0.0.1:42737/assets/index-D_2YJ4FU.js\" line: 64}]"
+          "text": "[JavaScript Warning: \"An AudioContext was prevented from starting automatically. It must be created or resumed after a user gesture on the page.\" {file: \"http://127.0.0.1:40331/assets/index-CSRyickm.js\" line: 64}]"
         },
         {
           "type": "warning",
-          "text": "[JavaScript Warning: \"Failed to create WebGL context: WebGL creation failed: \n* WebglAllowWindowsNativeGl:false restricts context creation on this system. ()\n* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)\" {file: \"http://127.0.0.1:42737/assets/index-D_2YJ4FU.js\" line: 1}]"
+          "text": "[JavaScript Warning: \"Failed to create WebGL context: WebGL creation failed: \n* WebglAllowWindowsNativeGl:false restricts context creation on this system. ()\n* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)\" {file: \"http://127.0.0.1:40331/assets/index-CSRyickm.js\" line: 1}]"
         },
         {
           "type": "warning",
-          "text": "[JavaScript Warning: \"Failed to create WebGL context: WebGL creation failed: \n* WebglAllowWindowsNativeGl:false restricts context creation on this system. ()\n* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)\" {file: \"http://127.0.0.1:42737/assets/index-D_2YJ4FU.js\" line: 1}]"
+          "text": "[JavaScript Warning: \"Failed to create WebGL context: WebGL creation failed: \n* WebglAllowWindowsNativeGl:false restricts context creation on this system. ()\n* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)\" {file: \"http://127.0.0.1:40331/assets/index-CSRyickm.js\" line: 1}]"
         },
         {
           "type": "warning",
-          "text": "[JavaScript Warning: \"An AudioContext was prevented from starting automatically. It must be created or resumed after a user gesture on the page.\" {file: \"http://127.0.0.1:42737/assets/index-D_2YJ4FU.js\" line: 64}]"
+          "text": "[JavaScript Warning: \"An AudioContext was prevented from starting automatically. It must be created or resumed after a user gesture on the page.\" {file: \"http://127.0.0.1:40331/assets/index-CSRyickm.js\" line: 64}]"
         }
       ],
       "failedRequests": [],
@@ -116,7 +116,7 @@
       "base": "/echoframe-test/",
       "outDir": "dist-deployment-subpath",
       "fileCount": 5,
-      "totalBytes": 1803518,
+      "totalBytes": 1809878,
       "checks": {
         "directLoad": true,
         "productionMode": true,
@@ -145,7 +145,7 @@
         },
         {
           "method": "GET",
-          "pathname": "/echoframe-test/assets/index-MEbUovi1.js",
+          "pathname": "/echoframe-test/assets/index-CTjU8Byb.js",
           "status": 200,
           "contentType": "text/javascript; charset=utf-8"
         },
@@ -169,7 +169,7 @@
         },
         {
           "method": "GET",
-          "pathname": "/echoframe-test/assets/index-MEbUovi1.js",
+          "pathname": "/echoframe-test/assets/index-CTjU8Byb.js",
           "status": 200,
           "contentType": "text/javascript; charset=utf-8"
         },
@@ -197,27 +197,27 @@
       "consoleWarnings": [
         {
           "type": "warning",
-          "text": "[JavaScript Warning: \"Failed to create WebGL context: WebGL creation failed: \n* WebglAllowWindowsNativeGl:false restricts context creation on this system. ()\n* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)\" {file: \"http://127.0.0.1:41133/echoframe-test/assets/index-MEbUovi1.js\" line: 1}]"
+          "text": "[JavaScript Warning: \"Failed to create WebGL context: WebGL creation failed: \n* WebglAllowWindowsNativeGl:false restricts context creation on this system. ()\n* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)\" {file: \"http://127.0.0.1:40031/echoframe-test/assets/index-CTjU8Byb.js\" line: 1}]"
         },
         {
           "type": "warning",
-          "text": "[JavaScript Warning: \"Failed to create WebGL context: WebGL creation failed: \n* WebglAllowWindowsNativeGl:false restricts context creation on this system. ()\n* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)\" {file: \"http://127.0.0.1:41133/echoframe-test/assets/index-MEbUovi1.js\" line: 1}]"
+          "text": "[JavaScript Warning: \"Failed to create WebGL context: WebGL creation failed: \n* WebglAllowWindowsNativeGl:false restricts context creation on this system. ()\n* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)\" {file: \"http://127.0.0.1:40031/echoframe-test/assets/index-CTjU8Byb.js\" line: 1}]"
         },
         {
           "type": "warning",
-          "text": "[JavaScript Warning: \"An AudioContext was prevented from starting automatically. It must be created or resumed after a user gesture on the page.\" {file: \"http://127.0.0.1:41133/echoframe-test/assets/index-MEbUovi1.js\" line: 64}]"
+          "text": "[JavaScript Warning: \"An AudioContext was prevented from starting automatically. It must be created or resumed after a user gesture on the page.\" {file: \"http://127.0.0.1:40031/echoframe-test/assets/index-CTjU8Byb.js\" line: 64}]"
         },
         {
           "type": "warning",
-          "text": "[JavaScript Warning: \"Failed to create WebGL context: WebGL creation failed: \n* WebglAllowWindowsNativeGl:false restricts context creation on this system. ()\n* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)\" {file: \"http://127.0.0.1:41133/echoframe-test/assets/index-MEbUovi1.js\" line: 1}]"
+          "text": "[JavaScript Warning: \"Failed to create WebGL context: WebGL creation failed: \n* WebglAllowWindowsNativeGl:false restricts context creation on this system. ()\n* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)\" {file: \"http://127.0.0.1:40031/echoframe-test/assets/index-CTjU8Byb.js\" line: 1}]"
         },
         {
           "type": "warning",
-          "text": "[JavaScript Warning: \"Failed to create WebGL context: WebGL creation failed: \n* WebglAllowWindowsNativeGl:false restricts context creation on this system. ()\n* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)\" {file: \"http://127.0.0.1:41133/echoframe-test/assets/index-MEbUovi1.js\" line: 1}]"
+          "text": "[JavaScript Warning: \"Failed to create WebGL context: WebGL creation failed: \n* WebglAllowWindowsNativeGl:false restricts context creation on this system. ()\n* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)\" {file: \"http://127.0.0.1:40031/echoframe-test/assets/index-CTjU8Byb.js\" line: 1}]"
         },
         {
           "type": "warning",
-          "text": "[JavaScript Warning: \"An AudioContext was prevented from starting automatically. It must be created or resumed after a user gesture on the page.\" {file: \"http://127.0.0.1:41133/echoframe-test/assets/index-MEbUovi1.js\" line: 64}]"
+          "text": "[JavaScript Warning: \"An AudioContext was prevented from starting automatically. It must be created or resumed after a user gesture on the page.\" {file: \"http://127.0.0.1:40031/echoframe-test/assets/index-CTjU8Byb.js\" line: 64}]"
         }
       ],
       "failedRequests": [],

@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-08T14:07:08.636Z",
-  "wallClockMs": 26277,
+  "generatedAt": "2026-07-10T01:44:07.675Z",
+  "wallClockMs": 26805,
   "harnessMode": "validation-only transition timing acceleration; gameplay definitions, score acceptance, and result finalization unchanged",
   "categories": {
     "freshTutorialFullRun": 10,
@@ -1318,15 +1318,15 @@
   "consoleWarnings": [
     {
       "type": "warning",
-      "text": "[JavaScript Warning: \"Failed to create WebGL context: WebGL creation failed: \n* WebglAllowWindowsNativeGl:false restricts context creation on this system. ()\n* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)\" {file: \"http://127.0.0.1:43763/assets/index-7J-ToV3C.js\" line: 1}]"
+      "text": "[JavaScript Warning: \"Failed to create WebGL context: WebGL creation failed: \n* WebglAllowWindowsNativeGl:false restricts context creation on this system. ()\n* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)\" {file: \"http://127.0.0.1:40079/assets/index-BIgZDK52.js\" line: 1}]"
     },
     {
       "type": "warning",
-      "text": "[JavaScript Warning: \"Failed to create WebGL context: WebGL creation failed: \n* WebglAllowWindowsNativeGl:false restricts context creation on this system. ()\n* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)\" {file: \"http://127.0.0.1:43763/assets/index-7J-ToV3C.js\" line: 1}]"
+      "text": "[JavaScript Warning: \"Failed to create WebGL context: WebGL creation failed: \n* WebglAllowWindowsNativeGl:false restricts context creation on this system. ()\n* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)\" {file: \"http://127.0.0.1:40079/assets/index-BIgZDK52.js\" line: 1}]"
     },
     {
       "type": "warning",
-      "text": "[JavaScript Warning: \"An AudioContext was prevented from starting automatically. It must be created or resumed after a user gesture on the page.\" {file: \"http://127.0.0.1:43763/assets/index-7J-ToV3C.js\" line: 64}]"
+      "text": "[JavaScript Warning: \"An AudioContext was prevented from starting automatically. It must be created or resumed after a user gesture on the page.\" {file: \"http://127.0.0.1:40079/assets/index-BIgZDK52.js\" line: 64}]"
     }
   ],
   "failedRequests": [],

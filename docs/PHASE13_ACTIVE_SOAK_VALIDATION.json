@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-07-08T14:29:33.275Z",
+  "generatedAt": "2026-07-10T02:05:53.421Z",
   "phase": 13,
   "packageVersion": "1.0.0",
   "runtimeVersion": "1.0.0",
-  "sourceCommit": "bee4e6be76484fc5edef1bfa7cf7ddaf2660bc6d",
-  "sourceManifestDigest": "aa6a12f481ed233b01ee8ff397883b924706ca3bd004f4a7b9b8464750de842e",
-  "sourceFileCount": 513,
-  "productionBundleDigest": "af68188658e34fe2209090828236bc8f75cd69a847df202c846d75ebc9a700bb",
+  "sourceCommit": "ab2585027c16ad9e58e4f816659244d3155f0d60",
+  "sourceManifestDigest": "d46d0eba1eaed15994ae04d56e160a6e92e7ec2fa69b7ca7c39bdc99567b343b",
+  "sourceFileCount": 514,
+  "productionBundleDigest": "64e3f835133f6d069a7530e0280401e36e23b6651387081461e045873f8492b9",
   "tests": {
-    "total": 1329,
+    "total": 1334,
     "retainedThroughPhase12": 1319,
-    "phase13": 10,
+    "phase13": 15,
     "passed": true,
     "source": "PHASE10_CORE_VALIDATION.json"
   },
@@ -30,16 +30,16 @@
   },
   "workflow": {
     "repository": "thiepn/echoframe",
-    "runId": "28948294260",
-    "runNumber": "48",
+    "runId": "29062661839",
+    "runNumber": "66",
     "runAttempt": "1",
-    "sourceCommit": "bee4e6be76484fc5edef1bfa7cf7ddaf2660bc6d",
-    "url": "https://github.com/thiepn/echoframe/actions/runs/28948294260"
+    "sourceCommit": "ab2585027c16ad9e58e4f816659244d3155f0d60",
+    "url": "https://github.com/thiepn/echoframe/actions/runs/29062661839"
   },
   "report": {
-    "generatedAt": "2026-07-08T14:28:21.423Z",
+    "generatedAt": "2026-07-10T02:04:53.308Z",
     "requestedDurationMs": 1800000,
-    "actualDurationMs": 1807346,
+    "actualDurationMs": 1801284,
     "runtimeSampleCount": 291,
     "scenarioCount": 289,
     "sampleIntervalMs": 5000,
@@ -79,12 +79,12 @@
       "cleanup": 4,
       "inputContexts": 1,
       "audioContexts": 1,
-      "heapBytes": 68908869
+      "heapBytes": 82466482
     },
     "baseline": {
       "label": "baseline",
       "elapsedMs": 0,
-      "fps": 14,
+      "fps": 18,
       "frameMs": 16.67,
       "activeScenes": [
         "MainMenuScene"
@@ -95,7 +95,7 @@
       "keyObjects": 13,
       "audioContexts": 1,
       "activeVoices": 0,
-      "heapBytes": 27817760,
+      "heapBytes": 27787935,
       "timers": 0,
       "tweens": 0,
       "sceneCount": 1,
@@ -108,7 +108,7 @@
     },
     "end": {
       "label": "end",
-      "elapsedMs": 1807128,
+      "elapsedMs": 1801070,
       "fps": 4,
       "frameMs": 15,
       "activeScenes": [
@@ -120,7 +120,7 @@
       "keyObjects": 13,
       "audioContexts": 1,
       "activeVoices": 0,
-      "heapBytes": 36356165,
+      "heapBytes": 46986694,
       "timers": 0,
       "tweens": 0,
       "sceneCount": 1,
@@ -141,22 +141,22 @@
       "tweens": 0,
       "scenes": 0
     },
-    "heapTrendBytes": 8538405,
+    "heapTrendBytes": 19198759,
     "frames": {
-      "samples": 6967,
-      "averageFrameMs": 259.46525046648253,
-      "minimumFps": 1.3636983499249946,
-      "averageFps": 3.8540806454896703,
-      "p95FrameMs": 433.39999999990687,
-      "p99FrameMs": 583.2999999999884,
-      "maximumFrameMs": 733.3000000000011,
-      "framesOver50Ms": 6967
+      "samples": 6971,
+      "averageFrameMs": 258.4413283603476,
+      "minimumFps": 1.3954786491766669,
+      "averageFps": 3.869350178411438,
+      "p95FrameMs": 450,
+      "p99FrameMs": 583.2999999998137,
+      "maximumFrameMs": 716.6000000000004,
+      "framesOver50Ms": 6971
     },
     "samples": [
       {
         "label": "baseline",
         "elapsedMs": 0,
-        "fps": 14,
+        "fps": 18,
         "frameMs": 16.67,
         "activeScenes": [
           "MainMenuScene"
@@ -167,7 +167,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 27817760,
+        "heapBytes": 27787935,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -180,7 +180,7 @@
       },
       {
         "label": "scenario-0-1",
-        "elapsedMs": 11098,
+        "elapsedMs": 11265,
         "fps": 4,
         "frameMs": 15,
         "activeScenes": [
@@ -192,7 +192,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 44449018,
+        "heapBytes": 44444085,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -205,8 +205,8 @@
       },
       {
         "label": "scenario-1-2",
-        "elapsedMs": 14212,
-        "fps": 4,
+        "elapsedMs": 14315,
+        "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
           "MainMenuScene"
@@ -217,7 +217,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 2,
-        "heapBytes": 32605548,
+        "heapBytes": 33469323,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -230,7 +230,7 @@
       },
       {
         "label": "scenario-2-3",
-        "elapsedMs": 19123,
+        "elapsedMs": 19119,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -242,7 +242,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 52415754,
+        "heapBytes": 49358321,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -255,7 +255,7 @@
       },
       {
         "label": "scenario-3-4",
-        "elapsedMs": 26386,
+        "elapsedMs": 26293,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -267,7 +267,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 64243168,
+        "heapBytes": 70845707,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -280,7 +280,7 @@
       },
       {
         "label": "scenario-4-5",
-        "elapsedMs": 35708,
+        "elapsedMs": 35587,
         "fps": 4,
         "frameMs": 15,
         "activeScenes": [
@@ -292,7 +292,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 44744745,
+        "heapBytes": 41742165,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -305,7 +305,7 @@
       },
       {
         "label": "scenario-5-6",
-        "elapsedMs": 40546,
+        "elapsedMs": 40419,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -317,7 +317,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 46727742,
+        "heapBytes": 40256874,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -330,7 +330,7 @@
       },
       {
         "label": "scenario-6-7",
-        "elapsedMs": 45351,
+        "elapsedMs": 45208,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -342,7 +342,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 43334576,
+        "heapBytes": 36246663,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -355,7 +355,7 @@
       },
       {
         "label": "scenario-7-8",
-        "elapsedMs": 52521,
+        "elapsedMs": 52367,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -367,7 +367,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 50729113,
+        "heapBytes": 32388757,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -380,7 +380,7 @@
       },
       {
         "label": "scenario-8-9",
-        "elapsedMs": 61861,
+        "elapsedMs": 61707,
         "fps": 4,
         "frameMs": 15,
         "activeScenes": [
@@ -392,7 +392,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 40066801,
+        "heapBytes": 38289892,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -405,7 +405,7 @@
       },
       {
         "label": "scenario-9-10",
-        "elapsedMs": 64950,
+        "elapsedMs": 64738,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -417,7 +417,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 2,
-        "heapBytes": 38020799,
+        "heapBytes": 43817833,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -430,7 +430,7 @@
       },
       {
         "label": "scenario-10-11",
-        "elapsedMs": 69745,
+        "elapsedMs": 69498,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -442,7 +442,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 34056093,
+        "heapBytes": 35223959,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -455,7 +455,7 @@
       },
       {
         "label": "scenario-11-12",
-        "elapsedMs": 76926,
+        "elapsedMs": 76620,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -467,7 +467,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 58954957,
+        "heapBytes": 59067426,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -480,8 +480,8 @@
       },
       {
         "label": "scenario-12-13",
-        "elapsedMs": 86245,
-        "fps": 4,
+        "elapsedMs": 85830,
+        "fps": 3,
         "frameMs": 15,
         "activeScenes": [
           "ResultsScene"
@@ -492,7 +492,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 38402640,
+        "heapBytes": 38438141,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -505,7 +505,7 @@
       },
       {
         "label": "scenario-13-14",
-        "elapsedMs": 89286,
+        "elapsedMs": 88866,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -517,7 +517,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 2,
-        "heapBytes": 47489790,
+        "heapBytes": 47616591,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -530,7 +530,7 @@
       },
       {
         "label": "scenario-14-15",
-        "elapsedMs": 94129,
+        "elapsedMs": 93655,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -542,7 +542,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 36046780,
+        "heapBytes": 39034221,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -555,7 +555,7 @@
       },
       {
         "label": "scenario-15-16",
-        "elapsedMs": 101308,
+        "elapsedMs": 100795,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -567,7 +567,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 59290607,
+        "heapBytes": 33105102,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -580,7 +580,7 @@
       },
       {
         "label": "scenario-16-17",
-        "elapsedMs": 110648,
+        "elapsedMs": 110021,
         "fps": 3,
         "frameMs": 15,
         "activeScenes": [
@@ -592,7 +592,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 45443197,
+        "heapBytes": 38795285,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -605,7 +605,7 @@
       },
       {
         "label": "scenario-17-18",
-        "elapsedMs": 115487,
+        "elapsedMs": 114881,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -617,7 +617,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 47312746,
+        "heapBytes": 39498249,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -630,7 +630,7 @@
       },
       {
         "label": "scenario-18-19",
-        "elapsedMs": 120316,
+        "elapsedMs": 119668,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -642,7 +642,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 42252692,
+        "heapBytes": 35569590,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -655,7 +655,7 @@
       },
       {
         "label": "scenario-19-20",
-        "elapsedMs": 127562,
+        "elapsedMs": 126806,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -667,7 +667,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 51793863,
+        "heapBytes": 59714840,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -680,7 +680,7 @@
       },
       {
         "label": "scenario-20-21",
-        "elapsedMs": 136902,
+        "elapsedMs": 136097,
         "fps": 4,
         "frameMs": 15,
         "activeScenes": [
@@ -692,7 +692,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 39565006,
+        "heapBytes": 42804660,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -705,7 +705,7 @@
       },
       {
         "label": "scenario-21-22",
-        "elapsedMs": 139988,
+        "elapsedMs": 139123,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -717,7 +717,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 2,
-        "heapBytes": 60074005,
+        "heapBytes": 41520911,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -730,7 +730,7 @@
       },
       {
         "label": "scenario-22-23",
-        "elapsedMs": 144801,
+        "elapsedMs": 143885,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -742,7 +742,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 39574137,
+        "heapBytes": 39861024,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -755,7 +755,7 @@
       },
       {
         "label": "scenario-23-24",
-        "elapsedMs": 152027,
+        "elapsedMs": 151040,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -767,7 +767,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 33666441,
+        "heapBytes": 59906706,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -780,7 +780,7 @@
       },
       {
         "label": "scenario-24-25",
-        "elapsedMs": 161346,
+        "elapsedMs": 160268,
         "fps": 3,
         "frameMs": 15,
         "activeScenes": [
@@ -792,7 +792,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 39002104,
+        "heapBytes": 54090928,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -805,7 +805,7 @@
       },
       {
         "label": "scenario-25-26",
-        "elapsedMs": 164387,
+        "elapsedMs": 163299,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -817,7 +817,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 2,
-        "heapBytes": 44796530,
+        "heapBytes": 41718419,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -830,7 +830,7 @@
       },
       {
         "label": "scenario-26-27",
-        "elapsedMs": 169218,
+        "elapsedMs": 168052,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -842,7 +842,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 44836852,
+        "heapBytes": 59825384,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -855,7 +855,7 @@
       },
       {
         "label": "scenario-27-28",
-        "elapsedMs": 176450,
+        "elapsedMs": 175319,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -867,7 +867,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 33601587,
+        "heapBytes": 60170879,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -880,7 +880,7 @@
       },
       {
         "label": "scenario-28-29",
-        "elapsedMs": 185799,
+        "elapsedMs": 184664,
         "fps": 3,
         "frameMs": 15,
         "activeScenes": [
@@ -892,7 +892,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 39164428,
+        "heapBytes": 42989535,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -905,7 +905,7 @@
       },
       {
         "label": "scenario-29-30",
-        "elapsedMs": 190636,
+        "elapsedMs": 189533,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -917,7 +917,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 39012894,
+        "heapBytes": 27541134,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -930,7 +930,7 @@
       },
       {
         "label": "scenario-30-31",
-        "elapsedMs": 195482,
+        "elapsedMs": 194318,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -942,7 +942,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 39176950,
+        "heapBytes": 35950694,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -955,7 +955,7 @@
       },
       {
         "label": "scenario-31-32",
-        "elapsedMs": 202714,
+        "elapsedMs": 201447,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -967,7 +967,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 38804921,
+        "heapBytes": 33637658,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -980,7 +980,7 @@
       },
       {
         "label": "scenario-32-33",
-        "elapsedMs": 212101,
+        "elapsedMs": 210703,
         "fps": 4,
         "frameMs": 15,
         "activeScenes": [
@@ -992,7 +992,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 39251666,
+        "heapBytes": 39186999,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -1005,7 +1005,7 @@
       },
       {
         "label": "scenario-33-34",
-        "elapsedMs": 215147,
+        "elapsedMs": 213762,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -1017,7 +1017,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 2,
-        "heapBytes": 44933125,
+        "heapBytes": 45083295,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -1030,7 +1030,7 @@
       },
       {
         "label": "scenario-34-35",
-        "elapsedMs": 220051,
+        "elapsedMs": 218541,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -1042,7 +1042,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 45086644,
+        "heapBytes": 39280297,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -1055,7 +1055,7 @@
       },
       {
         "label": "scenario-35-36",
-        "elapsedMs": 227305,
+        "elapsedMs": 225693,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -1067,7 +1067,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 33679377,
+        "heapBytes": 33651682,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -1080,7 +1080,7 @@
       },
       {
         "label": "scenario-36-37",
-        "elapsedMs": 236752,
+        "elapsedMs": 234923,
         "fps": 3,
         "frameMs": 15,
         "activeScenes": [
@@ -1092,7 +1092,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 39100944,
+        "heapBytes": 39052555,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -1105,7 +1105,7 @@
       },
       {
         "label": "scenario-37-38",
-        "elapsedMs": 239827,
+        "elapsedMs": 237937,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -1117,7 +1117,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 2,
-        "heapBytes": 48045050,
+        "heapBytes": 48273405,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -1130,7 +1130,7 @@
       },
       {
         "label": "scenario-38-39",
-        "elapsedMs": 244707,
+        "elapsedMs": 242734,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -1142,7 +1142,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 39239824,
+        "heapBytes": 36069665,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -1155,7 +1155,7 @@
       },
       {
         "label": "scenario-39-40",
-        "elapsedMs": 251623,
+        "elapsedMs": 249942,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -1167,7 +1167,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 33691229,
+        "heapBytes": 33642930,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -1180,8 +1180,8 @@
       },
       {
         "label": "scenario-40-41",
-        "elapsedMs": 260894,
-        "fps": 4,
+        "elapsedMs": 259215,
+        "fps": 3,
         "frameMs": 15,
         "activeScenes": [
           "ResultsScene"
@@ -1192,7 +1192,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 39171356,
+        "heapBytes": 39127429,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -1205,7 +1205,7 @@
       },
       {
         "label": "scenario-41-42",
-        "elapsedMs": 265708,
+        "elapsedMs": 264053,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -1217,7 +1217,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 40401225,
+        "heapBytes": 50902658,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -1230,7 +1230,7 @@
       },
       {
         "label": "scenario-42-43",
-        "elapsedMs": 270493,
+        "elapsedMs": 268803,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -1242,7 +1242,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 37446326,
+        "heapBytes": 50669045,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -1255,7 +1255,7 @@
       },
       {
         "label": "scenario-43-44",
-        "elapsedMs": 277669,
+        "elapsedMs": 275955,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -1267,7 +1267,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 33777084,
+        "heapBytes": 33744594,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -1280,7 +1280,7 @@
       },
       {
         "label": "scenario-44-45",
-        "elapsedMs": 286973,
+        "elapsedMs": 285243,
         "fps": 4,
         "frameMs": 15,
         "activeScenes": [
@@ -1292,7 +1292,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 42671418,
+        "heapBytes": 39233451,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -1305,7 +1305,7 @@
       },
       {
         "label": "scenario-45-46",
-        "elapsedMs": 290028,
+        "elapsedMs": 288258,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -1317,7 +1317,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 2,
-        "heapBytes": 39206083,
+        "heapBytes": 44951108,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -1330,7 +1330,7 @@
       },
       {
         "label": "scenario-46-47",
-        "elapsedMs": 294836,
+        "elapsedMs": 293081,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -1342,7 +1342,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 45034874,
+        "heapBytes": 45055307,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -1355,7 +1355,7 @@
       },
       {
         "label": "scenario-47-48",
-        "elapsedMs": 302174,
+        "elapsedMs": 300215,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -1367,7 +1367,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 39751383,
+        "heapBytes": 33898878,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -1380,8 +1380,8 @@
       },
       {
         "label": "scenario-48-49",
-        "elapsedMs": 311954,
-        "fps": 4,
+        "elapsedMs": 309479,
+        "fps": 3,
         "frameMs": 15,
         "activeScenes": [
           "ResultsScene"
@@ -1392,7 +1392,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 39317164,
+        "heapBytes": 39321469,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -1405,7 +1405,7 @@
       },
       {
         "label": "scenario-49-50",
-        "elapsedMs": 315052,
+        "elapsedMs": 312503,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -1417,7 +1417,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 2,
-        "heapBytes": 45055677,
+        "heapBytes": 48517907,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -1430,7 +1430,7 @@
       },
       {
         "label": "scenario-50-51",
-        "elapsedMs": 320019,
+        "elapsedMs": 317285,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -1442,7 +1442,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 36271919,
+        "heapBytes": 39503147,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -1455,7 +1455,7 @@
       },
       {
         "label": "scenario-51-52",
-        "elapsedMs": 327272,
+        "elapsedMs": 324445,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -1467,7 +1467,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 56900618,
+        "heapBytes": 33952765,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -1480,7 +1480,7 @@
       },
       {
         "label": "scenario-52-53",
-        "elapsedMs": 336695,
+        "elapsedMs": 333650,
         "fps": 3,
         "frameMs": 15,
         "activeScenes": [
@@ -1492,7 +1492,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 35431550,
+        "heapBytes": 42470620,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -1505,7 +1505,7 @@
       },
       {
         "label": "scenario-53-54",
-        "elapsedMs": 341610,
+        "elapsedMs": 338512,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -1517,7 +1517,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 41182514,
+        "heapBytes": 41772899,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -1530,7 +1530,7 @@
       },
       {
         "label": "scenario-54-55",
-        "elapsedMs": 346455,
+        "elapsedMs": 343301,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -1542,7 +1542,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 38684618,
+        "heapBytes": 35540407,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -1555,7 +1555,7 @@
       },
       {
         "label": "scenario-55-56",
-        "elapsedMs": 353736,
+        "elapsedMs": 350466,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -1567,7 +1567,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 60749574,
+        "heapBytes": 34059409,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -1580,7 +1580,7 @@
       },
       {
         "label": "scenario-56-57",
-        "elapsedMs": 363270,
+        "elapsedMs": 359740,
         "fps": 4,
         "frameMs": 15,
         "activeScenes": [
@@ -1592,7 +1592,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 48250100,
+        "heapBytes": 35005196,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -1605,7 +1605,7 @@
       },
       {
         "label": "scenario-57-58",
-        "elapsedMs": 366477,
+        "elapsedMs": 362774,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -1617,7 +1617,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 2,
-        "heapBytes": 41854547,
+        "heapBytes": 35573121,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -1630,8 +1630,8 @@
       },
       {
         "label": "scenario-58-59",
-        "elapsedMs": 371501,
-        "fps": 4,
+        "elapsedMs": 367570,
+        "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
           "ResultsScene"
@@ -1642,7 +1642,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 34728233,
+        "heapBytes": 37680312,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -1655,7 +1655,7 @@
       },
       {
         "label": "scenario-59-60",
-        "elapsedMs": 378830,
+        "elapsedMs": 374734,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -1667,7 +1667,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 60931335,
+        "heapBytes": 34186711,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -1680,7 +1680,7 @@
       },
       {
         "label": "scenario-60-61",
-        "elapsedMs": 388187,
+        "elapsedMs": 383950,
         "fps": 4,
         "frameMs": 15,
         "activeScenes": [
@@ -1692,7 +1692,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 53321793,
+        "heapBytes": 43251838,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -1705,7 +1705,7 @@
       },
       {
         "label": "scenario-61-62",
-        "elapsedMs": 391223,
+        "elapsedMs": 386989,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -1717,7 +1717,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 2,
-        "heapBytes": 34858256,
+        "heapBytes": 35840479,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -1730,7 +1730,7 @@
       },
       {
         "label": "scenario-62-63",
-        "elapsedMs": 396035,
+        "elapsedMs": 391752,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -1742,7 +1742,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 52786991,
+        "heapBytes": 37655994,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -1755,7 +1755,7 @@
       },
       {
         "label": "scenario-63-64",
-        "elapsedMs": 403213,
+        "elapsedMs": 398914,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -1767,7 +1767,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 61078953,
+        "heapBytes": 34222813,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -1780,7 +1780,7 @@
       },
       {
         "label": "scenario-64-65",
-        "elapsedMs": 412494,
+        "elapsedMs": 408145,
         "fps": 3,
         "frameMs": 15,
         "activeScenes": [
@@ -1792,7 +1792,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 44045171,
+        "heapBytes": 45957233,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -1805,7 +1805,7 @@
       },
       {
         "label": "scenario-65-66",
-        "elapsedMs": 417375,
+        "elapsedMs": 412991,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -1817,7 +1817,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 39660497,
+        "heapBytes": 48555184,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -1830,7 +1830,7 @@
       },
       {
         "label": "scenario-66-67",
-        "elapsedMs": 422184,
+        "elapsedMs": 417780,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -1842,7 +1842,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 39475933,
+        "heapBytes": 36485037,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -1855,7 +1855,7 @@
       },
       {
         "label": "scenario-67-68",
-        "elapsedMs": 429344,
+        "elapsedMs": 424911,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -1867,7 +1867,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 50601452,
+        "heapBytes": 34403113,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -1880,7 +1880,7 @@
       },
       {
         "label": "scenario-68-69",
-        "elapsedMs": 438615,
+        "elapsedMs": 434189,
         "fps": 4,
         "frameMs": 15,
         "activeScenes": [
@@ -1892,7 +1892,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 42700872,
+        "heapBytes": 35493740,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -1905,7 +1905,7 @@
       },
       {
         "label": "scenario-69-70",
-        "elapsedMs": 441632,
+        "elapsedMs": 437217,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -1917,7 +1917,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 2,
-        "heapBytes": 42208966,
+        "heapBytes": 36122764,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -1930,7 +1930,7 @@
       },
       {
         "label": "scenario-70-71",
-        "elapsedMs": 446413,
+        "elapsedMs": 441993,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -1942,7 +1942,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 36602652,
+        "heapBytes": 40691400,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -1955,7 +1955,7 @@
       },
       {
         "label": "scenario-71-72",
-        "elapsedMs": 453570,
+        "elapsedMs": 449112,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -1967,7 +1967,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 34146601,
+        "heapBytes": 61586475,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -1980,7 +1980,7 @@
       },
       {
         "label": "scenario-72-73",
-        "elapsedMs": 462824,
+        "elapsedMs": 458335,
         "fps": 3,
         "frameMs": 15,
         "activeScenes": [
@@ -1992,7 +1992,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 39571104,
+        "heapBytes": 47725889,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -2005,7 +2005,7 @@
       },
       {
         "label": "scenario-73-74",
-        "elapsedMs": 465845,
+        "elapsedMs": 461367,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -2017,7 +2017,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 2,
-        "heapBytes": 45104846,
+        "heapBytes": 42453826,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -2030,7 +2030,7 @@
       },
       {
         "label": "scenario-74-75",
-        "elapsedMs": 470641,
+        "elapsedMs": 466148,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -2042,7 +2042,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 45368304,
+        "heapBytes": 35835591,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -2055,7 +2055,7 @@
       },
       {
         "label": "scenario-75-76",
-        "elapsedMs": 477783,
+        "elapsedMs": 473298,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -2067,7 +2067,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 34192179,
+        "heapBytes": 61707183,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -2080,7 +2080,7 @@
       },
       {
         "label": "scenario-76-77",
-        "elapsedMs": 486994,
+        "elapsedMs": 482507,
         "fps": 3,
         "frameMs": 15,
         "activeScenes": [
@@ -2092,7 +2092,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 39671946,
+        "heapBytes": 44185055,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -2105,7 +2105,7 @@
       },
       {
         "label": "scenario-77-78",
-        "elapsedMs": 491800,
+        "elapsedMs": 487356,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -2117,7 +2117,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 51475131,
+        "heapBytes": 39885332,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -2130,7 +2130,7 @@
       },
       {
         "label": "scenario-78-79",
-        "elapsedMs": 496570,
+        "elapsedMs": 492175,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -2142,7 +2142,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 38203687,
+        "heapBytes": 39912981,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -2155,7 +2155,7 @@
       },
       {
         "label": "scenario-79-80",
-        "elapsedMs": 503696,
+        "elapsedMs": 499308,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -2167,7 +2167,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 57623278,
+        "heapBytes": 53034061,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -2180,7 +2180,7 @@
       },
       {
         "label": "scenario-80-81",
-        "elapsedMs": 512967,
+        "elapsedMs": 508578,
         "fps": 4,
         "frameMs": 15,
         "activeScenes": [
@@ -2192,7 +2192,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 36368814,
+        "heapBytes": 39941717,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -2205,7 +2205,7 @@
       },
       {
         "label": "scenario-81-82",
-        "elapsedMs": 515992,
+        "elapsedMs": 511619,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -2217,7 +2217,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 2,
-        "heapBytes": 35649904,
+        "heapBytes": 46023153,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -2230,7 +2230,7 @@
       },
       {
         "label": "scenario-82-83",
-        "elapsedMs": 520821,
+        "elapsedMs": 516402,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -2242,7 +2242,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 38264617,
+        "heapBytes": 47183317,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -2255,7 +2255,7 @@
       },
       {
         "label": "scenario-83-84",
-        "elapsedMs": 527973,
+        "elapsedMs": 523566,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -2267,7 +2267,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 34364510,
+        "heapBytes": 67902569,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -2280,7 +2280,7 @@
       },
       {
         "label": "scenario-84-85",
-        "elapsedMs": 537190,
+        "elapsedMs": 532802,
         "fps": 3,
         "frameMs": 15,
         "activeScenes": [
@@ -2292,7 +2292,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 36646902,
+        "heapBytes": 46703665,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -2305,7 +2305,7 @@
       },
       {
         "label": "scenario-85-86",
-        "elapsedMs": 540194,
+        "elapsedMs": 535817,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -2317,7 +2317,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 2,
-        "heapBytes": 57490561,
+        "heapBytes": 42770153,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -2330,7 +2330,7 @@
       },
       {
         "label": "scenario-86-87",
-        "elapsedMs": 544956,
+        "elapsedMs": 540591,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -2342,7 +2342,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 38687712,
+        "heapBytes": 43760818,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -2355,7 +2355,7 @@
       },
       {
         "label": "scenario-87-88",
-        "elapsedMs": 552114,
+        "elapsedMs": 547730,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -2367,7 +2367,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 61752586,
+        "heapBytes": 53251021,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -2380,8 +2380,8 @@
       },
       {
         "label": "scenario-88-89",
-        "elapsedMs": 561339,
-        "fps": 3,
+        "elapsedMs": 556995,
+        "fps": 4,
         "frameMs": 15,
         "activeScenes": [
           "ResultsScene"
@@ -2392,7 +2392,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 53811082,
+        "heapBytes": 43396403,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -2405,7 +2405,7 @@
       },
       {
         "label": "scenario-89-90",
-        "elapsedMs": 566157,
+        "elapsedMs": 561825,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -2417,7 +2417,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 45501625,
+        "heapBytes": 48802597,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -2430,7 +2430,7 @@
       },
       {
         "label": "scenario-90-91",
-        "elapsedMs": 570961,
+        "elapsedMs": 566594,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -2442,7 +2442,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 36800993,
+        "heapBytes": 36016016,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -2455,7 +2455,7 @@
       },
       {
         "label": "scenario-91-92",
-        "elapsedMs": 578111,
+        "elapsedMs": 573719,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -2467,7 +2467,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 39340345,
+        "heapBytes": 82466482,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -2480,7 +2480,7 @@
       },
       {
         "label": "scenario-92-93",
-        "elapsedMs": 587391,
+        "elapsedMs": 582981,
         "fps": 4,
         "frameMs": 15,
         "activeScenes": [
@@ -2492,7 +2492,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 39795400,
+        "heapBytes": 50021043,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -2505,7 +2505,7 @@
       },
       {
         "label": "scenario-93-94",
-        "elapsedMs": 590424,
+        "elapsedMs": 586049,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -2517,7 +2517,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 2,
-        "heapBytes": 46047824,
+        "heapBytes": 34447231,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -2530,7 +2530,7 @@
       },
       {
         "label": "scenario-94-95",
-        "elapsedMs": 595197,
+        "elapsedMs": 590856,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -2542,7 +2542,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 45622846,
+        "heapBytes": 40042200,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -2555,7 +2555,7 @@
       },
       {
         "label": "scenario-95-96",
-        "elapsedMs": 602348,
+        "elapsedMs": 597997,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -2567,7 +2567,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 33664597,
+        "heapBytes": 53251198,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -2580,7 +2580,7 @@
       },
       {
         "label": "scenario-96-97",
-        "elapsedMs": 611605,
+        "elapsedMs": 607256,
         "fps": 3,
         "frameMs": 15,
         "activeScenes": [
@@ -2592,7 +2592,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 39906172,
+        "heapBytes": 40092560,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -2605,7 +2605,7 @@
       },
       {
         "label": "scenario-97-98",
-        "elapsedMs": 614640,
+        "elapsedMs": 610285,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -2617,7 +2617,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 2,
-        "heapBytes": 45662445,
+        "heapBytes": 50087802,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -2630,7 +2630,7 @@
       },
       {
         "label": "scenario-98-99",
-        "elapsedMs": 619448,
+        "elapsedMs": 615129,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -2642,7 +2642,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 35391210,
+        "heapBytes": 39083809,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -2655,7 +2655,7 @@
       },
       {
         "label": "scenario-99-100",
-        "elapsedMs": 626596,
+        "elapsedMs": 622278,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -2667,7 +2667,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 33735239,
+        "heapBytes": 68168255,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -2680,8 +2680,8 @@
       },
       {
         "label": "scenario-100-101",
-        "elapsedMs": 635832,
-        "fps": 3,
+        "elapsedMs": 631506,
+        "fps": 4,
         "frameMs": 15,
         "activeScenes": [
           "ResultsScene"
@@ -2692,7 +2692,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 39960966,
+        "heapBytes": 36606231,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -2705,7 +2705,7 @@
       },
       {
         "label": "scenario-101-102",
-        "elapsedMs": 640632,
+        "elapsedMs": 636338,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -2717,7 +2717,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 51823814,
+        "heapBytes": 43014509,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -2730,7 +2730,7 @@
       },
       {
         "label": "scenario-102-103",
-        "elapsedMs": 645468,
+        "elapsedMs": 641111,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -2742,7 +2742,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 39289707,
+        "heapBytes": 41729408,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -2755,7 +2755,7 @@
       },
       {
         "label": "scenario-103-104",
-        "elapsedMs": 652669,
+        "elapsedMs": 648299,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -2767,7 +2767,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 39612713,
+        "heapBytes": 34798749,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -2780,7 +2780,7 @@
       },
       {
         "label": "scenario-104-105",
-        "elapsedMs": 661950,
+        "elapsedMs": 657582,
         "fps": 4,
         "frameMs": 15,
         "activeScenes": [
@@ -2792,7 +2792,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 40037110,
+        "heapBytes": 52869681,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -2805,7 +2805,7 @@
       },
       {
         "label": "scenario-105-106",
-        "elapsedMs": 664960,
+        "elapsedMs": 660632,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -2817,7 +2817,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 2,
-        "heapBytes": 46033978,
+        "heapBytes": 56977004,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -2830,7 +2830,7 @@
       },
       {
         "label": "scenario-106-107",
-        "elapsedMs": 669753,
+        "elapsedMs": 665402,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -2842,7 +2842,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 45829622,
+        "heapBytes": 38537146,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -2855,7 +2855,7 @@
       },
       {
         "label": "scenario-107-108",
-        "elapsedMs": 676901,
+        "elapsedMs": 672607,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -2867,7 +2867,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 34668519,
+        "heapBytes": 62422388,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -2880,7 +2880,7 @@
       },
       {
         "label": "scenario-108-109",
-        "elapsedMs": 686123,
+        "elapsedMs": 681814,
         "fps": 3,
         "frameMs": 15,
         "activeScenes": [
@@ -2892,7 +2892,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 38126112,
+        "heapBytes": 43169391,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -2905,7 +2905,7 @@
       },
       {
         "label": "scenario-109-110",
-        "elapsedMs": 689134,
+        "elapsedMs": 684864,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -2917,7 +2917,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 2,
-        "heapBytes": 59237595,
+        "heapBytes": 40201138,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -2930,7 +2930,7 @@
       },
       {
         "label": "scenario-110-111",
-        "elapsedMs": 693910,
+        "elapsedMs": 689645,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -2942,7 +2942,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 40216280,
+        "heapBytes": 36547475,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -2955,7 +2955,7 @@
       },
       {
         "label": "scenario-111-112",
-        "elapsedMs": 701034,
+        "elapsedMs": 696809,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -2967,7 +2967,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 62323004,
+        "heapBytes": 35024108,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -2980,7 +2980,7 @@
       },
       {
         "label": "scenario-112-113",
-        "elapsedMs": 710296,
+        "elapsedMs": 706072,
         "fps": 3,
         "frameMs": 15,
         "activeScenes": [
@@ -2992,7 +2992,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 28564262,
+        "heapBytes": 40905962,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -3005,7 +3005,7 @@
       },
       {
         "label": "scenario-113-114",
-        "elapsedMs": 715102,
+        "elapsedMs": 710932,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -3017,7 +3017,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 45934215,
+        "heapBytes": 41683666,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -3030,7 +3030,7 @@
       },
       {
         "label": "scenario-114-115",
-        "elapsedMs": 719905,
+        "elapsedMs": 715702,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -3042,7 +3042,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 38879338,
+        "heapBytes": 41477978,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -3055,7 +3055,7 @@
       },
       {
         "label": "scenario-115-116",
-        "elapsedMs": 727061,
+        "elapsedMs": 722840,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -3067,7 +3067,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 33996907,
+        "heapBytes": 62582735,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -3080,7 +3080,7 @@
       },
       {
         "label": "scenario-116-117",
-        "elapsedMs": 736315,
+        "elapsedMs": 732120,
         "fps": 4,
         "frameMs": 15,
         "activeScenes": [
@@ -3092,7 +3092,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 40203976,
+        "heapBytes": 50028041,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -3105,7 +3105,7 @@
       },
       {
         "label": "scenario-117-118",
-        "elapsedMs": 739334,
+        "elapsedMs": 735188,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -3117,7 +3117,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 2,
-        "heapBytes": 46212080,
+        "heapBytes": 43377671,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -3130,7 +3130,7 @@
       },
       {
         "label": "scenario-118-119",
-        "elapsedMs": 744130,
+        "elapsedMs": 739979,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -3142,7 +3142,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 45986246,
+        "heapBytes": 44495212,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -3155,7 +3155,7 @@
       },
       {
         "label": "scenario-119-120",
-        "elapsedMs": 751295,
+        "elapsedMs": 747114,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -3167,7 +3167,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 34013709,
+        "heapBytes": 28859754,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -3180,7 +3180,7 @@
       },
       {
         "label": "scenario-120-121",
-        "elapsedMs": 760539,
+        "elapsedMs": 756341,
         "fps": 3,
         "frameMs": 15,
         "activeScenes": [
@@ -3192,7 +3192,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 40274488,
+        "heapBytes": 44169415,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -3205,7 +3205,7 @@
       },
       {
         "label": "scenario-121-122",
-        "elapsedMs": 763556,
+        "elapsedMs": 759377,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -3217,7 +3217,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 2,
-        "heapBytes": 46035009,
+        "heapBytes": 36725861,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -3230,7 +3230,7 @@
       },
       {
         "label": "scenario-122-123",
-        "elapsedMs": 768402,
+        "elapsedMs": 764171,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -3242,7 +3242,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 35776443,
+        "heapBytes": 43680521,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -3255,7 +3255,7 @@
       },
       {
         "label": "scenario-123-124",
-        "elapsedMs": 775572,
+        "elapsedMs": 771352,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -3267,7 +3267,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 33978221,
+        "heapBytes": 35073385,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -3280,7 +3280,7 @@
       },
       {
         "label": "scenario-124-125",
-        "elapsedMs": 784814,
+        "elapsedMs": 780548,
         "fps": 3,
         "frameMs": 15,
         "activeScenes": [
@@ -3292,7 +3292,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 40284266,
+        "heapBytes": 39947990,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -3305,7 +3305,7 @@
       },
       {
         "label": "scenario-125-126",
-        "elapsedMs": 789628,
+        "elapsedMs": 785385,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -3317,7 +3317,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 52059562,
+        "heapBytes": 41067866,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -3330,7 +3330,7 @@
       },
       {
         "label": "scenario-126-127",
-        "elapsedMs": 794405,
+        "elapsedMs": 790147,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -3342,7 +3342,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 37640342,
+        "heapBytes": 42315864,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -3355,7 +3355,7 @@
       },
       {
         "label": "scenario-127-128",
-        "elapsedMs": 801592,
+        "elapsedMs": 797292,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -3367,7 +3367,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 34922605,
+        "heapBytes": 62353413,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -3380,7 +3380,7 @@
       },
       {
         "label": "scenario-128-129",
-        "elapsedMs": 810809,
+        "elapsedMs": 806567,
         "fps": 4,
         "frameMs": 15,
         "activeScenes": [
@@ -3392,7 +3392,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 43978665,
+        "heapBytes": 50728719,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -3405,7 +3405,7 @@
       },
       {
         "label": "scenario-129-130",
-        "elapsedMs": 813829,
+        "elapsedMs": 809607,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -3417,7 +3417,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 2,
-        "heapBytes": 36326098,
+        "heapBytes": 41087151,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -3430,7 +3430,7 @@
       },
       {
         "label": "scenario-130-131",
-        "elapsedMs": 818601,
+        "elapsedMs": 814379,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -3442,7 +3442,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 41192766,
+        "heapBytes": 40651897,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -3455,7 +3455,7 @@
       },
       {
         "label": "scenario-131-132",
-        "elapsedMs": 825747,
+        "elapsedMs": 821512,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -3467,7 +3467,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 61579980,
+        "heapBytes": 53920129,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -3480,8 +3480,8 @@
       },
       {
         "label": "scenario-132-133",
-        "elapsedMs": 834966,
-        "fps": 4,
+        "elapsedMs": 830768,
+        "fps": 3,
         "frameMs": 15,
         "activeScenes": [
           "ResultsScene"
@@ -3492,7 +3492,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 48198399,
+        "heapBytes": 40689343,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -3505,7 +3505,7 @@
       },
       {
         "label": "scenario-133-134",
-        "elapsedMs": 838018,
+        "elapsedMs": 833804,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -3517,7 +3517,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 2,
-        "heapBytes": 36609757,
+        "heapBytes": 50450781,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -3530,7 +3530,7 @@
       },
       {
         "label": "scenario-134-135",
-        "elapsedMs": 842814,
+        "elapsedMs": 838586,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -3542,7 +3542,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 36820186,
+        "heapBytes": 39350713,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -3555,7 +3555,7 @@
       },
       {
         "label": "scenario-135-136",
-        "elapsedMs": 849952,
+        "elapsedMs": 845703,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -3567,7 +3567,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 53634890,
+        "heapBytes": 62842024,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -3580,7 +3580,7 @@
       },
       {
         "label": "scenario-136-137",
-        "elapsedMs": 859228,
+        "elapsedMs": 854938,
         "fps": 3,
         "frameMs": 15,
         "activeScenes": [
@@ -3592,7 +3592,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 36048346,
+        "heapBytes": 49749975,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -3605,7 +3605,7 @@
       },
       {
         "label": "scenario-137-138",
-        "elapsedMs": 864042,
+        "elapsedMs": 859799,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -3617,7 +3617,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 46500917,
+        "heapBytes": 49773059,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -3630,7 +3630,7 @@
       },
       {
         "label": "scenario-138-139",
-        "elapsedMs": 868825,
+        "elapsedMs": 864590,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -3642,7 +3642,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 36154631,
+        "heapBytes": 46163570,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -3655,7 +3655,7 @@
       },
       {
         "label": "scenario-139-140",
-        "elapsedMs": 875990,
+        "elapsedMs": 871726,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -3667,7 +3667,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 40026843,
+        "heapBytes": 54015682,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -3680,8 +3680,8 @@
       },
       {
         "label": "scenario-140-141",
-        "elapsedMs": 885241,
-        "fps": 4,
+        "elapsedMs": 880974,
+        "fps": 3,
         "frameMs": 15,
         "activeScenes": [
           "ResultsScene"
@@ -3692,7 +3692,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 40446888,
+        "heapBytes": 80308742,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -3705,7 +3705,7 @@
       },
       {
         "label": "scenario-141-142",
-        "elapsedMs": 888316,
+        "elapsedMs": 884011,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -3717,7 +3717,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 2,
-        "heapBytes": 46540912,
+        "heapBytes": 43552794,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -3730,7 +3730,7 @@
       },
       {
         "label": "scenario-142-143",
-        "elapsedMs": 893114,
+        "elapsedMs": 888802,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -3742,7 +3742,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 46239630,
+        "heapBytes": 63253223,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -3755,7 +3755,7 @@
       },
       {
         "label": "scenario-143-144",
-        "elapsedMs": 900276,
+        "elapsedMs": 895950,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -3767,7 +3767,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 34279413,
+        "heapBytes": 62912192,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -3780,8 +3780,8 @@
       },
       {
         "label": "scenario-144-145",
-        "elapsedMs": 909508,
-        "fps": 4,
+        "elapsedMs": 905164,
+        "fps": 3,
         "frameMs": 15,
         "activeScenes": [
           "ResultsScene"
@@ -3792,7 +3792,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 40491128,
+        "heapBytes": 48164588,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -3805,7 +3805,7 @@
       },
       {
         "label": "scenario-145-146",
-        "elapsedMs": 912521,
+        "elapsedMs": 908215,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -3817,7 +3817,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 2,
-        "heapBytes": 46346822,
+        "heapBytes": 40750701,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -3830,7 +3830,7 @@
       },
       {
         "label": "scenario-146-147",
-        "elapsedMs": 917280,
+        "elapsedMs": 912999,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -3842,7 +3842,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 46252248,
+        "heapBytes": 37782488,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -3855,7 +3855,7 @@
       },
       {
         "label": "scenario-147-148",
-        "elapsedMs": 924434,
+        "elapsedMs": 920189,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -3867,7 +3867,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 34278947,
+        "heapBytes": 34532437,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -3880,8 +3880,8 @@
       },
       {
         "label": "scenario-148-149",
-        "elapsedMs": 933648,
-        "fps": 4,
+        "elapsedMs": 929404,
+        "fps": 3,
         "frameMs": 15,
         "activeScenes": [
           "ResultsScene"
@@ -3892,7 +3892,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 40492450,
+        "heapBytes": 40767704,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -3905,7 +3905,7 @@
       },
       {
         "label": "scenario-149-150",
-        "elapsedMs": 938421,
+        "elapsedMs": 934239,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -3917,7 +3917,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 41103746,
+        "heapBytes": 40666221,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -3930,7 +3930,7 @@
       },
       {
         "label": "scenario-150-151",
-        "elapsedMs": 943191,
+        "elapsedMs": 939019,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -3942,7 +3942,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 38693965,
+        "heapBytes": 40787971,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -3955,7 +3955,7 @@
       },
       {
         "label": "scenario-151-152",
-        "elapsedMs": 950173,
+        "elapsedMs": 946163,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -3967,7 +3967,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 34369223,
+        "heapBytes": 59944994,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -3980,8 +3980,8 @@
       },
       {
         "label": "scenario-152-153",
-        "elapsedMs": 959435,
-        "fps": 3,
+        "elapsedMs": 955506,
+        "fps": 4,
         "frameMs": 15,
         "activeScenes": [
           "ResultsScene"
@@ -3992,7 +3992,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 40484818,
+        "heapBytes": 40812925,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -4005,7 +4005,7 @@
       },
       {
         "label": "scenario-153-154",
-        "elapsedMs": 962458,
+        "elapsedMs": 958524,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -4017,7 +4017,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 2,
-        "heapBytes": 46241790,
+        "heapBytes": 50584859,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -4030,7 +4030,7 @@
       },
       {
         "label": "scenario-154-155",
-        "elapsedMs": 967262,
+        "elapsedMs": 963297,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -4042,7 +4042,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 46261468,
+        "heapBytes": 39125853,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -4055,7 +4055,7 @@
       },
       {
         "label": "scenario-155-156",
-        "elapsedMs": 974400,
+        "elapsedMs": 970427,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -4067,7 +4067,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 34309515,
+        "heapBytes": 60529132,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -4080,7 +4080,7 @@
       },
       {
         "label": "scenario-156-157",
-        "elapsedMs": 983629,
+        "elapsedMs": 979698,
         "fps": 3,
         "frameMs": 15,
         "activeScenes": [
@@ -4092,7 +4092,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 43393706,
+        "heapBytes": 35786474,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -4105,7 +4105,7 @@
       },
       {
         "label": "scenario-157-158",
-        "elapsedMs": 986641,
+        "elapsedMs": 982761,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -4117,7 +4117,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 2,
-        "heapBytes": 57822041,
+        "heapBytes": 40792420,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -4130,7 +4130,7 @@
       },
       {
         "label": "scenario-158-159",
-        "elapsedMs": 991412,
+        "elapsedMs": 987555,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -4142,7 +4142,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 46292746,
+        "heapBytes": 37503991,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -4155,7 +4155,7 @@
       },
       {
         "label": "scenario-159-160",
-        "elapsedMs": 998550,
+        "elapsedMs": 994706,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -4167,7 +4167,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 34327953,
+        "heapBytes": 40410690,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -4180,7 +4180,7 @@
       },
       {
         "label": "scenario-160-161",
-        "elapsedMs": 1007797,
+        "elapsedMs": 1003935,
         "fps": 3,
         "frameMs": 15,
         "activeScenes": [
@@ -4192,7 +4192,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 40556372,
+        "heapBytes": 40873849,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -4205,7 +4205,7 @@
       },
       {
         "label": "scenario-161-162",
-        "elapsedMs": 1012601,
+        "elapsedMs": 1008801,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -4217,7 +4217,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 52178538,
+        "heapBytes": 52358810,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -4230,7 +4230,7 @@
       },
       {
         "label": "scenario-162-163",
-        "elapsedMs": 1017425,
+        "elapsedMs": 1013655,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -4242,7 +4242,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 35969845,
+        "heapBytes": 38371366,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -4255,7 +4255,7 @@
       },
       {
         "label": "scenario-163-164",
-        "elapsedMs": 1024559,
+        "elapsedMs": 1020806,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -4267,7 +4267,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 53754173,
+        "heapBytes": 52267046,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -4280,7 +4280,7 @@
       },
       {
         "label": "scenario-164-165",
-        "elapsedMs": 1033815,
+        "elapsedMs": 1030062,
         "fps": 4,
         "frameMs": 15,
         "activeScenes": [
@@ -4292,7 +4292,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 40530508,
+        "heapBytes": 44724194,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -4305,7 +4305,7 @@
       },
       {
         "label": "scenario-165-166",
-        "elapsedMs": 1036833,
+        "elapsedMs": 1033088,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -4317,7 +4317,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 2,
-        "heapBytes": 46331504,
+        "heapBytes": 36957229,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -4330,7 +4330,7 @@
       },
       {
         "label": "scenario-166-167",
-        "elapsedMs": 1041663,
+        "elapsedMs": 1037876,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -4342,7 +4342,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 54877674,
+        "heapBytes": 41941055,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -4355,7 +4355,7 @@
       },
       {
         "label": "scenario-167-168",
-        "elapsedMs": 1048880,
+        "elapsedMs": 1045052,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -4367,7 +4367,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 68629370,
+        "heapBytes": 61922629,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -4380,7 +4380,7 @@
       },
       {
         "label": "scenario-168-169",
-        "elapsedMs": 1058167,
+        "elapsedMs": 1054284,
         "fps": 3,
         "frameMs": 15,
         "activeScenes": [
@@ -4392,7 +4392,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 47981678,
+        "heapBytes": 29235164,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -4405,7 +4405,7 @@
       },
       {
         "label": "scenario-169-170",
-        "elapsedMs": 1061206,
+        "elapsedMs": 1057322,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -4417,7 +4417,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 2,
-        "heapBytes": 43044292,
+        "heapBytes": 42004576,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -4430,7 +4430,7 @@
       },
       {
         "label": "scenario-170-171",
-        "elapsedMs": 1065980,
+        "elapsedMs": 1062113,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -4442,7 +4442,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 44078822,
+        "heapBytes": 40805308,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -4455,7 +4455,7 @@
       },
       {
         "label": "scenario-171-172",
-        "elapsedMs": 1073215,
+        "elapsedMs": 1069252,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -4467,7 +4467,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 53827081,
+        "heapBytes": 54200597,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -4480,7 +4480,7 @@
       },
       {
         "label": "scenario-172-173",
-        "elapsedMs": 1082469,
+        "elapsedMs": 1078557,
         "fps": 3,
         "frameMs": 15,
         "activeScenes": [
@@ -4492,7 +4492,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 42267824,
+        "heapBytes": 40841958,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -4505,7 +4505,7 @@
       },
       {
         "label": "scenario-173-174",
-        "elapsedMs": 1087325,
+        "elapsedMs": 1083383,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -4517,7 +4517,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 40401283,
+        "heapBytes": 57218496,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -4530,7 +4530,7 @@
       },
       {
         "label": "scenario-174-175",
-        "elapsedMs": 1092183,
+        "elapsedMs": 1088197,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -4542,7 +4542,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 40517714,
+        "heapBytes": 43266217,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -4555,7 +4555,7 @@
       },
       {
         "label": "scenario-175-176",
-        "elapsedMs": 1099372,
+        "elapsedMs": 1095338,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -4567,7 +4567,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 59599720,
+        "heapBytes": 68986363,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -4580,7 +4580,7 @@
       },
       {
         "label": "scenario-176-177",
-        "elapsedMs": 1108762,
+        "elapsedMs": 1104645,
         "fps": 4,
         "frameMs": 15,
         "activeScenes": [
@@ -4592,7 +4592,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 40547614,
+        "heapBytes": 46625589,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -4605,7 +4605,7 @@
       },
       {
         "label": "scenario-177-178",
-        "elapsedMs": 1111783,
+        "elapsedMs": 1107660,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -4617,7 +4617,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 2,
-        "heapBytes": 50247510,
+        "heapBytes": 50812071,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -4630,7 +4630,7 @@
       },
       {
         "label": "scenario-178-179",
-        "elapsedMs": 1116598,
+        "elapsedMs": 1112450,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -4642,7 +4642,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 39074158,
+        "heapBytes": 47433137,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -4655,7 +4655,7 @@
       },
       {
         "label": "scenario-179-180",
-        "elapsedMs": 1123789,
+        "elapsedMs": 1119597,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -4667,7 +4667,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 62378505,
+        "heapBytes": 54098342,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -4680,7 +4680,7 @@
       },
       {
         "label": "scenario-180-181",
-        "elapsedMs": 1133076,
+        "elapsedMs": 1128806,
         "fps": 3,
         "frameMs": 15,
         "activeScenes": [
@@ -4692,7 +4692,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 47701623,
+        "heapBytes": 46457306,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -4705,7 +4705,7 @@
       },
       {
         "label": "scenario-181-182",
-        "elapsedMs": 1136147,
+        "elapsedMs": 1131914,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -4717,7 +4717,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 2,
-        "heapBytes": 43254742,
+        "heapBytes": 35264127,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -4730,7 +4730,7 @@
       },
       {
         "label": "scenario-182-183",
-        "elapsedMs": 1140965,
+        "elapsedMs": 1136742,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -4742,7 +4742,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 63035777,
+        "heapBytes": 40822116,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -4755,7 +4755,7 @@
       },
       {
         "label": "scenario-183-184",
-        "elapsedMs": 1148160,
+        "elapsedMs": 1143895,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -4767,7 +4767,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 68644268,
+        "heapBytes": 54166406,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -4780,7 +4780,7 @@
       },
       {
         "label": "scenario-184-185",
-        "elapsedMs": 1157413,
+        "elapsedMs": 1153154,
         "fps": 3,
         "frameMs": 15,
         "activeScenes": [
@@ -4792,7 +4792,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 47743020,
+        "heapBytes": 40896032,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -4805,7 +4805,7 @@
       },
       {
         "label": "scenario-185-186",
-        "elapsedMs": 1162245,
+        "elapsedMs": 1157987,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -4817,7 +4817,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 46343767,
+        "heapBytes": 56927670,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -4830,7 +4830,7 @@
       },
       {
         "label": "scenario-186-187",
-        "elapsedMs": 1167089,
+        "elapsedMs": 1162758,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -4842,7 +4842,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 39537350,
+        "heapBytes": 42297013,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -4855,7 +4855,7 @@
       },
       {
         "label": "scenario-187-188",
-        "elapsedMs": 1174319,
+        "elapsedMs": 1169940,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -4867,7 +4867,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 34259831,
+        "heapBytes": 69002000,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -4880,7 +4880,7 @@
       },
       {
         "label": "scenario-188-189",
-        "elapsedMs": 1183616,
+        "elapsedMs": 1179202,
         "fps": 4,
         "frameMs": 15,
         "activeScenes": [
@@ -4892,7 +4892,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 40533610,
+        "heapBytes": 46675887,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -4905,7 +4905,7 @@
       },
       {
         "label": "scenario-189-190",
-        "elapsedMs": 1186648,
+        "elapsedMs": 1182233,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -4917,7 +4917,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 2,
-        "heapBytes": 46619606,
+        "heapBytes": 50702221,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -4930,7 +4930,7 @@
       },
       {
         "label": "scenario-190-191",
-        "elapsedMs": 1191453,
+        "elapsedMs": 1187031,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -4942,7 +4942,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 46314228,
+        "heapBytes": 46340642,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -4955,7 +4955,7 @@
       },
       {
         "label": "scenario-191-192",
-        "elapsedMs": 1198680,
+        "elapsedMs": 1194202,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -4967,7 +4967,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 34355817,
+        "heapBytes": 54143259,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -4980,8 +4980,8 @@
       },
       {
         "label": "scenario-192-193",
-        "elapsedMs": 1207955,
-        "fps": 3,
+        "elapsedMs": 1203488,
+        "fps": 4,
         "frameMs": 15,
         "activeScenes": [
           "ResultsScene"
@@ -4992,7 +4992,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 40593864,
+        "heapBytes": 35960957,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -5005,7 +5005,7 @@
       },
       {
         "label": "scenario-193-194",
-        "elapsedMs": 1210994,
+        "elapsedMs": 1206539,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -5017,7 +5017,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 2,
-        "heapBytes": 46586370,
+        "heapBytes": 40939768,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -5030,7 +5030,7 @@
       },
       {
         "label": "scenario-194-195",
-        "elapsedMs": 1215853,
+        "elapsedMs": 1211331,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -5042,7 +5042,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 46392254,
+        "heapBytes": 37131050,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -5055,7 +5055,7 @@
       },
       {
         "label": "scenario-195-196",
-        "elapsedMs": 1223014,
+        "elapsedMs": 1218480,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -5067,7 +5067,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 34430987,
+        "heapBytes": 34768150,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -5080,7 +5080,7 @@
       },
       {
         "label": "scenario-196-197",
-        "elapsedMs": 1232344,
+        "elapsedMs": 1227744,
         "fps": 3,
         "frameMs": 15,
         "activeScenes": [
@@ -5092,7 +5092,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 40630574,
+        "heapBytes": 40977831,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -5105,7 +5105,7 @@
       },
       {
         "label": "scenario-197-198",
-        "elapsedMs": 1237140,
+        "elapsedMs": 1232579,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -5117,7 +5117,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 52542504,
+        "heapBytes": 52505668,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -5130,7 +5130,7 @@
       },
       {
         "label": "scenario-198-199",
-        "elapsedMs": 1241957,
+        "elapsedMs": 1237403,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -5142,7 +5142,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 37621558,
+        "heapBytes": 38202675,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -5155,7 +5155,7 @@
       },
       {
         "label": "scenario-199-200",
-        "elapsedMs": 1249162,
+        "elapsedMs": 1244561,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -5167,7 +5167,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 34494993,
+        "heapBytes": 52419195,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -5180,7 +5180,7 @@
       },
       {
         "label": "scenario-200-201",
-        "elapsedMs": 1258541,
+        "elapsedMs": 1253851,
         "fps": 4,
         "frameMs": 15,
         "activeScenes": [
@@ -5192,7 +5192,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 40660610,
+        "heapBytes": 40979809,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -5205,7 +5205,7 @@
       },
       {
         "label": "scenario-201-202",
-        "elapsedMs": 1261606,
+        "elapsedMs": 1256911,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -5217,7 +5217,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 2,
-        "heapBytes": 46467366,
+        "heapBytes": 47011451,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -5230,7 +5230,7 @@
       },
       {
         "label": "scenario-202-203",
-        "elapsedMs": 1266426,
+        "elapsedMs": 1261685,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -5242,7 +5242,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 46441914,
+        "heapBytes": 46750011,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -5255,7 +5255,7 @@
       },
       {
         "label": "scenario-203-204",
-        "elapsedMs": 1273605,
+        "elapsedMs": 1268849,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -5267,7 +5267,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 34462999,
+        "heapBytes": 34771508,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -5280,7 +5280,7 @@
       },
       {
         "label": "scenario-204-205",
-        "elapsedMs": 1282891,
+        "elapsedMs": 1278104,
         "fps": 3,
         "frameMs": 15,
         "activeScenes": [
@@ -5292,7 +5292,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 40704462,
+        "heapBytes": 41009617,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -5305,7 +5305,7 @@
       },
       {
         "label": "scenario-205-206",
-        "elapsedMs": 1285927,
+        "elapsedMs": 1281147,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -5317,7 +5317,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 2,
-        "heapBytes": 46516580,
+        "heapBytes": 45974196,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -5330,7 +5330,7 @@
       },
       {
         "label": "scenario-206-207",
-        "elapsedMs": 1290752,
+        "elapsedMs": 1285948,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -5342,7 +5342,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 46465018,
+        "heapBytes": 46773259,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -5355,7 +5355,7 @@
       },
       {
         "label": "scenario-207-208",
-        "elapsedMs": 1297894,
+        "elapsedMs": 1293134,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -5367,7 +5367,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 34497661,
+        "heapBytes": 34803838,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -5380,7 +5380,7 @@
       },
       {
         "label": "scenario-208-209",
-        "elapsedMs": 1307119,
+        "elapsedMs": 1302381,
         "fps": 3,
         "frameMs": 15,
         "activeScenes": [
@@ -5392,7 +5392,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 40691743,
+        "heapBytes": 47314464,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -5405,7 +5405,7 @@
       },
       {
         "label": "scenario-209-210",
-        "elapsedMs": 1311917,
+        "elapsedMs": 1307227,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -5417,7 +5417,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 51427257,
+        "heapBytes": 55955529,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -5430,7 +5430,7 @@
       },
       {
         "label": "scenario-210-211",
-        "elapsedMs": 1316718,
+        "elapsedMs": 1312034,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -5442,7 +5442,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 38922373,
+        "heapBytes": 46776497,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -5455,7 +5455,7 @@
       },
       {
         "label": "scenario-211-212",
-        "elapsedMs": 1323901,
+        "elapsedMs": 1319209,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -5467,7 +5467,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 40334157,
+        "heapBytes": 34802272,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -5480,7 +5480,7 @@
       },
       {
         "label": "scenario-212-213",
-        "elapsedMs": 1333153,
+        "elapsedMs": 1328473,
         "fps": 4,
         "frameMs": 15,
         "activeScenes": [
@@ -5492,7 +5492,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 40692892,
+        "heapBytes": 41023787,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -5505,7 +5505,7 @@
       },
       {
         "label": "scenario-213-214",
-        "elapsedMs": 1336166,
+        "elapsedMs": 1331504,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -5517,7 +5517,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 2,
-        "heapBytes": 46469548,
+        "heapBytes": 46766168,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -5530,7 +5530,7 @@
       },
       {
         "label": "scenario-214-215",
-        "elapsedMs": 1340949,
+        "elapsedMs": 1336295,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -5542,7 +5542,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 46465190,
+        "heapBytes": 46787727,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -5555,7 +5555,7 @@
       },
       {
         "label": "scenario-215-216",
-        "elapsedMs": 1348110,
+        "elapsedMs": 1343444,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -5567,7 +5567,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 35310185,
+        "heapBytes": 54397894,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -5580,8 +5580,8 @@
       },
       {
         "label": "scenario-216-217",
-        "elapsedMs": 1357323,
-        "fps": 3,
+        "elapsedMs": 1352692,
+        "fps": 4,
         "frameMs": 15,
         "activeScenes": [
           "ResultsScene"
@@ -5592,7 +5592,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 38769994,
+        "heapBytes": 49745363,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -5605,7 +5605,7 @@
       },
       {
         "label": "scenario-217-218",
-        "elapsedMs": 1360361,
+        "elapsedMs": 1355772,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -5617,7 +5617,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 2,
-        "heapBytes": 59672817,
+        "heapBytes": 35795837,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -5630,7 +5630,7 @@
       },
       {
         "label": "scenario-218-219",
-        "elapsedMs": 1365125,
+        "elapsedMs": 1360570,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -5642,7 +5642,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 40803276,
+        "heapBytes": 40953152,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -5655,7 +5655,7 @@
       },
       {
         "label": "scenario-219-220",
-        "elapsedMs": 1372261,
+        "elapsedMs": 1367711,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -5667,7 +5667,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 62745280,
+        "heapBytes": 54341984,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -5680,7 +5680,7 @@
       },
       {
         "label": "scenario-220-221",
-        "elapsedMs": 1381508,
+        "elapsedMs": 1376965,
         "fps": 3,
         "frameMs": 15,
         "activeScenes": [
@@ -5692,7 +5692,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 54908664,
+        "heapBytes": 40990720,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -5705,7 +5705,7 @@
       },
       {
         "label": "scenario-221-222",
-        "elapsedMs": 1386324,
+        "elapsedMs": 1381846,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -5717,7 +5717,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 40995811,
+        "heapBytes": 57269562,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -5730,7 +5730,7 @@
       },
       {
         "label": "scenario-222-223",
-        "elapsedMs": 1391143,
+        "elapsedMs": 1386647,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -5742,7 +5742,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 36995756,
+        "heapBytes": 42309527,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -5755,7 +5755,7 @@
       },
       {
         "label": "scenario-223-224",
-        "elapsedMs": 1398073,
+        "elapsedMs": 1393791,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -5767,7 +5767,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 41194224,
+        "heapBytes": 69096639,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -5780,8 +5780,8 @@
       },
       {
         "label": "scenario-224-225",
-        "elapsedMs": 1407333,
-        "fps": 3,
+        "elapsedMs": 1403038,
+        "fps": 4,
         "frameMs": 15,
         "activeScenes": [
           "ResultsScene"
@@ -5792,7 +5792,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 40669299,
+        "heapBytes": 46800089,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -5805,7 +5805,7 @@
       },
       {
         "label": "scenario-225-226",
-        "elapsedMs": 1410370,
+        "elapsedMs": 1406070,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -5817,7 +5817,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 2,
-        "heapBytes": 50382811,
+        "heapBytes": 50917339,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -5830,7 +5830,7 @@
       },
       {
         "label": "scenario-226-227",
-        "elapsedMs": 1415149,
+        "elapsedMs": 1410895,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -5842,7 +5842,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 39692638,
+        "heapBytes": 45747564,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -5855,7 +5855,7 @@
       },
       {
         "label": "scenario-227-228",
-        "elapsedMs": 1422288,
+        "elapsedMs": 1418063,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -5867,7 +5867,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 62823147,
+        "heapBytes": 54297586,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -5880,7 +5880,7 @@
       },
       {
         "label": "scenario-228-229",
-        "elapsedMs": 1431485,
+        "elapsedMs": 1427318,
         "fps": 3,
         "frameMs": 15,
         "activeScenes": [
@@ -5892,7 +5892,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 47787675,
+        "heapBytes": 35945950,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -5905,7 +5905,7 @@
       },
       {
         "label": "scenario-229-230",
-        "elapsedMs": 1434499,
+        "elapsedMs": 1430359,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -5917,7 +5917,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 2,
-        "heapBytes": 43457534,
+        "heapBytes": 41027612,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -5930,7 +5930,7 @@
       },
       {
         "label": "scenario-230-231",
-        "elapsedMs": 1439317,
+        "elapsedMs": 1435150,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -5942,7 +5942,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 44988188,
+        "heapBytes": 39346433,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -5955,7 +5955,7 @@
       },
       {
         "label": "scenario-231-232",
-        "elapsedMs": 1446479,
+        "elapsedMs": 1442330,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -5967,7 +5967,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 53951246,
+        "heapBytes": 34811710,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -5980,7 +5980,7 @@
       },
       {
         "label": "scenario-232-233",
-        "elapsedMs": 1455677,
+        "elapsedMs": 1451584,
         "fps": 3,
         "frameMs": 15,
         "activeScenes": [
@@ -5992,7 +5992,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 44334952,
+        "heapBytes": 41024493,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -6005,7 +6005,7 @@
       },
       {
         "label": "scenario-233-234",
-        "elapsedMs": 1460479,
+        "elapsedMs": 1456423,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -6017,7 +6017,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 35257011,
+        "heapBytes": 52610706,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -6030,7 +6030,7 @@
       },
       {
         "label": "scenario-234-235",
-        "elapsedMs": 1465277,
+        "elapsedMs": 1461199,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -6042,7 +6042,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 37284175,
+        "heapBytes": 37792058,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -6055,7 +6055,7 @@
       },
       {
         "label": "scenario-235-236",
-        "elapsedMs": 1472449,
+        "elapsedMs": 1468357,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -6067,7 +6067,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 34480247,
+        "heapBytes": 52473313,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -6080,7 +6080,7 @@
       },
       {
         "label": "scenario-236-237",
-        "elapsedMs": 1481735,
+        "elapsedMs": 1477635,
         "fps": 4,
         "frameMs": 15,
         "activeScenes": [
@@ -6092,7 +6092,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 40708096,
+        "heapBytes": 37691941,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -6105,7 +6105,7 @@
       },
       {
         "label": "scenario-237-238",
-        "elapsedMs": 1484762,
+        "elapsedMs": 1480671,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -6117,7 +6117,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 2,
-        "heapBytes": 46864300,
+        "heapBytes": 37644257,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -6130,7 +6130,7 @@
       },
       {
         "label": "scenario-238-239",
-        "elapsedMs": 1489537,
+        "elapsedMs": 1485457,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -6142,7 +6142,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 46481118,
+        "heapBytes": 39104780,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -6155,7 +6155,7 @@
       },
       {
         "label": "scenario-239-240",
-        "elapsedMs": 1496690,
+        "elapsedMs": 1492606,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -6167,7 +6167,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 35345581,
+        "heapBytes": 63074198,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -6180,7 +6180,7 @@
       },
       {
         "label": "scenario-240-241",
-        "elapsedMs": 1505930,
+        "elapsedMs": 1501822,
         "fps": 3,
         "frameMs": 15,
         "activeScenes": [
@@ -6192,7 +6192,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 40331485,
+        "heapBytes": 48875998,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -6205,7 +6205,7 @@
       },
       {
         "label": "scenario-241-242",
-        "elapsedMs": 1508947,
+        "elapsedMs": 1504950,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -6217,7 +6217,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 2,
-        "heapBytes": 53720856,
+        "heapBytes": 35972425,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -6230,7 +6230,7 @@
       },
       {
         "label": "scenario-242-243",
-        "elapsedMs": 1513726,
+        "elapsedMs": 1509758,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -6242,7 +6242,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 49047176,
+        "heapBytes": 40989485,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -6255,7 +6255,7 @@
       },
       {
         "label": "scenario-243-244",
-        "elapsedMs": 1520854,
+        "elapsedMs": 1516921,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -6267,7 +6267,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 68820536,
+        "heapBytes": 54339429,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -6280,7 +6280,7 @@
       },
       {
         "label": "scenario-244-245",
-        "elapsedMs": 1530062,
+        "elapsedMs": 1526182,
         "fps": 4,
         "frameMs": 15,
         "activeScenes": [
@@ -6292,7 +6292,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 55620186,
+        "heapBytes": 41030343,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -6305,7 +6305,7 @@
       },
       {
         "label": "scenario-245-246",
-        "elapsedMs": 1534920,
+        "elapsedMs": 1531014,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -6317,7 +6317,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 40586556,
+        "heapBytes": 57325797,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -6330,7 +6330,7 @@
       },
       {
         "label": "scenario-246-247",
-        "elapsedMs": 1539705,
+        "elapsedMs": 1535836,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -6342,7 +6342,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 40710221,
+        "heapBytes": 41049837,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -6355,7 +6355,7 @@
       },
       {
         "label": "scenario-247-248",
-        "elapsedMs": 1546838,
+        "elapsedMs": 1542993,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -6367,7 +6367,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 59803905,
+        "heapBytes": 54270837,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -6380,7 +6380,7 @@
       },
       {
         "label": "scenario-248-249",
-        "elapsedMs": 1556122,
+        "elapsedMs": 1552299,
         "fps": 4,
         "frameMs": 15,
         "activeScenes": [
@@ -6392,7 +6392,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 40171813,
+        "heapBytes": 41056921,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -6405,7 +6405,7 @@
       },
       {
         "label": "scenario-249-250",
-        "elapsedMs": 1559163,
+        "elapsedMs": 1555328,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -6417,7 +6417,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 2,
-        "heapBytes": 52254101,
+        "heapBytes": 50853027,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -6430,7 +6430,7 @@
       },
       {
         "label": "scenario-250-251",
-        "elapsedMs": 1563968,
+        "elapsedMs": 1560112,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -6442,7 +6442,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 48873672,
+        "heapBytes": 39807760,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -6455,7 +6455,7 @@
       },
       {
         "label": "scenario-251-252",
-        "elapsedMs": 1571145,
+        "elapsedMs": 1567250,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -6467,7 +6467,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 68837322,
+        "heapBytes": 62874035,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -6480,7 +6480,7 @@
       },
       {
         "label": "scenario-252-253",
-        "elapsedMs": 1580400,
+        "elapsedMs": 1576482,
         "fps": 3,
         "frameMs": 15,
         "activeScenes": [
@@ -6492,7 +6492,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 48512750,
+        "heapBytes": 48950849,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -6505,7 +6505,7 @@
       },
       {
         "label": "scenario-253-254",
-        "elapsedMs": 1583454,
+        "elapsedMs": 1579523,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -6517,7 +6517,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 2,
-        "heapBytes": 43389940,
+        "heapBytes": 43874639,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -6530,7 +6530,7 @@
       },
       {
         "label": "scenario-254-255",
-        "elapsedMs": 1588245,
+        "elapsedMs": 1584290,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -6542,7 +6542,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 44874180,
+        "heapBytes": 45520257,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -6555,7 +6555,7 @@
       },
       {
         "label": "scenario-255-256",
-        "elapsedMs": 1595223,
+        "elapsedMs": 1591421,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -6567,7 +6567,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 47434435,
+        "heapBytes": 47966118,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -6580,8 +6580,8 @@
       },
       {
         "label": "scenario-256-257",
-        "elapsedMs": 1604489,
-        "fps": 4,
+        "elapsedMs": 1600681,
+        "fps": 3,
         "frameMs": 15,
         "activeScenes": [
           "ResultsScene"
@@ -6592,7 +6592,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 36519325,
+        "heapBytes": 42154142,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -6605,7 +6605,7 @@
       },
       {
         "label": "scenario-257-258",
-        "elapsedMs": 1609337,
+        "elapsedMs": 1605537,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -6617,7 +6617,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 46840715,
+        "heapBytes": 41800563,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -6630,7 +6630,7 @@
       },
       {
         "label": "scenario-258-259",
-        "elapsedMs": 1614227,
+        "elapsedMs": 1610335,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -6642,7 +6642,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 36429091,
+        "heapBytes": 35362851,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -6655,7 +6655,7 @@
       },
       {
         "label": "scenario-259-260",
-        "elapsedMs": 1621563,
+        "elapsedMs": 1617472,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -6667,7 +6667,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 34501917,
+        "heapBytes": 54416416,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -6680,7 +6680,7 @@
       },
       {
         "label": "scenario-260-261",
-        "elapsedMs": 1631042,
+        "elapsedMs": 1626759,
         "fps": 4,
         "frameMs": 15,
         "activeScenes": [
@@ -6692,7 +6692,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 40800228,
+        "heapBytes": 41147611,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -6705,7 +6705,7 @@
       },
       {
         "label": "scenario-261-262",
-        "elapsedMs": 1634182,
+        "elapsedMs": 1629789,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -6717,7 +6717,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 2,
-        "heapBytes": 46741400,
+        "heapBytes": 50920261,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -6730,7 +6730,7 @@
       },
       {
         "label": "scenario-262-263",
-        "elapsedMs": 1639073,
+        "elapsedMs": 1634571,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -6742,7 +6742,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 46575866,
+        "heapBytes": 42362867,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -6755,7 +6755,7 @@
       },
       {
         "label": "scenario-263-264",
-        "elapsedMs": 1646361,
+        "elapsedMs": 1641698,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -6767,7 +6767,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 34635861,
+        "heapBytes": 69217026,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -6780,7 +6780,7 @@
       },
       {
         "label": "scenario-264-265",
-        "elapsedMs": 1655789,
+        "elapsedMs": 1650921,
         "fps": 4,
         "frameMs": 15,
         "activeScenes": [
@@ -6792,7 +6792,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 43852568,
+        "heapBytes": 37513906,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -6805,7 +6805,7 @@
       },
       {
         "label": "scenario-265-266",
-        "elapsedMs": 1658904,
+        "elapsedMs": 1653943,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -6817,7 +6817,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 2,
-        "heapBytes": 43363840,
+        "heapBytes": 37616005,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -6830,8 +6830,8 @@
       },
       {
         "label": "scenario-266-267",
-        "elapsedMs": 1663725,
-        "fps": 4,
+        "elapsedMs": 1658733,
+        "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
           "ResultsScene"
@@ -6842,7 +6842,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 41341086,
+        "heapBytes": 38648835,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -6855,7 +6855,7 @@
       },
       {
         "label": "scenario-267-268",
-        "elapsedMs": 1670894,
+        "elapsedMs": 1665878,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -6867,7 +6867,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 34614161,
+        "heapBytes": 63192533,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -6880,8 +6880,8 @@
       },
       {
         "label": "scenario-268-269",
-        "elapsedMs": 1680185,
-        "fps": 3,
+        "elapsedMs": 1675098,
+        "fps": 4,
         "frameMs": 15,
         "activeScenes": [
           "ResultsScene"
@@ -6892,7 +6892,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 40831730,
+        "heapBytes": 48313830,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -6905,7 +6905,7 @@
       },
       {
         "label": "scenario-269-270",
-        "elapsedMs": 1684979,
+        "elapsedMs": 1679926,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -6917,7 +6917,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 52471996,
+        "heapBytes": 50102010,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -6930,7 +6930,7 @@
       },
       {
         "label": "scenario-270-271",
-        "elapsedMs": 1689887,
+        "elapsedMs": 1684709,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -6942,7 +6942,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 46584010,
+        "heapBytes": 37601775,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -6955,7 +6955,7 @@
       },
       {
         "label": "scenario-271-272",
-        "elapsedMs": 1697239,
+        "elapsedMs": 1691882,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -6967,7 +6967,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 54035829,
+        "heapBytes": 63223172,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -6980,7 +6980,7 @@
       },
       {
         "label": "scenario-272-273",
-        "elapsedMs": 1706658,
+        "elapsedMs": 1701147,
         "fps": 4,
         "frameMs": 15,
         "activeScenes": [
@@ -6992,7 +6992,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 43416251,
+        "heapBytes": 58165043,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -7005,7 +7005,7 @@
       },
       {
         "label": "scenario-273-274",
-        "elapsedMs": 1709798,
+        "elapsedMs": 1704203,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -7017,7 +7017,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 2,
-        "heapBytes": 43331980,
+        "heapBytes": 41117869,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -7030,7 +7030,7 @@
       },
       {
         "label": "scenario-274-275",
-        "elapsedMs": 1714684,
+        "elapsedMs": 1708971,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -7042,7 +7042,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 44530456,
+        "heapBytes": 37713381,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -7055,7 +7055,7 @@
       },
       {
         "label": "scenario-275-276",
-        "elapsedMs": 1722078,
+        "elapsedMs": 1716115,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -7067,7 +7067,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 62655624,
+        "heapBytes": 34859727,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -7080,8 +7080,8 @@
       },
       {
         "label": "scenario-276-277",
-        "elapsedMs": 1731514,
-        "fps": 4,
+        "elapsedMs": 1725388,
+        "fps": 3,
         "frameMs": 15,
         "activeScenes": [
           "ResultsScene"
@@ -7092,7 +7092,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 49348454,
+        "heapBytes": 41177020,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -7105,7 +7105,7 @@
       },
       {
         "label": "scenario-277-278",
-        "elapsedMs": 1734585,
+        "elapsedMs": 1728420,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -7117,7 +7117,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 2,
-        "heapBytes": 36792655,
+        "heapBytes": 47350026,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -7130,7 +7130,7 @@
       },
       {
         "label": "scenario-278-279",
-        "elapsedMs": 1739422,
+        "elapsedMs": 1733264,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -7142,7 +7142,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 57293664,
+        "heapBytes": 46958261,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -7155,7 +7155,7 @@
       },
       {
         "label": "scenario-279-280",
-        "elapsedMs": 1746554,
+        "elapsedMs": 1740401,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -7167,7 +7167,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 68908869,
+        "heapBytes": 54475761,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -7180,8 +7180,8 @@
       },
       {
         "label": "scenario-280-281",
-        "elapsedMs": 1755790,
-        "fps": 4,
+        "elapsedMs": 1749649,
+        "fps": 3,
         "frameMs": 15,
         "activeScenes": [
           "ResultsScene"
@@ -7192,7 +7192,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 48539277,
+        "heapBytes": 44559827,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -7205,7 +7205,7 @@
       },
       {
         "label": "scenario-281-282",
-        "elapsedMs": 1760597,
+        "elapsedMs": 1754539,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -7217,7 +7217,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 41064973,
+        "heapBytes": 41128727,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -7230,7 +7230,7 @@
       },
       {
         "label": "scenario-282-283",
-        "elapsedMs": 1765382,
+        "elapsedMs": 1759334,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -7242,7 +7242,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 39564038,
+        "heapBytes": 39800265,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -7255,7 +7255,7 @@
       },
       {
         "label": "scenario-283-284",
-        "elapsedMs": 1772531,
+        "elapsedMs": 1766488,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -7267,7 +7267,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 34592432,
+        "heapBytes": 40746777,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -7280,7 +7280,7 @@
       },
       {
         "label": "scenario-284-285",
-        "elapsedMs": 1781857,
+        "elapsedMs": 1775739,
         "fps": 4,
         "frameMs": 15,
         "activeScenes": [
@@ -7292,7 +7292,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 40805829,
+        "heapBytes": 41165474,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -7305,7 +7305,7 @@
       },
       {
         "label": "scenario-285-286",
-        "elapsedMs": 1784901,
+        "elapsedMs": 1778819,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -7317,7 +7317,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 2,
-        "heapBytes": 46860381,
+        "heapBytes": 46923292,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -7330,7 +7330,7 @@
       },
       {
         "label": "scenario-286-287",
-        "elapsedMs": 1789701,
+        "elapsedMs": 1783614,
         "fps": 4,
         "frameMs": 16.67,
         "activeScenes": [
@@ -7342,7 +7342,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 46614894,
+        "heapBytes": 42922279,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -7355,7 +7355,7 @@
       },
       {
         "label": "scenario-287-288",
-        "elapsedMs": 1796840,
+        "elapsedMs": 1790763,
         "fps": 5,
         "frameMs": 16.67,
         "activeScenes": [
@@ -7367,7 +7367,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 34629437,
+        "heapBytes": 63249687,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -7380,8 +7380,8 @@
       },
       {
         "label": "scenario-288-289",
-        "elapsedMs": 1806070,
-        "fps": 4,
+        "elapsedMs": 1800008,
+        "fps": 3,
         "frameMs": 15,
         "activeScenes": [
           "ResultsScene"
@@ -7392,7 +7392,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 40860008,
+        "heapBytes": 44353863,
         "timers": 0,
         "tweens": 1,
         "sceneCount": 1,
@@ -7405,7 +7405,7 @@
       },
       {
         "label": "end",
-        "elapsedMs": 1807128,
+        "elapsedMs": 1801070,
         "fps": 4,
         "frameMs": 15,
         "activeScenes": [
@@ -7417,7 +7417,7 @@
         "keyObjects": 13,
         "audioContexts": 1,
         "activeVoices": 0,
-        "heapBytes": 36356165,
+        "heapBytes": 46986694,
         "timers": 0,
         "tweens": 0,
         "sceneCount": 1,
@@ -7434,19 +7434,19 @@
     "consoleWarnings": [
       {
         "type": "warning",
-        "text": "[.WebGL-0x213c00171400]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+        "text": "[.WebGL-0x31e400169a00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
       },
       {
         "type": "warning",
-        "text": "[.WebGL-0x213c00171400]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+        "text": "[.WebGL-0x31e400169a00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
       },
       {
         "type": "warning",
-        "text": "[.WebGL-0x213c00171400]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+        "text": "[.WebGL-0x31e400169a00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
       },
       {
         "type": "warning",
-        "text": "[.WebGL-0x213c00171400]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)"
+        "text": "[.WebGL-0x31e400169a00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)"
       },
       {
         "type": "warning",

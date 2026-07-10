@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-07-08T14:29:33.275Z",
+  "generatedAt": "2026-07-10T02:05:53.421Z",
   "phase": 13,
   "packageVersion": "1.0.0",
   "runtimeVersion": "1.0.0",
-  "sourceCommit": "bee4e6be76484fc5edef1bfa7cf7ddaf2660bc6d",
-  "sourceManifestDigest": "aa6a12f481ed233b01ee8ff397883b924706ca3bd004f4a7b9b8464750de842e",
-  "sourceFileCount": 513,
-  "productionBundleDigest": "af68188658e34fe2209090828236bc8f75cd69a847df202c846d75ebc9a700bb",
+  "sourceCommit": "ab2585027c16ad9e58e4f816659244d3155f0d60",
+  "sourceManifestDigest": "d46d0eba1eaed15994ae04d56e160a6e92e7ec2fa69b7ca7c39bdc99567b343b",
+  "sourceFileCount": 514,
+  "productionBundleDigest": "64e3f835133f6d069a7530e0280401e36e23b6651387081461e045873f8492b9",
   "tests": {
-    "total": 1329,
+    "total": 1334,
     "retainedThroughPhase12": 1319,
-    "phase13": 10,
+    "phase13": 15,
     "passed": true,
     "source": "PHASE10_CORE_VALIDATION.json"
   },
@@ -30,16 +30,16 @@
   },
   "workflow": {
     "repository": "thiepn/echoframe",
-    "runId": "28948294260",
-    "runNumber": "48",
+    "runId": "29062661839",
+    "runNumber": "66",
     "runAttempt": "1",
-    "sourceCommit": "bee4e6be76484fc5edef1bfa7cf7ddaf2660bc6d",
-    "url": "https://github.com/thiepn/echoframe/actions/runs/28948294260"
+    "sourceCommit": "ab2585027c16ad9e58e4f816659244d3155f0d60",
+    "url": "https://github.com/thiepn/echoframe/actions/runs/29062661839"
   },
   "report": {
-    "generatedAt": "2026-07-08T14:28:01.702Z",
+    "generatedAt": "2026-07-10T02:04:42.677Z",
     "requestedDurationMs": 1800000,
-    "actualDurationMs": 1801015,
+    "actualDurationMs": 1801225,
     "sampleCount": 181,
     "operationIntervalMs": 15000,
     "sampleIntervalMs": 10000,
@@ -56,7 +56,7 @@
     "baseline": {
       "label": "baseline",
       "elapsedMs": 0,
-      "fps": 18,
+      "fps": 19,
       "frameMs": 16.67,
       "listeners": 1,
       "cleanup": 3,
@@ -67,7 +67,7 @@
       "activeScenes": [
         "MainMenuScene"
       ],
-      "heapBytes": 27633331,
+      "heapBytes": 27637750,
       "sceneCount": 1,
       "timers": 0,
       "tweens": 0,
@@ -77,7 +77,7 @@
     },
     "end": {
       "label": "end",
-      "elapsedMs": 1800805,
+      "elapsedMs": 1801010,
       "fps": 5,
       "frameMs": 16.67,
       "listeners": 1,
@@ -89,7 +89,7 @@
       "activeScenes": [
         "MainMenuScene"
       ],
-      "heapBytes": 28195615,
+      "heapBytes": 33655753,
       "sceneCount": 1,
       "timers": 0,
       "tweens": 0,
@@ -109,22 +109,22 @@
       "canvases": 0,
       "domFileInputs": 0
     },
-    "heapTrendBytes": 562284,
+    "heapTrendBytes": 6018003,
     "frames": {
-      "samples": 8357,
-      "averageFrameMs": 215.55119061865233,
-      "minimumFps": 2.499375156210945,
-      "averageFps": 4.639269201575297,
-      "p95FrameMs": 283.29999999993015,
+      "samples": 8361,
+      "averageFrameMs": 215.4540365985026,
+      "minimumFps": 2.3998080153587775,
+      "averageFps": 4.641361172840287,
+      "p95FrameMs": 283.29999999998836,
       "p99FrameMs": 316.5999999999767,
-      "maximumFrameMs": 400.10000000000036,
-      "framesOver50Ms": 8357
+      "maximumFrameMs": 416.6999999999989,
+      "framesOver50Ms": 8361
     },
     "samples": [
       {
         "label": "baseline",
         "elapsedMs": 0,
-        "fps": 18,
+        "fps": 19,
         "frameMs": 16.67,
         "listeners": 1,
         "cleanup": 3,
@@ -135,7 +135,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 27633331,
+        "heapBytes": 27637750,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -145,8 +145,8 @@
       },
       {
         "label": "sample-1",
-        "elapsedMs": 10506,
-        "fps": 4,
+        "elapsedMs": 10357,
+        "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
         "cleanup": 3,
@@ -157,7 +157,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 39178369,
+        "heapBytes": 39190156,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -167,7 +167,7 @@
       },
       {
         "label": "sample-2",
-        "elapsedMs": 22731,
+        "elapsedMs": 23255,
         "fps": 4,
         "frameMs": 16.67,
         "listeners": 1,
@@ -179,7 +179,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 28178976,
+        "heapBytes": 28119395,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -189,9 +189,9 @@
       },
       {
         "label": "sample-3",
-        "elapsedMs": 32503,
+        "elapsedMs": 32614,
         "fps": 5,
-        "frameMs": 199.97,
+        "frameMs": 199.98,
         "listeners": 1,
         "cleanup": 3,
         "inputContexts": 1,
@@ -201,7 +201,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 38677958,
+        "heapBytes": 32876761,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -211,9 +211,9 @@
       },
       {
         "label": "sample-4",
-        "elapsedMs": 40361,
+        "elapsedMs": 40274,
         "fps": 5,
-        "frameMs": 199.99,
+        "frameMs": 199.98,
         "listeners": 1,
         "cleanup": 3,
         "inputContexts": 1,
@@ -223,7 +223,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 39403814,
+        "heapBytes": 33589533,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -233,9 +233,9 @@
       },
       {
         "label": "sample-5",
-        "elapsedMs": 50234,
+        "elapsedMs": 50351,
         "fps": 5,
-        "frameMs": 199.97,
+        "frameMs": 199.98,
         "listeners": 1,
         "cleanup": 3,
         "inputContexts": 1,
@@ -245,7 +245,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 27530743,
+        "heapBytes": 27528586,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -255,9 +255,9 @@
       },
       {
         "label": "sample-6",
-        "elapsedMs": 63221,
+        "elapsedMs": 63162,
         "fps": 5,
-        "frameMs": 199.99,
+        "frameMs": 199.98,
         "listeners": 1,
         "cleanup": 3,
         "inputContexts": 1,
@@ -267,7 +267,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 27671056,
+        "heapBytes": 27690151,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -277,9 +277,9 @@
       },
       {
         "label": "sample-7",
-        "elapsedMs": 70278,
+        "elapsedMs": 70401,
         "fps": 5,
-        "frameMs": 199.99,
+        "frameMs": 199.98,
         "listeners": 1,
         "cleanup": 3,
         "inputContexts": 1,
@@ -289,7 +289,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 27327958,
+        "heapBytes": 27375209,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -299,9 +299,9 @@
       },
       {
         "label": "sample-8",
-        "elapsedMs": 80351,
+        "elapsedMs": 80287,
         "fps": 5,
-        "frameMs": 198.32,
+        "frameMs": 199.98,
         "listeners": 1,
         "cleanup": 3,
         "inputContexts": 1,
@@ -311,7 +311,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 21454873,
+        "heapBytes": 21520964,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -321,8 +321,8 @@
       },
       {
         "label": "sample-9",
-        "elapsedMs": 90609,
-        "fps": 6,
+        "elapsedMs": 90566,
+        "fps": 5,
         "frameMs": 15,
         "listeners": 1,
         "cleanup": 3,
@@ -333,7 +333,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 22271745,
+        "heapBytes": 22331180,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -343,7 +343,7 @@
       },
       {
         "label": "sample-10",
-        "elapsedMs": 100275,
+        "elapsedMs": 100399,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -355,7 +355,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 22019361,
+        "heapBytes": 22127312,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -365,7 +365,7 @@
       },
       {
         "label": "sample-11",
-        "elapsedMs": 110395,
+        "elapsedMs": 110256,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -377,7 +377,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 27979141,
+        "heapBytes": 28051272,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -387,7 +387,7 @@
       },
       {
         "label": "sample-12",
-        "elapsedMs": 127983,
+        "elapsedMs": 127976,
         "fps": 4,
         "frameMs": 16.67,
         "listeners": 1,
@@ -399,7 +399,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 34114566,
+        "heapBytes": 34118065,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -409,7 +409,7 @@
       },
       {
         "label": "sample-13",
-        "elapsedMs": 130405,
+        "elapsedMs": 130387,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -421,7 +421,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 33210018,
+        "heapBytes": 33223048,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -431,7 +431,7 @@
       },
       {
         "label": "sample-14",
-        "elapsedMs": 142740,
+        "elapsedMs": 142717,
         "fps": 4,
         "frameMs": 16.67,
         "listeners": 1,
@@ -443,7 +443,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 27687393,
+        "heapBytes": 27693284,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -453,7 +453,7 @@
       },
       {
         "label": "sample-15",
-        "elapsedMs": 157466,
+        "elapsedMs": 157433,
         "fps": 4,
         "frameMs": 16.67,
         "listeners": 1,
@@ -465,7 +465,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 33901951,
+        "heapBytes": 33908210,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -475,7 +475,7 @@
       },
       {
         "label": "sample-16",
-        "elapsedMs": 160281,
+        "elapsedMs": 160253,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -487,7 +487,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 21647878,
+        "heapBytes": 33204609,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -497,7 +497,7 @@
       },
       {
         "label": "sample-17",
-        "elapsedMs": 172381,
+        "elapsedMs": 172370,
         "fps": 4,
         "frameMs": 16.67,
         "listeners": 1,
@@ -509,7 +509,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 27713183,
+        "heapBytes": 27642699,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -519,8 +519,8 @@
       },
       {
         "label": "sample-18",
-        "elapsedMs": 185687,
-        "fps": 4,
+        "elapsedMs": 185857,
+        "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
         "cleanup": 3,
@@ -531,7 +531,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 28215554,
+        "heapBytes": 33412611,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -541,7 +541,7 @@
       },
       {
         "label": "sample-19",
-        "elapsedMs": 190313,
+        "elapsedMs": 190295,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -553,7 +553,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 27818374,
+        "heapBytes": 33482358,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -563,7 +563,7 @@
       },
       {
         "label": "sample-20",
-        "elapsedMs": 200381,
+        "elapsedMs": 200366,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -575,7 +575,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 21981703,
+        "heapBytes": 21885774,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -585,7 +585,7 @@
       },
       {
         "label": "sample-21",
-        "elapsedMs": 210427,
+        "elapsedMs": 210454,
         "fps": 5,
         "frameMs": 15,
         "listeners": 1,
@@ -597,7 +597,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 22629415,
+        "heapBytes": 22534046,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -607,7 +607,7 @@
       },
       {
         "label": "sample-22",
-        "elapsedMs": 220310,
+        "elapsedMs": 220379,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -619,7 +619,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 22246579,
+        "heapBytes": 22248190,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -629,7 +629,7 @@
       },
       {
         "label": "sample-23",
-        "elapsedMs": 230213,
+        "elapsedMs": 230250,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -641,7 +641,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 28039114,
+        "heapBytes": 28030053,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -651,7 +651,7 @@
       },
       {
         "label": "sample-24",
-        "elapsedMs": 248041,
+        "elapsedMs": 248094,
         "fps": 4,
         "frameMs": 16.67,
         "listeners": 1,
@@ -663,7 +663,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 34168508,
+        "heapBytes": 34169655,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -673,7 +673,7 @@
       },
       {
         "label": "sample-25",
-        "elapsedMs": 250306,
+        "elapsedMs": 250360,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -685,7 +685,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 33520984,
+        "heapBytes": 33356762,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -695,7 +695,7 @@
       },
       {
         "label": "sample-26",
-        "elapsedMs": 262967,
+        "elapsedMs": 262894,
         "fps": 4,
         "frameMs": 16.67,
         "listeners": 1,
@@ -707,7 +707,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 27783198,
+        "heapBytes": 27785333,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -717,7 +717,7 @@
       },
       {
         "label": "sample-27",
-        "elapsedMs": 277515,
+        "elapsedMs": 277447,
         "fps": 4,
         "frameMs": 16.67,
         "listeners": 1,
@@ -729,7 +729,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 33864112,
+        "heapBytes": 33866288,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -739,7 +739,7 @@
       },
       {
         "label": "sample-28",
-        "elapsedMs": 280335,
+        "elapsedMs": 280280,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -751,7 +751,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 34148932,
+        "heapBytes": 34151124,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -761,7 +761,7 @@
       },
       {
         "label": "sample-29",
-        "elapsedMs": 292478,
+        "elapsedMs": 292383,
         "fps": 4,
         "frameMs": 16.67,
         "listeners": 1,
@@ -773,7 +773,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 27763135,
+        "heapBytes": 27698411,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -783,8 +783,8 @@
       },
       {
         "label": "sample-30",
-        "elapsedMs": 305804,
-        "fps": 5,
+        "elapsedMs": 305711,
+        "fps": 4,
         "frameMs": 16.67,
         "listeners": 1,
         "cleanup": 3,
@@ -795,7 +795,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 33357563,
+        "heapBytes": 28277607,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -805,7 +805,7 @@
       },
       {
         "label": "sample-31",
-        "elapsedMs": 310238,
+        "elapsedMs": 310364,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -817,7 +817,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 33772583,
+        "heapBytes": 27822395,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -827,8 +827,8 @@
       },
       {
         "label": "sample-32",
-        "elapsedMs": 320319,
-        "fps": 6,
+        "elapsedMs": 320226,
+        "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
         "cleanup": 3,
@@ -839,7 +839,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 21890635,
+        "heapBytes": 22050742,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -849,7 +849,7 @@
       },
       {
         "label": "sample-33",
-        "elapsedMs": 330579,
+        "elapsedMs": 330509,
         "fps": 5,
         "frameMs": 15,
         "listeners": 1,
@@ -861,7 +861,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 22488867,
+        "heapBytes": 22649338,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -871,7 +871,7 @@
       },
       {
         "label": "sample-34",
-        "elapsedMs": 340236,
+        "elapsedMs": 340371,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -883,7 +883,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 22117919,
+        "heapBytes": 22324994,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -893,7 +893,7 @@
       },
       {
         "label": "sample-35",
-        "elapsedMs": 350287,
+        "elapsedMs": 350226,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -905,7 +905,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 27870427,
+        "heapBytes": 28038134,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -915,7 +915,7 @@
       },
       {
         "label": "sample-36",
-        "elapsedMs": 368050,
+        "elapsedMs": 367946,
         "fps": 4,
         "frameMs": 16.67,
         "listeners": 1,
@@ -927,7 +927,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 34248816,
+        "heapBytes": 34230191,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -937,7 +937,7 @@
       },
       {
         "label": "sample-37",
-        "elapsedMs": 370264,
+        "elapsedMs": 370369,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -949,7 +949,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 33404991,
+        "heapBytes": 33620107,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -959,7 +959,7 @@
       },
       {
         "label": "sample-38",
-        "elapsedMs": 382785,
+        "elapsedMs": 382903,
         "fps": 4,
         "frameMs": 16.67,
         "listeners": 1,
@@ -971,7 +971,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 27871234,
+        "heapBytes": 27900054,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -981,7 +981,7 @@
       },
       {
         "label": "sample-39",
-        "elapsedMs": 397275,
+        "elapsedMs": 397417,
         "fps": 4,
         "frameMs": 16.67,
         "listeners": 1,
@@ -993,7 +993,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 34002997,
+        "heapBytes": 27950385,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -1003,7 +1003,7 @@
       },
       {
         "label": "sample-40",
-        "elapsedMs": 400323,
+        "elapsedMs": 400229,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -1015,7 +1015,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 34293253,
+        "heapBytes": 28233293,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -1025,7 +1025,7 @@
       },
       {
         "label": "sample-41",
-        "elapsedMs": 412437,
+        "elapsedMs": 412322,
         "fps": 4,
         "frameMs": 16.67,
         "listeners": 1,
@@ -1037,7 +1037,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 27881811,
+        "heapBytes": 33815672,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -1047,7 +1047,7 @@
       },
       {
         "label": "sample-42",
-        "elapsedMs": 425717,
+        "elapsedMs": 425773,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -1059,7 +1059,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 33478027,
+        "heapBytes": 27909318,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -1069,7 +1069,7 @@
       },
       {
         "label": "sample-43",
-        "elapsedMs": 430385,
+        "elapsedMs": 430233,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -1081,7 +1081,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 33907235,
+        "heapBytes": 28320258,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -1091,7 +1091,7 @@
       },
       {
         "label": "sample-44",
-        "elapsedMs": 440276,
+        "elapsedMs": 440295,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -1103,7 +1103,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 22102491,
+        "heapBytes": 28020713,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -1113,8 +1113,8 @@
       },
       {
         "label": "sample-45",
-        "elapsedMs": 450530,
-        "fps": 6,
+        "elapsedMs": 450569,
+        "fps": 5,
         "frameMs": 15,
         "listeners": 1,
         "cleanup": 3,
@@ -1125,7 +1125,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 22695007,
+        "heapBytes": 28612821,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -1135,7 +1135,7 @@
       },
       {
         "label": "sample-46",
-        "elapsedMs": 460398,
+        "elapsedMs": 460255,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -1147,7 +1147,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 22424423,
+        "heapBytes": 28263753,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -1157,8 +1157,8 @@
       },
       {
         "label": "sample-47",
-        "elapsedMs": 470270,
-        "fps": 6,
+        "elapsedMs": 470345,
+        "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
         "cleanup": 3,
@@ -1169,7 +1169,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 28122438,
+        "heapBytes": 34045690,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -1179,7 +1179,7 @@
       },
       {
         "label": "sample-48",
-        "elapsedMs": 488028,
+        "elapsedMs": 487881,
         "fps": 4,
         "frameMs": 16.67,
         "listeners": 1,
@@ -1191,7 +1191,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 34334852,
+        "heapBytes": 34337671,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -1201,7 +1201,7 @@
       },
       {
         "label": "sample-49",
-        "elapsedMs": 490275,
+        "elapsedMs": 490332,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -1213,7 +1213,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 33711544,
+        "heapBytes": 33717855,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -1223,7 +1223,7 @@
       },
       {
         "label": "sample-50",
-        "elapsedMs": 502833,
+        "elapsedMs": 502878,
         "fps": 4,
         "frameMs": 16.67,
         "listeners": 1,
@@ -1235,7 +1235,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 28004982,
+        "heapBytes": 28004486,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -1245,7 +1245,7 @@
       },
       {
         "label": "sample-51",
-        "elapsedMs": 517359,
+        "elapsedMs": 517405,
         "fps": 4,
         "frameMs": 16.67,
         "listeners": 1,
@@ -1257,7 +1257,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 28046226,
+        "heapBytes": 28082181,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -1267,7 +1267,7 @@
       },
       {
         "label": "sample-52",
-        "elapsedMs": 520376,
+        "elapsedMs": 520268,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -1279,7 +1279,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 28331646,
+        "heapBytes": 28401565,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -1289,7 +1289,7 @@
       },
       {
         "label": "sample-53",
-        "elapsedMs": 532320,
+        "elapsedMs": 532384,
         "fps": 4,
         "frameMs": 16.67,
         "listeners": 1,
@@ -1301,7 +1301,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 33874045,
+        "heapBytes": 33928644,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -1311,8 +1311,8 @@
       },
       {
         "label": "sample-54",
-        "elapsedMs": 545806,
-        "fps": 4,
+        "elapsedMs": 545654,
+        "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
         "cleanup": 3,
@@ -1323,7 +1323,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 27913135,
+        "heapBytes": 28268211,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -1333,7 +1333,7 @@
       },
       {
         "label": "sample-55",
-        "elapsedMs": 550243,
+        "elapsedMs": 550321,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -1345,7 +1345,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 28317495,
+        "heapBytes": 28683039,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -1355,7 +1355,7 @@
       },
       {
         "label": "sample-56",
-        "elapsedMs": 560309,
+        "elapsedMs": 560376,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -1367,7 +1367,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 27968142,
+        "heapBytes": 28508126,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -1377,7 +1377,7 @@
       },
       {
         "label": "sample-57",
-        "elapsedMs": 570586,
+        "elapsedMs": 570441,
         "fps": 5,
         "frameMs": 15,
         "listeners": 1,
@@ -1389,7 +1389,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 28540966,
+        "heapBytes": 28343826,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -1399,7 +1399,7 @@
       },
       {
         "label": "sample-58",
-        "elapsedMs": 580221,
+        "elapsedMs": 580305,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -1411,7 +1411,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 28113058,
+        "heapBytes": 28061278,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -1421,7 +1421,7 @@
       },
       {
         "label": "sample-59",
-        "elapsedMs": 590301,
+        "elapsedMs": 590366,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -1433,7 +1433,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 33805940,
+        "heapBytes": 33842530,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -1443,7 +1443,7 @@
       },
       {
         "label": "sample-60",
-        "elapsedMs": 608014,
+        "elapsedMs": 607890,
         "fps": 4,
         "frameMs": 16.67,
         "listeners": 1,
@@ -1455,7 +1455,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 34331956,
+        "heapBytes": 28262190,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -1465,7 +1465,7 @@
       },
       {
         "label": "sample-61",
-        "elapsedMs": 610229,
+        "elapsedMs": 610294,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -1477,7 +1477,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 33681524,
+        "heapBytes": 28534370,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -1487,7 +1487,7 @@
       },
       {
         "label": "sample-62",
-        "elapsedMs": 622784,
+        "elapsedMs": 622872,
         "fps": 4,
         "frameMs": 16.67,
         "listeners": 1,
@@ -1499,7 +1499,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 28043479,
+        "heapBytes": 33448775,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -1509,7 +1509,7 @@
       },
       {
         "label": "sample-63",
-        "elapsedMs": 637303,
+        "elapsedMs": 637366,
         "fps": 4,
         "frameMs": 16.67,
         "listeners": 1,
@@ -1521,7 +1521,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 28139950,
+        "heapBytes": 27977969,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -1531,7 +1531,7 @@
       },
       {
         "label": "sample-64",
-        "elapsedMs": 640320,
+        "elapsedMs": 640386,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -1543,7 +1543,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 28469470,
+        "heapBytes": 28307001,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -1553,7 +1553,7 @@
       },
       {
         "label": "sample-65",
-        "elapsedMs": 652464,
+        "elapsedMs": 652293,
         "fps": 4,
         "frameMs": 16.67,
         "listeners": 1,
@@ -1565,7 +1565,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 33434208,
+        "heapBytes": 33983424,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -1575,7 +1575,7 @@
       },
       {
         "label": "sample-66",
-        "elapsedMs": 665839,
+        "elapsedMs": 665757,
         "fps": 4,
         "frameMs": 16.67,
         "listeners": 1,
@@ -1587,7 +1587,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 33551363,
+        "heapBytes": 28449115,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -1597,7 +1597,7 @@
       },
       {
         "label": "sample-67",
-        "elapsedMs": 670253,
+        "elapsedMs": 670371,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -1609,7 +1609,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 33955419,
+        "heapBytes": 28024827,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -1619,8 +1619,8 @@
       },
       {
         "label": "sample-68",
-        "elapsedMs": 680371,
-        "fps": 6,
+        "elapsedMs": 680255,
+        "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
         "cleanup": 3,
@@ -1631,7 +1631,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 22179443,
+        "heapBytes": 22285366,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -1641,8 +1641,8 @@
       },
       {
         "label": "sample-69",
-        "elapsedMs": 690445,
-        "fps": 6,
+        "elapsedMs": 690524,
+        "fps": 5,
         "frameMs": 15,
         "listeners": 1,
         "cleanup": 3,
@@ -1653,7 +1653,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 22892667,
+        "heapBytes": 22016442,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -1663,7 +1663,7 @@
       },
       {
         "label": "sample-70",
-        "elapsedMs": 700310,
+        "elapsedMs": 700216,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -1675,7 +1675,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 22561083,
+        "heapBytes": 22686110,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -1685,7 +1685,7 @@
       },
       {
         "label": "sample-71",
-        "elapsedMs": 710218,
+        "elapsedMs": 710317,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -1697,7 +1697,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 28344890,
+        "heapBytes": 28456553,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -1707,7 +1707,7 @@
       },
       {
         "label": "sample-72",
-        "elapsedMs": 728002,
+        "elapsedMs": 728059,
         "fps": 4,
         "frameMs": 16.67,
         "listeners": 1,
@@ -1719,7 +1719,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 34402700,
+        "heapBytes": 34496551,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -1729,8 +1729,8 @@
       },
       {
         "label": "sample-73",
-        "elapsedMs": 730228,
-        "fps": 5,
+        "elapsedMs": 730285,
+        "fps": 4,
         "frameMs": 16.67,
         "listeners": 1,
         "cleanup": 3,
@@ -1741,7 +1741,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 33768080,
+        "heapBytes": 33607334,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -1751,7 +1751,7 @@
       },
       {
         "label": "sample-74",
-        "elapsedMs": 742806,
+        "elapsedMs": 742909,
         "fps": 4,
         "frameMs": 16.67,
         "listeners": 1,
@@ -1763,7 +1763,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 28074689,
+        "heapBytes": 28081996,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -1773,7 +1773,7 @@
       },
       {
         "label": "sample-75",
-        "elapsedMs": 757329,
+        "elapsedMs": 757463,
         "fps": 4,
         "frameMs": 16.67,
         "listeners": 1,
@@ -1785,7 +1785,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 28148467,
+        "heapBytes": 34237611,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -1795,7 +1795,7 @@
       },
       {
         "label": "sample-76",
-        "elapsedMs": 760346,
+        "elapsedMs": 760294,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -1807,7 +1807,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 28442271,
+        "heapBytes": 21946281,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -1817,7 +1817,7 @@
       },
       {
         "label": "sample-77",
-        "elapsedMs": 772500,
+        "elapsedMs": 772445,
         "fps": 4,
         "frameMs": 16.67,
         "listeners": 1,
@@ -1829,7 +1829,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 39942317,
+        "heapBytes": 28015398,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -1839,8 +1839,8 @@
       },
       {
         "label": "sample-78",
-        "elapsedMs": 785842,
-        "fps": 4,
+        "elapsedMs": 785750,
+        "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
         "cleanup": 3,
@@ -1851,7 +1851,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 28035019,
+        "heapBytes": 39341854,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -1861,7 +1861,7 @@
       },
       {
         "label": "sample-79",
-        "elapsedMs": 790273,
+        "elapsedMs": 790381,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -1873,7 +1873,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 28429503,
+        "heapBytes": 39746282,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -1883,7 +1883,7 @@
       },
       {
         "label": "sample-80",
-        "elapsedMs": 800366,
+        "elapsedMs": 800290,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -1895,7 +1895,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 28073834,
+        "heapBytes": 22195530,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -1905,8 +1905,8 @@
       },
       {
         "label": "sample-81",
-        "elapsedMs": 810417,
-        "fps": 6,
+        "elapsedMs": 810544,
+        "fps": 5,
         "frameMs": 15,
         "listeners": 1,
         "cleanup": 3,
@@ -1917,7 +1917,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 28654986,
+        "heapBytes": 22897398,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -1927,8 +1927,8 @@
       },
       {
         "label": "sample-82",
-        "elapsedMs": 820245,
-        "fps": 6,
+        "elapsedMs": 820397,
+        "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
         "cleanup": 3,
@@ -1939,7 +1939,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 28385994,
+        "heapBytes": 22525098,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -1949,7 +1949,7 @@
       },
       {
         "label": "sample-83",
-        "elapsedMs": 830326,
+        "elapsedMs": 830256,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -1961,7 +1961,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 34073696,
+        "heapBytes": 28236886,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -1971,7 +1971,7 @@
       },
       {
         "label": "sample-84",
-        "elapsedMs": 847892,
+        "elapsedMs": 847949,
         "fps": 4,
         "frameMs": 16.67,
         "listeners": 1,
@@ -1983,7 +1983,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 34478872,
+        "heapBytes": 34418159,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -1993,7 +1993,7 @@
       },
       {
         "label": "sample-85",
-        "elapsedMs": 850314,
+        "elapsedMs": 850363,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -2005,7 +2005,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 22111899,
+        "heapBytes": 33776723,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -2015,7 +2015,7 @@
       },
       {
         "label": "sample-86",
-        "elapsedMs": 862903,
+        "elapsedMs": 862930,
         "fps": 4,
         "frameMs": 16.67,
         "listeners": 1,
@@ -2027,7 +2027,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 28216108,
+        "heapBytes": 28028392,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -2037,7 +2037,7 @@
       },
       {
         "label": "sample-87",
-        "elapsedMs": 877431,
+        "elapsedMs": 877441,
         "fps": 4,
         "frameMs": 16.67,
         "listeners": 1,
@@ -2049,7 +2049,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 28014037,
+        "heapBytes": 28110030,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -2059,7 +2059,7 @@
       },
       {
         "label": "sample-88",
-        "elapsedMs": 880250,
+        "elapsedMs": 880251,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -2071,7 +2071,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 28327153,
+        "heapBytes": 28381666,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -2081,7 +2081,7 @@
       },
       {
         "label": "sample-89",
-        "elapsedMs": 892378,
+        "elapsedMs": 892396,
         "fps": 4,
         "frameMs": 16.67,
         "listeners": 1,
@@ -2093,7 +2093,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 34034385,
+        "heapBytes": 33551175,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -2103,7 +2103,7 @@
       },
       {
         "label": "sample-90",
-        "elapsedMs": 905668,
+        "elapsedMs": 905642,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -2115,7 +2115,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 28490016,
+        "heapBytes": 34349239,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -2125,7 +2125,7 @@
       },
       {
         "label": "sample-91",
-        "elapsedMs": 910301,
+        "elapsedMs": 910261,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -2137,7 +2137,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 28142900,
+        "heapBytes": 33916207,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -2147,7 +2147,7 @@
       },
       {
         "label": "sample-92",
-        "elapsedMs": 920425,
+        "elapsedMs": 920369,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -2159,7 +2159,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 22286639,
+        "heapBytes": 34523090,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -2169,7 +2169,7 @@
       },
       {
         "label": "sample-93",
-        "elapsedMs": 930481,
+        "elapsedMs": 930429,
         "fps": 5,
         "frameMs": 15,
         "listeners": 1,
@@ -2181,7 +2181,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 22144815,
+        "heapBytes": 34296918,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -2191,8 +2191,8 @@
       },
       {
         "label": "sample-94",
-        "elapsedMs": 940324,
-        "fps": 6,
+        "elapsedMs": 940290,
+        "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
         "cleanup": 3,
@@ -2203,7 +2203,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 22813223,
+        "heapBytes": 33839362,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -2213,7 +2213,7 @@
       },
       {
         "label": "sample-95",
-        "elapsedMs": 950236,
+        "elapsedMs": 950214,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -2225,7 +2225,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 28492498,
+        "heapBytes": 39619040,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -2235,7 +2235,7 @@
       },
       {
         "label": "sample-96",
-        "elapsedMs": 968030,
+        "elapsedMs": 967959,
         "fps": 4,
         "frameMs": 16.67,
         "listeners": 1,
@@ -2247,7 +2247,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 34410092,
+        "heapBytes": 28399498,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -2257,7 +2257,7 @@
       },
       {
         "label": "sample-97",
-        "elapsedMs": 970265,
+        "elapsedMs": 970375,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -2269,7 +2269,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 33785284,
+        "heapBytes": 28693898,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -2279,7 +2279,7 @@
       },
       {
         "label": "sample-98",
-        "elapsedMs": 982843,
+        "elapsedMs": 982938,
         "fps": 4,
         "frameMs": 16.67,
         "listeners": 1,
@@ -2291,7 +2291,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 28058047,
+        "heapBytes": 34249856,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -2301,7 +2301,7 @@
       },
       {
         "label": "sample-99",
-        "elapsedMs": 997372,
+        "elapsedMs": 997468,
         "fps": 4,
         "frameMs": 16.67,
         "listeners": 1,
@@ -2313,7 +2313,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 28109522,
+        "heapBytes": 28065749,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -2323,7 +2323,7 @@
       },
       {
         "label": "sample-100",
-        "elapsedMs": 1000397,
+        "elapsedMs": 1000280,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -2335,7 +2335,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 28387962,
+        "heapBytes": 28378861,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -2345,7 +2345,7 @@
       },
       {
         "label": "sample-101",
-        "elapsedMs": 1012330,
+        "elapsedMs": 1012418,
         "fps": 4,
         "frameMs": 16.67,
         "listeners": 1,
@@ -2357,7 +2357,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 33936425,
+        "heapBytes": 34071172,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -2367,7 +2367,7 @@
       },
       {
         "label": "sample-102",
-        "elapsedMs": 1025631,
+        "elapsedMs": 1025730,
         "fps": 4,
         "frameMs": 16.67,
         "listeners": 1,
@@ -2379,7 +2379,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 33582775,
+        "heapBytes": 28502391,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -2389,7 +2389,7 @@
       },
       {
         "label": "sample-103",
-        "elapsedMs": 1030279,
+        "elapsedMs": 1030374,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -2401,7 +2401,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 34007935,
+        "heapBytes": 28064807,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -2411,7 +2411,7 @@
       },
       {
         "label": "sample-104",
-        "elapsedMs": 1040348,
+        "elapsedMs": 1040222,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -2423,7 +2423,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 22180699,
+        "heapBytes": 22270030,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -2433,8 +2433,8 @@
       },
       {
         "label": "sample-105",
-        "elapsedMs": 1050417,
-        "fps": 5,
+        "elapsedMs": 1050473,
+        "fps": 6,
         "frameMs": 15,
         "listeners": 1,
         "cleanup": 3,
@@ -2445,7 +2445,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 22661387,
+        "heapBytes": 22908962,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -2455,7 +2455,7 @@
       },
       {
         "label": "sample-106",
-        "elapsedMs": 1060260,
+        "elapsedMs": 1060329,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -2467,7 +2467,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 22289887,
+        "heapBytes": 22498642,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -2477,7 +2477,7 @@
       },
       {
         "label": "sample-107",
-        "elapsedMs": 1070347,
+        "elapsedMs": 1070384,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -2489,7 +2489,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 27908671,
+        "heapBytes": 28159714,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -2499,7 +2499,7 @@
       },
       {
         "label": "sample-108",
-        "elapsedMs": 1088066,
+        "elapsedMs": 1087912,
         "fps": 4,
         "frameMs": 16.67,
         "listeners": 1,
@@ -2511,7 +2511,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 34295828,
+        "heapBytes": 34398639,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -2521,7 +2521,7 @@
       },
       {
         "label": "sample-109",
-        "elapsedMs": 1090270,
+        "elapsedMs": 1090330,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -2533,7 +2533,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 34482828,
+        "heapBytes": 34601323,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -2543,7 +2543,7 @@
       },
       {
         "label": "sample-110",
-        "elapsedMs": 1102812,
+        "elapsedMs": 1102870,
         "fps": 4,
         "frameMs": 16.67,
         "listeners": 1,
@@ -2555,7 +2555,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 28107746,
+        "heapBytes": 28145189,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -2565,7 +2565,7 @@
       },
       {
         "label": "sample-111",
-        "elapsedMs": 1117313,
+        "elapsedMs": 1117363,
         "fps": 4,
         "frameMs": 16.67,
         "listeners": 1,
@@ -2577,7 +2577,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 34033979,
+        "heapBytes": 34091898,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -2587,7 +2587,7 @@
       },
       {
         "label": "sample-112",
-        "elapsedMs": 1120330,
+        "elapsedMs": 1120374,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -2599,7 +2599,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 33607414,
+        "heapBytes": 33700041,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -2609,7 +2609,7 @@
       },
       {
         "label": "sample-113",
-        "elapsedMs": 1132438,
+        "elapsedMs": 1132463,
         "fps": 4,
         "frameMs": 16.67,
         "listeners": 1,
@@ -2621,7 +2621,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 27896872,
+        "heapBytes": 27934975,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -2643,7 +2643,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 34416612,
+        "heapBytes": 34491731,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -2653,7 +2653,7 @@
       },
       {
         "label": "sample-115",
-        "elapsedMs": 1150360,
+        "elapsedMs": 1150350,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -2665,7 +2665,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 33549023,
+        "heapBytes": 33655970,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -2675,7 +2675,7 @@
       },
       {
         "label": "sample-116",
-        "elapsedMs": 1160228,
+        "elapsedMs": 1160219,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -2687,7 +2687,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 22024227,
+        "heapBytes": 22029106,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -2697,7 +2697,7 @@
       },
       {
         "label": "sample-117",
-        "elapsedMs": 1170543,
+        "elapsedMs": 1170511,
         "fps": 5,
         "frameMs": 15,
         "listeners": 1,
@@ -2709,7 +2709,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 22307403,
+        "heapBytes": 22557598,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -2731,7 +2731,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 22767471,
+        "heapBytes": 22156174,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -2741,7 +2741,7 @@
       },
       {
         "label": "sample-119",
-        "elapsedMs": 1190266,
+        "elapsedMs": 1190274,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -2753,7 +2753,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 28273806,
+        "heapBytes": 28714281,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -2763,7 +2763,7 @@
       },
       {
         "label": "sample-120",
-        "elapsedMs": 1208070,
+        "elapsedMs": 1208026,
         "fps": 4,
         "frameMs": 16.67,
         "listeners": 1,
@@ -2775,7 +2775,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 34334576,
+        "heapBytes": 34393151,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -2785,7 +2785,7 @@
       },
       {
         "label": "sample-121",
-        "elapsedMs": 1210277,
+        "elapsedMs": 1210246,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -2797,7 +2797,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 34521372,
+        "heapBytes": 33674823,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -2807,7 +2807,7 @@
       },
       {
         "label": "sample-122",
-        "elapsedMs": 1222834,
+        "elapsedMs": 1222802,
         "fps": 4,
         "frameMs": 16.67,
         "listeners": 1,
@@ -2819,7 +2819,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 28111383,
+        "heapBytes": 28041072,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -2829,7 +2829,7 @@
       },
       {
         "label": "sample-123",
-        "elapsedMs": 1237435,
+        "elapsedMs": 1237356,
         "fps": 4,
         "frameMs": 16.67,
         "listeners": 1,
@@ -2841,7 +2841,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 33551642,
+        "heapBytes": 28083870,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -2851,7 +2851,7 @@
       },
       {
         "label": "sample-124",
-        "elapsedMs": 1240258,
+        "elapsedMs": 1240375,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -2863,7 +2863,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 33760138,
+        "heapBytes": 28311130,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -2873,7 +2873,7 @@
       },
       {
         "label": "sample-125",
-        "elapsedMs": 1252387,
+        "elapsedMs": 1252291,
         "fps": 4,
         "frameMs": 16.67,
         "listeners": 1,
@@ -2885,7 +2885,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 28035147,
+        "heapBytes": 33908856,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -2895,8 +2895,8 @@
       },
       {
         "label": "sample-126",
-        "elapsedMs": 1265704,
-        "fps": 5,
+        "elapsedMs": 1265787,
+        "fps": 4,
         "frameMs": 16.67,
         "listeners": 1,
         "cleanup": 3,
@@ -2907,7 +2907,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 34434908,
+        "heapBytes": 28128961,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -2917,7 +2917,7 @@
       },
       {
         "label": "sample-127",
-        "elapsedMs": 1270340,
+        "elapsedMs": 1270228,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -2929,7 +2929,7 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 33579403,
+        "heapBytes": 28460265,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -2939,1129 +2939,7 @@
       },
       {
         "label": "sample-128",
-        "elapsedMs": 1280205,
-        "fps": 5,
-        "frameMs": 16.67,
-        "listeners": 1,
-        "cleanup": 3,
-        "inputContexts": 1,
-        "keyObjects": 13,
-        "audioContexts": 1,
-        "activeVoices": 0,
-        "activeScenes": [
-          "MainMenuScene"
-        ],
-        "heapBytes": 22051291,
-        "sceneCount": 1,
-        "timers": 0,
-        "tweens": 0,
-        "domFileInputs": 0,
-        "canvasCount": 1,
-        "audioMuted": false
-      },
-      {
-        "label": "sample-129",
-        "elapsedMs": 1290477,
-        "fps": 5,
-        "frameMs": 15,
-        "listeners": 1,
-        "cleanup": 3,
-        "inputContexts": 1,
-        "keyObjects": 13,
-        "audioContexts": 1,
-        "activeVoices": 0,
-        "activeScenes": [
-          "MainMenuScene"
-        ],
-        "heapBytes": 22342683,
-        "sceneCount": 1,
-        "timers": 0,
-        "tweens": 0,
-        "domFileInputs": 0,
-        "canvasCount": 1,
-        "audioMuted": false
-      },
-      {
-        "label": "sample-130",
-        "elapsedMs": 1300327,
-        "fps": 5,
-        "frameMs": 16.67,
-        "listeners": 1,
-        "cleanup": 3,
-        "inputContexts": 1,
-        "keyObjects": 13,
-        "audioContexts": 1,
-        "activeVoices": 0,
-        "activeScenes": [
-          "MainMenuScene"
-        ],
-        "heapBytes": 22802895,
-        "sceneCount": 1,
-        "timers": 0,
-        "tweens": 0,
-        "domFileInputs": 0,
-        "canvasCount": 1,
-        "audioMuted": false
-      },
-      {
-        "label": "sample-131",
-        "elapsedMs": 1310387,
-        "fps": 5,
-        "frameMs": 16.67,
-        "listeners": 1,
-        "cleanup": 3,
-        "inputContexts": 1,
-        "keyObjects": 13,
-        "audioContexts": 1,
-        "activeVoices": 0,
-        "activeScenes": [
-          "MainMenuScene"
-        ],
-        "heapBytes": 28315903,
-        "sceneCount": 1,
-        "timers": 0,
-        "tweens": 0,
-        "domFileInputs": 0,
-        "canvasCount": 1,
-        "audioMuted": true
-      },
-      {
-        "label": "sample-132",
-        "elapsedMs": 1327938,
-        "fps": 4,
-        "frameMs": 16.67,
-        "listeners": 1,
-        "cleanup": 3,
-        "inputContexts": 1,
-        "keyObjects": 13,
-        "audioContexts": 1,
-        "activeVoices": 0,
-        "activeScenes": [
-          "MainMenuScene"
-        ],
-        "heapBytes": 34380620,
-        "sceneCount": 1,
-        "timers": 0,
-        "tweens": 0,
-        "domFileInputs": 0,
-        "canvasCount": 1,
-        "audioMuted": true
-      },
-      {
-        "label": "sample-133",
-        "elapsedMs": 1330355,
-        "fps": 5,
-        "frameMs": 16.67,
-        "listeners": 1,
-        "cleanup": 3,
-        "inputContexts": 1,
-        "keyObjects": 13,
-        "audioContexts": 1,
-        "activeVoices": 0,
-        "activeScenes": [
-          "MainMenuScene"
-        ],
-        "heapBytes": 22043779,
-        "sceneCount": 1,
-        "timers": 0,
-        "tweens": 0,
-        "domFileInputs": 0,
-        "canvasCount": 1,
-        "audioMuted": true
-      },
-      {
-        "label": "sample-134",
-        "elapsedMs": 1342871,
-        "fps": 4,
-        "frameMs": 16.67,
-        "listeners": 1,
-        "cleanup": 3,
-        "inputContexts": 1,
-        "keyObjects": 13,
-        "audioContexts": 1,
-        "activeVoices": 0,
-        "activeScenes": [
-          "MainMenuScene"
-        ],
-        "heapBytes": 28125695,
-        "sceneCount": 1,
-        "timers": 0,
-        "tweens": 0,
-        "domFileInputs": 0,
-        "canvasCount": 1,
-        "audioMuted": true
-      },
-      {
-        "label": "sample-135",
-        "elapsedMs": 1357395,
-        "fps": 4,
-        "frameMs": 16.67,
-        "listeners": 1,
-        "cleanup": 3,
-        "inputContexts": 1,
-        "keyObjects": 13,
-        "audioContexts": 1,
-        "activeVoices": 0,
-        "activeScenes": [
-          "MainMenuScene"
-        ],
-        "heapBytes": 34092319,
-        "sceneCount": 1,
-        "timers": 0,
-        "tweens": 0,
-        "domFileInputs": 0,
-        "canvasCount": 1,
-        "audioMuted": true
-      },
-      {
-        "label": "sample-136",
-        "elapsedMs": 1360209,
-        "fps": 5,
-        "frameMs": 16.67,
-        "listeners": 1,
-        "cleanup": 3,
-        "inputContexts": 1,
-        "keyObjects": 13,
-        "audioContexts": 1,
-        "activeVoices": 0,
-        "activeScenes": [
-          "MainMenuScene"
-        ],
-        "heapBytes": 33663138,
-        "sceneCount": 1,
-        "timers": 0,
-        "tweens": 0,
-        "domFileInputs": 0,
-        "canvasCount": 1,
-        "audioMuted": true
-      },
-      {
-        "label": "sample-137",
-        "elapsedMs": 1372300,
-        "fps": 4,
-        "frameMs": 16.67,
-        "listeners": 1,
-        "cleanup": 3,
-        "inputContexts": 1,
-        "keyObjects": 13,
-        "audioContexts": 1,
-        "activeVoices": 0,
-        "activeScenes": [
-          "MainMenuScene"
-        ],
-        "heapBytes": 27938676,
-        "sceneCount": 1,
-        "timers": 0,
-        "tweens": 0,
-        "domFileInputs": 0,
-        "canvasCount": 1,
-        "audioMuted": true
-      },
-      {
-        "label": "sample-138",
-        "elapsedMs": 1385803,
-        "fps": 5,
-        "frameMs": 16.67,
-        "listeners": 1,
-        "cleanup": 3,
-        "inputContexts": 1,
-        "keyObjects": 13,
-        "audioContexts": 1,
-        "activeVoices": 0,
-        "activeScenes": [
-          "MainMenuScene"
-        ],
-        "heapBytes": 34471984,
-        "sceneCount": 1,
-        "timers": 0,
-        "tweens": 0,
-        "domFileInputs": 0,
-        "canvasCount": 1,
-        "audioMuted": true
-      },
-      {
-        "label": "sample-139",
-        "elapsedMs": 1390233,
-        "fps": 5,
-        "frameMs": 16.67,
-        "listeners": 1,
-        "cleanup": 3,
-        "inputContexts": 1,
-        "keyObjects": 13,
-        "audioContexts": 1,
-        "activeVoices": 0,
-        "activeScenes": [
-          "MainMenuScene"
-        ],
-        "heapBytes": 33638443,
-        "sceneCount": 1,
-        "timers": 0,
-        "tweens": 0,
-        "domFileInputs": 0,
-        "canvasCount": 1,
-        "audioMuted": true
-      },
-      {
-        "label": "sample-140",
-        "elapsedMs": 1400313,
-        "fps": 5,
-        "frameMs": 16.67,
-        "listeners": 1,
-        "cleanup": 3,
-        "inputContexts": 1,
-        "keyObjects": 13,
-        "audioContexts": 1,
-        "activeVoices": 0,
-        "activeScenes": [
-          "MainMenuScene"
-        ],
-        "heapBytes": 22039203,
-        "sceneCount": 1,
-        "timers": 0,
-        "tweens": 0,
-        "domFileInputs": 0,
-        "canvasCount": 1,
-        "audioMuted": true
-      },
-      {
-        "label": "sample-141",
-        "elapsedMs": 1410594,
-        "fps": 5,
-        "frameMs": 15,
-        "listeners": 1,
-        "cleanup": 3,
-        "inputContexts": 1,
-        "keyObjects": 13,
-        "audioContexts": 1,
-        "activeVoices": 0,
-        "activeScenes": [
-          "MainMenuScene"
-        ],
-        "heapBytes": 22526947,
-        "sceneCount": 1,
-        "timers": 0,
-        "tweens": 0,
-        "domFileInputs": 0,
-        "canvasCount": 1,
-        "audioMuted": true
-      },
-      {
-        "label": "sample-142",
-        "elapsedMs": 1420280,
-        "fps": 5,
-        "frameMs": 16.67,
-        "listeners": 1,
-        "cleanup": 3,
-        "inputContexts": 1,
-        "keyObjects": 13,
-        "audioContexts": 1,
-        "activeVoices": 0,
-        "activeScenes": [
-          "MainMenuScene"
-        ],
-        "heapBytes": 22156011,
-        "sceneCount": 1,
-        "timers": 0,
-        "tweens": 0,
-        "domFileInputs": 0,
-        "canvasCount": 1,
-        "audioMuted": true
-      },
-      {
-        "label": "sample-143",
-        "elapsedMs": 1430372,
-        "fps": 5,
-        "frameMs": 16.67,
-        "listeners": 1,
-        "cleanup": 3,
-        "inputContexts": 1,
-        "keyObjects": 13,
-        "audioContexts": 1,
-        "activeVoices": 0,
-        "activeScenes": [
-          "MainMenuScene"
-        ],
-        "heapBytes": 28686374,
-        "sceneCount": 1,
-        "timers": 0,
-        "tweens": 0,
-        "domFileInputs": 0,
-        "canvasCount": 1,
-        "audioMuted": false
-      },
-      {
-        "label": "sample-144",
-        "elapsedMs": 1447943,
-        "fps": 4,
-        "frameMs": 16.67,
-        "listeners": 1,
-        "cleanup": 3,
-        "inputContexts": 1,
-        "keyObjects": 13,
-        "audioContexts": 1,
-        "activeVoices": 0,
-        "activeScenes": [
-          "MainMenuScene"
-        ],
-        "heapBytes": 34381284,
-        "sceneCount": 1,
-        "timers": 0,
-        "tweens": 0,
-        "domFileInputs": 0,
-        "canvasCount": 1,
-        "audioMuted": false
-      },
-      {
-        "label": "sample-145",
-        "elapsedMs": 1450359,
-        "fps": 5,
-        "frameMs": 16.67,
-        "listeners": 1,
-        "cleanup": 3,
-        "inputContexts": 1,
-        "keyObjects": 13,
-        "audioContexts": 1,
-        "activeVoices": 0,
-        "activeScenes": [
-          "MainMenuScene"
-        ],
-        "heapBytes": 34575356,
-        "sceneCount": 1,
-        "timers": 0,
-        "tweens": 0,
-        "domFileInputs": 0,
-        "canvasCount": 1,
-        "audioMuted": false
-      },
-      {
-        "label": "sample-146",
-        "elapsedMs": 1462719,
-        "fps": 4,
-        "frameMs": 16.67,
-        "listeners": 1,
-        "cleanup": 3,
-        "inputContexts": 1,
-        "keyObjects": 13,
-        "audioContexts": 1,
-        "activeVoices": 0,
-        "activeScenes": [
-          "MainMenuScene"
-        ],
-        "heapBytes": 28156459,
-        "sceneCount": 1,
-        "timers": 0,
-        "tweens": 0,
-        "domFileInputs": 0,
-        "canvasCount": 1,
-        "audioMuted": false
-      },
-      {
-        "label": "sample-147",
-        "elapsedMs": 1477500,
-        "fps": 4,
-        "frameMs": 16.67,
-        "listeners": 1,
-        "cleanup": 3,
-        "inputContexts": 1,
-        "keyObjects": 13,
-        "audioContexts": 1,
-        "activeVoices": 0,
-        "activeScenes": [
-          "MainMenuScene"
-        ],
-        "heapBytes": 33526898,
-        "sceneCount": 1,
-        "timers": 0,
-        "tweens": 0,
-        "domFileInputs": 0,
-        "canvasCount": 1,
-        "audioMuted": false
-      },
-      {
-        "label": "sample-148",
-        "elapsedMs": 1480336,
-        "fps": 5,
-        "frameMs": 16.67,
-        "listeners": 1,
-        "cleanup": 3,
-        "inputContexts": 1,
-        "keyObjects": 13,
-        "audioContexts": 1,
-        "activeVoices": 0,
-        "activeScenes": [
-          "MainMenuScene"
-        ],
-        "heapBytes": 33735430,
-        "sceneCount": 1,
-        "timers": 0,
-        "tweens": 0,
-        "domFileInputs": 0,
-        "canvasCount": 1,
-        "audioMuted": false
-      },
-      {
-        "label": "sample-149",
-        "elapsedMs": 1492448,
-        "fps": 4,
-        "frameMs": 16.67,
-        "listeners": 1,
-        "cleanup": 3,
-        "inputContexts": 1,
-        "keyObjects": 13,
-        "audioContexts": 1,
-        "activeVoices": 0,
-        "activeScenes": [
-          "MainMenuScene"
-        ],
-        "heapBytes": 28075359,
-        "sceneCount": 1,
-        "timers": 0,
-        "tweens": 0,
-        "domFileInputs": 0,
-        "canvasCount": 1,
-        "audioMuted": false
-      },
-      {
-        "label": "sample-150",
-        "elapsedMs": 1505774,
-        "fps": 4,
-        "frameMs": 16.67,
-        "listeners": 1,
-        "cleanup": 3,
-        "inputContexts": 1,
-        "keyObjects": 13,
-        "audioContexts": 1,
-        "activeVoices": 0,
-        "activeScenes": [
-          "MainMenuScene"
-        ],
-        "heapBytes": 34501060,
-        "sceneCount": 1,
-        "timers": 0,
-        "tweens": 0,
-        "domFileInputs": 0,
-        "canvasCount": 1,
-        "audioMuted": false
-      },
-      {
-        "label": "sample-151",
-        "elapsedMs": 1510212,
-        "fps": 5,
-        "frameMs": 16.67,
-        "listeners": 1,
-        "cleanup": 3,
-        "inputContexts": 1,
-        "keyObjects": 13,
-        "audioContexts": 1,
-        "activeVoices": 0,
-        "activeScenes": [
-          "MainMenuScene"
-        ],
-        "heapBytes": 33657387,
-        "sceneCount": 1,
-        "timers": 0,
-        "tweens": 0,
-        "domFileInputs": 0,
-        "canvasCount": 1,
-        "audioMuted": false
-      },
-      {
-        "label": "sample-152",
-        "elapsedMs": 1520313,
-        "fps": 5,
-        "frameMs": 16.67,
-        "listeners": 1,
-        "cleanup": 3,
-        "inputContexts": 1,
-        "keyObjects": 13,
-        "audioContexts": 1,
-        "activeVoices": 0,
-        "activeScenes": [
-          "MainMenuScene"
-        ],
-        "heapBytes": 22050847,
-        "sceneCount": 1,
-        "timers": 0,
-        "tweens": 0,
-        "domFileInputs": 0,
-        "canvasCount": 1,
-        "audioMuted": false
-      },
-      {
-        "label": "sample-153",
-        "elapsedMs": 1530564,
-        "fps": 5,
-        "frameMs": 15,
-        "listeners": 1,
-        "cleanup": 3,
-        "inputContexts": 1,
-        "keyObjects": 13,
-        "audioContexts": 1,
-        "activeVoices": 0,
-        "activeScenes": [
-          "MainMenuScene"
-        ],
-        "heapBytes": 22538703,
-        "sceneCount": 1,
-        "timers": 0,
-        "tweens": 0,
-        "domFileInputs": 0,
-        "canvasCount": 1,
-        "audioMuted": false
-      },
-      {
-        "label": "sample-154",
-        "elapsedMs": 1540237,
-        "fps": 5,
-        "frameMs": 16.67,
-        "listeners": 1,
-        "cleanup": 3,
-        "inputContexts": 1,
-        "keyObjects": 13,
-        "audioContexts": 1,
-        "activeVoices": 0,
-        "activeScenes": [
-          "MainMenuScene"
-        ],
-        "heapBytes": 22991555,
-        "sceneCount": 1,
-        "timers": 0,
-        "tweens": 0,
-        "domFileInputs": 0,
-        "canvasCount": 1,
-        "audioMuted": false
-      },
-      {
-        "label": "sample-155",
-        "elapsedMs": 1550327,
-        "fps": 5,
-        "frameMs": 16.67,
-        "listeners": 1,
-        "cleanup": 3,
-        "inputContexts": 1,
-        "keyObjects": 13,
-        "audioContexts": 1,
-        "activeVoices": 0,
-        "activeScenes": [
-          "MainMenuScene"
-        ],
-        "heapBytes": 28540475,
-        "sceneCount": 1,
-        "timers": 0,
-        "tweens": 0,
-        "domFileInputs": 0,
-        "canvasCount": 1,
-        "audioMuted": true
-      },
-      {
-        "label": "sample-156",
-        "elapsedMs": 1568089,
-        "fps": 4,
-        "frameMs": 16.67,
-        "listeners": 1,
-        "cleanup": 3,
-        "inputContexts": 1,
-        "keyObjects": 13,
-        "audioContexts": 1,
-        "activeVoices": 0,
-        "activeScenes": [
-          "MainMenuScene"
-        ],
-        "heapBytes": 34392024,
-        "sceneCount": 1,
-        "timers": 0,
-        "tweens": 0,
-        "domFileInputs": 0,
-        "canvasCount": 1,
-        "audioMuted": true
-      },
-      {
-        "label": "sample-157",
-        "elapsedMs": 1570290,
-        "fps": 5,
-        "frameMs": 16.67,
-        "listeners": 1,
-        "cleanup": 3,
-        "inputContexts": 1,
-        "keyObjects": 13,
-        "audioContexts": 1,
-        "activeVoices": 0,
-        "activeScenes": [
-          "MainMenuScene"
-        ],
-        "heapBytes": 34578880,
-        "sceneCount": 1,
-        "timers": 0,
-        "tweens": 0,
-        "domFileInputs": 0,
-        "canvasCount": 1,
-        "audioMuted": true
-      },
-      {
-        "label": "sample-158",
-        "elapsedMs": 1582853,
-        "fps": 4,
-        "frameMs": 16.67,
-        "listeners": 1,
-        "cleanup": 3,
-        "inputContexts": 1,
-        "keyObjects": 13,
-        "audioContexts": 1,
-        "activeVoices": 0,
-        "activeScenes": [
-          "MainMenuScene"
-        ],
-        "heapBytes": 28164995,
-        "sceneCount": 1,
-        "timers": 0,
-        "tweens": 0,
-        "domFileInputs": 0,
-        "canvasCount": 1,
-        "audioMuted": true
-      },
-      {
-        "label": "sample-159",
-        "elapsedMs": 1597380,
-        "fps": 4,
-        "frameMs": 16.67,
-        "listeners": 1,
-        "cleanup": 3,
-        "inputContexts": 1,
-        "keyObjects": 13,
-        "audioContexts": 1,
-        "activeVoices": 0,
-        "activeScenes": [
-          "MainMenuScene"
-        ],
-        "heapBytes": 34093731,
-        "sceneCount": 1,
-        "timers": 0,
-        "tweens": 0,
-        "domFileInputs": 0,
-        "canvasCount": 1,
-        "audioMuted": true
-      },
-      {
-        "label": "sample-160",
-        "elapsedMs": 1600401,
-        "fps": 5,
-        "frameMs": 16.67,
-        "listeners": 1,
-        "cleanup": 3,
-        "inputContexts": 1,
-        "keyObjects": 13,
-        "audioContexts": 1,
-        "activeVoices": 0,
-        "activeScenes": [
-          "MainMenuScene"
-        ],
-        "heapBytes": 33728434,
-        "sceneCount": 1,
-        "timers": 0,
-        "tweens": 0,
-        "domFileInputs": 0,
-        "canvasCount": 1,
-        "audioMuted": true
-      },
-      {
-        "label": "sample-161",
-        "elapsedMs": 1612290,
-        "fps": 4,
-        "frameMs": 16.67,
-        "listeners": 1,
-        "cleanup": 3,
-        "inputContexts": 1,
-        "keyObjects": 13,
-        "audioContexts": 1,
-        "activeVoices": 0,
-        "activeScenes": [
-          "MainMenuScene"
-        ],
-        "heapBytes": 27958124,
-        "sceneCount": 1,
-        "timers": 0,
-        "tweens": 0,
-        "domFileInputs": 0,
-        "canvasCount": 1,
-        "audioMuted": true
-      },
-      {
-        "label": "sample-162",
-        "elapsedMs": 1625761,
-        "fps": 5,
-        "frameMs": 16.67,
-        "listeners": 1,
-        "cleanup": 3,
-        "inputContexts": 1,
-        "keyObjects": 13,
-        "audioContexts": 1,
-        "activeVoices": 0,
-        "activeScenes": [
-          "MainMenuScene"
-        ],
-        "heapBytes": 34479860,
-        "sceneCount": 1,
-        "timers": 0,
-        "tweens": 0,
-        "domFileInputs": 0,
-        "canvasCount": 1,
-        "audioMuted": true
-      },
-      {
-        "label": "sample-163",
-        "elapsedMs": 1630218,
-        "fps": 5,
-        "frameMs": 16.67,
-        "listeners": 1,
-        "cleanup": 3,
-        "inputContexts": 1,
-        "keyObjects": 13,
-        "audioContexts": 1,
-        "activeVoices": 0,
-        "activeScenes": [
-          "MainMenuScene"
-        ],
-        "heapBytes": 33608019,
-        "sceneCount": 1,
-        "timers": 0,
-        "tweens": 0,
-        "domFileInputs": 0,
-        "canvasCount": 1,
-        "audioMuted": true
-      },
-      {
-        "label": "sample-164",
-        "elapsedMs": 1640296,
-        "fps": 5,
-        "frameMs": 16.67,
-        "listeners": 1,
-        "cleanup": 3,
-        "inputContexts": 1,
-        "keyObjects": 13,
-        "audioContexts": 1,
-        "activeVoices": 0,
-        "activeScenes": [
-          "MainMenuScene"
-        ],
-        "heapBytes": 22092587,
-        "sceneCount": 1,
-        "timers": 0,
-        "tweens": 0,
-        "domFileInputs": 0,
-        "canvasCount": 1,
-        "audioMuted": true
-      },
-      {
-        "label": "sample-165",
-        "elapsedMs": 1650569,
-        "fps": 5,
-        "frameMs": 15,
-        "listeners": 1,
-        "cleanup": 3,
-        "inputContexts": 1,
-        "keyObjects": 13,
-        "audioContexts": 1,
-        "activeVoices": 0,
-        "activeScenes": [
-          "MainMenuScene"
-        ],
-        "heapBytes": 22375907,
-        "sceneCount": 1,
-        "timers": 0,
-        "tweens": 0,
-        "domFileInputs": 0,
-        "canvasCount": 1,
-        "audioMuted": true
-      },
-      {
-        "label": "sample-166",
-        "elapsedMs": 1660273,
-        "fps": 5,
-        "frameMs": 16.67,
-        "listeners": 1,
-        "cleanup": 3,
-        "inputContexts": 1,
-        "keyObjects": 13,
-        "audioContexts": 1,
-        "activeVoices": 0,
-        "activeScenes": [
-          "MainMenuScene"
-        ],
-        "heapBytes": 22829079,
-        "sceneCount": 1,
-        "timers": 0,
-        "tweens": 0,
-        "domFileInputs": 0,
-        "canvasCount": 1,
-        "audioMuted": true
-      },
-      {
-        "label": "sample-167",
-        "elapsedMs": 1670366,
-        "fps": 5,
-        "frameMs": 16.67,
-        "listeners": 1,
-        "cleanup": 3,
-        "inputContexts": 1,
-        "keyObjects": 13,
-        "audioContexts": 1,
-        "activeVoices": 0,
-        "activeScenes": [
-          "MainMenuScene"
-        ],
-        "heapBytes": 28427690,
-        "sceneCount": 1,
-        "timers": 0,
-        "tweens": 0,
-        "domFileInputs": 0,
-        "canvasCount": 1,
-        "audioMuted": false
-      },
-      {
-        "label": "sample-168",
-        "elapsedMs": 1687934,
-        "fps": 4,
-        "frameMs": 16.67,
-        "listeners": 1,
-        "cleanup": 3,
-        "inputContexts": 1,
-        "keyObjects": 13,
-        "audioContexts": 1,
-        "activeVoices": 0,
-        "activeScenes": [
-          "MainMenuScene"
-        ],
-        "heapBytes": 34402332,
-        "sceneCount": 1,
-        "timers": 0,
-        "tweens": 0,
-        "domFileInputs": 0,
-        "canvasCount": 1,
-        "audioMuted": false
-      },
-      {
-        "label": "sample-169",
-        "elapsedMs": 1690379,
-        "fps": 5,
-        "frameMs": 16.67,
-        "listeners": 1,
-        "cleanup": 3,
-        "inputContexts": 1,
-        "keyObjects": 13,
-        "audioContexts": 1,
-        "activeVoices": 0,
-        "activeScenes": [
-          "MainMenuScene"
-        ],
-        "heapBytes": 33607015,
-        "sceneCount": 1,
-        "timers": 0,
-        "tweens": 0,
-        "domFileInputs": 0,
-        "canvasCount": 1,
-        "audioMuted": false
-      },
-      {
-        "label": "sample-170",
-        "elapsedMs": 1702734,
-        "fps": 4,
-        "frameMs": 16.67,
-        "listeners": 1,
-        "cleanup": 3,
-        "inputContexts": 1,
-        "keyObjects": 13,
-        "audioContexts": 1,
-        "activeVoices": 0,
-        "activeScenes": [
-          "MainMenuScene"
-        ],
-        "heapBytes": 28041590,
-        "sceneCount": 1,
-        "timers": 0,
-        "tweens": 0,
-        "domFileInputs": 0,
-        "canvasCount": 1,
-        "audioMuted": false
-      },
-      {
-        "label": "sample-171",
-        "elapsedMs": 1717478,
-        "fps": 4,
-        "frameMs": 16.67,
-        "listeners": 1,
-        "cleanup": 3,
-        "inputContexts": 1,
-        "keyObjects": 13,
-        "audioContexts": 1,
-        "activeVoices": 0,
-        "activeScenes": [
-          "MainMenuScene"
-        ],
-        "heapBytes": 34139101,
-        "sceneCount": 1,
-        "timers": 0,
-        "tweens": 0,
-        "domFileInputs": 0,
-        "canvasCount": 1,
-        "audioMuted": false
-      },
-      {
-        "label": "sample-172",
-        "elapsedMs": 1720325,
-        "fps": 5,
-        "frameMs": 16.67,
-        "listeners": 1,
-        "cleanup": 3,
-        "inputContexts": 1,
-        "keyObjects": 13,
-        "audioContexts": 1,
-        "activeVoices": 0,
-        "activeScenes": [
-          "MainMenuScene"
-        ],
-        "heapBytes": 34347693,
-        "sceneCount": 1,
-        "timers": 0,
-        "tweens": 0,
-        "domFileInputs": 0,
-        "canvasCount": 1,
-        "audioMuted": false
-      },
-      {
-        "label": "sample-173",
-        "elapsedMs": 1732442,
-        "fps": 4,
-        "frameMs": 16.67,
-        "listeners": 1,
-        "cleanup": 3,
-        "inputContexts": 1,
-        "keyObjects": 13,
-        "audioContexts": 1,
-        "activeVoices": 0,
-        "activeScenes": [
-          "MainMenuScene"
-        ],
-        "heapBytes": 39307300,
-        "sceneCount": 1,
-        "timers": 0,
-        "tweens": 0,
-        "domFileInputs": 0,
-        "canvasCount": 1,
-        "audioMuted": false
-      },
-      {
-        "label": "sample-174",
-        "elapsedMs": 1745752,
-        "fps": 5,
-        "frameMs": 16.67,
-        "listeners": 1,
-        "cleanup": 3,
-        "inputContexts": 1,
-        "keyObjects": 13,
-        "audioContexts": 1,
-        "activeVoices": 0,
-        "activeScenes": [
-          "MainMenuScene"
-        ],
-        "heapBytes": 28568170,
-        "sceneCount": 1,
-        "timers": 0,
-        "tweens": 0,
-        "domFileInputs": 0,
-        "canvasCount": 1,
-        "audioMuted": false
-      },
-      {
-        "label": "sample-175",
-        "elapsedMs": 1750238,
-        "fps": 5,
-        "frameMs": 16.67,
-        "listeners": 1,
-        "cleanup": 3,
-        "inputContexts": 1,
-        "keyObjects": 13,
-        "audioContexts": 1,
-        "activeVoices": 0,
-        "activeScenes": [
-          "MainMenuScene"
-        ],
-        "heapBytes": 28899258,
-        "sceneCount": 1,
-        "timers": 0,
-        "tweens": 0,
-        "domFileInputs": 0,
-        "canvasCount": 1,
-        "audioMuted": false
-      },
-      {
-        "label": "sample-176",
-        "elapsedMs": 1760321,
-        "fps": 5,
-        "frameMs": 16.67,
-        "listeners": 1,
-        "cleanup": 3,
-        "inputContexts": 1,
-        "keyObjects": 13,
-        "audioContexts": 1,
-        "activeVoices": 0,
-        "activeScenes": [
-          "MainMenuScene"
-        ],
-        "heapBytes": 28579053,
-        "sceneCount": 1,
-        "timers": 0,
-        "tweens": 0,
-        "domFileInputs": 0,
-        "canvasCount": 1,
-        "audioMuted": false
-      },
-      {
-        "label": "sample-177",
-        "elapsedMs": 1770578,
-        "fps": 5,
-        "frameMs": 15,
-        "listeners": 1,
-        "cleanup": 3,
-        "inputContexts": 1,
-        "keyObjects": 13,
-        "audioContexts": 1,
-        "activeVoices": 0,
-        "activeScenes": [
-          "MainMenuScene"
-        ],
-        "heapBytes": 28311817,
-        "sceneCount": 1,
-        "timers": 0,
-        "tweens": 0,
-        "domFileInputs": 0,
-        "canvasCount": 1,
-        "audioMuted": false
-      },
-      {
-        "label": "sample-178",
-        "elapsedMs": 1780227,
-        "fps": 5,
-        "frameMs": 16.67,
-        "listeners": 1,
-        "cleanup": 3,
-        "inputContexts": 1,
-        "keyObjects": 13,
-        "audioContexts": 1,
-        "activeVoices": 0,
-        "activeScenes": [
-          "MainMenuScene"
-        ],
-        "heapBytes": 28764241,
-        "sceneCount": 1,
-        "timers": 0,
-        "tweens": 0,
-        "domFileInputs": 0,
-        "canvasCount": 1,
-        "audioMuted": false
-      },
-      {
-        "label": "sample-179",
-        "elapsedMs": 1790302,
+        "elapsedMs": 1280290,
         "fps": 6,
         "frameMs": 16.67,
         "listeners": 1,
@@ -4073,7 +2951,73 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 33886762,
+        "heapBytes": 28255156,
+        "sceneCount": 1,
+        "timers": 0,
+        "tweens": 0,
+        "domFileInputs": 0,
+        "canvasCount": 1,
+        "audioMuted": false
+      },
+      {
+        "label": "sample-129",
+        "elapsedMs": 1290543,
+        "fps": 5,
+        "frameMs": 15,
+        "listeners": 1,
+        "cleanup": 3,
+        "inputContexts": 1,
+        "keyObjects": 13,
+        "audioContexts": 1,
+        "activeVoices": 0,
+        "activeScenes": [
+          "MainMenuScene"
+        ],
+        "heapBytes": 28780948,
+        "sceneCount": 1,
+        "timers": 0,
+        "tweens": 0,
+        "domFileInputs": 0,
+        "canvasCount": 1,
+        "audioMuted": false
+      },
+      {
+        "label": "sample-130",
+        "elapsedMs": 1300396,
+        "fps": 6,
+        "frameMs": 16.67,
+        "listeners": 1,
+        "cleanup": 3,
+        "inputContexts": 1,
+        "keyObjects": 13,
+        "audioContexts": 1,
+        "activeVoices": 0,
+        "activeScenes": [
+          "MainMenuScene"
+        ],
+        "heapBytes": 28391528,
+        "sceneCount": 1,
+        "timers": 0,
+        "tweens": 0,
+        "domFileInputs": 0,
+        "canvasCount": 1,
+        "audioMuted": false
+      },
+      {
+        "label": "sample-131",
+        "elapsedMs": 1310233,
+        "fps": 6,
+        "frameMs": 16.67,
+        "listeners": 1,
+        "cleanup": 3,
+        "inputContexts": 1,
+        "keyObjects": 13,
+        "audioContexts": 1,
+        "activeVoices": 0,
+        "activeScenes": [
+          "MainMenuScene"
+        ],
+        "heapBytes": 33832234,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -4082,8 +3026,30 @@
         "audioMuted": true
       },
       {
-        "label": "end",
-        "elapsedMs": 1800805,
+        "label": "sample-132",
+        "elapsedMs": 1327960,
+        "fps": 4,
+        "frameMs": 16.67,
+        "listeners": 1,
+        "cleanup": 3,
+        "inputContexts": 1,
+        "keyObjects": 13,
+        "audioContexts": 1,
+        "activeVoices": 0,
+        "activeScenes": [
+          "MainMenuScene"
+        ],
+        "heapBytes": 28338838,
+        "sceneCount": 1,
+        "timers": 0,
+        "tweens": 0,
+        "domFileInputs": 0,
+        "canvasCount": 1,
+        "audioMuted": true
+      },
+      {
+        "label": "sample-133",
+        "elapsedMs": 1330367,
         "fps": 5,
         "frameMs": 16.67,
         "listeners": 1,
@@ -4095,7 +3061,1041 @@
         "activeScenes": [
           "MainMenuScene"
         ],
-        "heapBytes": 28195615,
+        "heapBytes": 28568334,
+        "sceneCount": 1,
+        "timers": 0,
+        "tweens": 0,
+        "domFileInputs": 0,
+        "canvasCount": 1,
+        "audioMuted": true
+      },
+      {
+        "label": "sample-134",
+        "elapsedMs": 1342864,
+        "fps": 4,
+        "frameMs": 16.67,
+        "listeners": 1,
+        "cleanup": 3,
+        "inputContexts": 1,
+        "keyObjects": 13,
+        "audioContexts": 1,
+        "activeVoices": 0,
+        "activeScenes": [
+          "MainMenuScene"
+        ],
+        "heapBytes": 40155752,
+        "sceneCount": 1,
+        "timers": 0,
+        "tweens": 0,
+        "domFileInputs": 0,
+        "canvasCount": 1,
+        "audioMuted": true
+      },
+      {
+        "label": "sample-135",
+        "elapsedMs": 1357413,
+        "fps": 4,
+        "frameMs": 16.67,
+        "listeners": 1,
+        "cleanup": 3,
+        "inputContexts": 1,
+        "keyObjects": 13,
+        "audioContexts": 1,
+        "activeVoices": 0,
+        "activeScenes": [
+          "MainMenuScene"
+        ],
+        "heapBytes": 28002281,
+        "sceneCount": 1,
+        "timers": 0,
+        "tweens": 0,
+        "domFileInputs": 0,
+        "canvasCount": 1,
+        "audioMuted": true
+      },
+      {
+        "label": "sample-136",
+        "elapsedMs": 1360227,
+        "fps": 5,
+        "frameMs": 16.67,
+        "listeners": 1,
+        "cleanup": 3,
+        "inputContexts": 1,
+        "keyObjects": 13,
+        "audioContexts": 1,
+        "activeVoices": 0,
+        "activeScenes": [
+          "MainMenuScene"
+        ],
+        "heapBytes": 28241705,
+        "sceneCount": 1,
+        "timers": 0,
+        "tweens": 0,
+        "domFileInputs": 0,
+        "canvasCount": 1,
+        "audioMuted": true
+      },
+      {
+        "label": "sample-137",
+        "elapsedMs": 1372298,
+        "fps": 4,
+        "frameMs": 16.67,
+        "listeners": 1,
+        "cleanup": 3,
+        "inputContexts": 1,
+        "keyObjects": 13,
+        "audioContexts": 1,
+        "activeVoices": 0,
+        "activeScenes": [
+          "MainMenuScene"
+        ],
+        "heapBytes": 34001996,
+        "sceneCount": 1,
+        "timers": 0,
+        "tweens": 0,
+        "domFileInputs": 0,
+        "canvasCount": 1,
+        "audioMuted": true
+      },
+      {
+        "label": "sample-138",
+        "elapsedMs": 1385790,
+        "fps": 5,
+        "frameMs": 16.67,
+        "listeners": 1,
+        "cleanup": 3,
+        "inputContexts": 1,
+        "keyObjects": 13,
+        "audioContexts": 1,
+        "activeVoices": 0,
+        "activeScenes": [
+          "MainMenuScene"
+        ],
+        "heapBytes": 28448411,
+        "sceneCount": 1,
+        "timers": 0,
+        "tweens": 0,
+        "domFileInputs": 0,
+        "canvasCount": 1,
+        "audioMuted": true
+      },
+      {
+        "label": "sample-139",
+        "elapsedMs": 1390395,
+        "fps": 5,
+        "frameMs": 16.67,
+        "listeners": 1,
+        "cleanup": 3,
+        "inputContexts": 1,
+        "keyObjects": 13,
+        "audioContexts": 1,
+        "activeVoices": 0,
+        "activeScenes": [
+          "MainMenuScene"
+        ],
+        "heapBytes": 28789807,
+        "sceneCount": 1,
+        "timers": 0,
+        "tweens": 0,
+        "domFileInputs": 0,
+        "canvasCount": 1,
+        "audioMuted": true
+      },
+      {
+        "label": "sample-140",
+        "elapsedMs": 1400270,
+        "fps": 5,
+        "frameMs": 16.67,
+        "listeners": 1,
+        "cleanup": 3,
+        "inputContexts": 1,
+        "keyObjects": 13,
+        "audioContexts": 1,
+        "activeVoices": 0,
+        "activeScenes": [
+          "MainMenuScene"
+        ],
+        "heapBytes": 22263890,
+        "sceneCount": 1,
+        "timers": 0,
+        "tweens": 0,
+        "domFileInputs": 0,
+        "canvasCount": 1,
+        "audioMuted": true
+      },
+      {
+        "label": "sample-141",
+        "elapsedMs": 1410565,
+        "fps": 5,
+        "frameMs": 15,
+        "listeners": 1,
+        "cleanup": 3,
+        "inputContexts": 1,
+        "keyObjects": 13,
+        "audioContexts": 1,
+        "activeVoices": 0,
+        "activeScenes": [
+          "MainMenuScene"
+        ],
+        "heapBytes": 22863898,
+        "sceneCount": 1,
+        "timers": 0,
+        "tweens": 0,
+        "domFileInputs": 0,
+        "canvasCount": 1,
+        "audioMuted": true
+      },
+      {
+        "label": "sample-142",
+        "elapsedMs": 1420244,
+        "fps": 5,
+        "frameMs": 16.67,
+        "listeners": 1,
+        "cleanup": 3,
+        "inputContexts": 1,
+        "keyObjects": 13,
+        "audioContexts": 1,
+        "activeVoices": 0,
+        "activeScenes": [
+          "MainMenuScene"
+        ],
+        "heapBytes": 22406786,
+        "sceneCount": 1,
+        "timers": 0,
+        "tweens": 0,
+        "domFileInputs": 0,
+        "canvasCount": 1,
+        "audioMuted": true
+      },
+      {
+        "label": "sample-143",
+        "elapsedMs": 1430329,
+        "fps": 6,
+        "frameMs": 16.67,
+        "listeners": 1,
+        "cleanup": 3,
+        "inputContexts": 1,
+        "keyObjects": 13,
+        "audioContexts": 1,
+        "activeVoices": 0,
+        "activeScenes": [
+          "MainMenuScene"
+        ],
+        "heapBytes": 28079857,
+        "sceneCount": 1,
+        "timers": 0,
+        "tweens": 0,
+        "domFileInputs": 0,
+        "canvasCount": 1,
+        "audioMuted": false
+      },
+      {
+        "label": "sample-144",
+        "elapsedMs": 1448073,
+        "fps": 4,
+        "frameMs": 16.67,
+        "listeners": 1,
+        "cleanup": 3,
+        "inputContexts": 1,
+        "keyObjects": 13,
+        "audioContexts": 1,
+        "activeVoices": 0,
+        "activeScenes": [
+          "MainMenuScene"
+        ],
+        "heapBytes": 34385103,
+        "sceneCount": 1,
+        "timers": 0,
+        "tweens": 0,
+        "domFileInputs": 0,
+        "canvasCount": 1,
+        "audioMuted": false
+      },
+      {
+        "label": "sample-145",
+        "elapsedMs": 1450295,
+        "fps": 5,
+        "frameMs": 16.67,
+        "listeners": 1,
+        "cleanup": 3,
+        "inputContexts": 1,
+        "keyObjects": 13,
+        "audioContexts": 1,
+        "activeVoices": 0,
+        "activeScenes": [
+          "MainMenuScene"
+        ],
+        "heapBytes": 33585774,
+        "sceneCount": 1,
+        "timers": 0,
+        "tweens": 0,
+        "domFileInputs": 0,
+        "canvasCount": 1,
+        "audioMuted": false
+      },
+      {
+        "label": "sample-146",
+        "elapsedMs": 1462842,
+        "fps": 4,
+        "frameMs": 16.67,
+        "listeners": 1,
+        "cleanup": 3,
+        "inputContexts": 1,
+        "keyObjects": 13,
+        "audioContexts": 1,
+        "activeVoices": 0,
+        "activeScenes": [
+          "MainMenuScene"
+        ],
+        "heapBytes": 28021736,
+        "sceneCount": 1,
+        "timers": 0,
+        "tweens": 0,
+        "domFileInputs": 0,
+        "canvasCount": 1,
+        "audioMuted": false
+      },
+      {
+        "label": "sample-147",
+        "elapsedMs": 1477388,
+        "fps": 4,
+        "frameMs": 16.67,
+        "listeners": 1,
+        "cleanup": 3,
+        "inputContexts": 1,
+        "keyObjects": 13,
+        "audioContexts": 1,
+        "activeVoices": 0,
+        "activeScenes": [
+          "MainMenuScene"
+        ],
+        "heapBytes": 34166583,
+        "sceneCount": 1,
+        "timers": 0,
+        "tweens": 0,
+        "domFileInputs": 0,
+        "canvasCount": 1,
+        "audioMuted": false
+      },
+      {
+        "label": "sample-148",
+        "elapsedMs": 1480215,
+        "fps": 5,
+        "frameMs": 16.67,
+        "listeners": 1,
+        "cleanup": 3,
+        "inputContexts": 1,
+        "keyObjects": 13,
+        "audioContexts": 1,
+        "activeVoices": 0,
+        "activeScenes": [
+          "MainMenuScene"
+        ],
+        "heapBytes": 34375043,
+        "sceneCount": 1,
+        "timers": 0,
+        "tweens": 0,
+        "domFileInputs": 0,
+        "canvasCount": 1,
+        "audioMuted": false
+      },
+      {
+        "label": "sample-149",
+        "elapsedMs": 1492335,
+        "fps": 4,
+        "frameMs": 16.67,
+        "listeners": 1,
+        "cleanup": 3,
+        "inputContexts": 1,
+        "keyObjects": 13,
+        "audioContexts": 1,
+        "activeVoices": 0,
+        "activeScenes": [
+          "MainMenuScene"
+        ],
+        "heapBytes": 28015338,
+        "sceneCount": 1,
+        "timers": 0,
+        "tweens": 0,
+        "domFileInputs": 0,
+        "canvasCount": 1,
+        "audioMuted": false
+      },
+      {
+        "label": "sample-150",
+        "elapsedMs": 1505851,
+        "fps": 5,
+        "frameMs": 16.67,
+        "listeners": 1,
+        "cleanup": 3,
+        "inputContexts": 1,
+        "keyObjects": 13,
+        "audioContexts": 1,
+        "activeVoices": 0,
+        "activeScenes": [
+          "MainMenuScene"
+        ],
+        "heapBytes": 33635222,
+        "sceneCount": 1,
+        "timers": 0,
+        "tweens": 0,
+        "domFileInputs": 0,
+        "canvasCount": 1,
+        "audioMuted": false
+      },
+      {
+        "label": "sample-151",
+        "elapsedMs": 1510277,
+        "fps": 5,
+        "frameMs": 16.67,
+        "listeners": 1,
+        "cleanup": 3,
+        "inputContexts": 1,
+        "keyObjects": 13,
+        "audioContexts": 1,
+        "activeVoices": 0,
+        "activeScenes": [
+          "MainMenuScene"
+        ],
+        "heapBytes": 33966446,
+        "sceneCount": 1,
+        "timers": 0,
+        "tweens": 0,
+        "domFileInputs": 0,
+        "canvasCount": 1,
+        "audioMuted": false
+      },
+      {
+        "label": "sample-152",
+        "elapsedMs": 1520358,
+        "fps": 5,
+        "frameMs": 16.67,
+        "listeners": 1,
+        "cleanup": 3,
+        "inputContexts": 1,
+        "keyObjects": 13,
+        "audioContexts": 1,
+        "activeVoices": 0,
+        "activeScenes": [
+          "MainMenuScene"
+        ],
+        "heapBytes": 22151626,
+        "sceneCount": 1,
+        "timers": 0,
+        "tweens": 0,
+        "domFileInputs": 0,
+        "canvasCount": 1,
+        "audioMuted": false
+      },
+      {
+        "label": "sample-153",
+        "elapsedMs": 1530595,
+        "fps": 5,
+        "frameMs": 15,
+        "listeners": 1,
+        "cleanup": 3,
+        "inputContexts": 1,
+        "keyObjects": 13,
+        "audioContexts": 1,
+        "activeVoices": 0,
+        "activeScenes": [
+          "MainMenuScene"
+        ],
+        "heapBytes": 22638818,
+        "sceneCount": 1,
+        "timers": 0,
+        "tweens": 0,
+        "domFileInputs": 0,
+        "canvasCount": 1,
+        "audioMuted": false
+      },
+      {
+        "label": "sample-154",
+        "elapsedMs": 1540268,
+        "fps": 5,
+        "frameMs": 16.67,
+        "listeners": 1,
+        "cleanup": 3,
+        "inputContexts": 1,
+        "keyObjects": 13,
+        "audioContexts": 1,
+        "activeVoices": 0,
+        "activeScenes": [
+          "MainMenuScene"
+        ],
+        "heapBytes": 22244286,
+        "sceneCount": 1,
+        "timers": 0,
+        "tweens": 0,
+        "domFileInputs": 0,
+        "canvasCount": 1,
+        "audioMuted": false
+      },
+      {
+        "label": "sample-155",
+        "elapsedMs": 1550310,
+        "fps": 5,
+        "frameMs": 16.67,
+        "listeners": 1,
+        "cleanup": 3,
+        "inputContexts": 1,
+        "keyObjects": 13,
+        "audioContexts": 1,
+        "activeVoices": 0,
+        "activeScenes": [
+          "MainMenuScene"
+        ],
+        "heapBytes": 28049270,
+        "sceneCount": 1,
+        "timers": 0,
+        "tweens": 0,
+        "domFileInputs": 0,
+        "canvasCount": 1,
+        "audioMuted": true
+      },
+      {
+        "label": "sample-156",
+        "elapsedMs": 1568044,
+        "fps": 4,
+        "frameMs": 16.67,
+        "listeners": 1,
+        "cleanup": 3,
+        "inputContexts": 1,
+        "keyObjects": 13,
+        "audioContexts": 1,
+        "activeVoices": 0,
+        "activeScenes": [
+          "MainMenuScene"
+        ],
+        "heapBytes": 34392643,
+        "sceneCount": 1,
+        "timers": 0,
+        "tweens": 0,
+        "domFileInputs": 0,
+        "canvasCount": 1,
+        "audioMuted": true
+      },
+      {
+        "label": "sample-157",
+        "elapsedMs": 1570253,
+        "fps": 5,
+        "frameMs": 16.67,
+        "listeners": 1,
+        "cleanup": 3,
+        "inputContexts": 1,
+        "keyObjects": 13,
+        "audioContexts": 1,
+        "activeVoices": 0,
+        "activeScenes": [
+          "MainMenuScene"
+        ],
+        "heapBytes": 34579439,
+        "sceneCount": 1,
+        "timers": 0,
+        "tweens": 0,
+        "domFileInputs": 0,
+        "canvasCount": 1,
+        "audioMuted": true
+      },
+      {
+        "label": "sample-158",
+        "elapsedMs": 1582780,
+        "fps": 4,
+        "frameMs": 16.67,
+        "listeners": 1,
+        "cleanup": 3,
+        "inputContexts": 1,
+        "keyObjects": 13,
+        "audioContexts": 1,
+        "activeVoices": 0,
+        "activeScenes": [
+          "MainMenuScene"
+        ],
+        "heapBytes": 28171641,
+        "sceneCount": 1,
+        "timers": 0,
+        "tweens": 0,
+        "domFileInputs": 0,
+        "canvasCount": 1,
+        "audioMuted": true
+      },
+      {
+        "label": "sample-159",
+        "elapsedMs": 1597307,
+        "fps": 4,
+        "frameMs": 16.67,
+        "listeners": 1,
+        "cleanup": 3,
+        "inputContexts": 1,
+        "keyObjects": 13,
+        "audioContexts": 1,
+        "activeVoices": 0,
+        "activeScenes": [
+          "MainMenuScene"
+        ],
+        "heapBytes": 34091774,
+        "sceneCount": 1,
+        "timers": 0,
+        "tweens": 0,
+        "domFileInputs": 0,
+        "canvasCount": 1,
+        "audioMuted": true
+      },
+      {
+        "label": "sample-160",
+        "elapsedMs": 1600331,
+        "fps": 5,
+        "frameMs": 16.67,
+        "listeners": 1,
+        "cleanup": 3,
+        "inputContexts": 1,
+        "keyObjects": 13,
+        "audioContexts": 1,
+        "activeVoices": 0,
+        "activeScenes": [
+          "MainMenuScene"
+        ],
+        "heapBytes": 33719541,
+        "sceneCount": 1,
+        "timers": 0,
+        "tweens": 0,
+        "domFileInputs": 0,
+        "canvasCount": 1,
+        "audioMuted": true
+      },
+      {
+        "label": "sample-161",
+        "elapsedMs": 1612429,
+        "fps": 4,
+        "frameMs": 16.67,
+        "listeners": 1,
+        "cleanup": 3,
+        "inputContexts": 1,
+        "keyObjects": 13,
+        "audioContexts": 1,
+        "activeVoices": 0,
+        "activeScenes": [
+          "MainMenuScene"
+        ],
+        "heapBytes": 27961995,
+        "sceneCount": 1,
+        "timers": 0,
+        "tweens": 0,
+        "domFileInputs": 0,
+        "canvasCount": 1,
+        "audioMuted": true
+      },
+      {
+        "label": "sample-162",
+        "elapsedMs": 1625711,
+        "fps": 5,
+        "frameMs": 16.67,
+        "listeners": 1,
+        "cleanup": 3,
+        "inputContexts": 1,
+        "keyObjects": 13,
+        "audioContexts": 1,
+        "activeVoices": 0,
+        "activeScenes": [
+          "MainMenuScene"
+        ],
+        "heapBytes": 34518471,
+        "sceneCount": 1,
+        "timers": 0,
+        "tweens": 0,
+        "domFileInputs": 0,
+        "canvasCount": 1,
+        "audioMuted": true
+      },
+      {
+        "label": "sample-163",
+        "elapsedMs": 1630340,
+        "fps": 5,
+        "frameMs": 16.67,
+        "listeners": 1,
+        "cleanup": 3,
+        "inputContexts": 1,
+        "keyObjects": 13,
+        "audioContexts": 1,
+        "activeVoices": 0,
+        "activeScenes": [
+          "MainMenuScene"
+        ],
+        "heapBytes": 33673990,
+        "sceneCount": 1,
+        "timers": 0,
+        "tweens": 0,
+        "domFileInputs": 0,
+        "canvasCount": 1,
+        "audioMuted": true
+      },
+      {
+        "label": "sample-164",
+        "elapsedMs": 1640219,
+        "fps": 5,
+        "frameMs": 16.67,
+        "listeners": 1,
+        "cleanup": 3,
+        "inputContexts": 1,
+        "keyObjects": 13,
+        "audioContexts": 1,
+        "activeVoices": 0,
+        "activeScenes": [
+          "MainMenuScene"
+        ],
+        "heapBytes": 22055554,
+        "sceneCount": 1,
+        "timers": 0,
+        "tweens": 0,
+        "domFileInputs": 0,
+        "canvasCount": 1,
+        "audioMuted": true
+      },
+      {
+        "label": "sample-165",
+        "elapsedMs": 1650488,
+        "fps": 5,
+        "frameMs": 15,
+        "listeners": 1,
+        "cleanup": 3,
+        "inputContexts": 1,
+        "keyObjects": 13,
+        "audioContexts": 1,
+        "activeVoices": 0,
+        "activeScenes": [
+          "MainMenuScene"
+        ],
+        "heapBytes": 22543118,
+        "sceneCount": 1,
+        "timers": 0,
+        "tweens": 0,
+        "domFileInputs": 0,
+        "canvasCount": 1,
+        "audioMuted": true
+      },
+      {
+        "label": "sample-166",
+        "elapsedMs": 1660383,
+        "fps": 5,
+        "frameMs": 16.67,
+        "listeners": 1,
+        "cleanup": 3,
+        "inputContexts": 1,
+        "keyObjects": 13,
+        "audioContexts": 1,
+        "activeVoices": 0,
+        "activeScenes": [
+          "MainMenuScene"
+        ],
+        "heapBytes": 22220762,
+        "sceneCount": 1,
+        "timers": 0,
+        "tweens": 0,
+        "domFileInputs": 0,
+        "canvasCount": 1,
+        "audioMuted": true
+      },
+      {
+        "label": "sample-167",
+        "elapsedMs": 1670257,
+        "fps": 5,
+        "frameMs": 16.67,
+        "listeners": 1,
+        "cleanup": 3,
+        "inputContexts": 1,
+        "keyObjects": 13,
+        "audioContexts": 1,
+        "activeVoices": 0,
+        "activeScenes": [
+          "MainMenuScene"
+        ],
+        "heapBytes": 28742105,
+        "sceneCount": 1,
+        "timers": 0,
+        "tweens": 0,
+        "domFileInputs": 0,
+        "canvasCount": 1,
+        "audioMuted": false
+      },
+      {
+        "label": "sample-168",
+        "elapsedMs": 1688020,
+        "fps": 4,
+        "frameMs": 16.67,
+        "listeners": 1,
+        "cleanup": 3,
+        "inputContexts": 1,
+        "keyObjects": 13,
+        "audioContexts": 1,
+        "activeVoices": 0,
+        "activeScenes": [
+          "MainMenuScene"
+        ],
+        "heapBytes": 34399175,
+        "sceneCount": 1,
+        "timers": 0,
+        "tweens": 0,
+        "domFileInputs": 0,
+        "canvasCount": 1,
+        "audioMuted": false
+      },
+      {
+        "label": "sample-169",
+        "elapsedMs": 1690237,
+        "fps": 4,
+        "frameMs": 16.67,
+        "listeners": 1,
+        "cleanup": 3,
+        "inputContexts": 1,
+        "keyObjects": 13,
+        "audioContexts": 1,
+        "activeVoices": 0,
+        "activeScenes": [
+          "MainMenuScene"
+        ],
+        "heapBytes": 34585991,
+        "sceneCount": 1,
+        "timers": 0,
+        "tweens": 0,
+        "domFileInputs": 0,
+        "canvasCount": 1,
+        "audioMuted": false
+      },
+      {
+        "label": "sample-170",
+        "elapsedMs": 1702797,
+        "fps": 4,
+        "frameMs": 16.67,
+        "listeners": 1,
+        "cleanup": 3,
+        "inputContexts": 1,
+        "keyObjects": 13,
+        "audioContexts": 1,
+        "activeVoices": 0,
+        "activeScenes": [
+          "MainMenuScene"
+        ],
+        "heapBytes": 28176210,
+        "sceneCount": 1,
+        "timers": 0,
+        "tweens": 0,
+        "domFileInputs": 0,
+        "canvasCount": 1,
+        "audioMuted": false
+      },
+      {
+        "label": "sample-171",
+        "elapsedMs": 1717368,
+        "fps": 4,
+        "frameMs": 16.67,
+        "listeners": 1,
+        "cleanup": 3,
+        "inputContexts": 1,
+        "keyObjects": 13,
+        "audioContexts": 1,
+        "activeVoices": 0,
+        "activeScenes": [
+          "MainMenuScene"
+        ],
+        "heapBytes": 33542341,
+        "sceneCount": 1,
+        "timers": 0,
+        "tweens": 0,
+        "domFileInputs": 0,
+        "canvasCount": 1,
+        "audioMuted": false
+      },
+      {
+        "label": "sample-172",
+        "elapsedMs": 1720400,
+        "fps": 5,
+        "frameMs": 16.67,
+        "listeners": 1,
+        "cleanup": 3,
+        "inputContexts": 1,
+        "keyObjects": 13,
+        "audioContexts": 1,
+        "activeVoices": 0,
+        "activeScenes": [
+          "MainMenuScene"
+        ],
+        "heapBytes": 33758013,
+        "sceneCount": 1,
+        "timers": 0,
+        "tweens": 0,
+        "domFileInputs": 0,
+        "canvasCount": 1,
+        "audioMuted": false
+      },
+      {
+        "label": "sample-173",
+        "elapsedMs": 1732331,
+        "fps": 4,
+        "frameMs": 16.67,
+        "listeners": 1,
+        "cleanup": 3,
+        "inputContexts": 1,
+        "keyObjects": 13,
+        "audioContexts": 1,
+        "activeVoices": 0,
+        "activeScenes": [
+          "MainMenuScene"
+        ],
+        "heapBytes": 28089422,
+        "sceneCount": 1,
+        "timers": 0,
+        "tweens": 0,
+        "domFileInputs": 0,
+        "canvasCount": 1,
+        "audioMuted": false
+      },
+      {
+        "label": "sample-174",
+        "elapsedMs": 1745791,
+        "fps": 5,
+        "frameMs": 16.67,
+        "listeners": 1,
+        "cleanup": 3,
+        "inputContexts": 1,
+        "keyObjects": 13,
+        "audioContexts": 1,
+        "activeVoices": 0,
+        "activeScenes": [
+          "MainMenuScene"
+        ],
+        "heapBytes": 34539023,
+        "sceneCount": 1,
+        "timers": 0,
+        "tweens": 0,
+        "domFileInputs": 0,
+        "canvasCount": 1,
+        "audioMuted": false
+      },
+      {
+        "label": "sample-175",
+        "elapsedMs": 1750249,
+        "fps": 5,
+        "frameMs": 16.67,
+        "listeners": 1,
+        "cleanup": 3,
+        "inputContexts": 1,
+        "keyObjects": 13,
+        "audioContexts": 1,
+        "activeVoices": 0,
+        "activeScenes": [
+          "MainMenuScene"
+        ],
+        "heapBytes": 33687366,
+        "sceneCount": 1,
+        "timers": 0,
+        "tweens": 0,
+        "domFileInputs": 0,
+        "canvasCount": 1,
+        "audioMuted": false
+      },
+      {
+        "label": "sample-176",
+        "elapsedMs": 1760328,
+        "fps": 5,
+        "frameMs": 16.67,
+        "listeners": 1,
+        "cleanup": 3,
+        "inputContexts": 1,
+        "keyObjects": 13,
+        "audioContexts": 1,
+        "activeVoices": 0,
+        "activeScenes": [
+          "MainMenuScene"
+        ],
+        "heapBytes": 22076058,
+        "sceneCount": 1,
+        "timers": 0,
+        "tweens": 0,
+        "domFileInputs": 0,
+        "canvasCount": 1,
+        "audioMuted": false
+      },
+      {
+        "label": "sample-177",
+        "elapsedMs": 1770420,
+        "fps": 5,
+        "frameMs": 15,
+        "listeners": 1,
+        "cleanup": 3,
+        "inputContexts": 1,
+        "keyObjects": 13,
+        "audioContexts": 1,
+        "activeVoices": 0,
+        "activeScenes": [
+          "MainMenuScene"
+        ],
+        "heapBytes": 22572346,
+        "sceneCount": 1,
+        "timers": 0,
+        "tweens": 0,
+        "domFileInputs": 0,
+        "canvasCount": 1,
+        "audioMuted": false
+      },
+      {
+        "label": "sample-178",
+        "elapsedMs": 1780286,
+        "fps": 5,
+        "frameMs": 16.67,
+        "listeners": 1,
+        "cleanup": 3,
+        "inputContexts": 1,
+        "keyObjects": 13,
+        "audioContexts": 1,
+        "activeVoices": 0,
+        "activeScenes": [
+          "MainMenuScene"
+        ],
+        "heapBytes": 22199858,
+        "sceneCount": 1,
+        "timers": 0,
+        "tweens": 0,
+        "domFileInputs": 0,
+        "canvasCount": 1,
+        "audioMuted": false
+      },
+      {
+        "label": "sample-179",
+        "elapsedMs": 1790352,
+        "fps": 5,
+        "frameMs": 16.67,
+        "listeners": 1,
+        "cleanup": 3,
+        "inputContexts": 1,
+        "keyObjects": 13,
+        "audioContexts": 1,
+        "activeVoices": 0,
+        "activeScenes": [
+          "MainMenuScene"
+        ],
+        "heapBytes": 28731074,
+        "sceneCount": 1,
+        "timers": 0,
+        "tweens": 0,
+        "domFileInputs": 0,
+        "canvasCount": 1,
+        "audioMuted": true
+      },
+      {
+        "label": "end",
+        "elapsedMs": 1801010,
+        "fps": 5,
+        "frameMs": 16.67,
+        "listeners": 1,
+        "cleanup": 3,
+        "inputContexts": 1,
+        "keyObjects": 13,
+        "audioContexts": 1,
+        "activeVoices": 0,
+        "activeScenes": [
+          "MainMenuScene"
+        ],
+        "heapBytes": 33655753,
         "sceneCount": 1,
         "timers": 0,
         "tweens": 0,
@@ -4109,19 +4109,19 @@
     "consoleWarnings": [
       {
         "type": "warning",
-        "text": "[.WebGL-0xd740012da00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+        "text": "[.WebGL-0x168c00164800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
       },
       {
         "type": "warning",
-        "text": "[.WebGL-0xd740012da00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+        "text": "[.WebGL-0x168c00164800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
       },
       {
         "type": "warning",
-        "text": "[.WebGL-0xd740012da00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+        "text": "[.WebGL-0x168c00164800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
       },
       {
         "type": "warning",
-        "text": "[.WebGL-0xd740012da00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)"
+        "text": "[.WebGL-0x168c00164800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)"
       }
     ],
     "failedRequests": [],

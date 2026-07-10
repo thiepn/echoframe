@@ -1,21 +1,21 @@
 {
-  "generatedAt": "2026-07-08T14:30:03.291Z",
+  "generatedAt": "2026-07-10T02:06:18.668Z",
   "releaseTitle": "ECHOFRAME: LAST SIGNAL — Version 1.0",
   "version": "1.0.0",
-  "sourceCommit": "bee4e6be76484fc5edef1bfa7cf7ddaf2660bc6d",
-  "sourceManifestDigest": "aa6a12f481ed233b01ee8ff397883b924706ca3bd004f4a7b9b8464750de842e",
-  "sourceFileCount": 513,
-  "productionBundleDigest": "286f9423a223610fd6699b6d03d9458d941dab64c5b05c2a070d699d4155eeb8",
+  "sourceCommit": "ab2585027c16ad9e58e4f816659244d3155f0d60",
+  "sourceManifestDigest": "d46d0eba1eaed15994ae04d56e160a6e92e7ec2fa69b7ca7c39bdc99567b343b",
+  "sourceFileCount": 514,
+  "productionBundleDigest": "98c2d3dc9bf9c9e0e59f0928ab8ce47e885ff0e2a4d4f093245fa2dd334bce0a",
   "productionFileCount": 5,
   "productionDigestExcludes": [
     "phase13-release.json"
   ],
   "releaseMarker": {
-    "generatedAt": "2026-07-08T14:30:02.954Z",
+    "generatedAt": "2026-07-10T02:06:18.375Z",
     "version": "1.0.0",
-    "sourceCommit": "bee4e6be76484fc5edef1bfa7cf7ddaf2660bc6d",
-    "sourceManifestDigest": "aa6a12f481ed233b01ee8ff397883b924706ca3bd004f4a7b9b8464750de842e",
-    "productionBundleDigest": "286f9423a223610fd6699b6d03d9458d941dab64c5b05c2a070d699d4155eeb8",
+    "sourceCommit": "ab2585027c16ad9e58e4f816659244d3155f0d60",
+    "sourceManifestDigest": "d46d0eba1eaed15994ae04d56e160a6e92e7ec2fa69b7ca7c39bdc99567b343b",
+    "productionBundleDigest": "98c2d3dc9bf9c9e0e59f0928ab8ce47e885ff0e2a4d4f093245fa2dd334bce0a",
     "productionFileCount": 5
   },
   "canonical": {
@@ -63,43 +63,47 @@
     "firefox": "Mozilla Firefox 151.0"
   },
   "tests": {
-    "total": 1329,
+    "total": 1334,
     "retainedThroughPhase12": 1319,
-    "phase13": 10,
+    "phase13": 15,
     "source": "docs/PHASE10_CORE_VALIDATION.json"
   },
   "archives": {
     "source": {
       "filename": "ECHOFRAME_v1.0.0_final_source.zip",
-      "sha256": "e4b0c6a4fe7524d980927a114969d10181477efa3f3cec6021a0677e1c724085",
-      "bytes": 4008531,
-      "totalEntries": 721,
-      "regularFiles": 681,
+      "sha256": "8635f3cd3a0f83912d706970d15666ab33878f43cb84aa5369c58eabadfe78b8",
+      "bytes": 4151906,
+      "totalEntries": 724,
+      "regularFiles": 684,
       "directoryEntries": 40
     },
     "web": {
       "filename": "ECHOFRAME_v1.0.0_web.zip",
-      "sha256": "360f26a6a30196623fe35ed41368621c1744757a870de68517b7c47dca631706",
-      "bytes": 474321,
+      "sha256": "4e920a8d9fa47e31fa1f2caf99fcfe599cf2c5ffef107fce61f37b98b33aed62",
+      "bytes": 475953,
       "totalEntries": 7,
       "regularFiles": 6,
       "directoryEntries": 1
     }
   },
   "ci": {
-    "runId": "28948294260",
-    "runUrl": "https://github.com/thiepn/echoframe/actions/runs/28948294260"
+    "runId": "29062661839",
+    "runUrl": "https://github.com/thiepn/echoframe/actions/runs/29062661839"
   },
   "publicDeployment": {
-    "status": "pending",
-    "url": null
+    "status": "passed",
+    "url": "https://thiepn.github.io/echoframe/"
   },
   "signoff": {
-    "status": "pending-public-validation",
-    "passed": false
+    "status": "passed",
+    "passed": true,
+    "publicationAuthorized": true
   },
-  "tag": null,
+  "tag": {
+    "name": "v1.0.0",
+    "status": "authorized-not-created"
+  },
   "release": {
-    "status": "pending"
+    "status": "authorized-not-created"
   }
 }
