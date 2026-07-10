@@ -302,6 +302,8 @@ jobs:
       - name: Commit non-public final evidence
         shell: bash
         run: |
+          git reset --hard "$PHASE13_SOURCE_COMMIT"
+          git clean -fd
           git fetch origin release/v1.0.0-certification
           git checkout -B release/v1.0.0-certification origin/release/v1.0.0-certification
           mkdir -p docs/screenshots release
@@ -311,8 +313,12 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add docs/PHASE13_* docs/screenshots/ECHOFRAME_v1_* release/
-          git commit -m "Record final Version 1.0 certification evidence"
-          git push origin HEAD:release/v1.0.0-certification
+          if git diff --cached --quiet; then
+            echo "Certification evidence is unchanged; nothing to commit."
+          else
+            git commit -m "Record final Version 1.0 certification evidence"
+            git push origin HEAD:release/v1.0.0-certification
+          fi
       - uses: actions/upload-artifact@v4
         with:
           name: phase13-final-release-artifacts
