@@ -1,0 +1,99 @@
+name: Bootstrap Version 1.0.1 Candidate
+
+on:
+  push:
+    branches: [bootstrap/v1.0.1-import]
+    paths:
+      - '.github/workflows/bootstrap-v1.0.1-import.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bootstrap-v1.0.1-import
+  cancel-in-progress: false
+
+jobs:
+  import-candidate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - name: Check out bootstrap ref
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Verify repository and import exact candidate
+        shell: bash
+        env:
+          EXPECTED_MAIN_SHA: 36fcb390bb3cfaa735ac8a8204e61989210c7c6a
+          EXPECTED_PAYLOAD_SHA: 2651ad2cc409c548f8a68df069ee36f8974dba83debe94ccd8f63ba3eb4d4fb7
+          EXPECTED_TREE_SHA: 304a8792bb36886cbadc6f4fc1fa96c0aba80935
+          PAYLOAD_URL: https://is.gd/echoframe101c30471f4
+          TARGET_BRANCH: upgrade/v1.0.1-comprehensive-polish
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+
+          git fetch origin main --tags --force
+          actual_main="$(git rev-parse origin/main)"
+          test "$actual_main" = "$EXPECTED_MAIN_SHA"
+          if git ls-remote --exit-code --heads origin "$TARGET_BRANCH" >/dev/null 2>&1; then
+            echo "Target branch already exists; refusing to overwrite it." >&2
+            exit 1
+          fi
+
+          work="$(mktemp -d)"
+          curl --proto '=https' --tlsv1.2 --fail --location --silent --show-error --retry 4 --retry-all-errors "$PAYLOAD_URL" -o "$work/payload.tar.xz"
+          echo "$EXPECTED_PAYLOAD_SHA  $work/payload.tar.xz" | sha256sum --check --strict
+          mkdir -p "$work/payload"
+          tar -xJf "$work/payload.tar.xz" -C "$work/payload"
+
+          cat > "$work/payload/expected.sha256" <<'SUMS'
+10722261ddcd61cd34be5ed3aaeee8e13090b05fd5d6e83260114ac1a4b17a70  patch-A.xz
+f37d0a36a6308e08abf8e9a742182631a241f78f0c570455f2178074213cd03d  patch-B.xz
+a2ce029da8e9007754c5e044f21480cc05be30fde97941075502255ffa14e535  patch-format-setup.xz
+35512c7d67da6e420b38848948d1b0630266ee18c267e7b3c52740e36a93173f  patch-format-correction.xz
+bb44e01f26b6557b70ea92ec9c02b71bb457815304b784ca241cc07d6c68c971  patch-C.xz
+SUMS
+          (cd "$work/payload" && sha256sum --check --strict expected.sha256)
+
+          git checkout --detach origin/main
+          git checkout -b "$TARGET_BRANCH"
+
+          mkdir -p "$work/evidence/reports" "$work/evidence/screenshots" "$work/evidence/workflows"
+          find docs -maxdepth 1 -type f -name 'PHASE*' ! -name 'PHASE12_NPM_AUDIT_RAW.json' ! -name 'PHASE6_NPM_AUDIT.json' ! -name 'PHASE7_NPM_AUDIT.json' ! -name 'PHASE8_NPM_AUDIT.json' ! -name 'PHASE9_NPM_AUDIT.json' -exec cp -p {} "$work/evidence/reports/" \;
+          find docs/screenshots -maxdepth 1 -type f -name 'ECHOFRAME_phase*' ! -name 'ECHOFRAME_phase11_rc_accessibility_chromium.png' ! -name 'ECHOFRAME_phase11_rc_credits_chromium.png' ! -name 'ECHOFRAME_phase11_rc_main_menu_chromium.png' ! -name 'ECHOFRAME_phase11_rc_results_chromium.png' -exec cp -p {} "$work/evidence/screenshots/" \;
+          cp -p .github/workflows/* "$work/evidence/workflows/"
+
+          xz -dc "$work/payload/patch-A.xz" | git apply --binary --index
+          git commit -m 'Establish Version 1.0.1 baseline, security, and compatibility'
+
+          xz -dc "$work/payload/patch-B.xz" | git apply --binary --index
+          mkdir -p docs/evidence/v1.0.0/reports docs/evidence/v1.0.0/screenshots docs/evidence/v1.0.0/workflows
+          cp -n "$work/evidence/reports/"* docs/evidence/v1.0.0/reports/ 2>/dev/null || true
+          cp -n "$work/evidence/screenshots/"* docs/evidence/v1.0.0/screenshots/ 2>/dev/null || true
+          cp -n "$work/evidence/workflows/"* docs/evidence/v1.0.0/workflows/ 2>/dev/null || true
+          git add -A
+          git commit -m 'Consolidate stable tooling and archive Version 1.0 evidence'
+
+          xz -dc "$work/payload/patch-format-setup.xz" | git apply --binary --index
+          npm ci --no-audit --no-fund
+          npm run format
+          xz -dc "$work/payload/patch-format-correction.xz" | git apply --binary --index
+          git add -A
+          git commit -m 'Format maintained source'
+
+          xz -dc "$work/payload/patch-C.xz" | git apply --binary --index
+          rm -rf node_modules dist coverage release
+          git add -A
+          actual_tree="$(git write-tree)"
+          test "$actual_tree" = "$EXPECTED_TREE_SHA"
+          git commit -m 'Complete Version 1.0.1 stabilization and release tooling'
+          test "$(git rev-parse HEAD^{tree})" = "$EXPECTED_TREE_SHA"
+          test "$(node -p "require('./package.json').version")" = '1.0.1'
+          test "$(node -e "import('./src/utils/version.js').then(m=>process.stdout.write(m.BUILD_VERSION))")" = '1.0.1'
+
+          git push --set-upstream origin "$TARGET_BRANCH"
