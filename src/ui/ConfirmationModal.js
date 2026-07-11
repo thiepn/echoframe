@@ -46,12 +46,12 @@ export class ConfirmationModal {
     }).setOrigin(0.5);
 
     const close = () => {
-      onCancel?.();
       this.destroy();
+      onCancel?.();
     };
     const confirm = () => {
-      onConfirm?.();
       this.destroy();
+      onConfirm?.();
     };
 
     this.confirmButton = new MenuButton(scene, {
@@ -69,13 +69,13 @@ export class ConfirmationModal {
       onActivate: close,
     });
 
+    this.confirmButton.container.setDepth(1001);
+    this.cancelButton.container.setDepth(1001);
     this.container.add([
       this.scrim,
       this.panel,
       this.titleText,
       this.messageText,
-      this.confirmButton.container,
-      this.cancelButton.container,
     ]);
     this.focusManager.pushModal(
       [this.cancelButton, this.confirmButton],
