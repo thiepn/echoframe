@@ -1,5 +1,5 @@
 import { TUTORIAL_SEQUENCE, TUTORIAL_STATES } from './TutorialState.js';
-import { validateCheckpoint, validateDashGate, validateEchoRearHit, validateRecording, validateSignalGate, validateStationaryTarget } from './TutorialObjectiveValidator.js';
+import { validateCheckpoint, validateDashGate, validateEchoDeployment, validateEchoRearHit, validateRecording, validateSignalGate, validateStationaryTarget } from './TutorialObjectiveValidator.js';
 
 export class TutorialController {
   constructor({ eventBus = null, entrySource = 'menu' } = {}) {
@@ -56,6 +56,11 @@ export class TutorialController {
     const result = validateRecording({ pathCount: this.pathCheckpointIndex, fireEvents, spanMs });
     return result.accepted ? this.#advance(TUTORIAL_STATES.deployEcho) : this.#reject(result.reason);
   }
+  echoDeployed(payload) {
+    if (this.state !== TUTORIAL_STATES.deployEcho || this.paused) return this.#reject('wrong-step');
+    const result = validateEchoDeployment(payload);
+    return result.accepted ? this.#advance(TUTORIAL_STATES.enterSignalGate) : this.#reject(result.reason);
+  }
   echoRearHit(payload) {
     if (this.state !== TUTORIAL_STATES.deployEcho || this.paused) return this.#reject('wrong-step');
     const result = validateEchoRearHit(payload);
@@ -77,6 +82,24 @@ export class TutorialController {
     this.state = TUTORIAL_STATES.recordPath;
     this.stepIndex = TUTORIAL_SEQUENCE.indexOf(this.state);
     this.eventBus?.emit('tutorial:retry', { state: this.state });
+    return true;
+  }
+  skip(timeMs = 0) {
+    if (this.completed || this.state === TUTORIAL_STATES.exiting) return false;
+    const previous = this.state;
+    this.completed = true;
+    this.completedAtMs = Number(timeMs) || 0;
+    this.state = TUTORIAL_STATES.complete;
+    this.stepIndex = TUTORIAL_SEQUENCE.indexOf(this.state);
+    this.transitionCount += 1;
+    this.eventBus?.emit('tutorial:step:completed', { state: previous, skipped: true });
+    this.eventBus?.emit('tutorial:step:entered', { state: this.state, stepIndex: this.stepIndex, skipped: true });
+    this.eventBus?.emit('tutorial:skipped', { entrySource: this.entrySource });
+    this.eventBus?.emit('tutorial:completed', {
+      durationMs: Math.max(0, this.completedAtMs - (this.startedAtMs ?? this.completedAtMs)),
+      entrySource: this.entrySource,
+      skipped: true,
+    });
     return true;
   }
   markExiting() { if (this.completed) this.state = TUTORIAL_STATES.exiting; }
