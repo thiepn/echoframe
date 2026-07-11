@@ -34,10 +34,15 @@ export class MenuButton extends FocusableControl {
     this.container.add([this.background, this.marker, this.labelText]);
     this.background.setInteractive({ useHandCursor: true });
     this.background.on('pointerover', () => this.focusManager?.focus(this));
-    this.background.on('pointerdown', () => {
-      if (this.enabled) {
-        this.focusManager?.focus(this, { playSound: false });
-        this.focusManager?.activateFocused();
+    this.background.on('pointerup', (pointer) => {
+      if (!this.enabled || (pointer?.button !== undefined && pointer?.button !== null && pointer.button !== 0)) {
+        return;
+      }
+      const focused = this.focusManager?.focus(this, { playSound: false }) ?? false;
+      if (focused && this.focusManager?.focusedControl === this) {
+        this.focusManager.activateFocused();
+      } else {
+        this.activate();
       }
     });
   }
