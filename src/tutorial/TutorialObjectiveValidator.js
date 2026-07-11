@@ -22,6 +22,11 @@ export function validateRecording({ pathCount, fireEvents, spanMs }) {
   if (spanMs < TUTORIAL_THRESHOLDS.recordingMinimumMs) return { accepted: false, reason: 'insufficient-history' };
   return { accepted: true };
 }
+export function validateEchoDeployment({ source, deployed }) {
+  if (source !== 'player') return { accepted: false, reason: 'player-deployment-required' };
+  if (!deployed) return { accepted: false, reason: 'echo-not-deployed' };
+  return { accepted: true };
+}
 export function validateEchoRearHit({ source, rear, defeated }) {
   if (source !== 'echo') return { accepted: false, reason: 'friendly-echo-required' };
   if (!rear) return { accepted: false, reason: 'rear-hit-required' };
