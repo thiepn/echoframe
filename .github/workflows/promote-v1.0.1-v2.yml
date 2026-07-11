@@ -1,0 +1,200 @@
+name: Promote Version 1.0.1 — Recovery Controller
+
+on:
+  push:
+    branches: [bootstrap/v1.0.1-import]
+    paths:
+      - '.github/workflows/promote-v1.0.1-v2.yml'
+
+permissions:
+  actions: write
+  checks: read
+  contents: write
+  pull-requests: write
+  statuses: read
+
+concurrency:
+  group: promote-v1.0.1-recovery
+  cancel-in-progress: false
+
+jobs:
+  promote:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 360
+    env:
+      GH_TOKEN: ${{ github.token }}
+      TARGET_BRANCH: upgrade/v1.0.1-comprehensive-polish
+      EXPECTED_BASE_SHA: 36fcb390bb3cfaa735ac8a8204e61989210c7c6a
+      EXPECTED_TREE_SHA: 304a8792bb36886cbadc6f4fc1fa96c0aba80935
+      EXPECTED_BUNDLE_DIGEST: 9d64633b9e8786774eaeb71f50b72646e0b32954a7e2bf0d07633aa011d7ab04
+      VERSION: 1.0.1
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Resolve current release state
+        id: state
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main "$TARGET_BRANCH" --tags --force || git fetch origin main --tags --force
+          main_sha="$(git rev-parse origin/main)"
+          main_tree="$(git rev-parse origin/main^{tree})"
+          published=false
+          if git rev-parse v1.0.1 >/dev/null 2>&1 && gh release view v1.0.1 --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            release="$(gh release view v1.0.1 --repo "$GITHUB_REPOSITORY" --json isDraft,tagName)"
+            if [[ "$(jq -r '.isDraft' <<<"$release")" == false && "$(jq -r '.tagName' <<<"$release")" == v1.0.1 ]]; then
+              published=true
+            fi
+          fi
+          echo "main_sha=$main_sha" >> "$GITHUB_OUTPUT"
+          echo "main_tree=$main_tree" >> "$GITHUB_OUTPUT"
+          echo "published=$published" >> "$GITHUB_OUTPUT"
+
+      - name: Resolve PR and require green validation
+        id: candidate
+        if: steps.state.outputs.published != 'true' && steps.state.outputs.main_tree != env.EXPECTED_TREE_SHA
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "${{ steps.state.outputs.main_sha }}" = "$EXPECTED_BASE_SHA"
+          git fetch origin "$TARGET_BRANCH" --force
+          head_sha="$(git rev-parse "origin/$TARGET_BRANCH")"
+          test "$(git rev-parse "origin/$TARGET_BRANCH^{tree}")" = "$EXPECTED_TREE_SHA"
+          owner="${GITHUB_REPOSITORY%%/*}"
+          prs="$(gh api -X GET "repos/$GITHUB_REPOSITORY/pulls?state=open&head=$owner:$TARGET_BRANCH&base=main&per_page=20")"
+          test "$(jq length <<<"$prs")" -eq 1
+          pr_number="$(jq -r '.[0].number' <<<"$prs")"
+          test "$(jq -r '.[0].head.sha' <<<"$prs")" = "$head_sha"
+          test "$(jq -r '.[0].base.sha' <<<"$prs")" = "$EXPECTED_BASE_SHA"
+
+          deadline=$((SECONDS + 5400))
+          while (( SECONDS < deadline )); do
+            runs="$(gh api -X GET "repos/$GITHUB_REPOSITORY/actions/runs?head_sha=$head_sha&event=pull_request&per_page=100")"
+            count="$(jq '.workflow_runs|length' <<<"$runs")"
+            bad="$(jq '[.workflow_runs[]|select(.status=="completed" and .conclusion!="success")]|length' <<<"$runs")"
+            incomplete="$(jq '[.workflow_runs[]|select(.status!="completed")]|length' <<<"$runs")"
+            (( bad == 0 )) || { jq '.workflow_runs[]|{id,name,status,conclusion,html_url}' <<<"$runs"; exit 1; }
+            if (( count > 0 && incomplete == 0 )); then break; fi
+            sleep 15
+          done
+          (( SECONDS < deadline ))
+
+          checks="$(gh api -H 'Accept: application/vnd.github+json' "repos/$GITHUB_REPOSITORY/commits/$head_sha/check-runs?per_page=100")"
+          test "$(jq '[.check_runs[]|select(.status!="completed")]|length' <<<"$checks")" -eq 0
+          test "$(jq '[.check_runs[]|select((.conclusion=="success" or .conclusion=="neutral" or .conclusion=="skipped")|not)]|length' <<<"$checks")" -eq 0
+          combined="$(gh api "repos/$GITHUB_REPOSITORY/commits/$head_sha/status")"
+          state="$(jq -r '.state' <<<"$combined")"
+          [[ "$state" != failure && "$state" != error ]]
+
+          reviews="$(gh api "repos/$GITHUB_REPOSITORY/pulls/$pr_number/reviews?per_page=100")"
+          test "$(jq '[.[]|select(.state=="CHANGES_REQUESTED")]|length' <<<"$reviews")" -eq 0
+          repo_name="${GITHUB_REPOSITORY#*/}"
+          query='query($owner:String!,$name:String!,$number:Int!){repository(owner:$owner,name:$name){pullRequest(number:$number){reviewThreads(first:100){nodes{isResolved}}}}}'
+          threads="$(gh api graphql -f query="$query" -f owner="$owner" -f name="$repo_name" -F number="$pr_number")"
+          test "$(jq '[.data.repository.pullRequest.reviewThreads.nodes[]|select(.isResolved==false)]|length' <<<"$threads")" -eq 0
+          if [[ "$(gh api "repos/$GITHUB_REPOSITORY/pulls/$pr_number" --jq .draft)" == true ]]; then
+            gh pr ready "$pr_number" --repo "$GITHUB_REPOSITORY"
+          fi
+          echo "pr_number=$pr_number" >> "$GITHUB_OUTPUT"
+          echo "head_sha=$head_sha" >> "$GITHUB_OUTPUT"
+
+      - name: Merge exact reviewed head
+        id: merge
+        if: steps.state.outputs.published != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "${{ steps.state.outputs.main_tree }}" == "$EXPECTED_TREE_SHA" ]]; then
+            merge_sha="${{ steps.state.outputs.main_sha }}"
+          else
+            pr_number="${{ steps.candidate.outputs.pr_number }}"
+            head_sha="${{ steps.candidate.outputs.head_sha }}"
+            for attempt in $(seq 1 30); do
+              pr="$(gh api "repos/$GITHUB_REPOSITORY/pulls/$pr_number")"
+              mergeable="$(jq -r '.mergeable' <<<"$pr")"
+              merge_state="$(jq -r '.mergeable_state' <<<"$pr")"
+              if [[ "$mergeable" == true && "$merge_state" != behind && "$merge_state" != dirty && "$merge_state" != blocked ]]; then break; fi
+              sleep 10
+            done
+            response="$(gh api -X PUT "repos/$GITHUB_REPOSITORY/pulls/$pr_number/merge" -f merge_method=squash -f sha="$head_sha")"
+            test "$(jq -r '.merged' <<<"$response")" = true
+            merge_sha="$(jq -r '.sha' <<<"$response")"
+          fi
+          git fetch origin main --force
+          test "$(git rev-parse origin/main)" = "$merge_sha"
+          test "$(git rev-parse origin/main^{tree})" = "$EXPECTED_TREE_SHA"
+          echo "merge_sha=$merge_sha" >> "$GITHUB_OUTPUT"
+
+      - name: Resolve or dispatch certification
+        id: certification
+        if: steps.state.outputs.published != 'true'
+        shell: bash
+        env:
+          MERGE_SHA: ${{ steps.merge.outputs.merge_sha }}
+        run: |
+          set -euo pipefail
+          runs="$(gh run list --repo "$GITHUB_REPOSITORY" --workflow certify-release.yml --event workflow_dispatch --commit "$MERGE_SHA" --limit 20 --json databaseId,createdAt,headSha,status,conclusion,url)"
+          failed="$(jq -r --arg sha "$MERGE_SHA" '[.[]|select(.headSha==$sha and .status=="completed" and .conclusion!="success")]|sort_by(.createdAt)|last|.databaseId//empty' <<<"$runs")"
+          test -z "$failed" || { echo "Existing certification failed: $failed" >&2; exit 1; }
+          run_id="$(jq -r --arg sha "$MERGE_SHA" '[.[]|select(.headSha==$sha)]|sort_by(.createdAt)|last|.databaseId//empty' <<<"$runs")"
+          if [[ -z "$run_id" ]]; then
+            before="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            gh workflow run certify-release.yml --repo "$GITHUB_REPOSITORY" --ref main -f source_sha="$MERGE_SHA" -f version="$VERSION"
+            for attempt in $(seq 1 40); do
+              runs="$(gh run list --repo "$GITHUB_REPOSITORY" --workflow certify-release.yml --event workflow_dispatch --commit "$MERGE_SHA" --limit 20 --json databaseId,createdAt,headSha,status,conclusion,url)"
+              run_id="$(jq -r --arg sha "$MERGE_SHA" --arg before "$before" '[.[]|select(.headSha==$sha and .createdAt>=$before)]|sort_by(.createdAt)|last|.databaseId//empty' <<<"$runs")"
+              [[ -n "$run_id" ]] && break
+              sleep 10
+            done
+          fi
+          test -n "$run_id"
+          gh run watch "$run_id" --repo "$GITHUB_REPOSITORY" --exit-status
+          echo "run_id=$run_id" >> "$GITHUB_OUTPUT"
+
+      - name: Resolve or dispatch publication
+        id: publication
+        if: steps.state.outputs.published != 'true'
+        shell: bash
+        env:
+          MERGE_SHA: ${{ steps.merge.outputs.merge_sha }}
+          CERT_RUN_ID: ${{ steps.certification.outputs.run_id }}
+        run: |
+          set -euo pipefail
+          runs="$(gh run list --repo "$GITHUB_REPOSITORY" --workflow publish-release.yml --event workflow_dispatch --commit "$MERGE_SHA" --limit 20 --json databaseId,createdAt,headSha,status,conclusion,url)"
+          failed="$(jq -r --arg sha "$MERGE_SHA" '[.[]|select(.headSha==$sha and .status=="completed" and .conclusion!="success")]|sort_by(.createdAt)|last|.databaseId//empty' <<<"$runs")"
+          test -z "$failed" || { echo "Existing publication failed: $failed" >&2; exit 1; }
+          run_id="$(jq -r --arg sha "$MERGE_SHA" '[.[]|select(.headSha==$sha)]|sort_by(.createdAt)|last|.databaseId//empty' <<<"$runs")"
+          if [[ -z "$run_id" ]]; then
+            before="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            gh workflow run publish-release.yml --repo "$GITHUB_REPOSITORY" --ref main -f certification_run_id="$CERT_RUN_ID" -f source_sha="$MERGE_SHA" -f expected_bundle_digest="$EXPECTED_BUNDLE_DIGEST" -f version="$VERSION"
+            for attempt in $(seq 1 40); do
+              runs="$(gh run list --repo "$GITHUB_REPOSITORY" --workflow publish-release.yml --event workflow_dispatch --commit "$MERGE_SHA" --limit 20 --json databaseId,createdAt,headSha,status,conclusion,url)"
+              run_id="$(jq -r --arg sha "$MERGE_SHA" --arg before "$before" '[.[]|select(.headSha==$sha and .createdAt>=$before)]|sort_by(.createdAt)|last|.databaseId//empty' <<<"$runs")"
+              [[ -n "$run_id" ]] && break
+              sleep 10
+            done
+          fi
+          test -n "$run_id"
+          gh run watch "$run_id" --repo "$GITHUB_REPOSITORY" --exit-status
+          echo "run_id=$run_id" >> "$GITHUB_OUTPUT"
+
+      - name: Verify release and remove bootstrap ref
+        if: steps.state.outputs.published == 'true' || success()
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main --tags --force
+          main_sha="$(git rev-parse origin/main)"
+          test "$(git rev-parse origin/main^{tree})" = "$EXPECTED_TREE_SHA"
+          test "$(git rev-list -n 1 v1.0.1)" = "$main_sha"
+          release="$(gh release view v1.0.1 --repo "$GITHUB_REPOSITORY" --json isDraft,tagName,url,assets)"
+          test "$(jq -r '.isDraft' <<<"$release")" = false
+          for asset in ECHOFRAME_v1.0.1_final_source.zip ECHOFRAME_v1.0.1_web.zip ECHOFRAME_v1.0.1_RELEASE_MANIFEST.json ECHOFRAME_v1.0.1_SHA256SUMS.txt; do
+            test "$(jq --arg a "$asset" '[.assets[]|select(.name==$a)]|length' <<<"$release")" -eq 1
+          done
+          curl --proto '=https' --tlsv1.2 --fail --location --silent --show-error --retry 4 https://thiepn.github.io/echoframe/ -o /tmp/public.html
+          grep -q '<title>ECHOFRAME' /tmp/public.html
+          git push origin --delete bootstrap/v1.0.1-import || true
