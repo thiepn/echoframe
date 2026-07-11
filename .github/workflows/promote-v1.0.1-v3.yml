@@ -1,0 +1,173 @@
+name: Promote Version 1.0.1 — Transient-Aware Controller
+
+on:
+  push:
+    branches: [bootstrap/v1.0.1-import]
+    paths:
+      - '.github/workflows/promote-v1.0.1-v3.yml'
+
+permissions:
+  actions: write
+  checks: read
+  contents: write
+  issues: write
+  pull-requests: write
+  statuses: read
+
+concurrency:
+  group: promote-v1.0.1-transient-aware
+  cancel-in-progress: false
+
+jobs:
+  promote:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 360
+    env:
+      GH_TOKEN: ${{ github.token }}
+      TARGET_BRANCH: upgrade/v1.0.1-comprehensive-polish
+      EXPECTED_BASE_SHA: 36fcb390bb3cfaa735ac8a8204e61989210c7c6a
+      EXPECTED_TREE_SHA: 304a8792bb36886cbadc6f4fc1fa96c0aba80935
+      EXPECTED_BUNDLE_DIGEST: 9d64633b9e8786774eaeb71f50b72646e0b32954a7e2bf0d07633aa011d7ab04
+      VERSION: 1.0.1
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Promote only through verified gates
+        shell: bash
+        run: |
+          set -euo pipefail
+          repo="$GITHUB_REPOSITORY"
+          owner="${repo%%/*}"
+          transient='EAI_AGAIN|ECONNRESET|ETIMEDOUT|network.*(timeout|unreachable)|HTTP (502|503|504)|received http2 data while not in stream|browser download|Failed to download|socket hang up'
+
+          wait_run() {
+            local run_id="$1"
+            gh run watch "$run_id" --repo "$repo" --exit-status
+          }
+
+          latest_run() {
+            local workflow="$1" sha="$2" event="$3"
+            gh run list --repo "$repo" --workflow "$workflow" --event "$event" --commit "$sha" --limit 20 --json databaseId,headSha,status,conclusion,createdAt --jq '[.[]|select(.headSha=="'"$sha"'")]|sort_by(.createdAt)|last|.databaseId//empty'
+          }
+
+          transient_retry_once() {
+            local run_id="$1" label="$2"
+            local meta conclusion
+            meta="$(gh run view "$run_id" --repo "$repo" --json conclusion,status,attempt)"
+            conclusion="$(jq -r '.conclusion' <<<"$meta")"
+            [[ "$conclusion" == success ]] && return 0
+            logs="$(gh run view "$run_id" --repo "$repo" --log-failed 2>&1 || true)"
+            if grep -Eqi "$transient" <<<"$logs" && [[ "$(jq -r '.attempt' <<<"$meta")" -eq 1 ]]; then
+              gh run rerun "$run_id" --repo "$repo" --failed
+              wait_run "$run_id"
+              return
+            fi
+            printf '%s\n' "$logs" > "/tmp/${label}-failed.log"
+            echo "$label failed with a non-transient or repeated failure." >&2
+            exit 1
+          }
+
+          git fetch origin main "$TARGET_BRANCH" --tags --force || git fetch origin main --tags --force
+          main_sha="$(git rev-parse origin/main)"
+          main_tree="$(git rev-parse origin/main^{tree})"
+
+          if git rev-parse v1.0.1 >/dev/null 2>&1 && gh release view v1.0.1 --repo "$repo" >/dev/null 2>&1; then
+            release="$(gh release view v1.0.1 --repo "$repo" --json isDraft,tagName)"
+            if [[ "$(jq -r '.isDraft' <<<"$release")" == false && "$(jq -r '.tagName' <<<"$release")" == v1.0.1 ]]; then
+              test "$(git rev-list -n 1 v1.0.1)" = "$main_sha"
+              test "$main_tree" = "$EXPECTED_TREE_SHA"
+              git push origin --delete bootstrap/v1.0.1-import || true
+              exit 0
+            fi
+          fi
+
+          if [[ "$main_tree" != "$EXPECTED_TREE_SHA" ]]; then
+            test "$main_sha" = "$EXPECTED_BASE_SHA"
+            head_sha="$(git rev-parse "origin/$TARGET_BRANCH")"
+            test "$(git rev-parse "origin/$TARGET_BRANCH^{tree}")" = "$EXPECTED_TREE_SHA"
+            prs="$(gh api -X GET "repos/$repo/pulls?state=open&head=$owner:$TARGET_BRANCH&base=main&per_page=20")"
+            test "$(jq length <<<"$prs")" -eq 1
+            pr="$(jq -r '.[0].number' <<<"$prs")"
+            test "$(jq -r '.[0].head.sha' <<<"$prs")" = "$head_sha"
+            test "$(jq -r '.[0].base.sha' <<<"$prs")" = "$EXPECTED_BASE_SHA"
+
+            deadline=$((SECONDS + 5400))
+            while (( SECONDS < deadline )); do
+              runs="$(gh api -X GET "repos/$repo/actions/runs?head_sha=$head_sha&event=pull_request&per_page=100")"
+              count="$(jq '.workflow_runs|length' <<<"$runs")"
+              incomplete="$(jq '[.workflow_runs[]|select(.status!="completed")]|length' <<<"$runs")"
+              if (( count > 0 && incomplete == 0 )); then break; fi
+              sleep 15
+            done
+            (( SECONDS < deadline ))
+            while read -r run_id; do
+              [[ -n "$run_id" ]] && transient_retry_once "$run_id" pr-ci
+            done < <(jq -r '.workflow_runs[]|select(.conclusion!="success")|.id' <<<"$runs")
+            runs="$(gh api -X GET "repos/$repo/actions/runs?head_sha=$head_sha&event=pull_request&per_page=100")"
+            test "$(jq '[.workflow_runs[]|select(.status!="completed" or .conclusion!="success")]|length' <<<"$runs")" -eq 0
+
+            reviews="$(gh api "repos/$repo/pulls/$pr/reviews?per_page=100")"
+            test "$(jq '[.[]|select(.state=="CHANGES_REQUESTED")]|length' <<<"$reviews")" -eq 0
+            repo_name="${repo#*/}"
+            query='query($owner:String!,$name:String!,$number:Int!){repository(owner:$owner,name:$name){pullRequest(number:$number){reviewThreads(first:100){nodes{isResolved}}}}}'
+            threads="$(gh api graphql -f query="$query" -f owner="$owner" -f name="$repo_name" -F number="$pr")"
+            test "$(jq '[.data.repository.pullRequest.reviewThreads.nodes[]|select(.isResolved==false)]|length' <<<"$threads")" -eq 0
+            [[ "$(gh api "repos/$repo/pulls/$pr" --jq .draft)" == false ]] || gh pr ready "$pr" --repo "$repo"
+
+            for attempt in $(seq 1 30); do
+              pdata="$(gh api "repos/$repo/pulls/$pr")"
+              [[ "$(jq -r '.mergeable' <<<"$pdata")" == true ]] && [[ "$(jq -r '.mergeable_state' <<<"$pdata")" != dirty ]] && [[ "$(jq -r '.mergeable_state' <<<"$pdata")" != behind ]] && break
+              sleep 10
+            done
+            response="$(gh api -X PUT "repos/$repo/pulls/$pr/merge" -f merge_method=squash -f sha="$head_sha")"
+            test "$(jq -r '.merged' <<<"$response")" = true
+            main_sha="$(jq -r '.sha' <<<"$response")"
+            git fetch origin main --force
+            test "$(git rev-parse origin/main)" = "$main_sha"
+            test "$(git rev-parse origin/main^{tree})" = "$EXPECTED_TREE_SHA"
+          fi
+
+          cert_id="$(latest_run certify-release.yml "$main_sha" workflow_dispatch)"
+          if [[ -z "$cert_id" ]]; then
+            before="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            gh workflow run certify-release.yml --repo "$repo" --ref main -f source_sha="$main_sha" -f version="$VERSION"
+            for attempt in $(seq 1 40); do
+              cert_id="$(latest_run certify-release.yml "$main_sha" workflow_dispatch)"
+              [[ -n "$cert_id" ]] && break
+              sleep 10
+            done
+          fi
+          test -n "$cert_id"
+          cert_meta="$(gh run view "$cert_id" --repo "$repo" --json status,conclusion)"
+          [[ "$(jq -r '.status' <<<"$cert_meta")" == completed ]] || wait_run "$cert_id"
+          transient_retry_once "$cert_id" certification
+
+          pub_id="$(latest_run publish-release.yml "$main_sha" workflow_dispatch)"
+          if [[ -n "$pub_id" ]]; then
+            pub_meta="$(gh run view "$pub_id" --repo "$repo" --json status,conclusion)"
+            [[ "$(jq -r '.conclusion' <<<"$pub_meta")" == success ]] || { echo "Existing publication run is not successful; refusing automatic rerun." >&2; exit 1; }
+          else
+            gh workflow run publish-release.yml --repo "$repo" --ref main -f certification_run_id="$cert_id" -f source_sha="$main_sha" -f expected_bundle_digest="$EXPECTED_BUNDLE_DIGEST" -f version="$VERSION"
+            for attempt in $(seq 1 40); do
+              pub_id="$(latest_run publish-release.yml "$main_sha" workflow_dispatch)"
+              [[ -n "$pub_id" ]] && break
+              sleep 10
+            done
+            test -n "$pub_id"
+            wait_run "$pub_id"
+          fi
+
+          git fetch origin main --tags --force
+          test "$(git rev-list -n 1 v1.0.1)" = "$main_sha"
+          release="$(gh release view v1.0.1 --repo "$repo" --json isDraft,tagName,assets)"
+          test "$(jq -r '.isDraft' <<<"$release")" = false
+          test "$(jq -r '.tagName' <<<"$release")" = v1.0.1
+          for asset in ECHOFRAME_v1.0.1_final_source.zip ECHOFRAME_v1.0.1_web.zip ECHOFRAME_v1.0.1_RELEASE_MANIFEST.json ECHOFRAME_v1.0.1_SHA256SUMS.txt; do
+            test "$(jq --arg a "$asset" '[.assets[]|select(.name==$a)]|length' <<<"$release")" -eq 1
+          done
+          curl --proto '=https' --tlsv1.2 --fail --location --silent --show-error --retry 4 https://thiepn.github.io/echoframe/ -o /tmp/public.html
+          grep -q '<title>ECHOFRAME' /tmp/public.html
+          git push origin --delete bootstrap/v1.0.1-import || true
