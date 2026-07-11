@@ -1,0 +1,82 @@
+name: Diagnose Version 1.0.1 Release Gate
+
+on:
+  push:
+    branches: [bootstrap/v1.0.1-import]
+    paths:
+      - '.github/workflows/diagnose-v1.0.1.yml'
+
+permissions:
+  actions: read
+  contents: read
+  issues: write
+  pull-requests: read
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      GH_TOKEN: ${{ github.token }}
+      TARGET_BRANCH: upgrade/v1.0.1-comprehensive-polish
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+      - name: Collect release state and failed logs
+        shell: bash
+        run: |
+          set -euo pipefail
+          report=/tmp/report.md
+          {
+            echo '# Version 1.0.1 release-gate diagnostics'
+            echo
+            echo "Generated: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            echo
+            echo '## Repository state'
+            echo
+            echo "- main: $(gh api repos/$GITHUB_REPOSITORY/commits/main --jq .sha)"
+            target_sha="$(gh api repos/$GITHUB_REPOSITORY/git/ref/heads/$TARGET_BRANCH --jq .object.sha 2>/dev/null || true)"
+            echo "- target branch: ${target_sha:-missing}"
+            prs="$(gh api -X GET "repos/$GITHUB_REPOSITORY/pulls?state=all&head=${GITHUB_REPOSITORY%%/*}:$TARGET_BRANCH&per_page=10")"
+            echo "- pull request: $(jq -r 'if length==0 then "missing" else "#\(.[0].number) state=\(.[0].state) draft=\(.[0].draft) merged=\(.[0].merged_at != null) head=\(.[0].head.sha)" end' <<<"$prs")"
+            echo "- tag v1.0.1: $(gh api repos/$GITHUB_REPOSITORY/git/ref/tags/v1.0.1 --jq .object.sha 2>/dev/null || echo missing)"
+            echo "- release v1.0.1: $(gh release view v1.0.1 --repo $GITHUB_REPOSITORY --json isDraft,url --jq '"draft=\(.isDraft) url=\(.url)"' 2>/dev/null || echo missing)"
+            echo
+            echo '## Recent workflow runs'
+            echo
+          } > "$report"
+
+          failed_ids=()
+          for workflow in ci.yml promote-v1.0.1.yml promote-v1.0.1-v2.yml certify-release.yml publish-release.yml; do
+            runs="$(gh run list --repo "$GITHUB_REPOSITORY" --workflow "$workflow" --limit 5 --json databaseId,name,event,headBranch,headSha,status,conclusion,createdAt,url 2>/dev/null || echo '[]')"
+            {
+              echo "### $workflow"
+              echo
+              echo '```json'
+              jq '.' <<<"$runs"
+              echo '```'
+              echo
+            } >> "$report"
+            while read -r id; do [[ -n "$id" ]] && failed_ids+=("$id"); done < <(jq -r '.[]|select(.status=="completed" and .conclusion!="success")|.databaseId' <<<"$runs")
+          done
+
+          for id in "${failed_ids[@]}"; do
+            {
+              echo "## Failed log for run $id"
+              echo
+              echo '```text'
+              gh run view "$id" --repo "$GITHUB_REPOSITORY" --log-failed 2>&1 | tail -n 500 | sed 's/```/` ` `/g'
+              echo '```'
+              echo
+            } >> "$report"
+          done
+
+          title='[v1.0.1] Release gate diagnostics'
+          existing="$(gh issue list --repo "$GITHUB_REPOSITORY" --state open --search "$title in:title" --json number,title --jq '.[]|select(.title=="'"$title"'")|.number' | head -n1)"
+          if [[ -n "$existing" ]]; then
+            gh issue edit "$existing" --repo "$GITHUB_REPOSITORY" --body-file "$report"
+          else
+            gh issue create --repo "$GITHUB_REPOSITORY" --title "$title" --body-file "$report"
+          fi
