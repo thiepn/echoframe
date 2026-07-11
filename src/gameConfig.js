@@ -17,7 +17,7 @@ import { RecoveryScene } from './scenes/RecoveryScene.js';
 import { RunScene } from './scenes/RunScene.js';
 import { SettingsScene } from './scenes/SettingsScene.js';
 import { StatisticsScene } from './scenes/StatisticsScene.js';
-import { TutorialScene } from './scenes/TutorialScene.js';
+import { TutorialSceneHotfix } from './scenes/TutorialSceneHotfix.js';
 import { UpgradeScene } from './scenes/UpgradeScene.js';
 
 export function createGameConfig(services) {
@@ -55,7 +55,7 @@ export function createGameConfig(services) {
       new BootScene(services),
       new PreloadScene(services),
       new MainMenuScene(services),
-      new TutorialScene(services),
+      new TutorialSceneHotfix(services),
       new RunScene(services),
       new BossScene(services),
       new HUDScene(services),
