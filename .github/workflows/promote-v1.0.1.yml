@@ -1,0 +1,207 @@
+name: Promote Version 1.0.1
+
+on:
+  push:
+    branches: [bootstrap/v1.0.1-import]
+    paths:
+      - '.github/workflows/promote-v1.0.1.yml'
+
+permissions:
+  actions: write
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: promote-v1.0.1
+  cancel-in-progress: false
+
+jobs:
+  promote:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 360
+    env:
+      GH_TOKEN: ${{ github.token }}
+      TARGET_BRANCH: upgrade/v1.0.1-comprehensive-polish
+      EXPECTED_BASE_SHA: 36fcb390bb3cfaa735ac8a8204e61989210c7c6a
+      EXPECTED_TREE_SHA: 304a8792bb36886cbadc6f4fc1fa96c0aba80935
+      EXPECTED_BUNDLE_DIGEST: 9d64633b9e8786774eaeb71f50b72646e0b32954a7e2bf0d07633aa011d7ab04
+      VERSION: 1.0.1
+    steps:
+      - name: Check out trusted bootstrap ref
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Resolve and verify pull request
+        id: pr
+        shell: bash
+        run: |
+          set -euo pipefail
+          repo="$GITHUB_REPOSITORY"
+          owner="${repo%%/*}"
+          name="${repo#*/}"
+
+          git fetch origin main "$TARGET_BRANCH" --force
+          test "$(git rev-parse origin/main)" = "$EXPECTED_BASE_SHA"
+          head_sha="$(git rev-parse "origin/$TARGET_BRANCH")"
+          test "$(git rev-parse "origin/$TARGET_BRANCH^{tree}")" = "$EXPECTED_TREE_SHA"
+
+          prs="$(gh api -X GET "repos/$repo/pulls?state=open&head=$owner:$TARGET_BRANCH&base=main&per_page=20")"
+          test "$(jq 'length' <<<"$prs")" -eq 1
+          pr_number="$(jq -r '.[0].number' <<<"$prs")"
+          test "$(jq -r '.[0].head.sha' <<<"$prs")" = "$head_sha"
+          test "$(jq -r '.[0].base.sha' <<<"$prs")" = "$EXPECTED_BASE_SHA"
+
+          echo "number=$pr_number" >> "$GITHUB_OUTPUT"
+          echo "head_sha=$head_sha" >> "$GITHUB_OUTPUT"
+          echo "owner=$owner" >> "$GITHUB_OUTPUT"
+          echo "name=$name" >> "$GITHUB_OUTPUT"
+
+      - name: Require successful read-only PR validation
+        shell: bash
+        env:
+          HEAD_SHA: ${{ steps.pr.outputs.head_sha }}
+        run: |
+          set -euo pipefail
+          repo="$GITHUB_REPOSITORY"
+          deadline=$((SECONDS + 5400))
+          while (( SECONDS < deadline )); do
+            runs="$(gh api -X GET "repos/$repo/actions/runs?head_sha=$HEAD_SHA&event=pull_request&per_page=100")"
+            count="$(jq '.workflow_runs | length' <<<"$runs")"
+            incomplete="$(jq '[.workflow_runs[] | select(.status != "completed")] | length' <<<"$runs")"
+            bad="$(jq '[.workflow_runs[] | select(.status == "completed" and .conclusion != "success")] | length' <<<"$runs")"
+            if (( bad > 0 )); then
+              jq '.workflow_runs[] | {id,name,status,conclusion,html_url}' <<<"$runs"
+              exit 1
+            fi
+            if (( count > 0 && incomplete == 0 )); then
+              jq '.workflow_runs[] | {id,name,status,conclusion,html_url}' <<<"$runs"
+              break
+            fi
+            sleep 15
+          done
+          (( SECONDS < deadline ))
+
+          checks="$(gh api -H 'Accept: application/vnd.github+json' "repos/$repo/commits/$HEAD_SHA/check-runs?per_page=100")"
+          test "$(jq '[.check_runs[] | select(.status != "completed")] | length' <<<"$checks")" -eq 0
+          test "$(jq '[.check_runs[] | select(.conclusion | IN("success","neutral","skipped") | not)] | length' <<<"$checks")" -eq 0
+
+          status="$(gh api "repos/$repo/commits/$HEAD_SHA/status")"
+          test "$(jq -r '.state' <<<"$status")" != failure
+          test "$(jq -r '.state' <<<"$status")" != error
+
+      - name: Require clean review state and mark ready
+        shell: bash
+        env:
+          PR_NUMBER: ${{ steps.pr.outputs.number }}
+          OWNER: ${{ steps.pr.outputs.owner }}
+          NAME: ${{ steps.pr.outputs.name }}
+        run: |
+          set -euo pipefail
+          reviews="$(gh api "repos/$GITHUB_REPOSITORY/pulls/$PR_NUMBER/reviews?per_page=100")"
+          test "$(jq '[.[] | select(.state == "CHANGES_REQUESTED")] | length' <<<"$reviews")" -eq 0
+
+          query='query($owner:String!,$name:String!,$number:Int!){repository(owner:$owner,name:$name){pullRequest(number:$number){reviewThreads(first:100){nodes{isResolved}}}}}'
+          threads="$(gh api graphql -f query="$query" -f owner="$OWNER" -f name="$NAME" -F number="$PR_NUMBER")"
+          test "$(jq '[.data.repository.pullRequest.reviewThreads.nodes[] | select(.isResolved == false)] | length' <<<"$threads")" -eq 0
+
+          draft="$(gh api "repos/$GITHUB_REPOSITORY/pulls/$PR_NUMBER" --jq '.draft')"
+          if [[ "$draft" == true ]]; then
+            gh pr ready "$PR_NUMBER" --repo "$GITHUB_REPOSITORY"
+          fi
+
+          for attempt in $(seq 1 30); do
+            pr="$(gh api "repos/$GITHUB_REPOSITORY/pulls/$PR_NUMBER")"
+            mergeable="$(jq -r '.mergeable' <<<"$pr")"
+            state="$(jq -r '.mergeable_state' <<<"$pr")"
+            if [[ "$mergeable" == true && "$state" != behind && "$state" != dirty && "$state" != blocked ]]; then
+              exit 0
+            fi
+            sleep 10
+          done
+          exit 1
+
+      - name: Merge reviewed head with SHA protection
+        id: merge
+        shell: bash
+        env:
+          PR_NUMBER: ${{ steps.pr.outputs.number }}
+          HEAD_SHA: ${{ steps.pr.outputs.head_sha }}
+        run: |
+          set -euo pipefail
+          response="$(gh api -X PUT "repos/$GITHUB_REPOSITORY/pulls/$PR_NUMBER/merge" -f merge_method=squash -f sha="$HEAD_SHA")"
+          test "$(jq -r '.merged' <<<"$response")" = true
+          merge_sha="$(jq -r '.sha' <<<"$response")"
+          test -n "$merge_sha"
+          git fetch origin main --force
+          test "$(git rev-parse origin/main)" = "$merge_sha"
+          test "$(git rev-parse origin/main^{tree})" = "$EXPECTED_TREE_SHA"
+          echo "merge_sha=$merge_sha" >> "$GITHUB_OUTPUT"
+
+      - name: Dispatch exact-SHA certification
+        id: certification
+        shell: bash
+        env:
+          MERGE_SHA: ${{ steps.merge.outputs.merge_sha }}
+        run: |
+          set -euo pipefail
+          before="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          gh workflow run certify-release.yml --repo "$GITHUB_REPOSITORY" --ref main -f source_sha="$MERGE_SHA" -f version="$VERSION"
+          run_id=''
+          for attempt in $(seq 1 40); do
+            runs="$(gh run list --repo "$GITHUB_REPOSITORY" --workflow certify-release.yml --event workflow_dispatch --commit "$MERGE_SHA" --limit 20 --json databaseId,createdAt,headSha,status,conclusion,url)"
+            run_id="$(jq -r --arg before "$before" '[.[] | select(.headSha == env.MERGE_SHA and .createdAt >= $before)] | sort_by(.createdAt) | last | .databaseId // empty' <<<"$runs")"
+            [[ -n "$run_id" ]] && break
+            sleep 10
+          done
+          test -n "$run_id"
+          echo "run_id=$run_id" >> "$GITHUB_OUTPUT"
+          gh run watch "$run_id" --repo "$GITHUB_REPOSITORY" --exit-status
+
+      - name: Dispatch exact-artifact publication
+        id: publication
+        shell: bash
+        env:
+          MERGE_SHA: ${{ steps.merge.outputs.merge_sha }}
+          CERTIFICATION_RUN_ID: ${{ steps.certification.outputs.run_id }}
+        run: |
+          set -euo pipefail
+          before="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          gh workflow run publish-release.yml --repo "$GITHUB_REPOSITORY" --ref main \
+            -f certification_run_id="$CERTIFICATION_RUN_ID" \
+            -f source_sha="$MERGE_SHA" \
+            -f expected_bundle_digest="$EXPECTED_BUNDLE_DIGEST" \
+            -f version="$VERSION"
+          run_id=''
+          for attempt in $(seq 1 40); do
+            runs="$(gh run list --repo "$GITHUB_REPOSITORY" --workflow publish-release.yml --event workflow_dispatch --commit "$MERGE_SHA" --limit 20 --json databaseId,createdAt,headSha,status,conclusion,url)"
+            run_id="$(jq -r --arg before "$before" '[.[] | select(.headSha == env.MERGE_SHA and .createdAt >= $before)] | sort_by(.createdAt) | last | .databaseId // empty' <<<"$runs")"
+            [[ -n "$run_id" ]] && break
+            sleep 10
+          done
+          test -n "$run_id"
+          echo "run_id=$run_id" >> "$GITHUB_OUTPUT"
+          gh run watch "$run_id" --repo "$GITHUB_REPOSITORY" --exit-status
+
+      - name: Verify immutable publication
+        shell: bash
+        env:
+          MERGE_SHA: ${{ steps.merge.outputs.merge_sha }}
+        run: |
+          set -euo pipefail
+          git fetch origin --tags --force
+          test "$(git rev-list -n 1 v1.0.1)" = "$MERGE_SHA"
+          release="$(gh release view v1.0.1 --repo "$GITHUB_REPOSITORY" --json isDraft,tagName,url,assets)"
+          test "$(jq -r '.isDraft' <<<"$release")" = false
+          test "$(jq -r '.tagName' <<<"$release")" = v1.0.1
+          for asset in ECHOFRAME_v1.0.1_final_source.zip ECHOFRAME_v1.0.1_web.zip ECHOFRAME_v1.0.1_RELEASE_MANIFEST.json ECHOFRAME_v1.0.1_SHA256SUMS.txt; do
+            test "$(jq --arg asset "$asset" '[.assets[] | select(.name == $asset)] | length' <<<"$release")" -eq 1
+          done
+          curl --proto '=https' --tlsv1.2 --fail --location --silent --show-error --retry 4 https://thiepn.github.io/echoframe/ -o /tmp/echoframe-public.html
+          grep -q '<title>ECHOFRAME' /tmp/echoframe-public.html
+
+      - name: Remove temporary bootstrap branch
+        if: success()
+        shell: bash
+        run: git push origin --delete bootstrap/v1.0.1-import
