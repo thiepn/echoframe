@@ -1,10 +1,11 @@
 name: Deploy ECHOFRAME to GitHub Pages
 
 on:
-  push:
-    branches:
-      - main
-  workflow_dispatch:
+  workflow_run:
+    workflows:
+      - ECHOFRAME CI
+    types:
+      - completed
 
 permissions:
   contents: read
@@ -15,11 +16,19 @@ concurrency:
 
 jobs:
   build:
+    if: >-
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.event == 'push' &&
+      github.event.workflow_run.head_branch == 'main'
+    permissions:
+      contents: read
     runs-on: ubuntu-24.04
     timeout-minutes: 25
     steps:
-      - name: Check out source
+      - name: Check out certified source
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
       - name: Set up Node.js
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
@@ -29,7 +38,7 @@ jobs:
         uses: actions/configure-pages@v5
       - name: Install dependencies
         run: npm ci --no-audit --no-fund
-      - name: Validate source before deployment
+      - name: Recheck source before deployment
         run: |
           npm run lint
           npm test
