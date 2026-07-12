@@ -31,7 +31,17 @@ jobs:
       - name: Lint
         run: npm run lint
       - name: Unit and integration tests
-        run: npm test
+        shell: bash
+        run: |
+          set -o pipefail
+          npm test 2>&1 | tee test-output.log
+      - name: Upload test log
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: test-output
+          path: test-output.log
+          if-no-files-found: error
       - name: Production build
         run: npm run build
 
