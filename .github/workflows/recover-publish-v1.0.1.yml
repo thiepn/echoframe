@@ -1,9 +1,9 @@
 name: Recover and Publish Version 1.0.1
 
 on:
-  push:
+  pull_request:
     branches:
-      - recovery/publish-v1.0.1-20260713
+      - main
 
 permissions:
   contents: read
