@@ -46,7 +46,6 @@ jobs:
           done
           stat -c 'size=%s' "$payload" | tee "$RUNNER_TEMP/payload-info.txt"
           sha256sum "$payload" | tee -a "$RUNNER_TEMP/payload-info.txt"
-          cp "$payload" "$RUNNER_TEMP/stored-payload.bin"
       - name: Upload diagnostic payload
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
