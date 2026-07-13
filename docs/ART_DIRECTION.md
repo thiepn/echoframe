@@ -1,1005 +1,914 @@
-# ECHOFRAME: LAST SIGNAL — Art Direction Specification
+# ECHOFRAME: LAST SIGNAL
 
-**Document:** `ART_DIRECTION.md`  
-**Version:** 1.0-preproduction  
-**Visual target:** Crisp geometric science fiction with restrained neon light, strong hierarchy, and mechanically meaningful motion  
-**Primary production method:** Procedural Phaser graphics, generated vector-like shapes, reusable textures, transforms, masks, and bounded particles
+## Art Direction
 
----
-
-# 1. Visual thesis
-
-ECHOFRAME should resemble a defensive operating system transformed into a physical combat environment.
-
-The visual identity combines:
-
-- Dark orbital architecture.
-- Precise geometric entities.
-- Controlled emissive accents.
-- Memory fragmentation.
-- Temporal duplication.
-- Minimal interface ornament.
-- High combat legibility.
-
-The game must not resemble:
-
-- A generic neon particle demo.
-- Random cyberpunk gradients.
-- Inconsistent AI-generated sprites.
-- A mobile game overloaded with interface chrome.
-- A bullet-hell game where effects and damaging projectiles look identical.
-- A glassmorphism dashboard placed over gameplay.
+**Document type:** Canonical art-direction specification  
+**Status:** Phase 0 authoritative input  
+**Target platform:** Desktop browser, 16:9 reference viewport, keyboard and mouse
 
 ---
 
-# 2. Core visual principles
+## 1. Visual identity statement
 
-## 2.1 Silhouette before detail
+ECHOFRAME should look like a **signal war occurring inside a damaged transmission system**.
 
-Every major entity must remain identifiable without color.
+It is not traditional cyberpunk. It is not a city. It is not neon decoration for its own sake. The visual language is built from:
 
-Required silhouettes:
+- vector geometry;
+- scanlines;
+- waveform motion;
+- phase offsets;
+- interference patterns;
+- signal traces;
+- procedural glyphs;
+- controlled chromatic separation;
+- hard silhouettes;
+- readable combat telegraphs.
 
-- Player: symmetrical four-point diamond.
-- Friendly Echo: related silhouette with segmented or missing pieces.
-- Drifter: compact forward wedge.
-- Sentry: anchored eye/tripod.
-- Lancer: elongated spearhead.
-- Shard Carrier: central hexagon with satellites.
-- Bulwark: broad crescent shield.
-- Suppressor: ring projector.
-- Boss: architectural core with modular panels.
-- Hostile copy: hooked or inverted temporal figure.
+The game world should feel abstract yet mechanically legible. Every visual effect must support one of three goals:
 
-## 2.2 Color has semantic ownership
+1. communicate gameplay state;
+2. reinforce the Echo theme;
+3. provide satisfying response.
 
-Hue families have fixed gameplay meanings. Decorative recoloring cannot violate those meanings.
-
-## 2.3 Motion communicates state
-
-Anticipation, tracking, lock, execution, recovery, vulnerability, and death each use distinct motion grammar.
-
-## 2.4 Restraint creates quality
-
-Most surfaces stay dark. Brightness is reserved for:
-
-- Player location.
-- Important telegraphs.
-- Projectiles.
-- Vulnerable targets.
-- High-impact events.
-- Keyboard focus.
-- Results emphasis.
-
-## 2.5 Readability overrides spectacle
-
-Any effect that obscures hazards must be reduced, moved behind telegraphs, recolored, simplified, or removed.
+If an effect reduces combat readability, it must be simplified or removed.
 
 ---
 
-# 3. Palette
+## 2. Overall style
 
-## 3.1 Base palette
+### 2.1 Core aesthetic
 
-| Role | Hex | Usage |
-|---|---|---|
-| Void background | `#080B14` | Deepest backdrop |
-| Secondary background | `#0D1320` | Architecture separation |
-| Arena surface | `#182338` | Floor plates and panels |
-| Surface highlight | `#263651` | Raised edges and borders |
-| Player cyan | `#55E6FF` | Real player and stable friendly actions |
-| Echo violet | `#9A82FF` | Friendly temporal projection |
-| Danger red | `#FF4D67` | Hostile attacks and damage |
-| Elite orange | `#FF9D45` | Elite and accelerated threat |
-| Success mint | `#72F1B8` | Recovery, valid completion, victory |
-| Warning yellow | `#FFD166` | Pending lock or caution |
-| Primary text | `#EDF7FF` | Main labels |
-| Muted text | `#8DA0B8` | Secondary labels |
-| Disabled text | `#56657A` | Disabled controls |
+The visual style is a fusion of:
 
-## 3.2 Semantic rules
+- tactical holographic instrumentation;
+- damaged signal-processing hardware;
+- monochrome oscilloscope displays;
+- geometric combat diagrams;
+- restrained high-contrast neon;
+- dark technical-space environments.
 
-- Cyan is reserved for the real player, stable player actions, and primary UI focus.
-- Violet is reserved for friendly Echoes and memory mechanics.
-- Red means hostile and damaging.
-- Orange means elite, overclocked, or advanced threat.
-- Yellow means caution or pending lock, not direct damage.
-- Mint means repair, completion, or victory.
-- White is reserved for peak emphasis and player outline.
-- Environment saturation stays below gameplay elements.
+The game should resemble a highly designed diagnostic interface that has become a battlefield.
 
-## 3.3 Colorblind safety
+### 2.2 Shape language
 
-Hue distinctions are reinforced through:
+Primary visual components:
 
-- Border patterns.
-- Shape.
-- Pulse frequency.
-- Arrowheads and chevrons.
-- Icons.
-- Audio.
-
-No required distinction depends only on red/green or cyan/violet separation.
-
----
-
-# 4. Value and contrast hierarchy
-
-From darkest to brightest:
-
-1. Far background.
-2. Distant architecture.
-3. Floor.
-4. Decoration.
-5. Enemy bodies.
-6. Friendly bodies.
-7. Projectiles.
-8. Telegraph edges.
-9. Impact cores.
-10. Player outline and critical UI.
-
-Rules:
-
-- Decorative lines remain below 40% of player-core apparent brightness.
-- Telegraphs may brighten at lock but remain geometrically thin.
-- Full-screen white flashes are prohibited.
-- Damage feedback cannot cover the screen in opaque red.
-- The player outline must survive every intended effect combination.
-
----
-
-# 5. Shape language
-
-## 5.1 Friendly geometry
-
-- Symmetrical.
-- Even line weights.
-- Circular cores.
-- Four-way repetition.
-- Smooth rotation.
-- Open gaps.
-
-## 5.2 Hostile geometry
-
-- Angular.
-- Asymmetrical or directionally biased.
-- Heavier line weight.
-- Sharp protrusions.
-- Uneven pulse rhythms.
-- Closed forms.
-
-## 5.3 Temporal geometry
-
-Memory effects use:
-
-- Segmented outlines.
-- Offset duplicate silhouettes.
-- Horizontal scan fragments.
-- Dissolving polygons.
-- Delayed trails.
-- Missing phase sections.
-
-## 5.4 Environment geometry
-
-- Large plates.
-- Recessed seams.
-- Sparse circuitry.
-- Clear obstacle edges.
-- No small bright circles that resemble projectiles.
-- No decorative lines matching attack lanes.
-
----
-
-# 6. Player visual specification
-
-## 6.1 Construction
-
-The Warden contains:
-
-- Circular core.
-- Four diamond fins.
-- Thin aim nose.
-- Outer white contour.
-- Ground locator ring.
-
-Approximate dimensions:
-
-| Element | Size |
-|---|---:|
-| Visual diameter | 52–60 px |
-| Physics diameter | 36 px |
-| Ground ring | 64–72 px |
-
-## 6.2 Idle
-
-- Core scale breath: 1.5–2.5%.
-- Fins move less than 2 px.
-- Ground ring rotates slowly.
-- No vertical bob that changes collision perception.
-
-## 6.3 Movement
-
-- Body leans 3–6° toward velocity.
-- Rear trail length follows speed.
-- Acceleration stretches rear geometry.
-- Deceleration compresses trail.
-- Aim nose follows aim independent of movement.
-
-## 6.4 Firing
-
-- Front fins recoil 2–4 px.
-- Core brightness pulses briefly.
-- Muzzle line lasts under 50 ms.
-- Recoil does not affect physics.
-- Repeated fire remains visually controlled.
-
-## 6.5 Dash
-
-- Body compresses for at most 40 ms of visual anticipation.
-- Dash form becomes a cyan-white vector.
-- Ground ring becomes a directional arc.
-- Trail is continuous but not opaque.
-- Invulnerability uses a clean contour rather than fading the player.
-- Exit emits a small forward particle continuation.
-
-## 6.6 Damage
-
-- White core flash.
-- Red edge pulse.
-- Directional wedge toward source.
-- Ground ring briefly breaks.
-- Reduced-flash mode uses outline thickness, pattern, and vibration instead of brightness.
-
-## 6.7 Death
-
-- Core destabilizes.
-- Fins separate.
-- Ground ring collapses.
-- Cyan moves toward white.
-- Shape fragments.
-- Duration: approximately 700–1100 ms.
-- No gore or uncontrolled debris.
-
----
-
-# 7. Friendly Echo
-
-## 7.1 Identity
-
-The Echo is related to the player but clearly distinct:
-
-- Violet-cyan core.
-- 55–70% opacity.
-- Broken outline.
-- Segmented ground ring.
-- Two or three delayed ghost silhouettes.
-- Mild scan displacement.
-- Thin violet projectiles.
-
-## 7.2 Spawn
-
-- A faint historical path traces toward the replay start.
-- Echo condenses at the replay start.
-- Visual spawn lasts 80–140 ms.
-- Gameplay playback begins immediately.
-- No opaque flash.
-
-## 7.3 Playback
-
-- Exact body position follows recorded data.
-- Ghost trail may lag for style.
-- Dash creates a fragmented prism trail.
-- Firing uses quieter recoil.
-- Echo never displays damage reaction.
-
-## 7.4 Dissolve
-
-- Outline segments detach.
-- Core becomes horizontal fragments.
-- Opacity fades over 300 ms.
-- Memory Burst adds a separate radial ring.
-
----
-
-# 8. Hostile boss copy
-
-The hostile recording is not a simple recolor.
-
-Required:
-
-- Red-black body.
-- Hooked or inverted silhouette.
-- Jagged trail.
-- Solid hostile ground sigil.
-- Distorted low audio.
-- Red-shell/dark-core projectiles.
-- Slightly mechanical movement interpolation.
-- Warning marker before activation.
-
-It must remain distinguishable from the friendly Echo in grayscale.
-
----
-
-# 9. Enemy visual specifications
-
-## 9.1 Shared rules
-
-- Red hostile core.
-- Orange elite accents.
-- Collision body smaller than ornament.
-- Attack state changes line weight, rhythm, or posture.
-- Vulnerability opens geometry, not only color.
-- Spawn uses floor glyph plus assembly.
-- Death animation reflects role.
-
-## 9.2 Drifter
-
-Shape:
-
-- Compact wedge.
-- Two rear fins.
-- Forward core.
-- Low visual mass.
-
-Motion:
-
-- Smooth pursuit.
-- Fins tighten before lunge.
-- Wedge lane appears during anticipation.
-- Miss leaves elongated exposed form.
-
-Death:
-
-- Splits along forward axis.
-
-## 9.3 Sentry
-
-Shape:
-
-- Central eye.
-- Three stabilizing arms.
-- Circular firing aperture.
-
-Motion:
-
-- Arms plant while aiming.
-- Aim line progresses dotted → segmented → solid.
-- Lock closes eye ring.
-
-Death:
-
-- Arms fold inward.
-- Core implodes.
-
-## 9.4 Lancer
-
-Shape:
-
-- Long spear body.
-- Rear stabilizers.
-- Lane marker aligned with body.
-
-Motion:
-
-- Retracts during anticipation.
-- Alignment snap at lock.
-- Charge trail uses red with orange front edge.
-- Recovery shows bent or embedded posture.
-
-Death:
-
-- Longitudinal fracture.
-
-## 9.5 Shard Carrier
-
-Shape:
-
-- Hexagonal body.
-- Three orbit tracks.
-- Triangular satellites.
-
-Motion:
-
-- Slow central rotation.
-- Orbit speed increases before release.
-- Death sends shards along visible trajectories.
-
-Hazards:
-
-- Triangular floor marker.
-- Inward-closing activation ring.
-
-## 9.6 Bulwark
-
-Shape:
-
-- Broad crescent shield.
-- Smaller rear core.
-- Heavy visual mass.
-
-Motion:
-
-- Shield rotates with lag.
-- Rear core opens during stagger.
-- Blocked hits flatten against shield.
-
-Death:
-
-- Shield collapses first.
-- Rear core fragments second.
-
-## 9.7 Suppressor
-
-Shape:
-
-- Central ring.
-- Four emitters.
-- Floating inner core.
-
-Field:
-
-- Circular border.
-- Repeating inward arrows.
-- Faint interior scan distortion.
-- Multiple fields do not multiply opacity.
-
-Death:
-
-- Ring fractures.
-- Field collapses inward.
-
----
-
-# 10. Elite modifier visuals
-
-## 10.1 Overclocked
-
-- Orange secondary lines.
-- Faster trailing accents.
-- Periodic heat pulse.
-- Orange chevrons added to normal telegraph.
-
-## 10.2 Replicating
-
-- Mirrored split line.
-- Copy assembles from one side.
-- Parent and copy briefly show a linked symbol.
-- Copy is visibly incomplete or dimmer.
-
-## 10.3 Resonant
-
-- Thin orange connection lines.
-- Segmented orbital shield plates.
-- Plates flare and close after an allied death.
-- Plate decay shows remaining duration.
-
----
-
-# 11. Boss art specification
-
-## 11.1 Base form
-
-The Null Architect is an arena-integrated machine:
-
-- Black-red central core.
-- Four modular panels.
-- Rotating outer ring.
-- Exposed apertures.
-- Floor-connected circuitry.
-
-Approximate visual diameter: 300–420 px.  
-Minimum vulnerable target size: 40 px.
-
-## 11.2 Phase 1: Observe
-
-- Stable outer ring.
-- Closed panels between vulnerability windows.
-- Attack origins illuminate sequentially.
-- Core aperture opens in white-red.
-
-## 11.3 Phase 2: Imitate
-
-- Ring segments.
-- Violet memory motifs corrupt into red-black fragments.
-- Copy spawn channels become visible.
-- Recorded waveform moves around outer ring.
-
-## 11.4 Phase 3: Delete
-
-- Arena circuits darken by sector.
-- Panels unfold.
-- Rear targets become explicit.
-- Ring rotates unevenly.
-- Sector deletion uses thick boundaries and floor erosion, not only tint.
-
-## 11.5 Destruction
-
-1. Ring stops.
-2. Panels desynchronize.
-3. Core cracks white.
-4. Red drains to black.
-5. Cyan station lines reactivate.
-6. Core fractures.
-7. Background settles.
-
----
-
-# 12. Arena art
-
-## 12.1 Floor
-
-- Dark matte plates.
-- Large patterns, not noisy tiles.
-- Clear walkable/solid distinction.
-- Floor seams cannot resemble attack lines.
-- Detail density decreases near important combat space.
-
-## 12.2 Obstacles
-
-- Heavier border than floor.
-- Raised top surface.
-- Collision matches visible shape.
-- Consistent bevels.
-- Decoration does not extend misleadingly beyond collision.
-
-## 12.3 Background layers
-
-1. Void gradient.
-2. Distant orbital architecture.
-3. Sparse slow stars.
-4. Station framework.
-5. Arena supports.
-
-Movement remains subtle and does not distort aim perception.
-
-## 12.4 Template identity
-
-- Open circle: radial seams.
-- Split pillars: paired monoliths.
-- Four corners: corner reactors.
-- Side channels: conduit trenches.
-- Broken ring: interrupted radial architecture.
-- Offset core: asymmetrical reactor.
-- Twin islands: linked platforms.
-- Boss chamber: integrated central machine.
-
-## 12.5 Hazards
-
-Hazards use:
-
-- Defined border.
-- Repeating motion.
-- Countdown progression.
-- Unique shape.
-- Low-opacity interior.
-- Clear active-state edge.
-
-Decoration never shares the same pulse and border pattern.
-
----
-
-# 13. Projectiles and telegraphs
-
-## 13.1 Player projectile
-
-- Cyan core.
-- Small white front.
-- Soft short tail.
-- Minimal glow.
-
-## 13.2 Echo projectile
-
-- Violet center.
-- Broken/doubled tail.
-- Lower opacity.
-- Same readable collision size.
-
-## 13.3 Enemy projectile
-
-- Red shell.
-- Dark or orange center.
-- Readable body larger than its exact collision radius.
-- Glow cannot merge neighboring projectiles into a solid mass.
-
-## 13.4 Boss projectile
-
-Different behavior requires different geometry. Boss projectiles cannot be visually identical to normal projectiles when their collision or movement differs.
-
-## 13.5 Telegraph phases
-
-Anticipation:
-
-- Dotted/segmented.
-- Lower brightness.
-- Assembling motion.
-
-Tracking:
-
-- Smoothly follows.
-- Yellow caution accent.
-
-Lock:
-
-- Sharp pulse.
-- Solid geometry.
-- Audio tick.
-
-Execution:
-
-- Red/red-orange.
-- Brief brightness peak.
-- Geometry matches actual hit area.
-
-Recovery:
-
-- Attack geometry disappears.
-- Enemy opens or dims.
-- Vulnerable posture becomes visible.
-
----
-
-# 14. Effects system
-
-## 14.1 Effect tiers
-
-### Tier 1: routine
-
-- Standard shot.
-- Minor hit.
-- Movement trail.
-- Normal enemy death.
-
-### Tier 2: meaningful
-
-- Critical.
-- Dash.
-- Echo deployment.
-- Elite attack.
-- Upgrade selection.
-
-### Tier 3: major
-
-- Elite destruction.
-- Boss phase.
-- Player death.
-- Victory.
-- Final boss destruction.
-
-## 14.2 Particles
-
-- Simple polygons, lines, and circles.
-- Semantic color.
-- Short lifetime.
-- Directional motion.
-- Global cap.
-- Reduced mode lowers count but preserves core feedback.
-- Particle sizes never resemble hostile projectiles.
-- Emitters have explicit owners and cleanup.
-
-## 14.3 Screen shake
-
-- Directional where possible.
-- Small for routine impacts.
-- Strongest for player damage, elite death, and boss events.
-- Global cap prevents stacking.
-- User scale can reach zero.
-
-## 14.4 Hitstop
-
-- Normal enemy: usually none.
-- Critical/heavy event: 15–30 ms.
-- Elite death: 25–45 ms.
-- Boss transitions: scripted.
-- Repeated hitstop cannot create stutter.
-
-## 14.5 Full-screen overlays
-
-Allowed:
-
-- Brief damage vignette.
-- Scene fade.
-- Boss phase pulse.
-- Victory wash.
-
-Forbidden:
-
-- Continuous heavy bloom.
-- Strong motion blur.
-- Persistent chromatic aberration.
-- Opaque red damage overlay.
-- Constant full-screen scanlines.
-- Random glitch spam.
-
----
-
-# 15. UI visual system
-
-## 15.1 Typography
-
-Use a readable geometric sans-serif.
-
-Requirements:
-
-- Clear numerals.
-- Distinct `1/I` and `0/O`.
-- No stylized body text.
-- Maximum one display family and one body family.
-- Robust fallback stack.
-- Legible at minimum viewport.
-
-## 15.2 Type hierarchy
-
-| Use | Size range |
-|---|---:|
-| Main title | 56–84 px |
-| Major result | 44–60 px |
-| Scene heading | 32–40 px |
-| Upgrade title | 24–30 px |
-| Body | 18–22 px |
-| Secondary | 15–18 px |
-| Debug | 12–14 px |
-
-## 15.3 Panels
-
-- Dark opaque surface.
-- Thin cyan or muted border.
-- Consistent 6–10 px radius or clipped corners.
-- Minimal transparency over gameplay.
-- No blur dependency.
-- Focus adds bright border and directional markers.
-
-## 15.4 Buttons
-
-States:
-
-- Default.
-- Hover.
-- Keyboard focus.
-- Pressed.
-- Disabled.
-- Destructive.
-
-Keyboard focus must be more obvious than mouse hover.
-
-## 15.5 Upgrade cards
-
-Each card includes:
-
-- Category strip.
-- Icon.
-- Name.
-- Current level.
-- Exact values.
-- Tactical sentence.
-- Tags.
-- Focus state.
-
-Focus animation:
-
-- Border emphasis.
-- Less than 2% scale.
-- Slight background lift.
-- No large bounce.
-
-## 15.6 HUD
-
-- Low visual mass.
-- No center-screen opaque panel.
-- Cooldown arcs combine shape and fill.
-- Health damage uses delayed trailing segment.
-- Combo stays near score.
-- Boss health appears only during boss.
-
----
-
-# 16. Menu presentation
-
-## 16.1 Main menu
-
-- Slow orbital architecture.
-- One looping Echo path.
-- Sparse particles.
-- No active enemies.
-- Low contrast.
-- Title remains dominant.
-
-## 16.2 Transitions
-
-Preferred:
-
-- Horizontal memory wipe.
-- Fragmented dissolve.
-- Controlled fade.
+- circles and arcs for signal zones;
+- triangles and wedges for danger direction;
+- line segments for vectors and replay paths;
+- hexagonal and rectangular framing for system interfaces;
+- rings for cooldowns and invulnerability;
+- waveform ribbons for audio-signal identity;
+- offset duplicate outlines for Echoes and hostile interference.
 
 Avoid:
 
-- Random glitch noise.
-- Excessive scan jumps.
-- Frequent white flashes.
-
-## 16.3 Results
-
-Victory:
-
-- Red recedes.
-- Cyan and mint return.
-- Calm background.
-
-Defeat:
-
-- Stable dark frame.
-- No chaotic red flashing.
-
-Score counting:
-
-- Restrained pulse.
-- Skippable.
-- New unlock uses clear dedicated reveal.
+- organic fantasy ornamentation;
+- painterly textures;
+- realistic military assets;
+- heavy skeuomorphism;
+- overuse of particle clouds;
+- excessively rounded mobile-app visual language.
 
 ---
 
-# 17. Animation grammar
+## 3. Color system
 
-## 17.1 Anticipation
+### 3.1 Core palette
 
-- Compress.
-- Gather lines inward.
-- Slow briefly.
-- Increase pattern density.
+The exact implementation values may be adjusted for contrast, but the semantic color roles are fixed.
 
-## 17.2 Execution
+| Role | Color direction | Usage |
+|---|---|---|
+| Void background | Near-black blue-violet | Global background |
+| World surface | Deep navy | Arena surfaces and panels |
+| Player signal | Bright cyan | Player body, shots, aim line |
+| Friendly Echo | Electric violet | Echo body, Echo shots, replay trace |
+| Enemy default | Desaturated red-magenta | Enemy silhouettes and damage telegraphs |
+| Elite accent | Orange-gold | Elite frames, modifier markers |
+| Boss core | Saturated crimson with white center | Boss focal elements |
+| Success state | Mint green | Unlocks, valid selections, successful gates |
+| Warning state | Warm yellow | Caution, nearing cooldown, recovery prompts |
+| Disabled state | Cool gray | Locked or unavailable controls |
+| Text primary | Soft white-blue | Main labels and body text |
+| Text secondary | Muted slate-blue | Supporting information |
 
-- Expand sharply.
-- Move in locked direction.
-- Brighten edge.
-- Emit short trail.
+### 3.2 Contrast rules
 
-## 17.3 Recovery
-
-- Open silhouette.
-- Reduce brightness.
-- Slow movement.
-- Expose core.
-
-## 17.4 Damage
-
-- Brief deformation.
-- Directional flash.
-- Small recoil.
-- No random spin unless death requires it.
-
-## 17.5 Death by role
-
-- Drifter: forward split.
-- Sentry: inward fold.
-- Lancer: axial fracture.
-- Carrier: orbit collapse.
-- Bulwark: shield collapse.
-- Suppressor: field implosion.
+- Player and friendly Echo colors must never be reused for enemies.
+- Elite markers must remain visible against both red-magenta and dark backgrounds.
+- Boss telegraphs require shape differences, not color only.
+- Important UI text must meet practical high-contrast readability standards.
+- Reduced-flash mode may reduce intensity but must not remove state communication.
+- High-contrast mode increases outline brightness and panel separation.
 
 ---
 
-# 18. Asset-production rules
+## 4. Background and arena rendering
 
-## 18.1 Procedural-first assets
+### 4.1 Global background
 
-Create through code/vector descriptions:
+The backdrop uses layered procedural elements:
 
-- Player.
-- Echo.
-- Enemies.
-- Projectiles.
-- Upgrade icons.
-- Arena walls.
-- Floor motifs.
-- Telegraphs.
-- Particles.
-- Portals.
-- HUD symbols.
+1. solid near-black field;
+2. large, faint gradient vignette;
+3. very subtle scanlines;
+4. sparse drifting signal particles;
+5. low-opacity waveform bands;
+6. occasional distant glitch pulses.
 
-## 18.2 Raster use
+These layers must be extremely restrained during combat.
 
-Permitted for:
+### 4.2 Arena surface
 
-- Main-menu backdrop.
-- Social preview.
-- Repository banner.
-- Optional loading art.
-- Concept reference.
+Each arena is a bounded geometric chamber displayed from above.
 
-Raster sprites are not required for gameplay.
+Required arena layers:
 
-## 18.3 Texture quality
+- outer boundary frame;
+- inner playable floor;
+- obstacle silhouettes;
+- low-opacity grid or scanline system;
+- chamber-specific decorative motifs;
+- spawn markers;
+- gate markers;
+- recovery-state lighting changes.
 
-- Generate at correct size.
-- Avoid unintended resampling blur.
-- Select filtering intentionally.
-- Tight transparent bounds.
-- No visible seams.
-- Use atlases only where beneficial.
+### 4.3 Arena silhouettes
 
-## 18.4 Text policy
+Arenas must be identifiable at a glance by broad geometry:
 
-All readable text is rendered by the UI. Never embed generated text inside art assets.
+- Relay Chamber: segmented corridors and relay-node circles;
+- Split Channel: divided lanes and narrow connection points;
+- Crossline: intersecting horizontal and vertical combat bands;
+- Interference Vault: inward pressure, dense pillars, central kill zone;
+- Feedback Ring: circular outer flow with inner obstruction cluster;
+- Dead Signal Grid: open field with isolated anchor nodes.
 
----
+### 4.4 Obstacle readability
 
-# 19. Accessibility modes
+Obstacles must have:
 
-## 19.1 Reduced flashes
+- clear collision silhouette;
+- stable world-space position;
+- non-animated core geometry;
+- edge highlight distinct from floor;
+- no decorative particles crossing their collision boundaries.
 
-- Replace brightness with outline, scale, and pattern.
-- Cap full-screen luminance shifts.
-- Preserve timing cues.
-
-## 19.2 Reduced particles
-
-- Reduce count by approximately 60%.
-- Keep core hit confirmation.
-- Keep all telegraphs.
-- Keep player locator.
-
-## 19.3 High contrast
-
-- Stronger player outline.
-- Darker environment.
-- Projectile borders.
-- Attack icons.
-- Increased HUD separation.
-
-## 19.4 Colorblind telegraphs
-
-- Sentry: dotted-to-solid line with arrowhead.
-- Lancer: rectangle with moving chevrons.
-- Hazard: patterned border.
-- Friendly Echo: segmented ring.
-- Hostile copy: hooked sigil.
+Players should never mistake an obstacle for a background decoration.
 
 ---
 
-# 20. Visual performance constraints
+## 5. Player visual design
 
-- Maximum particles: 180.
-- No more than two large translucent overlays.
-- Pre-generate reusable textures.
-- Reuse emitters.
-- Limit blend modes.
-- Keep telegraph geometry simple.
-- Avoid complex Graphics paths per frame.
-- Update ambient decoration at reduced frequency.
-- Disable inactive visual systems.
-- Preserve strict layer order.
+### 5.1 Player silhouette
+
+The Warden is represented by a compact, directional geometric form.
+
+Recommended structure:
+
+- central circle or hexagonal core;
+- forward-facing wedge or double-line nose;
+- rear stabilizer lines;
+- rotating aim axis;
+- subtle circular health ring;
+- cyan edge glow;
+- bright white-cyan core pulse.
+
+The silhouette must make facing direction obvious.
+
+### 5.2 Player motion
+
+Movement effects:
+
+- short trailing line fragments;
+- subtle core stretch based on speed;
+- acceleration pulse;
+- deceleration settling glow;
+- wall-contact spark line.
+
+Avoid large smoke-like trails.
+
+### 5.3 Dash visual
+
+Dash presentation:
+
+- immediate forward line burst;
+- compressed afterimage trail;
+- brief body elongation along dash vector;
+- cyan ring contraction at dash start;
+- white-cyan flash at dash end;
+- reduced-flash alternative using outline expansion only.
+
+### 5.4 Player damage
+
+On damage:
+
+- red-white outline pulse;
+- brief chromatic offset;
+- health ring decrement;
+- directional impact wedge;
+- restrained camera shake;
+- optional damage number if enabled.
+
+The player must remain visible throughout the effect.
 
 ---
 
-# 21. Art acceptance criteria
+## 6. Friendly Echo visual design
 
-The visual system passes when:
+### 6.1 Echo body
 
-- Player is identifiable in grayscale.
-- Friendly Echo and hostile copy are distinct in grayscale.
-- Every enemy is recognizable by silhouette.
-- Every attack has anticipation and lock cues.
-- Decoration cannot be mistaken for danger.
-- Solid collision matches visuals.
-- Maximum intensity remains readable.
-- Reduced-effects mode preserves all gameplay information.
-- UI is legible at minimum viewport.
-- Effects share one visual language.
-- No generated image contains unreadable text.
-- Every scene appears complete and related.
+The Echo is a recognizable copy of the player with altered rendering:
+
+- violet color identity;
+- semi-transparent interior;
+- doubled outline offset by a few pixels;
+- trailing replay line;
+- slightly reduced scale or brightness;
+- intermittent scanline dropout;
+- no health ring unless an upgrade adds one.
+
+The Echo must never be mistaken for the live player.
+
+### 6.2 Replay trace
+
+The Echo replay should leave a brief trace showing its remembered path.
+
+Trace characteristics:
+
+- thin violet line;
+- fades over approximately 0.5 seconds;
+- segmented at sample boundaries;
+- slightly brighter at action events;
+- does not persist indefinitely;
+- reduced-particle mode shortens or removes the trace.
+
+### 6.3 Echo deployment
+
+Deployment effect:
+
+1. violet ring opens around player;
+2. recorded path flashes faintly;
+3. Echo silhouette resolves from scanlines;
+4. a short waveform pulse travels outward;
+5. cooldown ring resets.
+
+### 6.4 Echo dissolution
+
+At replay end:
+
+- body fragments into horizontal scanline segments;
+- trace contracts toward final position;
+- violet pulse fades;
+- no explosive particle cloud.
+
+### 6.5 Multiple friendly Echoes
+
+If extra Echo upgrades are active:
+
+- secondary Echoes use hue-adjacent violet variants;
+- each Echo receives a small numeric glyph or line marker;
+- all remain distinct from hostile Echoes.
 
 ---
 
-# 22. Art risk register
+## 7. Hostile Echo visual design
 
-| Risk | Mitigation |
-|---|---|
-| Excessive neon glow | Reserve brightness, cap glow, test grayscale |
-| Echo clutter | Lower opacity, fragmented trail, strict cap |
-| Similar enemy silhouettes | Unique proportions and motion grammar |
-| Procedural art looks primitive | Layered components, materials, animation discipline |
-| Background competes | Low contrast and saturation |
-| Particles hide attacks | Telegraphs above effects |
-| UI looks generic | Custom geometry and strict type hierarchy |
-| Hostile copy resembles friendly Echo | Separate silhouette, sigil, trail, sound, and projectile language |
+### 7.1 Identity
+
+The hostile Echo is not merely a red clone.
+
+Required differences:
+
+- inverted color structure: dark body with hot crimson-white edges;
+- heavier horizontal distortion;
+- reverse-direction trace animation;
+- unstable outline jitter;
+- sharp triangular error glyphs;
+- attack telegraphs in red-white interference bands.
+
+### 7.2 Recorded-run implication
+
+The hostile Echo should visibly imply that it is replaying something remembered:
+
+- path trace appears before movement begins;
+- action points briefly mark predicted shot locations;
+- dead-time phase appears as a flickering gap;
+- replay loop has a visible reset pulse.
+
+### 7.3 Vulnerability phase
+
+During dead time:
+
+- body outline stabilizes;
+- red interference reduces;
+- center turns pale and exposed;
+- vulnerability ring appears;
+- path trace stops moving.
+
+This must be visually obvious without text.
+
+---
+
+## 8. Enemy family art direction
+
+### 8.1 Drifter
+
+Shape:
+
+- soft diamond or circular core;
+- small rear fins;
+- broad, gentle facing indicator.
+
+Visual behavior:
+
+- smooth translation;
+- restrained pulsing;
+- low-threat telegraphs.
+
+### 8.2 Sentry
+
+Shape:
+
+- anchored square or hexagonal base;
+- rotating central turret line;
+- charge ring around the core.
+
+Visual behavior:
+
+- remains spatially stable;
+- charge ring fills before firing;
+- shot line flashes just before attack.
+
+### 8.3 Skirmisher
+
+Shape:
+
+- narrow spearhead;
+- lateral wing marks;
+- short motion streaks.
+
+Visual behavior:
+
+- side-to-side motion;
+- rapid directional shifts;
+- flank angle indicated by small arc glyphs.
+
+### 8.4 Bulwark
+
+Shape:
+
+- thick rectangular or shield-like front;
+- smaller vulnerable rear core;
+- segmented front plating.
+
+Visual behavior:
+
+- frontal plate glows when blocking;
+- rear core pulses when exposed;
+- rotation is deliberate and readable.
+
+### 8.5 Anchor
+
+Shape:
+
+- central node with radiating connection lines;
+- triangular support points;
+- visible tether beams to allies.
+
+Visual behavior:
+
+- healing or buff links remain thin and clear;
+- support pulses travel along links;
+- support interruption produces a snapped-line effect.
+
+### 8.6 Sniper
+
+Shape:
+
+- long narrow body;
+- pronounced aiming line;
+- compact firing core.
+
+Visual behavior:
+
+- long charge line;
+- target marker at predicted impact point;
+- immediate cooldown fade after shot.
+
+### 8.7 Splitter
+
+Shape:
+
+- tri-lobed or segmented body;
+- visible internal split seams.
+
+Visual behavior:
+
+- seams brighten near death;
+- split event creates smaller, simplified silhouettes;
+- spawned units are visually lighter than the original.
+
+---
+
+## 9. Elite visual treatment
+
+Elite enemies retain base-family readability and receive a consistent elite frame.
+
+Elite layers:
+
+- orange-gold outer ring;
+- small modifier glyph near health bar;
+- brighter core;
+- slightly thicker silhouette;
+- restrained particle orbit;
+- modifier-specific accent.
+
+Modifier visuals:
+
+### 9.1 Phase-Rush
+
+- broken double outline;
+- forward dash vector indicator;
+- short teleport-like line collapse without actual teleporting.
+
+### 9.2 Volatile
+
+- unstable orange-red internal pulse;
+- death-radius ring becomes visible shortly before death;
+- explosion uses geometric shards, not smoke.
+
+### 9.3 Bulwarked
+
+- front-facing segmented arc;
+- shield integrity indicated by arc brightness;
+- rear core remains visible.
+
+### 9.4 Regenerative
+
+- green-gold inward particle flow;
+- healing pulse circles;
+- effect pauses visibly when regeneration is interrupted.
+
+### 9.5 Duplicating
+
+- faint offset ghost silhouette;
+- duplication timer represented by orbiting split markers;
+- spawned copy uses reduced elite frame intensity.
+
+### 9.6 Frenzied
+
+- faster internal waveform;
+- motion lines increase as health decreases;
+- strong but controlled hot-color shift.
+
+---
+
+## 10. Boss visual design
+
+### 10.1 Boss silhouette
+
+The boss should dominate the arena without becoming visually noisy.
+
+Recommended structure:
+
+- large central signal core;
+- concentric broken rings;
+- rotating interference arms;
+- phase-dependent outer geometry;
+- multiple telegraph emitters;
+- bright exposed center during vulnerability.
+
+### 10.2 Phase one
+
+Visual theme: **signal acquisition**.
+
+- stable core;
+- clean ring rotation;
+- broad sweep lines;
+- moderate red-crimson glow.
+
+### 10.3 Phase two
+
+Visual theme: **interference escalation**.
+
+- split outer ring;
+- more aggressive chromatic offset;
+- crossing telegraph bands;
+- intermittent field distortion.
+
+### 10.4 Phase three
+
+Visual theme: **signal collapse**.
+
+- fragmented ring geometry;
+- bright white-crimson core;
+- unstable waveform shell;
+- rapid warning glyphs;
+- stronger arena reaction.
+
+### 10.5 Boss health display
+
+Boss health uses:
+
+- large top-center bar;
+- segmented phase markers;
+- phase-name caption;
+- vulnerability status;
+- no unnecessary numeric clutter unless accessibility mode requests it.
+
+---
+
+## 11. Projectile visual language
+
+### 11.1 Player projectiles
+
+- small cyan line or diamond;
+- bright head, short tail;
+- no heavy glow.
+
+### 11.2 Echo projectiles
+
+- violet twin-line form;
+- slightly transparent;
+- action-event pulse at spawn.
+
+### 11.3 Enemy projectiles
+
+- red-magenta with shape variation by family;
+- Sentry: compact round pulse;
+- Sniper: thin high-speed line;
+- Splitter: branching shard;
+- boss: phase-specific geometry.
+
+### 11.4 Projectile contrast
+
+Projectiles must remain readable at all arena backgrounds and quality settings.
+
+---
+
+## 12. HUD art direction
+
+### 12.1 HUD philosophy
+
+The HUD is a tactical signal monitor, not a decorative overlay.
+
+It should be:
+
+- minimal;
+- high contrast;
+- fixed in screen space;
+- compact;
+- readable during motion;
+- consistent across viewport sizes.
+
+### 12.2 HUD zones
+
+Recommended layout:
+
+Top-left:
+
+- player health;
+- dash status;
+- Echo cooldown;
+- active Echo count.
+
+Top-center:
+
+- chamber;
+- encounter progress;
+- boss health when relevant.
+
+Top-right:
+
+- score;
+- combo;
+- multiplier;
+- challenge indicator.
+
+Bottom-left:
+
+- contextual hints;
+- accessibility prompts;
+- warning messages.
+
+Bottom-right:
+
+- upgrade summary;
+- active temporary effects;
+- seed indicator in debug mode only.
+
+### 12.3 Health display
+
+- segmented cyan bar;
+- damage shown as brief delayed trailing segment;
+- critical state uses shape pulse and sound, not color alone.
+
+### 12.4 Echo status
+
+Echo cooldown should be one of the strongest HUD elements.
+
+Display:
+
+- circular or horizontal cooldown meter;
+- `READY` state;
+- active Echo duration;
+- extra Echo charges if upgraded;
+- failure warning if replay data is unavailable.
+
+### 12.5 Combo display
+
+Combo presentation:
+
+- multiplier is large and readable;
+- meter decay is visible;
+- threshold crossings create short waveform pulses;
+- does not cover enemy telegraphs.
+
+---
+
+## 13. Menus and panels
+
+### 13.1 Panel structure
+
+Panels use:
+
+- dark navy fill;
+- thin cyan or slate border;
+- angular corners;
+- small decorative signal ticks;
+- clear title hierarchy;
+- consistent padding.
+
+### 13.2 Focus state
+
+Keyboard focus must be visually obvious.
+
+Focused buttons receive:
+
+- brighter border;
+- left-side signal marker;
+- slight horizontal offset;
+- subtle audio cue.
+
+Hover state may be lighter than keyboard focus but should remain consistent.
+
+### 13.3 Disabled and locked states
+
+- reduced contrast;
+- lock glyph;
+- explanatory subtext;
+- no reliance on opacity alone.
+
+---
+
+## 14. Upgrade card art direction
+
+Upgrade cards use:
+
+- category color stripe;
+- simple procedural glyph;
+- readable name;
+- concise description;
+- stack count;
+- rarity or unlock state if used;
+- clear selected/focused frame.
+
+Card categories:
+
+- offense: cyan-white;
+- Echo offense: violet;
+- defense: mint;
+- utility: yellow;
+- high-risk or special: orange-red.
+
+No external art is required. Glyphs are procedural combinations of:
+
+- lines;
+- arcs;
+- triangles;
+- circles;
+- waveforms.
+
+---
+
+## 15. Results and archive presentation
+
+### 15.1 Results screen
+
+The results screen should feel like a recovered transmission report.
+
+Elements:
+
+- final score;
+- survival result;
+- boss result;
+- longest combo;
+- Echo performance;
+- unlocks;
+- recent records;
+- restart and return actions.
+
+Presentation uses:
+
+- large central score;
+- waveform summary line;
+- signal-quality rating;
+- compact statistics columns.
+
+### 15.2 Run archive
+
+The archive resembles a technical record database.
+
+Each run entry includes:
+
+- date;
+- seed;
+- difficulty;
+- score;
+- result;
+- longest combo;
+- prominent upgrades;
+- hostile Echo availability marker.
+
+---
+
+## 16. Particle and effect guidelines
+
+### 16.1 Particle budget
+
+Particles must be pooled and bounded.
+
+Use particles for:
+
+- impacts;
+- dash residue;
+- Echo deploy/dissolve;
+- elite death;
+- boss phase changes;
+- unlock celebration.
+
+Do not use particles for:
+
+- persistent ambient clutter;
+- every movement frame;
+- large opaque clouds;
+- effects that hide projectiles.
+
+### 16.2 Screen shake
+
+Shake hierarchy:
+
+- player hit: low;
+- elite death: low to medium;
+- boss heavy attack: medium;
+- boss death: medium to high;
+- no constant micro-shake.
+
+Shake must respect accessibility settings.
+
+### 16.3 Flashing
+
+- avoid rapid full-screen flashes;
+- reduced-flash mode replaces flashes with outline expansions and color holds;
+- critical telegraphs use duration and shape, not flicker rate.
+
+---
+
+## 17. Accessibility visual rules
+
+Required visual options:
+
+- reduced screen shake;
+- reduced flashes;
+- reduced particles;
+- high-contrast mode;
+- damage numbers toggle;
+- aim-line toggle;
+- HUD opacity setting.
+
+Accessibility settings must not alter simulation state.
+
+High-contrast mode:
+
+- brightens outline edges;
+- increases obstacle separation;
+- thickens projectile shapes;
+- strengthens text panels;
+- adds extra elite and boss markers.
+
+Reduced-particle mode:
+
+- shortens trails;
+- reduces ambient particles;
+- preserves hit confirmation;
+- preserves Echo distinction.
+
+---
+
+## 18. Responsive layout rules
+
+Reference design resolution:
+
+- 1600×900.
+
+Supported viewport strategy:
+
+- scale the game canvas while preserving 16:9 content;
+- letterbox when necessary;
+- keep HUD within safe margins;
+- reflow settings and archive panels at smaller desktop sizes;
+- do not support mobile touch controls in Version 1.0.
+
+Minimum target desktop viewport:
+
+- 1024×576.
+
+---
+
+## 19. Procedural texture generation
+
+All visual assets should be generated in code where practical.
+
+Procedural assets include:
+
+- player and Echo textures;
+- enemy silhouettes;
+- elite rings;
+- boss rings and arms;
+- projectiles;
+- panel corners;
+- upgrade glyphs;
+- arena grid textures;
+- signal particles;
+- scanlines;
+- waveform effects.
+
+Generated textures must:
+
+- have deterministic dimensions;
+- be cached;
+- avoid recreation every frame;
+- be disposed only at application shutdown.
+
+---
+
+## 20. Animation timing guidelines
+
+Recommended durations:
+
+| Animation | Duration |
+|---|---:|
+| Button focus shift | 80–120 ms |
+| Player hit flash | 100–160 ms |
+| Dash body stretch | 80–120 ms |
+| Echo deploy | 180–260 ms |
+| Echo dissolve | 180–300 ms |
+| Enemy spawn | 250–450 ms |
+| Elite modifier pulse | 600–1000 ms cycle |
+| Boss phase transition | 800–1400 ms |
+| Upgrade card reveal | 120–180 ms stagger |
+| Unlock reveal | 500–900 ms |
+
+Animations should be brief, readable, and cancel safely on scene teardown.
+
+---
+
+## 21. Visual failure conditions
+
+The art implementation fails if:
+
+- player and Echo are difficult to distinguish;
+- hostile Echo resembles friendly Echo too closely;
+- projectiles disappear against the arena;
+- elite modifiers are not readable;
+- boss telegraphs are obscured by effects;
+- HUD overlaps combat-critical space;
+- reduced-flash mode removes necessary cues;
+- viewport scaling hides controls;
+- background decoration resembles collision geometry;
+- procedural textures are regenerated repeatedly;
+- particles are unbounded.
+
+---
+
+## 22. Target visual outcome
+
+The final game should look like a polished, coherent, high-contrast signal-combat system.
+
+The player should be able to identify, at a glance:
+
+- themselves;
+- friendly Echoes;
+- hostile Echoes;
+- enemy roles;
+- elite modifiers;
+- boss phase;
+- Echo readiness;
+- combo state;
+- danger direction;
+- recovery opportunity.
+
+The art direction succeeds when the game feels distinctive without compromising mechanical readability.

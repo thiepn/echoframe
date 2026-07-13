@@ -1,0 +1,160 @@
+{
+  "generatedAt": "2026-07-11T23:04:06.808Z",
+  "task": "Version 1.0.1 comprehensive polish",
+  "branch": "upgrade/v1.0.1-comprehensive-polish",
+  "baseline": "36fcb390bb3cfaa735ac8a8204e61989210c7c6a",
+  "canonicalDocumentsChanged": false,
+  "phases": [
+    {
+      "phase": "0",
+      "status": "completed",
+      "summary": "Recovered the baseline tree, verified canonical hashes, and recorded baseline lint/test/build evidence.",
+      "files": [
+        "docs/V1_0_1_BASELINE_AUDIT.json",
+        "docs/V1_0_1_EXECUTION_LEDGER.json",
+        "docs/V1_0_1_EXECUTION_LEDGER.md"
+      ]
+    },
+    {
+      "phase": "1",
+      "status": "completed",
+      "summary": "Installed stable tooling, normalized package metadata, and archived superseded workflows.",
+      "files": [
+        "package.json",
+        "package-lock.json",
+        ".prettierrc",
+        ".prettierignore",
+        ".github/workflows/ci.yml",
+        ".github/workflows/certify-release.yml",
+        ".github/workflows/publish-release.yml",
+        "docs/evidence/v1.0.0/workflows/",
+        "tests/workflowSecurity.test.js"
+      ]
+    },
+    {
+      "phase": "2",
+      "status": "completed",
+      "summary": "Added deterministic Version 1.0 save fixtures, explicit schema migration coverage, and normalized imported/generated history.",
+      "files": [
+        "tests/fixtures/v1.0.0/",
+        "tests/saveCompatibility.test.js",
+        "scripts/validate-save-compatibility.mjs",
+        "src/state/SaveSchema.js",
+        "src/state/SaveManager.js",
+        "src/state/defaultSaveData.js"
+      ]
+    },
+    {
+      "phase": "3",
+      "status": "completed",
+      "summary": "Replaced phase-number package interfaces with stable validation/audit commands and added one production-safe, validation-only semantic API.",
+      "files": [
+        "package.json",
+        "src/main.js",
+        "src/utils/validationInterface.js",
+        "scripts/v1.0.1-*.mjs",
+        "tests/validationInterface.test.js"
+      ]
+    },
+    {
+      "phase": "4",
+      "status": "completed",
+      "summary": "Added visual quality profiles, deterministic presentation budgets, and settings plumbing without changing gameplay authority.",
+      "files": [
+        "src/data/visualQuality.js",
+        "src/state/defaultSaveData.js",
+        "src/state/SaveSchema.js",
+        "src/systems/SettingsManager.js",
+        "src/systems/EffectManager.js",
+        "src/systems/CameraController.js",
+        "src/scenes/SettingsScene.js",
+        "tests/visualQuality.test.js"
+      ]
+    },
+    {
+      "phase": "5",
+      "status": "completed",
+      "summary": "Extracted a shared combat-runtime composer used by RunScene and BossScene with explicit reverse-order teardown.",
+      "files": [
+        "src/runtime/CombatRuntimeFactory.js",
+        "src/scenes/RunScene.js",
+        "src/scenes/BossScene.js",
+        "tests/combatRuntimeFactory.test.js"
+      ]
+    },
+    {
+      "phase": "6",
+      "status": "completed",
+      "summary": "Added layered Warden/Echo rendering, renderer snapshots, movement/buffering surfaces, and readability assertions.",
+      "files": [
+        "src/graphics/WardenRenderer.js",
+        "src/graphics/EchoRenderer.js",
+        "src/entities/Player.js",
+        "src/entities/Echo.js",
+        "tests/rendererSnapshots.test.js"
+      ]
+    },
+    {
+      "phase": "7",
+      "status": "completed",
+      "summary": "Added enemy/boss/arena renderer composition and presentation state while preserving collision, AI, and deterministic generation.",
+      "files": [
+        "src/graphics/EnemyRenderer.js",
+        "src/graphics/BossRenderer.js",
+        "src/graphics/ArenaRenderer.js",
+        "src/entities/Enemy.js",
+        "src/entities/Boss.js",
+        "src/arena/ArenaBuilder.js",
+        "src/scenes/BossScene.js"
+      ]
+    },
+    {
+      "phase": "8",
+      "status": "completed",
+      "summary": "Reworked combat HUD telemetry and score settlement state without changing authoritative score totals.",
+      "files": [
+        "src/scenes/HUDScene.js",
+        "src/scoring/ScoreManager.js",
+        "src/scenes/ResultsScene.js"
+      ]
+    },
+    {
+      "phase": "9",
+      "status": "completed",
+      "summary": "Expanded layered procedural ambience, Echo/boss audio identity, pause-safe music state, and visibility-safe audio behavior.",
+      "files": [
+        "src/systems/AudioManager.js",
+        "src/systems/MusicStateController.js"
+      ]
+    },
+    {
+      "phase": "10",
+      "status": "completed",
+      "summary": "Added p95/p99 hitch evidence, visual matrix automation, pool failure diagnostics, and long-session lifecycle evidence.",
+      "files": [
+        "scripts/v1.0.1-performance-validation.mjs",
+        "scripts/v1.0.1-visual-matrix.mjs",
+        "scripts/v1.0.1-long-session.mjs",
+        "src/utils/Pool.js",
+        "src/utils/PoolDiagnostics.js"
+      ]
+    },
+    {
+      "phase": "11",
+      "status": "completed",
+      "summary": "Added deterministic bundle grouping, manifest-bound packaging, release verification, performance comparison, and release documentation generation.",
+      "files": [
+        "vite.config.js",
+        "scripts/generate-repository-manifest.mjs",
+        "scripts/report-v1.0.1-performance.mjs",
+        "scripts/package-v1.0.1-release.mjs",
+        "scripts/verify-v1.0.1-release.mjs",
+        "docs/V1_0_1_REPOSITORY_MANIFEST.json",
+        "docs/V1_0_1_PERFORMANCE_REPORT.json",
+        "docs/V1_0_1_VALIDATION_REPORT.md",
+        "docs/V1_0_1_RELEASE_CHECKLIST.md",
+        "docs/RELEASE_NOTES_v1.0.1.md"
+      ]
+    }
+  ]
+}

@@ -1,101 +1,23 @@
 # ECHOFRAME: LAST SIGNAL
 
-**Version:** `1.0.0`  
-**Release label:** Version 1.0  
-**Tag:** `v1.0.0`
+ECHOFRAME: LAST SIGNAL is a deterministic desktop browser action-roguelite built with Phaser 3.90.0, JavaScript ES modules, Vite, and Arcade Physics.
 
-ECHOFRAME: LAST SIGNAL is a deterministic top-down Phaser 3 browser action game. The Warden records recent movement, aim, fire, and dash actions, then deploys temporary friendly Echoes that replay that history.
+**Fight with your past. Rebuild the signal.**
 
-A complete run contains six combat or elite chambers, seven upgrade selections, a recovery chamber, and the three-phase Null Architect boss.
+## Version 1.0.1 stabilization candidate
 
-## Version 1.0 highlights
+- Package version: `1.0.1`
+- Runtime version: `1.0.1`
+- Save schema: `2` (unchanged)
+- Release state: candidate only; no tag, GitHub Release, or public deployment is claimed by this branch
+- Canonical design authority: `GAME_DESIGN.md`, `TECHNICAL_SPEC.md`, `ART_DIRECTION.md`, `BALANCE_SPEC.md`, `QA_CHECKLIST.md`
 
-- Playable **First Signal** tutorial using the production movement, weapon, projectile, damage, recording, and friendly-Echo systems.
-- Fresh-save tutorial routing, returning-player bypass, persistent completion, and Archive replay without score or progression rewards.
-- Twenty-four upgrades, deterministic arenas and encounters, immutable score ledger, combo system, progression, Archive, Statistics, Settings, Credits, and Results.
-- Serializable keyboard and pointer bindings with primary and secondary slots, conflict rejection, persistence, immediate runtime refresh, and canonical default restoration.
-- Accessibility controls for motion, flashes, particles, contrast, outlines, player locator, HUD opacity, damage numbers, and aim line.
-- Local-only schema-2 save data with deterministic schema-1 migration and validated import/export.
-- Real hosted Chromium and Firefox certification, root/subpath validation, cross-browser deterministic comparison, lifecycle testing, long-session testing, performance gates, clean-extraction packaging, and public-site validation workflows.
+## Quick start
 
-## Complete routes
+Requirements:
 
-Fresh save:
-
-```text
-Main Menu
-→ First Signal Tutorial
-→ Combat 1 → Upgrade 1
-→ Combat 2 → Upgrade 2
-→ Elite 1 → Upgrade 3
-→ Combat 3 → Upgrade 4
-→ Combat 4 → Upgrade 5
-→ Elite 2 → Upgrade 6
-→ Recovery Chamber → Final Upgrade 7
-→ Null Architect
-→ Victory or Defeat Results
-```
-
-Returning save:
-
-```text
-Main Menu → Combat 1 → complete run
-```
-
-Tutorial replay:
-
-```text
-Main Menu → Archive → Replay Tutorial → Archive
-```
-
-## Default controls
-
-| Action | Default binding |
-|---|---|
-| Move | `W`, `A`, `S`, `D` |
-| Aim | Mouse pointer |
-| Fire | Left mouse button |
-| Dash | Left Shift or right mouse button |
-| Deploy Echo | Space |
-| Pause | Escape |
-| Menu navigation | Arrow keys |
-| Menu confirm | Enter |
-| Menu cancel/back | Escape |
-
-Gameplay bindings can be changed in **Settings → Controls**. Fixed menu navigation remains intentionally non-remappable in Version 1.0.
-
-## Browser and viewport support
-
-- Desktop Chromium-family browsers
-- Desktop Firefox/Gecko
-- Keyboard and mouse
-- Browser zoom: 100%
-- Minimum supported CSS viewport: `1024 × 576`
-- Static hosting at `/` or a repository subpath
-- Web Audio begins only after a user gesture
-
-Safari/WebKit, mobile/touch, and gamepad support are not claimed. Exact browser versions and results are recorded in `docs/PHASE13_FINAL_CHROMIUM_VALIDATION.json`, `docs/PHASE13_FINAL_FIREFOX_VALIDATION.json`, and `docs/BROWSER_SUPPORT.md`.
-
-## Release verification
-
-The Version 1.0 source contains **1,329 automated tests**:
-
-```text
-1,319 retained through Phase 12
-10 Phase 13 tests
-1,329 total
-```
-
-The executable core report is `docs/PHASE10_CORE_VALIDATION.json`. Final authorization is evidence-derived rather than asserted by this README. Consult:
-
-- `docs/PHASE13_NONPUBLIC_RELEASE_AUDIT.json`
-- `docs/PHASE13_PUBLIC_DEPLOYMENT_VALIDATION.json`
-- `docs/PHASE13_FINAL_RELEASE_AUDIT.json`
-- `docs/PHASE13_RELEASE_SIGNOFF.json`
-- `docs/PHASE13_RELEASE_CHECKLIST.md`
-- `release/ECHOFRAME_v1.0.0_RELEASE_MANIFEST.json`
-
-## Local development
+- Node.js `>=20.19.0`
+- npm
 
 ```bash
 npm ci
@@ -109,56 +31,68 @@ npm run build
 npm run preview
 ```
 
-Core validation:
+## Controls
+
+| Action | Default binding |
+| --- | --- |
+| Move | `WASD` |
+| Aim | Mouse |
+| Fire | Left mouse |
+| Dash | `Shift` |
+| Deploy Echo | `Space` |
+| Pause / back | `Escape` |
+| Menu navigation | Mouse or arrow keys |
+| Menu confirm | Left click or `Enter` |
+
+Bindings remain rebindable in Settings. Save-schema Version 2 and existing Version 1.0 saves remain supported.
+
+## What changed in Version 1.0.1
+
+- Shared combat-runtime composition and reverse-order teardown.
+- One version-independent, validation-only semantic interface.
+- Deterministic visual-quality profiles: Low, Standard, and High.
+- Layered Warden, Echo, enemy, boss, and arena rendering.
+- Decision-oriented combat HUD and explicit score settlement.
+- Layered procedural ambience and expanded combat audio identity.
+- Guarded pool-exhaustion diagnostics.
+- Separated Phaser, boss, and application chunks.
+- Deterministic packaging with source and artifact provenance.
+- Read-only pull-request CI, trusted post-merge certification, and artifact-only publication.
+
+No gameplay balance, difficulty tables, seed behavior, scoring authority, save schema, canonical design rule, or authoritative mechanic was intentionally changed.
+
+## Validation commands
+
+Core gates:
 
 ```bash
-npm run validate:core:phase10
+npm run format:check
+npm run lint
+npm run test
+npm run build
+npm run audit:security
+npm run validate:save-compatibility
+npm run validate:core
 ```
 
-Selected release gates:
+Browser and runtime gates:
 
 ```bash
-npm run validate:browser:phase12
-npm run validate:browser:firefox:phase12
-npm run validate:deployment:phase12
-npm run audit:determinism:phase12
-npm run validate:lifecycle:phase10
-npm run validate:idle:phase10
-npm run validate:soak:phase10
-npm run validate:performance:phase10
-npm run validate:performance:firefox:phase13
+npm run validate:browser:chromium
+npm run validate:browser:firefox
+npm run audit:determinism
+npm run validate:accessibility
+npm run validate:lifecycle
+npm run validate:performance
+npm run validate:soak
 ```
 
-Playwright browser scripts may require explicit executable paths:
+Safari/WebKit, mobile/touch, and gamepad support are not claimed. Historical Version 1.0 browser evidence is archived under `docs/evidence/v1.0.0/`. Version 1.0.1 support claims become authoritative only after the trusted certification reports named in `docs/V1_0_1_RELEASE_CHECKLIST.md` pass.
 
-```bash
-CHROMIUM_EXECUTABLE=/path/to/chromium npm run validate:browser:phase12
-FIREFOX_EXECUTABLE=/path/to/firefox npm run validate:browser:firefox:phase12
-```
+## Release architecture
 
-## Static deployment
+1. `.github/workflows/ci.yml` runs read-only pull-request and main-branch validation.
+2. `.github/workflows/certify-release.yml` accepts an exact `main`-ancestor SHA and builds the certified web output once.
+3. `.github/workflows/publish-release.yml` downloads that exact artifact, verifies its source SHA and production-bundle digest, deploys it unchanged, validates the public site, and only then creates `v1.0.1` and the GitHub Release.
 
-Set `VITE_BASE_PATH` for project-site hosting:
-
-```bash
-VITE_BASE_PATH=/echoframe/ npm run build
-```
-
-The Phase 13 publication workflow builds the exact certified source, binds it to `phase13-release.json`, deploys it through GitHub Pages, validates the public HTTPS URL in Chromium and Firefox, then authorizes the tag and GitHub Release only after final sign-off.
-
-## Save data
-
-- Current schema: `2`
-- Local storage only
-- Schema-1 saves migrate sequentially and deterministically
-- Imports are normalized as untrusted JSON before commit
-- Malformed imports do not replace the current valid save
-- Clear Data restores a fresh tutorial state and canonical controls
-
-## Privacy and security
-
-The game has no accounts, analytics, remote telemetry, personal-data collection, gameplay API calls, runtime backend, dynamic script injection, or third-party runtime CDN. Clipboard access occurs only after user action and provides a selectable-text fallback.
-
-## Scope boundaries
-
-Version 1.0 does not include mobile controls, gamepad controls, localization, online services, cloud saves, leaderboards, accounts, multiple bosses, endless mode, New Game Plus, or permanent combat-stat power.
+The tag must target the certified source commit. The release files must be byte-identical to the certification artifact. Publication must never rebuild the game.

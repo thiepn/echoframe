@@ -1,0 +1,12 @@
+node_modules
+dist
+dist-*
+release
+certified-web
+coverage
+playwright-report
+test-results
+docs/evidence
+docs/screenshots
+*.min.js
+*.lock

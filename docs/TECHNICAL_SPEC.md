@@ -209,1119 +209,1750 @@ Duplicate requests with an already-consumed token are ignored.
 | Upgrade levels | `UpgradeManager` | UI/stats | UpgradeManager |
 | Global audio | `AudioManager` | All scenes | AudioManager |
 | Persistent data | `SaveManager` | UI/systems | SaveManager |
-| Aggregate statistics | `StatisticsManager` | Results/statistics UI | Through SaveManager |
-| Camera effects | `CameraController` | None | CameraController |
-| Global events | `EventBus` | Subscribers | Contracted publishers |
-| Debug state | `DebugManager` | Systems | DebugManager |
+| Aggregate statistics | `StatisticsManager` | Results/statistics UI | StatisticsManager |
+| Menu focus | `FocusManager` | Current UI scene | FocusManager |
+| Pause | `PauseController` | Gameplay systems | PauseController |
+| Boss attack schedule | `BossAttackScheduler` | Boss presentation/debug | Scheduler |
+
+No second owner is allowed without revising this specification.
 
 ---
 
-# 7. Event architecture
+# 7. Service container
 
-## 7.1 Purpose
+A small explicit service container is created once in `main.js`.
 
-Use an event bus for cross-system notifications. Local synchronous logic uses direct method calls.
+```js
+const services = {
+  eventBus,
+  sceneFlow,
+  inputManager,
+  audioManager,
+  saveManager,
+  settingsManager,
+  debugManager,
+};
+```
 
-## 7.2 Naming convention
+Rules:
+
+- Services are passed to scenes.
+- Services do not import scenes.
+- Services expose narrow public APIs.
+- Services survive scene restarts.
+- Scene-owned gameplay systems do not become global services unless required across scenes.
+
+---
+
+# 8. Event bus
+
+Use a narrow typed-by-convention event bus.
+
+## 8.1 Event naming
 
 ```text
-domain:entity:action
+scope:entity:action
 ```
 
 Examples:
 
-- `player:health:changed`
-- `player:dash:started`
-- `echo:deployed`
-- `enemy:destroyed`
-- `run:phase:changed`
-- `upgrade:selected`
-- `audio:intensity:requested`
-- `settings:changed`
+```text
+player:health:changed
+echo:deployed
+enemy:defeated
+run:segment:changed
+score:changed
+combo:changed
+boss:phase:changed
+settings:changed
+save:recovered
+```
 
-## 7.3 Payload rules
+## 8.2 Event rules
 
-- Payloads contain plain data.
-- Do not store Phaser objects in delayed or persistent payloads.
-- Every event has a documented schema.
-- High-frequency events include source and activation IDs.
-- Subscribers unregister during shutdown.
-- One-time events use a once-subscription or token.
-- Listener registration is idempotent.
-
-## 7.4 Operations that remain synchronous
-
-- Damage application.
-- Projectile collision resolution.
-- Dash cooldown consumption.
-- Echo deployment validation.
-- Upgrade commitment.
-- Run-state advancement.
-- Final result construction.
+- Payloads have documented shapes.
+- Publishers do not assume listeners.
+- Listeners unsubscribe on shutdown.
+- Listener ownership is tracked.
+- Development builds expose listener counts.
+- Listeners must not cause hidden state ownership.
+- Events must not replace direct calls for authoritative mutation.
 
 ---
 
-# 8. Time and simulation
+# 9. Cleanup registry
 
-## 8.1 Time sources
+Each scene and long-lived system owns a `CleanupRegistry`.
 
-- Gameplay uses Phaser scene simulation time.
-- Pause freezes simulation.
-- Pause overlay UI uses its own scene time.
-- Browser wall-clock time is used only for persistent timestamps and diagnostics.
-- Echo recording and playback use simulation timestamps.
-- Director schedules use simulation time.
-- Web Audio scheduling uses AudioContext time through `AudioManager`.
+Supported cleanup entries:
 
-## 8.2 Delta handling
+- EventBus unsubscribe functions.
+- Phaser event listeners.
+- DOM listeners.
+- Timers.
+- Delayed calls.
+- Tweens.
+- Colliders and overlaps.
+- Audio voice handles.
+- Abort controllers.
+- Temporary graphics.
 
-- Clamp unusually large frame deltas.
-- Do not simulate seconds of missed time after tab restoration.
-- State machines use elapsed durations, not frame counts.
-- Periodic logic uses bounded accumulators.
-- Catch-up loops have hard limits.
+Required API:
 
-## 8.3 Echo sample timing
+```js
+registry.add(cleanupFunction);
+registry.flush();
+registry.size;
+```
 
-- Target sample rate: 30 Hz.
-- Interval: 33.333… ms.
-- Accumulator carries remainder.
-- Catch-up samples per frame are capped.
-- Severe stalls create an interpolated discontinuity marker instead of hundreds of samples.
+Rules:
+
+- Flush is idempotent.
+- New entries cannot be added after final destruction in development mode.
+- Development builds warn on non-empty registry after expected shutdown.
 
 ---
 
-# 9. Physics and collision
+# 10. Pause model
 
-## 9.1 Logical categories
+## 10.1 Pause owner
 
-- Player body.
-- Enemy body.
-- Solid world.
-- Player projectile.
-- Echo projectile.
-- Enemy projectile.
-- Hazard.
-- Trigger.
-- Decoration.
+`PauseController` owns pause state.
 
-## 9.2 Interaction table
+## 10.2 Pause effects
+
+On pause:
+
+- Pause simulation clock.
+- Pause gameplay scenes.
+- Stop authoritative timers.
+- Preserve render state.
+- Lower audio mix.
+- Keep UI input active.
+- Suppress held gameplay actions.
+
+On resume:
+
+- Resume simulation clock.
+- Resume gameplay scenes.
+- Clear transient pressed/released edges.
+- Preserve cooldown values exactly.
+- Restore prior music state.
+
+## 10.3 Time source
+
+Gameplay systems use simulation time supplied by the owning scene or `SimulationClock`.
+
+Do not use:
+
+- `Date.now()` for gameplay timing.
+- `performance.now()` for authoritative gameplay.
+- Wall-clock time for cooldowns.
+
+Wall-clock time is allowed for:
+
+- Save timestamps.
+- Profiling.
+- Diagnostics.
+- Menu animation independent of gameplay.
+
+---
+
+# 11. Deterministic random service
+
+## 11.1 RNG algorithm
+
+Use a documented deterministic generator such as `sfc32` seeded by a 128-bit state derived from:
+
+- User seed.
+- Version salt.
+- Stream key.
+
+## 11.2 Named streams
+
+```text
+run.route
+run.arena
+run.encounter
+run.spawn
+run.elite
+run.upgrade
+run.boss
+run.hostileEcho
+run.cosmetic
+```
+
+Rules:
+
+- Streams are independent.
+- Cosmetic RNG never consumes gameplay RNG.
+- UI animation RNG never consumes gameplay RNG.
+- Debug tools show stream state in development mode.
+- RNG call order is stable.
+- No gameplay use of `Math.random()`.
+
+## 11.3 Seed record
+
+A completed run stores:
+
+```js
+{
+  seedText,
+  seedHash,
+  generatorVersion,
+  routeHash,
+}
+```
+
+---
+
+# 12. Run state
+
+## 12.1 RunState
+
+`RunState` is a serializable in-memory object for the current run.
+
+```js
+{
+  runId,
+  seed,
+  difficultyId,
+  generatorVersion,
+  status,
+  currentSegmentIndex,
+  currentArenaId,
+  playerHealth,
+  upgrades,
+  score,
+  combo,
+  statistics,
+  bossState,
+  hostileEchoSource,
+  startedAt,
+}
+```
+
+`RunState` is not saved for resume.
+
+## 12.2 Run status
+
+```text
+PREPARING
+ACTIVE
+PAUSED
+UPGRADE
+RECOVERY
+BOSS
+VICTORY
+DEFEAT
+FINALIZED
+```
+
+## 12.3 Finalization
+
+Finalization is idempotent.
+
+```js
+finalizeRun(resultPayload, uniqueToken)
+```
+
+It:
+
+- Stops gameplay.
+- Locks input.
+- Clears active objects.
+- Computes final score.
+- Updates persistent statistics.
+- Evaluates achievements.
+- Stores recent run.
+- Saves persistent data.
+- Transitions to Results.
+
+A consumed finalization token cannot execute twice.
+
+---
+
+# 13. Player architecture
+
+## 13.1 Player entity
+
+The Player owns:
+
+- Arcade body.
+- Visual container.
+- Aim direction.
+- State enum.
+- Health component reference.
+
+The Player does not own:
+
+- Global input mapping.
+- Weapon cooldown policy.
+- Dash cooldown policy.
+- Upgrade recomputation.
+- Camera.
+- Score.
+
+## 13.2 Player state
+
+```text
+SPAWNING
+ACTIVE
+DASHING
+DISABLED
+DEAD
+```
+
+## 13.3 Movement
+
+- Acceleration and deceleration based.
+- Diagonal input normalized.
+- Velocity capped.
+- Collision against obstacles and bounds.
+- Aim independent of movement.
+- No hidden friction after explicit stop.
+
+## 13.4 Dash
+
+Dash uses:
+
+- Input buffer.
+- Direction lock at activation.
+- Separate duration and cooldown.
+- Fixed invulnerability window.
+- Collision-safe stop.
+- No tunneling through obstacles.
+- No collision-category changes.
+
+Dash exposes:
+
+```js
+{
+  active,
+  cooldownRemaining,
+  direction,
+  invulnerable,
+}
+```
+
+---
+
+# 14. Echo recording
+
+## 14.1 EchoRecorder ownership
+
+`EchoRecorder` owns recent player history.
+
+## 14.2 Sampling frequency
+
+- Target: 30 Hz.
+- Sampling uses simulation time.
+- Catch-up is bounded.
+- A dropped render frame may emit several snapshots up to a hard maximum.
+- Excess catch-up is discarded with a development warning.
+
+## 14.3 Snapshot structure
+
+```js
+{
+  time,
+  x,
+  y,
+  vx,
+  vy,
+  aimX,
+  aimY,
+  facing,
+  stateFlags,
+}
+```
+
+## 14.4 Snapshot buffer
+
+- Fixed capacity.
+- Preallocated storage.
+- Constant-time append.
+- Wrap-safe logical ordering.
+- Range extraction without mutation.
+- Surrounding-snapshot lookup for interpolation.
+
+## 14.5 Action events
+
+Separate fixed-capacity buffers for:
+
+```text
+FIRE
+DASH_START
+DASH_END
+```
+
+Each event includes:
+
+```js
+{
+  id,
+  time,
+  type,
+  payload,
+}
+```
+
+Event IDs are monotonic within a run.
+
+## 14.6 Timestamp semantics
+
+Recording window:
+
+```text
+[startTime, endTime]
+```
+
+- Include events exactly at `startTime`.
+- Include events exactly at `endTime` if they have completed before deployment lock.
+- Do not include events after `endTime`.
+- Normalize all extracted timestamps relative to `startTime`.
+
+---
+
+# 15. Echo playback
+
+## 15.1 Echo instance
+
+An Echo instance owns:
+
+- Immutable recording descriptor.
+- Immutable loadout snapshot.
+- Playback time.
+- Snapshot cursor.
+- Event cursors.
+- Visual state.
+- Pooled projectile ownership metadata.
+
+## 15.2 Loadout snapshot
+
+At deployment:
+
+```js
+{
+  baseDamage,
+  projectileSpeed,
+  projectileLifetime,
+  projectileCount,
+  pierce,
+  fireRateScalar,
+  upgradeLevels,
+  damageScalar,
+  visualVariant,
+}
+```
+
+Playback uses this snapshot, not live upgrade state.
+
+## 15.3 Interpolation
+
+- Linear position interpolation.
+- Shortest-angle aim interpolation.
+- Clamp before first snapshot.
+- Clamp after final snapshot.
+- No extrapolation.
+- No physics authority.
+
+## 15.4 Event replay
+
+- Cursors only move forward.
+- Events execute once.
+- Events at equal timestamps execute by recorded event ID.
+- Dash visuals replay.
+- Fire events spawn Echo projectiles.
+- No contact damage.
+
+## 15.5 Echo state
+
+```text
+SPAWNING
+REPLAYING
+DISSOLVING
+INACTIVE
+```
+
+## 15.6 Echo cleanup
+
+Cleanup:
+
+- Stops event replay.
+- Clears timers/tweens.
+- Recycles body and renderer.
+- Releases projectile ownership handles.
+- Emits exactly one dissolve event.
+
+---
+
+# 16. Projectile architecture
+
+## 16.1 Projectile types
+
+```text
+PLAYER
+FRIENDLY_ECHO
+ENEMY
+BOSS
+HOSTILE_ECHO
+```
+
+## 16.2 Shared fields
+
+```js
+{
+  projectileId,
+  faction,
+  sourceId,
+  position,
+  velocity,
+  damage,
+  pierceRemaining,
+  lifetimeRemaining,
+  active,
+  nearMissConsumed,
+}
+```
+
+## 16.3 Pools
+
+Separate pools by behavior group:
+
+- Player/friendly.
+- Enemy.
+- Boss/hostile Echo.
+- Effects.
+- Damage text.
+
+Rules:
+
+- Preallocate.
+- Fixed capacity.
+- LIFO reuse.
+- Explicit reset.
+- No active-object reuse.
+- Development metrics expose active, free, and capacity.
+
+## 16.4 Pool exhaustion
+
+On exhaustion:
+
+- Reject spawn deterministically.
+- Increment diagnostic counter.
+- Log one rate-limited development warning.
+- Do not allocate fallback objects.
+- Do not reuse active objects.
+
+---
+
+# 17. Collision architecture
+
+## 17.1 Categories
+
+```text
+PLAYER_BODY
+PLAYER_PROJECTILE
+ECHO_PROJECTILE
+ENEMY_BODY
+ENEMY_PROJECTILE
+BOSS_PROJECTILE
+WORLD_SOLID
+HAZARD
+```
+
+## 17.2 Matrix
 
 | A | B | Behavior |
 |---|---|---|
-| Player | Solid | Hard collision |
-| Player | Enemy | Damage overlap + controlled separation |
-| Player | Enemy projectile | Damage overlap |
-| Player | Hazard | Overlap/persistent damage |
-| Player projectile | Enemy | Damage |
-| Player projectile | Solid | Destroy, pierce, or ricochet |
-| Echo projectile | Enemy | Damage |
-| Echo projectile | Solid | Frozen-loadout rule |
-| Enemy projectile | Solid | Usually destroy |
-| Enemy | Solid | Collision or steering constraint |
-| Enemy | Enemy | Soft separation |
-| Echo body | All | No physical interaction |
+| Player | World | Collide |
+| Player | Enemy | Contact damage |
+| Player | Enemy projectile | Damage/consume |
+| Player | Boss projectile | Damage/consume |
+| Player projectile | World | Consume |
+| Player projectile | Enemy | Damage/pierce |
+| Player projectile | Boss | Damage/pierce |
+| Echo projectile | World | Consume |
+| Echo projectile | Enemy | Damage/pierce |
+| Echo projectile | Boss | Damage/pierce |
+| Enemy | World | Collide/avoid |
+| Enemy projectile | World | Consume |
+| Hazard | Player | Hazard API |
 
-## 9.3 Damage service
+## 17.3 Exactly-once hit handling
 
-A damage request contains:
-
-- Source ID.
-- Source activation ID.
-- Source faction.
-- Target ID.
-- Base damage.
-- Damage tags.
-- Critical flag.
-- Timestamp.
-- Hit position.
-- Direction.
-- Internal-cooldown key.
-- Optional bypass flags.
-
-Resolution order:
-
-1. Validate source and target.
-2. Reject duplicate activation.
-3. Check target invulnerability.
-4. Apply shields and reductions.
-5. Clamp.
-6. Mutate health.
-7. Emit feedback/statistics.
-8. Trigger death once.
-
-## 9.4 Contact damage
-
-- Per-source cooldown.
-- Controlled separation after valid or blocked contact.
-- Post-hit invulnerability limits burst damage.
-- Separation cannot move player through walls.
-
-## 9.5 Collision callback constraints
-
-- Avoid allocation in high-frequency callbacks.
-- Use pooled effects.
-- Deactivation is idempotent.
-- Piercing projectiles track already-hit targets.
-- A projectile cannot damage the same target twice unless explicitly allowed.
-
----
-
-# 10. Core state models
-
-## 10.1 RunState conceptual schema
+Projectile-target hit key:
 
 ```text
-runId: string
-seed: uint32
-difficultyId: relaxed | standard | overclocked
-status: created | active | victory | defeat | closed
-currentSegmentIndex: integer
-currentChamberId: string
-currentArenaId: string
-elapsedSimulationMs: number
-score: integer
-combo: number
-selectedUpgrades: map<upgradeId, level>
-statistics: RunStatistics
-rngState: serializable state
-generationVersion: integer
+projectileId + targetId
 ```
 
-No active run resume is persisted in version 1.0.
+Rules:
 
-## 10.2 RunStatistics
-
-Required:
-
-- Player shots.
-- Echo shots.
-- Player hits.
-- Echo hits.
-- Critical hits.
-- Kills by enemy type.
-- Elite kills.
-- Player damage dealt.
-- Echo damage dealt.
-- Damage taken.
-- Dashes.
-- Echo deployments.
-- Crossfire events.
-- Near misses.
-- Highest combo.
-- Chambers completed.
-- Boss phase reached.
-- Duration.
-- Victory.
-- Seed.
-- Upgrade history.
-
-## 10.3 RunStatsModel
-
-Derived values:
-
-- Maximum health.
-- Movement and dash stats.
-- Weapon stats.
-- Echo stats.
-- Damage reduction.
-- Upgrade counters.
-- Internal cooldowns.
-
-Recompute only when the build changes or a temporary modifier changes, not each frame.
+- The same projectile cannot hit the same target twice.
+- Piercing may hit different targets.
+- Consumed projectiles are disabled before deferred callbacks.
+- Death handling validates target alive state.
+- Score events consume unique IDs.
 
 ---
 
-# 11. Player architecture
+# 18. Damage and health
 
-## 11.1 Modules
+## 18.1 Damage request
 
-- `Player`: Phaser entity/container.
-- `PlayerController`: movement, dash, action interpretation.
-- `HealthComponent`.
-- `WeaponSystem`.
-- `StatusEffectComponent`.
-- `PlayerRenderer`.
-- `InputManager`.
-- `RunStatsModel`.
-
-## 11.2 Update order
-
-1. Read abstract input.
-2. Resolve pause/transition locks.
-3. Update state timers.
-4. Determine movement.
-5. Apply dash state.
-6. Set physics velocity.
-7. Update aim.
-8. Process firing.
-9. Process Echo request.
-10. Update visuals.
-11. Record resolved state.
-
-## 11.3 Death
-
-- Health zero requests defeat.
-- Input locks immediately.
-- New spawns stop.
-- Short death presentation may continue.
-- Results transition occurs once.
-- Duplicate death requests are ignored.
-
----
-
-# 12. Echo architecture
-
-## 12.1 Components
-
-- `EchoRecorder`.
-- `SnapshotRingBuffer`.
-- `ActionEventRingBuffer`.
-- `EchoPlaybackSystem`.
-- `EchoInstance`.
-- `EchoRenderer`.
-- `EchoProjectilePool`.
-- `EchoLoadoutSnapshot`.
-
-## 12.2 Snapshot ring buffer
-
-Requirements:
-
-- Fixed capacity.
-- Preallocated storage where practical.
-- Monotonic timestamps.
-- Constant-time append.
-- No array shifting.
-- Indexed access by logical order.
-- Retrieval of samples surrounding a requested time.
-- Clear without reallocation.
-
-## 12.3 Event buffers
-
-Separate bounded buffers for:
-
-- Fire.
-- Dash.
-
-Retention exceeds maximum supported replay duration by a small safety margin.
-
-## 12.4 Deployment sequence
-
-```text
-Receive action
-→ Validate run/player state
-→ Validate cooldown
-→ Validate history
-→ Validate active cap
-→ Freeze Echo loadout
-→ Determine replay interval
-→ Acquire Echo from pool
-→ Initialize cursors
-→ Consume cooldown
-→ Emit deployment event
+```js
+{
+  sourceId,
+  sourceType,
+  targetId,
+  amount,
+  damageType,
+  timestamp,
+  hitPosition,
+  uniqueHitId,
+}
 ```
 
-## 12.5 Playback requirements
+## 18.2 Damage result
 
-- Uses simulation time.
-- Interpolates position and aim between samples.
-- Dispatches each recorded event once.
-- Keeps per-instance event cursors.
-- Does not scan complete buffers each frame.
-- Handles frame skips by dispatching crossed events.
-- Caps pathological event bursts.
-- Completes at replay end.
-- Dissolves and returns to pool.
+```js
+{
+  applied,
+  amountApplied,
+  killed,
+  remainingHealth,
+  reason,
+}
+```
 
-## 12.6 Frozen loadout contents
-
-- Damage scalar.
-- Projectile speed.
-- Projectile count/spread.
-- Pierce.
-- Ricochet.
-- Chain eligibility.
-- Phantom Shield capacity.
-- Memory Burst.
-- Dash Wake.
-- Relevant upgrade levels.
-
-Not included:
-
-- Player current health.
-- Player invulnerability.
-- Future upgrades.
-- Non-Echo defensive effects.
-
-## 12.7 Twin Recall
-
-- Primary starts immediately.
-- Secondary starts after configured delay.
-- Both use same recording interval and loadout.
-- Cooldown consumed once.
-- Secondary creation cancels if combat state ends.
-- Secondary cannot recursively create another Echo.
-
----
-
-# 13. Projectile architecture
-
-## 13.1 Pools
-
-Separate pools:
-
-- Player projectiles.
-- Echo projectiles.
-- Enemy projectiles.
-- Fragments/chains where behavior differs.
-
-## 13.2 Projectile state
-
-- Active.
-- Activation ID.
-- Faction.
-- Owner ID.
-- Position/velocity.
-- Radius.
-- Remaining lifetime.
-- Damage packet.
-- Pierce remaining.
-- Ricochet remaining.
-- Bounded already-hit targets.
-- Visual profile.
-- Spawn timestamp.
-
-## 13.3 Deactivation contract
-
-Deactivation:
-
-- Disables physics.
-- Hides visual.
-- Clears ownership.
-- Clears hit history.
-- Resets counters.
-- Stops attached effects.
-- Returns exactly once.
-
-## 13.4 Exhaustion
-
-- Pools expand in bounded chunks to hard caps.
-- Gameplay-critical projectiles must not silently disappear.
-- Director and weapon limits prevent overflow.
-- Any overflow attempt creates a development warning.
-
----
-
-# 14. Enemy architecture
-
-## 14.1 Base contract
-
-Every enemy provides:
-
-- Pooled initialization.
-- Spawn state.
-- AI update.
-- Damage reception.
-- Attack cancellation.
-- Death.
-- Deactivation.
-- Threat cost.
-- Telegraph priority.
-- Arena tags.
-- Debug description.
-
-## 14.2 Shared state machine
+Reasons include:
 
 ```text
+APPLIED
+INVULNERABLE
+ALREADY_DEAD
+DUPLICATE_HIT
+INVALID_TARGET
+ZERO_DAMAGE
+```
+
+## 18.3 Health invariants
+
+- Health clamped to `[0, maxHealth]`.
+- Death fires once.
+- Invulnerability uses simulation time.
+- Damage cannot resurrect.
+- Repair cannot exceed max.
+- Boss phase thresholds are evaluated after applied damage.
+
+---
+
+# 19. Enemy architecture
+
+## 19.1 Enemy instance
+
+An enemy owns:
+
+- Entity ID.
+- Archetype ID.
+- Arcade body.
+- Health component.
+- AI controller.
+- Attack controller.
+- Elite state.
+- Renderer.
+- Cleanup registry.
+
+## 19.2 AI state model
+
+Every enemy uses explicit states:
+
+```text
+SPAWNING
+ACQUIRE
+MOVE
+TELEGRAPH
+ATTACK
+RECOVER
+STAGGER
+DEAD
 INACTIVE
-→ SPAWNING
-→ ACTIVE
-→ ATTACK_ANTICIPATION
-→ ATTACK_LOCK
-→ ATTACK_EXECUTION
-→ RECOVERY
-→ ACTIVE
-→ DYING
-→ INACTIVE
 ```
 
-## 14.3 Update frequency
+Unsupported states are not silently entered.
 
-- Active attacks and nearby steering update each frame.
-- Non-critical perception may update at fixed lower frequency.
-- Visual interpolation remains per-frame.
-- Expensive queries are throttled.
+## 19.3 Enemy update budget
 
-## 14.4 Elite composition
+- Navigation updates may run below render frequency.
+- Attack telegraphs remain frame-smooth.
+- Expensive target queries are staggered.
+- Avoid full-array sort each frame.
+- Reuse query buffers.
 
-Elite modifiers wrap parameter and lifecycle hooks. They do not duplicate entire enemy classes.
+## 19.4 Enemy definitions
+
+Definitions are data objects.
+
+```js
+{
+  id,
+  baseHealth,
+  moveSpeed,
+  contactDamage,
+  preferredRange,
+  attackInterval,
+  projectileSpeed,
+  projectileDamage,
+  threatCost,
+  allowedEliteModifiers,
+  presentation,
+}
+```
 
 ---
 
-# 15. Encounter director
+# 20. Elite architecture
 
-## 15.1 Inputs
+## 20.1 Elite composition
 
-- Run segment.
-- Difficulty.
-- Arena tags.
-- Unlocked enemy set.
-- RNG stream.
-- Active counts.
-- Recent recipe history.
-- Telegraph occupancy.
+Elites wrap base enemy behavior.
 
-## 15.2 No hidden adaptive difficulty
+```js
+EliteState {
+  modifierId,
+  threatCost,
+  visualState,
+  cooldowns,
+}
+```
 
-Player performance does not secretly alter combat power. It may only influence equivalent-intensity variety selection or diagnostics.
-
-## 15.3 Recipe schema
+## 20.2 Modifier hooks
 
 ```text
-id
-allowedPhases
-minimumStage
-maximumStage
-requiredArenaTags
-forbiddenArenaTags
-baseThreatCost
-spawnGroups
-timing
-telegraphConcurrencyLimit
-recoveryAfterMs
-weight
-selectionCooldown
-validationVersion
+onSpawn
+beforeMove
+afterMove
+beforeAttack
+afterAttack
+onDamage
+onDeath
+onUpdate
 ```
 
-## 15.4 Spawn-group schema
+Each hook is optional.
 
-- Enemy types/counts.
-- Socket tags.
-- Member delays.
-- Activation delay.
-- Elite eligibility.
-- Dependency.
-- Simultaneous threat limit.
-- Fallback group.
+## 20.3 Constraints
 
-## 15.5 Validation
-
-Check:
-
-- Arena compatibility.
-- Socket availability.
-- Safety radius.
-- Line of sight.
-- Active caps.
-- Telegraph concurrency.
-- Introduction rules.
-- Repetition.
-- Hazard conflict.
-
-Rejected candidates are logged in development mode.
+- Modifiers do not replace the base role.
+- Modifier state resets on pool return.
+- Duplicating creates a separate tracked enemy.
+- Regeneration cannot revive.
+- Volatile death is once-only.
+- Phase-Rush respects world collision.
 
 ---
 
-# 16. Arena generation
+# 21. Encounter generation
 
-## 16.1 RNG streams
+## 21.1 EncounterDirector
 
-Use deterministic named streams:
+Responsibilities:
 
-- Arena selection.
-- Encounter selection.
-- Upgrade offering.
-- Boss scheduling.
-- Cosmetic variation.
+- Own encounter state.
+- Request deterministic encounter plan.
+- Schedule telegraphs.
+- Activate groups.
+- Track completion.
+- Trigger recovery/upgrade.
+- Emit diagnostics.
 
-Cosmetic RNG must not consume gameplay RNG.
+## 21.2 Encounter plan
 
-## 16.2 Selection sequence
+```js
+{
+  encounterId,
+  threatBudget,
+  groups: [
+    {
+      groupId,
+      telegraphTime,
+      activationTime,
+      spawns: [
+        {
+          enemyType,
+          transformId,
+          eliteModifierId,
+        }
+      ]
+    }
+  ]
+}
+```
+
+## 21.3 Spawn schedule
+
+- Telegraph start.
+- Telegraph complete.
+- Body activation.
+- AI activation.
+
+No enemy damages the player before AI activation.
+
+## 21.4 Completion
+
+Encounter complete when:
+
+- All planned groups activated.
+- No active enemies remain.
+- No pending duplication remains.
+- No completion transition already consumed.
+
+---
+
+# 22. Arena generation
+
+## 22.1 Arena template
+
+```js
+{
+  id,
+  bounds,
+  playerSpawn,
+  enemySpawnTransforms,
+  obstacles,
+  hazardRegions,
+  recoveryTransform,
+  bossCompatible,
+  minimumSafeArea,
+}
+```
+
+## 22.2 Template validation
+
+Offline validator checks:
+
+- Player spawn valid.
+- Enemy transforms valid.
+- No obstacle overlap.
+- Minimum navigable lanes.
+- No spawn inside hazards.
+- Recovery transform valid.
+- Boss space sufficient.
+
+## 22.3 Arena selection
+
+- Uses `run.arena` stream.
+- Avoid immediate repeats where alternatives exist.
+- Difficulty may filter templates.
+- Selection is stored in run plan.
+
+---
+
+# 23. Run plan
+
+The run is generated into a serializable `RunPlan` before gameplay begins.
+
+```js
+{
+  seed,
+  generatorVersion,
+  difficultyId,
+  segments: [
+    { type: 'COMBAT', arenaId, encounters },
+    { type: 'UPGRADE', offerSeed },
+    { type: 'ELITE_COMBAT', arenaId, encounters },
+    { type: 'RECOVERY', arenaId },
+    { type: 'BOSS', arenaId, bossSeed }
+  ]
+}
+```
+
+Benefits:
+
+- Generation independent of render timing.
+- Easy deterministic testing.
+- Route inspectable in debug mode.
+- Pause cannot alter later choices.
+- Boss schedule can derive named stream from stored seed.
+
+---
+
+# 24. Upgrade architecture
+
+## 24.1 Upgrade definition
+
+```js
+{
+  id,
+  category,
+  maxStacks,
+  dependencies,
+  exclusions,
+  weight,
+  tags,
+  isUnlocked(saveData),
+  apply(runUpgradeState),
+}
+```
+
+`apply` mutates run upgrade state only.
+
+## 24.2 RunStatsModel
+
+Derived stats are recomputed from:
 
 ```text
-Eligible templates
-→ Remove recent repeats
-→ Filter stage
-→ Select template
-→ Select transform
-→ Select decoration
-→ Select hazard
-→ Validate
-→ Fallback if needed
+base stats + ordered active upgrade definitions
 ```
 
-## 16.3 Validation
+No incremental permanent mutation.
 
-- Spawn clearance.
-- Navigation connectivity.
-- Obstacle bounds.
-- Hazard route preservation.
-- Socket distances.
-- Elite socket validity.
-- Camera bounds.
-- No invalid solid overlap.
+## 24.3 Offer generator
 
-## 16.4 Fallback
+Inputs:
 
-A known-safe open arena is always available. Generation failure cannot crash or end the run.
+- Offer seed.
+- Current upgrade levels.
+- Unlocked upgrade set.
+- Prior offer history.
+- Pity counters.
 
----
+Output:
 
-# 17. Upgrade architecture
+- Three unique valid cards.
+- Stable order.
+- Deterministic replacement if pool is too small.
 
-## 17.1 Definition fields
+## 24.4 Extra Echoes
 
-- ID.
-- Display name key.
-- Description template.
-- Category.
-- Tags.
-- Max level.
-- Unlock requirement.
-- Base weight.
-- Conflicts.
-- Requirements.
-- Stat modifiers.
-- Behavior hooks.
-- Icon ID.
-- Validation tests.
+Extra Echoes are real instances.
 
-## 17.2 Stat pipeline
+Each has:
 
-1. Base.
-2. Flat additions.
-3. Summed percentage additions.
-4. Bounded multipliers.
-5. Floors and caps.
-6. Derived values.
-7. Behavior-hook configuration.
+- Unique ID.
+- Own playback cursor.
+- Own event cursor.
+- Own pooled projectile source ID.
+- Own lifetime.
+- Own visual marker.
 
-## 17.3 Selection sequence
-
-1. Eligible pool.
-2. Remove maxed.
-3. Remove conflicts.
-4. Apply unlocks.
-5. Apply weighting.
-6. Draw unique options.
-7. Enforce diversity where possible.
-8. Store offered IDs.
-9. Commit one choice.
-10. Recompute stats.
-11. Emit event.
-
-## 17.4 Debug controls
-
-Development mode can:
-
-- Grant by ID.
-- Set level.
-- Reset build.
-- Print derived stats.
-- Generate offerings.
-- Validate description values.
+No shared mutable cursor.
 
 ---
 
-# 18. Boss architecture
+# 25. Boss architecture
 
-## 18.1 Controller ownership
+## 25.1 Boss state
 
-`NullArchitectController` owns:
+```text
+INTRO
+PHASE_1
+TRANSITION_1
+PHASE_2
+TRANSITION_2
+PHASE_3
+VICTORY
+DEAD
+```
 
-- Health.
-- Phase.
-- Scheduler.
-- Vulnerability.
-- Summons.
-- Hostile copies.
-- Sector state.
-- Transition locks.
-- Defeat sequence.
+## 25.2 Boss owner
 
-## 18.2 Attack scheduler
+`BossScene` owns:
 
-- Selects phase-valid attacks.
-- Enforces cooldown.
-- Enforces concurrency.
-- Uses boss RNG stream.
-- Suspends during transitions.
-- Has a safe fallback attack.
+- Boss body.
+- Boss health.
+- Phase state.
+- Pattern scheduler.
+- Boss projectile manager.
+- Hostile Echo copies.
+- Sector hazard controller.
+- Boss adds.
+- Boss-local cleanup.
 
-## 18.3 Hostile copy
+## 25.3 Pattern scheduler
 
-Separate from friendly Echo:
+Pattern definition:
 
-- Separate entity class.
-- Separate faction.
+```js
+{
+  id,
+  minPhase,
+  maxPhase,
+  telegraphDuration,
+  activeDuration,
+  cooldown,
+  maxConcurrent,
+  prerequisites,
+  start(context),
+  update(context),
+  stop(context),
+}
+```
+
+Scheduler rules:
+
+- Deterministic named stream.
+- No immediate repeat where alternatives exist.
+- Enforce cooldown.
+- Enforce concurrency.
+- Fallback attack if no pattern eligible.
+- Pause-safe.
+- Restart-safe.
+
+## 25.4 Vulnerability cap
+
+Boss damage immunity may not exceed the documented maximum continuous duration.
+
+Scheduler tracks:
+
+```js
+continuousInvulnerableDuration
+```
+
+If cap reached, force a vulnerability window.
+
+---
+
+# 26. Hostile Echo copy
+
+## 26.1 Source selection
+
+Hostile Echo source selection uses:
+
+- Completed recent run.
+- Compatible generator version.
+- Supported upgrade set.
+- Valid recording payload.
+- Deterministic fallback.
+
+## 26.2 Normalization
+
+Historical payload is normalized:
+
+- Clamp damage.
+- Clamp projectile count.
+- Clamp fire rate.
+- Clamp replay speed.
+- Remove unsupported upgrades.
+- Limit active projectiles.
+
+## 26.3 Ownership
+
+Hostile Echo belongs to `BossScene`.
+
+It uses:
+
 - Separate renderer.
-- Separate projectile profile.
-- Curated event conversion.
-- Safe spawn offset.
-- Hard lifetime.
-- Phase-transition cleanup.
+- Separate projectile pool partition.
+- Separate faction.
+- Separate damage scalar.
+- Separate cleanup.
 
-## 18.4 Sector state machine
+It never reuses friendly Echo ownership identifiers.
 
-```text
-SAFE
-→ WARNING
-→ DISABLED
-→ RESTORING
-→ SAFE
+---
+
+# 27. Scoring architecture
+
+## 27.1 Score owner
+
+`ScoreManager` owns score and combo.
+
+## 27.2 Score event
+
+```js
+{
+  eventId,
+  type,
+  baseValue,
+  targetId,
+  sourceType,
+  simulationTime,
+  metadata,
+}
 ```
 
-Validation guarantees connected safe space before activation.
+`eventId` is unique.
 
----
-
-# 19. UI architecture
-
-## 19.1 Focus manager
-
-`UIFocusManager` owns:
-
-- Focused component.
-- Directional navigation graph.
-- Mouse/focus handoff.
-- Confirm/cancel.
-- Modal capture.
-- Focus restoration.
-- Disabled control exclusion.
-
-## 19.2 Reusable components
-
-- Button.
-- Slider.
-- Toggle.
-- Binding row.
-- Upgrade card.
-- Modal.
-- Tooltip.
-- Tabs.
-- Scroll container.
-- Statistic row.
-- Seed display/copy control.
-
-## 19.3 HUD data flow
-
-HUD subscribes to:
-
-- Health.
-- Score.
-- Combo.
-- Chamber phase.
-- Boss phase.
-- Status effects.
-- Echo readiness.
-- Settings.
-
-Cooldown arcs may read normalized read-only values each frame.
-
-## 19.4 Pause contract
-
-When paused:
-
-- Run simulation stops.
-- Gameplay timers stop.
-- Pause UI remains active.
-- Audio enters paused mix.
-- Held gameplay actions are neutralized until release.
-- Resume returns to prior state.
-
----
-
-# 20. Audio architecture
-
-## 20.1 Lifecycle
-
-- One global AudioContext.
-- Create/resume after user gesture.
-- Never create per scene or run.
-- Handle page visibility gracefully.
-- Continue muted if audio initialization fails.
-
-## 20.2 Procedural sounds
-
-- Reusable buffers generated at preload/first gesture.
-- Controlled pitch/filter/gain variation.
-- No synthesis construction inside combat callbacks.
-- Positional panning relative to camera.
-
-## 20.3 Music
-
-Layers:
-
-1. Pad.
-2. Pulse.
-3. Bass.
-4. Percussion.
-
-States:
-
-- Calm.
-- Combat.
-- Pressure.
-- Elite.
-- Boss.
-- Victory.
-- Paused.
-
-Layers remain synchronized. State transitions crossfade.
-
-## 20.4 Mix priority
-
-1. Player damage/fatal warning.
-2. Boss and major telegraphs.
-3. Echo and dash.
-4. Enemy attacks.
-5. Hits/destruction.
-6. UI.
-7. Ambient.
-8. Music.
-
-Voice caps prevent buildup.
-
----
-
-# 21. Save architecture
-
-## 21.1 Storage keys
-
-Conceptual:
-
-- `echoframe.save.v1`
-- `echoframe.save.backup.v1`
-
-## 21.2 Schema
+## 27.3 Award formula
 
 ```text
-schemaVersion
-createdAt
-updatedAt
-settings:
-  audio
-  visual
-  accessibility
-  controls
-  gameplay
-progression:
-  unlockedUpgradeIds
-  unlockedPaletteIds
-  unlockedTrailIds
-  unlockedDifficultyIds
-  loreIds
-statistics:
-  aggregateCounters
-  personalBests
-  bossRecords
-records:
-  recentRuns
-meta:
-  lastSelectedDifficulty
-  tutorialCompleted
-  seenIntroductions
+floor(baseValue × comboMultiplier × difficultyMultiplier)
 ```
 
-## 21.3 Rules
+## 27.4 Combo state
 
-- Validate every field.
-- Apply defaults for absent fields.
-- Ignore unknown fields.
-- Clamp numerics.
-- Validate bindings.
-- Cap run history at 50.
-- Write only on meaningful changes.
-- Copy valid primary to backup before overwrite.
-- Restore backup after primary corruption.
-- Fall back to defaults after both fail.
-- Import/export JSON.
-- Validate imported data before commit.
-- Clear data requires strong confirmation.
-- Active run is not resumable.
+```js
+{
+  meter,
+  multiplier,
+  lastGainTime,
+  decayActive,
+}
+```
 
-## 21.4 Migration
+Rules:
 
-- Sequential migrations.
-- Backup first.
-- Each migration records outcome.
-- Prefer idempotence.
-- Preserve only validated data.
+- Decay uses simulation time.
+- Damage resets meter.
+- Pause freezes decay.
+- Thresholds are data-driven.
+- HUD animation does not own authoritative combo.
 
----
+## 27.5 Near miss
 
-# 22. Settings
+Near miss requires:
 
-## 22.1 Categories
+- Hostile projectile enters near radius.
+- Projectile does not hit player.
+- Projectile has not already awarded near miss.
+- Rate cap not exceeded.
 
-- Audio.
-- Visual.
-- Accessibility.
-- Controls.
-- Gameplay.
-- Data.
-
-## 22.2 Immediate application
-
-- Volume.
-- Shake.
-- Particles.
-- Flash reduction.
-- Damage numbers.
-- HUD opacity.
-- Aim line.
-- Contrast.
-
-## 22.3 Defaults
-
-| Setting | Default |
-|---|---|
-| Pause on focus loss | Enabled |
-| Screen shake | 70% |
-| Reduced flashes | Disabled |
-| Reduced particles | Disabled |
-| High contrast | Disabled |
-| Damage numbers | Enabled |
-| Aim line | Enabled |
-| Master volume | 80% |
-| Music volume | 60% |
-| Effects volume | 80% |
-| Difficulty | Standard after tutorial |
+Projectile stores `nearMissConsumed`.
 
 ---
 
-# 23. Procedural graphics
+# 28. Statistics and achievements
 
-## 23.1 Texture generation
+## 28.1 Persistent aggregate statistics
 
-Generate reusable textures before combat:
+Store:
 
-- Player parts.
-- Enemy silhouettes.
-- Projectiles.
-- Particles.
-- UI icons.
-- Floor motifs.
-- Telegraph masks.
+- Runs started.
+- Runs completed.
+- Victories.
+- Defeats.
+- Enemies defeated.
+- Elites defeated.
+- Boss defeats.
+- Echoes deployed.
+- Friendly Echo damage.
+- Player damage.
+- Crossfire events.
+- Total score.
+- Highest score.
+- Highest combo.
+- Total playtime.
 
-Runtime transforms and masks may animate them.
+## 28.2 Recent runs
 
-## 23.2 Prohibited runtime work
+Maximum 50.
 
-- Repeated texture generation.
-- Recreating emitters per hit.
-- Large complex Graphics paths each frame.
-- Unbounded full-screen alpha overlays.
+Each entry stores compact summary only.
 
-## 23.3 World layer order
+## 28.3 Achievements
 
-1. Background.
-2. Architecture.
-3. Floor.
-4. Decoration.
-5. Ground hazards.
-6. Shadows.
-7. Enemies.
-8. Friendly entities.
-9. Projectiles.
-10. Particles.
-11. Telegraphs.
-12. Player clarity effects.
-13. Transitions.
+Achievement definition:
+
+```js
+{
+  id,
+  condition(statistics, runResult),
+  unlocks,
+  repeatable: false,
+}
+```
+
+Rules:
+
+- Evaluate once during finalization.
+- Record completion timestamp.
+- Do not mutate run result after creation.
+- Do not award twice.
 
 ---
 
-# 24. Performance budgets
+# 29. Save schema
 
-## 24.1 Targets
+## 29.1 Top-level
 
-- Stable 60 FPS.
-- 16.7 ms frame target.
-- 95th percentile normal-combat frame under 20 ms.
-- No recurring spawn hitch over 50 ms.
-- Compressed initial transfer target under 15 MB.
+```js
+{
+  schemaVersion,
+  createdAt,
+  updatedAt,
+  settings,
+  progression,
+  statistics,
+  records,
+  recentRuns,
+  achievements,
+  meta,
+}
+```
 
-## 24.2 Hard caps
+## 29.2 Keys
 
-| Resource | Cap |
-|---|---:|
-| Normal enemies | 30 |
-| Elites | 2 |
-| Player projectiles | 120 |
-| Echo projectiles | 120 total |
-| Enemy projectiles | 100 |
-| Particles | 180 |
-| Friendly Echoes | 2 |
-| Hostile copies | 2 |
-| Major telegraphs | 2 |
-| Recent runs | 50 |
+```text
+echoframe.save.v1
+echoframe.save.backup.v1
+```
 
-## 24.3 Allocation policy
+## 29.3 Write sequence
 
-- No array creation in hot update loops where avoidable.
-- Reuse vectors and temporary objects.
-- Pool repeated entities.
-- Bound event allocation.
-- Use event-driven UI.
-- Precompile descriptions where practical.
+1. Clone in-memory validated data.
+2. Apply mutation.
+3. Validate and normalize.
+4. Serialize.
+5. Write previous primary to backup.
+6. Write new primary.
+7. Update in-memory snapshot.
+8. Emit saved event.
 
-## 24.4 Debug counters
+## 29.4 Load sequence
 
-- FPS/frame time.
+1. Read primary.
+2. Parse.
+3. Validate.
+4. Migrate.
+5. If invalid, read backup.
+6. If backup valid, restore primary.
+7. Otherwise create defaults.
+8. Notify user if recovery occurred.
+
+## 29.5 Validation rules
+
+- Object types checked.
+- Arrays length-capped.
+- Strings length-capped.
+- Numbers finite and clamped.
+- IDs validated against known catalogs.
+- Unknown fields ignored.
+- Missing fields defaulted.
+- No dynamic code.
+- Import rejects malformed payload.
+
+## 29.6 Persistence exclusions
+
+Do not save:
+
+- Active projectiles.
 - Active enemies.
-- Projectiles by faction.
-- Particles.
-- Echo count.
-- Pool use/capacity.
-- Listener counts.
+- Active Echo instances.
+- Current physics bodies.
 - Timers.
-- Arena/recipe.
-- Seed/RNG streams.
-- Difficulty stage.
+- Tweens.
+- Active run resume state.
 
 ---
 
-# 25. Error handling
+# 30. Settings architecture
 
-## 25.1 Recoverable
-
-- Invalid arena → fallback arena.
-- Invalid recipe → safe recipe.
-- Corrupt save → backup/default.
-- Audio failure → continue muted.
-- Missing optional asset → generated fallback.
-- Clipboard failure → display seed manually.
-- Pool warning → cap/fallback behavior.
-
-## 25.2 Fatal
-
-- Phaser initialization failure.
-- Missing required core data.
-- Unrecoverable migration contradiction.
-
-Fatal screen contains:
-
-- Plain explanation.
-- Reload.
-- Relevant clear-data option.
-- Error code.
-- No raw stack trace in normal UI.
-
----
-
-# 26. Debug and test hooks
-
-Development controls:
-
-- Hitboxes.
-- Navigation zones.
-- Spawn sockets.
-- Telegraph priorities.
-- Freeze AI.
-- Advance phase.
-- Spawn enemy/elite.
-- Grant upgrade.
-- Set health.
-- Set cooldown.
-- Force boss phase.
-- Print run state.
-- Copy seed.
-- Replay seed.
-- Show pools/listeners/timers.
-- Simulate low FPS.
-- Validate all arenas.
-- Generate 1,000 upgrade offerings.
-- Generate 1,000 encounter selections.
-
----
-
-# 27. Deployment
-
-## 27.1 Base path
-
-Project site:
+## 30.1 Settings categories
 
 ```text
-https://<username>.github.io/<repository>/
+AUDIO
+VISUAL
+ACCESSIBILITY
+CONTROLS
+GAMEPLAY
+DATA
 ```
 
-Vite base:
+## 30.2 Settings rules
+
+- Read through SettingsManager.
+- Persist through SaveManager.
+- Apply immediately where safe.
+- Visual settings do not alter simulation.
+- Audio settings affect buses.
+- Binding changes trigger InputManager rebuild.
+- Rebuild disposes old key objects.
+- Reset-to-default supported per category.
+
+## 30.3 Binding representation
+
+```js
+{
+  actionId: [
+    { device: 'keyboard', code: 'KeyW' },
+    { device: 'pointer', button: 0 }
+  ]
+}
+```
+
+Up to two bindings per action.
+
+---
+
+# 31. Input architecture
+
+## 31.1 Action state
+
+```js
+{
+  held,
+  pressed,
+  released,
+  value,
+}
+```
+
+## 31.2 Contexts
 
 ```text
-/<repository>/
+MENU
+GAMEPLAY
+PAUSE
+MODAL
+REBIND_CAPTURE
 ```
 
-Root user site uses `/`.
+Contexts form a stack.
 
-## 27.2 GitHub Actions flow
+Only the top context receives actionable input.
+
+## 31.3 Rebinding
+
+Rebinding flow:
+
+1. Enter capture context.
+2. Suppress current held actions.
+3. Listen for next allowed descriptor.
+4. Validate descriptor.
+5. Check conflicts.
+6. Apply or reject.
+7. Rebuild action map.
+8. Persist.
+9. Exit capture context.
+
+Reserved:
+
+- Browser refresh combinations.
+- DevTools combinations.
+- `F5`.
+- Unsupported pointer buttons.
+
+---
+
+# 32. Menu focus architecture
+
+## 32.1 Focus manager
+
+Each menu scene owns one FocusManager.
+
+Features:
+
+- Ordered controls.
+- Disabled controls skipped.
+- Pointer hover updates focus.
+- Keyboard focus visible.
+- Modal focus trap.
+- Focus restore on modal close.
+- Default focus on scene entry.
+
+## 32.2 Menu control contract
+
+Every focusable control exposes:
+
+```js
+{
+  focus(),
+  blur(),
+  activate(),
+  isEnabled(),
+  getBounds(),
+}
+```
+
+---
+
+# 33. Audio architecture
+
+## 33.1 AudioManager ownership
+
+One global AudioManager owns:
+
+- One AudioContext.
+- Master bus.
+- Music bus.
+- Effects bus.
+- Voice bus if narration exists later.
+- Procedural sound definitions.
+- Music-state machine.
+- Voice caps.
+
+## 33.2 Initialization
+
+- No AudioContext before user gesture.
+- First valid gesture initializes.
+- Initialization is idempotent.
+- One context maximum.
+- Context resumes if suspended.
+
+## 33.3 Sound request
+
+```js
+{
+  soundId,
+  bus,
+  gain,
+  pitch,
+  position,
+  priority,
+  sourceId,
+}
+```
+
+## 33.4 Voice caps
+
+Per sound family:
+
+- Player fire.
+- Echo fire.
+- Enemy fire.
+- Hit.
+- Death.
+- UI.
+- Boss.
+
+On cap:
+
+- Reject lowest-priority new voice or stop oldest lowest-priority voice.
+- Never allocate unbounded nodes.
+
+## 33.5 Music states
+
+```text
+MENU
+TUTORIAL
+COMBAT_LOW
+COMBAT_HIGH
+RECOVERY
+BOSS_1
+BOSS_2
+BOSS_3
+VICTORY
+DEFEAT
+```
+
+Transitions use scheduled gain ramps and shared phase origins.
+
+---
+
+# 34. Rendering architecture
+
+## 34.1 Procedural textures
+
+Generated once in PreloadScene.
+
+Cache keys include:
+
+- Asset family.
+- Variant ID.
+- Scale class if needed.
+
+Do not regenerate per scene.
+
+## 34.2 Render layers
+
+Suggested world depths:
+
+```text
+0 background
+10 arena floor
+20 obstacles
+30 hazards
+40 enemy shadows
+50 enemies
+60 Echoes
+70 player
+80 projectiles
+90 impacts
+100 world labels
+```
+
+HUD lives in separate scene.
+
+## 34.3 Particles
+
+- Pooled or bounded emitters.
+- Reduced-particle mode modifies emit counts at creation.
+- No emitter created per hit without cleanup.
+- Particle geometry must not resemble hostile projectiles.
+
+## 34.4 Accessibility rendering
+
+- High contrast uses alternate texture/material parameters.
+- Colorblind telegraphs include shape and line-pattern differences.
+- Reduced flashes replace rapid brightness changes with outline changes.
+- Reduced particles preserve hit confirmation.
+
+---
+
+# 35. Camera architecture
+
+`CameraController` owns:
+
+- Follow target.
+- Shake requests.
+- Zoom effects.
+- Arena framing.
+- Boss transition framing.
+
+Shake request:
+
+```js
+{
+  amplitude,
+  duration,
+  frequency,
+  sourceType,
+}
+```
+
+Settings scale amplitude.
+
+Shake is clamped globally.
+
+---
+
+# 36. Debug architecture
+
+Development-only tools:
+
+- FPS.
+- Frame time.
+- Heap if available.
+- Entity counts.
+- Projectile counts.
+- Pool active/free/capacity.
+- Listener counts.
+- Timer counts.
+- Collider counts.
+- RNG stream states.
+- Run plan.
+- Current segment.
+- Player state.
+- Echo cursor state.
+- Boss scheduler state.
+- Forced transitions.
+- Pool exhaustion counters.
+- State-machine invalid transition warnings.
+
+Production build disables debug overlay and mutations.
+
+---
+
+# 37. Performance budgets
+
+Target mid-range desktop:
+
+- 60 FPS target.
+- 95th percentile frame under 20 ms in intended load.
+- No recurring spawn hitch over 50 ms.
+- Stable heap over 30-minute session.
+- One AudioContext.
+- No listener growth after restart.
+
+Approximate active caps:
+
+```text
+normal enemies: 30
+elites: 3
+enemy bodies including adds: 48
+friendly Echoes: 3
+hostile Echo copies: 2
+player projectiles: 120
+Echo projectiles: 120
+enemy projectiles: 180
+boss projectiles: 240
+particles/effects: 256
+damage labels: 80
+```
+
+---
+
+# 38. Browser compatibility
+
+Support current stable:
+
+- Chromium.
+- Firefox.
+- Edge.
+
+Required checks:
+
+- Keyboard codes.
+- Pointer buttons.
+- Web Audio initialization.
+- LocalStorage quota/error handling.
+- Focus loss.
+- Resize.
+- Visibility change.
+- Performance API guards.
+- Clipboard API fallback for export.
+
+Safari is best-effort for version 1.0 unless explicitly certified.
+
+---
+
+# 39. Error handling
+
+## 39.1 Recoverable
+
+- Save primary corrupt, backup valid.
+- Audio initialization blocked.
+- Clipboard API unavailable.
+- Fullscreen request rejected.
+- LocalStorage write fails.
+
+Show non-blocking user-facing message where relevant.
+
+## 39.2 Fatal
+
+- Core data definitions missing.
+- Scene initialization failure.
+- Unsupported save schema newer than current.
+- Critical asset generation failure.
+
+Fatal flow:
+
+- Stop gameplay.
+- Show controlled error screen.
+- Offer reload.
+- Offer clear local data if safe.
+- Log diagnostic message in development.
+
+---
+
+# 40. Testing architecture
+
+## 40.1 Unit tests
+
+Pure modules tested with Node test runner or Vitest:
+
+- RNG.
+- Buffers.
+- Interpolation.
+- Event cursors.
+- Upgrade calculations.
+- Encounter generation.
+- Arena validation.
+- Score formulas.
+- Save migration/validation.
+- Achievement evaluation.
+- Boss scheduler selection.
+
+## 40.2 Browser integration
+
+Use Playwright for:
+
+- Fresh launch.
+- Audio gesture.
+- Tutorial.
+- Complete run smoke.
+- Pause/restart.
+- Settings.
+- Rebinding.
+- Import/export.
+- Boss phases.
+- Results.
+- GitHub Pages path.
+
+## 40.3 Soak tools
+
+Development build exposes controlled hooks for:
+
+- Time acceleration.
+- Forced encounters.
+- Pool saturation.
+- Repeated restart.
+- Repeated pause.
+- Boss phase forcing.
+- Echo stress.
+- Resize cycles.
+- Focus-loss cycles.
+
+---
+
+# 41. Deployment
+
+## 41.1 Vite
+
+`vite.config.js` reads base path from environment.
+
+```js
+base: process.env.VITE_BASE_PATH || '/'
+```
+
+## 41.2 GitHub Pages workflow
+
+Workflow:
 
 1. Checkout.
-2. Install exact dependencies.
-3. Run validation/tests.
-4. Build.
-5. Upload `dist`.
-6. Deploy Pages artifact.
+2. Setup Node.
+3. `npm ci`.
+4. `npm test`.
+5. `npm run build` with repository base.
+6. Upload `dist`.
+7. Deploy Pages artifact.
 
-## 27.3 Production verification
+## 41.3 Static-path rules
 
-- Test local preview.
-- Test deployed URL.
-- Hard refresh.
-- Private window.
-- Case-sensitive paths.
-- No localhost references.
-- Audio after gesture.
-- Save persistence.
-- Console clean.
+- No root-absolute asset URLs unless base-aware.
+- No runtime filesystem access.
+- No backend routing.
+- `index.html` and manifest use base-compatible paths.
+- Refresh on root deployment path remains functional.
 
 ---
 
-# 28. Privacy and security
+# 42. Security and privacy
 
-- No personal-data collection.
-- No analytics by default.
-- No gameplay network requests.
-- Treat imported JSON as untrusted.
-- No `eval`.
-- No dynamic script injection.
-- Sanitize any user-entered display text.
-- Clipboard use is optional and permission-safe.
-
----
-
-# 29. Technical acceptance criteria
-
-The implementation passes when:
-
-- Production build has no console errors.
-- Twenty restarts show no listener, timer, audio-node, or object-count growth.
-- Echo playback survives pause/resume.
-- Same seed reproduces gameplay generation under identical choices.
-- Corrupt saves recover.
-- Arena and encounter fallbacks work.
-- Performance budgets hold.
-- Repeated entities are pooled.
-- Scene shutdown is complete.
-- GitHub Pages matches local production behavior.
-- Settings persist.
-- No backend is required.
+- No analytics.
+- No telemetry.
+- No external requests after static load.
+- No cookies.
+- No account data.
+- LocalStorage only.
+- Imports treated as untrusted.
+- No dynamic evaluation.
+- No HTML injection from save data.
+- No secrets in repository.
+- No source maps if release policy excludes them.
 
 ---
 
-# 30. Technical risk register
+# 43. Build and release metadata
 
-| Risk | Severity | Mitigation |
-|---|---|---|
-| Echo playback drift | Critical | Simulation timestamps, interpolation, event cursors, stress tests |
-| Restart duplicates listeners/timers | Critical | Cleanup registry and count tests |
-| Cosmetic RNG changes gameplay | High | Separate RNG streams |
-| Crowd physics pins player | High | Soft separation, caps, spacing |
-| Multiple AudioContexts | High | One AudioManager |
-| Upgrade mutates active Echo | High | Frozen loadout snapshot |
-| Hostile copy reuses friendly faction | High | Separate entity/faction/renderer |
-| Generation creates dead end | High | Authored templates, validation, fallback |
-| Save corruption | Medium | Schema validation and backup |
-| GitHub Pages path failure | High | Correct Vite base and deployed QA |
-| Per-frame allocation | High | Pools, fixed buffers, profiler |
-| UI focus conflict | Medium | One UIFocusManager |
+Production build exposes:
+
+```js
+{
+  version,
+  buildMode,
+  generatorVersion,
+  balanceVersion,
+  saveSchemaVersion,
+}
+```
+
+Visible in:
+
+- Credits.
+- Debug overlay in development.
+- Save export.
+- Results metadata.
+
+---
+
+# 44. Implementation acceptance criteria
+
+Implementation is technically acceptable only when:
+
+- Deterministic seed audit passes.
+- Save migration passes.
+- All fixed systems complete.
+- Restart leaves no leaked listeners, timers, tweens, colliders, or AudioContexts.
+- Pause preserves simulation timing.
+- Projectile and effect pools remain within caps.
+- Twenty consecutive restarts pass.
+- Thirty consecutive Echo deployments pass.
+- Boss phase transitions are safe.
+- Hostile Echo normalization is bounded.
+- Browser matrix passes.
+- Production GitHub Pages build passes.
+- No Critical or High defects remain.

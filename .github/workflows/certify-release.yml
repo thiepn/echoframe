@@ -1,0 +1,84 @@
+name: Certify Version 1.0.1
+
+on:
+  workflow_dispatch:
+    inputs:
+      source_sha:
+        description: Full main-ancestor commit SHA to certify
+        required: true
+        type: string
+      version:
+        description: Release version
+        required: true
+        default: 1.0.1
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: certify-v1.0.1-${{ inputs.source_sha }}
+  cancel-in-progress: false
+
+jobs:
+  certify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    env:
+      SOURCE_SHA: ${{ inputs.source_sha }}
+      RELEASE_VERSION: ${{ inputs.version }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+          ref: ${{ inputs.source_sha }}
+      - name: Verify trusted source identity
+        shell: bash
+        run: |
+          test "$RELEASE_VERSION" = "1.0.1"
+          test "$(git rev-parse HEAD)" = "$SOURCE_SHA"
+          git fetch --no-tags origin main
+          git merge-base --is-ancestor "$SOURCE_SHA" origin/main
+          test "$(node -p "require('./package.json').version")" = "$RELEASE_VERSION"
+          printf 'Certified source: %s\n' "$SOURCE_SHA"
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+        env:
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: '1'
+      - run: npx playwright install --with-deps chromium firefox
+      - run: npm run validate:core
+      - run: npm run validate:browser:chromium
+      - run: npm run validate:tutorial:trusted
+      - run: npm run validate:browser:firefox
+      - run: npm run audit:determinism
+      - run: npm run validate:accessibility
+      - run: npm run validate:lifecycle
+      - run: npm run validate:performance
+      - run: npm run validate:soak
+      - name: Build certified web output once
+        run: npm run build -- --outDir certified-web
+        env:
+          VITE_BASE_PATH: /echoframe/
+          VITE_RELEASE_SOURCE_SHA: ${{ inputs.source_sha }}
+      - name: Record certified bundle metrics
+        run: npm run report:performance
+        env:
+          ECHOFRAME_DIST_DIR: certified-web
+          GITHUB_SHA: ${{ inputs.source_sha }}
+      - name: Package without rebuilding
+        run: npm run package:release -- --dist certified-web --source-sha "$SOURCE_SHA"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: echoframe-v1.0.1-certification
+          path: |
+            certified-web/
+            release/ECHOFRAME_v1.0.1_*
+            docs/V1_0_1_*.json
+            docs/V1_0_1_VALIDATION_REPORT.md
+            docs/RELEASE_NOTES_v1.0.1.md
+          if-no-files-found: error
+          retention-days: 90

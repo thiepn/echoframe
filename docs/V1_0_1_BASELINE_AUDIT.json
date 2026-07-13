@@ -1,0 +1,62 @@
+{
+  "generatedAt": "2026-07-11T22:05:02.953Z",
+  "baselineCommit": "36fcb390bb3cfaa735ac8a8204e61989210c7c6a",
+  "baselineMainTree": "5fb2909e60720a67904dfe8c5363d5c5f06f7b15",
+  "workingCommitBeforeChanges": "0e142adc9af97f00e3933be4994ca3db657b203a",
+  "branch": "upgrade/v1.0.1-comprehensive-polish",
+  "branchExistedBeforeTask": false,
+  "workingTreeClean": true,
+  "startingRepositoryTree": "5fb2909e60720a67904dfe8c5363d5c5f06f7b15",
+  "startingRepositoryTreeMatchesBaseline": true,
+  "canonical": {
+    "GAME_DESIGN.md": "5d1b9aca53cd0f52d0fe09abc09ed1ef0a556dca021c0a06ad84ec790d1f4aa6",
+    "TECHNICAL_SPEC.md": "01727d69740a27a48f093b3b6bc0626e5ed56167a58e96f185dd76f5f6b5621",
+    "ART_DIRECTION.md": "f1ccb6e753060908cd7b678117cbbd2fe6a9e6418bc2d612723007bcf4f7f283",
+    "BALANCE_SPEC.md": "b8ea3f7900f96c63b9b82542f11d38cbd3e0928774dad60ea227b4d644c5f76",
+    "QA_CHECKLIST.md": "e7dc34f757d2be27d579d62166201a480ee917802e738d622f8fe3c69ac9784a"
+  },
+  "baseline": {
+    "version": "1.0.0",
+    "runtimeVersion": "1.0.0",
+    "saveSchema": 2,
+    "formatCheck": {
+      "status": 127,
+      "durationMs": 254.88,
+      "stdoutTail": "\n> echoframe@1.0.0 format:check\n> prettier --check .",
+      "stderrTail": "sh: 1: prettier: not found"
+    },
+    "lint": {
+      "status": 0,
+      "durationMs": 4089.97,
+      "stdoutTail": "\n> echoframe@1.0.0 lint\n> eslint .",
+      "stderrTail": ""
+    },
+    "test": {
+      "status": 0,
+      "durationMs": 5059.96,
+      "stdoutTail": "✔ tests 1341\n✔ suites 0\n✔ pass 1341\n✔ fail 0\n✔ cancelled 0\n✔ skipped 0\n✔ todo 0\n✔ duration_ms 4954.976896",
+      "stderrTail": ""
+    },
+    "build": {
+      "status": 0,
+      "durationMs": 28995.5,
+      "stdoutTail": "dist/assets/HUDScene-xAaoPkln.js           7.83 kB │ gzip:   2.29 kB\ndist/assets/ArchiveScene-nt_5FYnW.js       10.05 kB │ gzip:   3.02 kB\ndist/assets/TutorialScene-CH-GcHPb.js      24.34 kB │ gzip:   6.68 kB\ndist/assets/BossScene-CIQwLDof.js          35.44 kB │ gzip:   9.07 kB\ndist/assets/RunScene-BgJ9Y82U.js            41.14 kB │ gzip:  11.55 kB\ndist/assets/index-C2jq9ZLK.js            1,546.72 kB │ gzip: 370.03 kB\n✓ built in 26.85s",
+      "stderrTail": "\n(!) Some chunks are larger than 500 kB after minification. Consider:\n- Using dynamic import() to code-split the application\n- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks\n- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit."
+    }
+  },
+  "fileCount": 548,
+  "baselineDefects": [
+    "Prettier was referenced by scripts and CI but missing from devDependencies.",
+    "README did not describe a trusted immutable Version 1.0.1 publication chain.",
+    "Phase-number scripts dominated active package interfaces.",
+    "Production and test files exposed version-specific validation globals.",
+    "Legacy release workflows rebuilt after validation and retained excessive write permission.",
+    "Performance reports lacked p95/p99 and explicit hitch evidence.",
+    "Combat runtime composition was duplicated across RunScene and BossScene.",
+    "Current build emitted a single large Phaser-containing chunk.",
+    "Inline renderer classes limited reuse, quality profiles, and testing.",
+    "Version 1.0.0 save fixtures were insufficiently explicit."
+  ],
+  "supportsCurrentSaveSchema": true,
+  "canonicalDocumentsChanged": false
+}
