@@ -1,0 +1,35 @@
+name: Export Detached Version 1.0.1 Tree
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  export:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Check out detached candidate tree
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: recovery/inspect-detached-v101-tree
+          persist-credentials: false
+      - name: Archive tree
+        shell: bash
+        run: |
+          set -euo pipefail
+          tar --exclude=.git -czf "$RUNNER_TEMP/detached-v101-tree.tar.gz" .
+          sha256sum "$RUNNER_TEMP/detached-v101-tree.tar.gz" > "$RUNNER_TEMP/detached-v101-tree.sha256"
+      - name: Upload tree
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: detached-v101-tree
+          path: |
+            ${{ runner.temp }}/detached-v101-tree.tar.gz
+            ${{ runner.temp }}/detached-v101-tree.sha256
+          if-no-files-found: error
+          retention-days: 7
