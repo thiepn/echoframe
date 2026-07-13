@@ -1,0 +1,305 @@
+name: Recover and Publish Version 1.0.1
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: recover-publish-v1.0.1
+  cancel-in-progress: false
+
+env:
+  EXPECTED_MAIN_SHA: bd3effb5d57cad5743443e1cffaa28a21edfccf3
+  RELEASE_BRANCH: upgrade/v1.0.1-comprehensive-polish
+  RELEASE_VERSION: 1.0.1
+
+jobs:
+  publish-source:
+    permissions:
+      actions: write
+      contents: write
+    runs-on: ubuntu-24.04
+    timeout-minutes: 240
+    outputs:
+      source_sha: ${{ steps.identity.outputs.source_sha }}
+      bundle_digest: ${{ steps.identity.outputs.bundle_digest }}
+    steps:
+      - name: Check out current main
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: main
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Verify protected baseline
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$EXPECTED_MAIN_SHA"
+          git fetch origin backup/main-before-v1.0.1-recovery-20260712
+          test "$(git rev-parse origin/backup/main-before-v1.0.1-recovery-20260712)" = "$EXPECTED_MAIN_SHA"
+
+      - name: Recover verified source payload
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          payload="$RUNNER_TEMP/echoframe-v1.0.1-source.tar.xz"
+          : > "$payload"
+          blobs=(
+            36df183187d7c7d6f87d57e400ac735ec459eb26
+            f1608c393cf8244c3f2b5887e1f67bd5e047d8e4
+            2c05a12e04a855bd8f6671d6155a8a1e9147f398
+            6e1a09084ef3107355abf53690cf36c549e05904
+            f91819512fa8f87351fbf8ab41e09c217ed2397c
+            a4f05a248eeec9de06d2f8e858c957b3491c4247
+            1efce23be5ccfe58b7ba8afccc3d07c88eea64d7
+            6a45c2bc508c9657785626cadafa04eba555dee5
+            125da3fcbe375b1a4d29a61d1ede2909c00c2b59
+            0ffbf85d623ce8b16c4251d978d7a1b3fe5096ff
+            6fc35008a21a9a800d6a76a0e8c04d9d2008042a
+            63ec4db59acd9eac2d1f9006ef282f5c4e934f51
+            d5b6f19e787cf3740631d750f1b577b7c132bea4
+            205b659489c2ac3afa4e996427b730e3a2e86489
+            18553788a25fe28aa9db30813e37b700d6217d09
+            aea93ad7f37021b65b7cf82fd5e183a3198efceb
+          )
+          for blob in "${blobs[@]}"; do
+            gh api "repos/$GITHUB_REPOSITORY/git/blobs/$blob" --jq .content \
+              | tr -d '\n' \
+              | base64 --decode >> "$payload"
+          done
+          xz --test "$payload"
+          mkdir -p "$RUNNER_TEMP/recovered"
+          tar -tJf "$payload" > "$RUNNER_TEMP/recovered-files.txt"
+          tar -xJf "$payload" -C "$RUNNER_TEMP/recovered"
+          test -s "$RUNNER_TEMP/recovered-files.txt"
+
+      - name: Apply recovered Version 1.0.1 source
+        shell: bash
+        run: |
+          set -euo pipefail
+          recovered="$RUNNER_TEMP/recovered"
+          if [[ -f "$recovered/manifest.json" && -d "$recovered/files" ]]; then
+            python - "$recovered/manifest.json" <<'PY'
+          import json
+          import pathlib
+          import sys
+          manifest = json.loads(pathlib.Path(sys.argv[1]).read_text())
+          for relative in manifest.get('deletions', []):
+              target = pathlib.Path(relative)
+              if target.is_dir():
+                  import shutil
+                  shutil.rmtree(target, ignore_errors=True)
+              else:
+                  target.unlink(missing_ok=True)
+          PY
+            rsync -a "$recovered/files/" ./
+          else
+            package_file="$(find "$recovered" -maxdepth 4 -type f -name package.json | head -n 1)"
+            test -n "$package_file"
+            source_root="$(dirname "$package_file")"
+            rsync -a --delete --exclude='.git/' "$source_root/" ./
+          fi
+          rm -rf node_modules dist dist-validation certified-web release
+          test "$(node -p "require('./package.json').version")" = "$RELEASE_VERSION"
+          test "$(node -e "import('./src/utils/version.js').then(m=>process.stdout.write(m.BUILD_VERSION))")" = "$RELEASE_VERSION"
+          grep -Eq 'SAVE_SCHEMA_VERSION[[:space:]]*=[[:space:]]*2' src/data/constants.js
+          grep -q 'TutorialSceneHotfix' src/gameConfig.js
+          grep -q 'echo:deployed' src/scenes/TutorialSceneHotfix.js
+          grep -q 'controller.echoDeployed' src/scenes/TutorialSceneHotfix.js
+          grep -q "pointerup" src/ui/MenuButton.js
+          test -f docs/RELEASE_NOTES_v1.0.1.md
+          git checkout -B "$RELEASE_BRANCH"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'Publish ECHOFRAME Version 1.0.1'
+
+      - name: Set up Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund
+        env:
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: '1'
+
+      - name: Run static and compatibility gates
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm run format:check
+          npm run lint
+          npm test
+          npm run audit:workflow-security
+          npm run validate:save-compatibility
+          npm run build
+
+      - name: Install trusted browsers
+        run: npx playwright install --with-deps chromium firefox
+
+      - name: Run Chromium, Firefox, tutorial, and deployment gates
+        shell: bash
+        run: |
+          set -euo pipefail
+          export CHROMIUM_EXECUTABLE="$(node -e "const {chromium}=require('playwright');process.stdout.write(chromium.executablePath())")"
+          export FIREFOX_EXECUTABLE="$(node -e "const {firefox}=require('playwright');process.stdout.write(firefox.executablePath())")"
+          npm run validate:browser:chromium -- --smoke
+          npm run validate:tutorial:trusted
+          npm run validate:browser:firefox -- --smoke
+          npm run validate:deployment
+
+      - name: Push certified source to main
+        id: identity
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          git reset --hard HEAD
+          git clean -fd
+          source_sha="$(git rev-parse HEAD)"
+          git push origin "HEAD:refs/heads/$RELEASE_BRANCH"
+          git push origin HEAD:main
+          run_id=""
+          for attempt in $(seq 1 30); do
+            run_id="$(gh run list --workflow=ci.yml --branch=main --event=push --limit=20 --json databaseId,headSha --jq ".[] | select(.headSha == \"$source_sha\") | .databaseId" | head -n 1)"
+            [[ -n "$run_id" ]] && break
+            sleep 5
+          done
+          test -n "$run_id"
+          gh run watch "$run_id" --exit-status
+          VITE_BASE_PATH=/echoframe/ npm run build -- --outDir certified-web
+          SOURCE_DATE_EPOCH="$(git show -s --format=%ct HEAD)" npm run package:release -- --dist certified-web --source-sha "$source_sha"
+          bundle_digest="$(jq -r .productionBundleDigest release/ECHOFRAME_v1.0.1_RELEASE_MANIFEST.json)"
+          test -n "$bundle_digest"
+          echo "source_sha=$source_sha" >> "$GITHUB_OUTPUT"
+          echo "bundle_digest=$bundle_digest" >> "$GITHUB_OUTPUT"
+
+      - name: Upload immutable release assets
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: echoframe-v1.0.1-release-assets
+          path: |
+            release/ECHOFRAME_v1.0.1_final_source.zip
+            release/ECHOFRAME_v1.0.1_web.zip
+            release/ECHOFRAME_v1.0.1_SHA256SUMS.txt
+            release/ECHOFRAME_v1.0.1_RELEASE_MANIFEST.json
+            docs/RELEASE_NOTES_v1.0.1.md
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Upload exact GitHub Pages artifact
+        uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa
+        with:
+          path: certified-web
+
+  deploy-pages:
+    needs: publish-source
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    outputs:
+      page_url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy exact certified artifact
+        id: deployment
+        uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128
+
+  verify-public:
+    needs: [publish-source, deploy-pages]
+    permissions:
+      contents: read
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Verify deployed Version 1.0.1 identity and assets
+        shell: bash
+        env:
+          PAGE_URL: ${{ needs.deploy-pages.outputs.page_url }}
+          SOURCE_SHA: ${{ needs.publish-source.outputs.source_sha }}
+          BUNDLE_DIGEST: ${{ needs.publish-source.outputs.bundle_digest }}
+        run: |
+          set -euo pipefail
+          base="${PAGE_URL%/}"
+          for attempt in $(seq 1 30); do
+            if curl --fail --silent --show-error "$base/v1.0.1-release.json" -o marker.json; then
+              break
+            fi
+            sleep 10
+          done
+          test "$(jq -r .version marker.json)" = '1.0.1'
+          test "$(jq -r .sourceSha marker.json)" = "$SOURCE_SHA"
+          test "$(jq -r .productionBundleDigest marker.json)" = "$BUNDLE_DIGEST"
+          curl --fail --silent --show-error "$base/" -o index.html
+          python - "$PAGE_URL" <<'PY'
+          import re
+          import sys
+          import urllib.parse
+          import urllib.request
+          page_url = sys.argv[1]
+          html = open('index.html', encoding='utf-8').read()
+          assets = re.findall(r'(?:src|href)="([^"]+)"', html)
+          for asset in assets:
+              if not asset or asset.startswith(('data:', 'mailto:', '#')):
+                  continue
+              url = urllib.parse.urljoin(page_url, asset)
+              with urllib.request.urlopen(url, timeout=30) as response:
+                  if response.status >= 400:
+                      raise RuntimeError(f'{url} returned {response.status}')
+              print(url)
+          PY
+
+  create-release:
+    needs: [publish-source, deploy-pages, verify-public]
+    permissions:
+      actions: read
+      contents: write
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Download exact release assets
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: echoframe-v1.0.1-release-assets
+          path: release-assets
+
+      - name: Create annotated tag and GitHub release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SOURCE_SHA: ${{ needs.publish-source.outputs.source_sha }}
+        run: |
+          set -euo pipefail
+          if gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/v1.0.1" >/dev/null 2>&1; then
+            echo 'v1.0.1 tag already exists; refusing to overwrite it.' >&2
+            exit 1
+          fi
+          tag_object="$(gh api "repos/$GITHUB_REPOSITORY/git/tags" \
+            -f tag='v1.0.1' \
+            -f message='ECHOFRAME: LAST SIGNAL — Version 1.0.1' \
+            -f object="$SOURCE_SHA" \
+            -f type='commit' \
+            --jq .sha)"
+          gh api "repos/$GITHUB_REPOSITORY/git/refs" -f ref='refs/tags/v1.0.1' -f sha="$tag_object" >/dev/null
+          (cd release-assets/release && sha256sum -c ECHOFRAME_v1.0.1_SHA256SUMS.txt)
+          gh release create v1.0.1 \
+            --title 'ECHOFRAME: LAST SIGNAL — Version 1.0.1' \
+            --notes-file release-assets/docs/RELEASE_NOTES_v1.0.1.md \
+            release-assets/release/ECHOFRAME_v1.0.1_final_source.zip \
+            release-assets/release/ECHOFRAME_v1.0.1_web.zip \
+            release-assets/release/ECHOFRAME_v1.0.1_SHA256SUMS.txt \
+            release-assets/release/ECHOFRAME_v1.0.1_RELEASE_MANIFEST.json

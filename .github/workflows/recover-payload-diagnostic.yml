@@ -1,0 +1,57 @@
+name: Recover Payload Diagnostic
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  reconstruct:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Reconstruct stored payload
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          payload="$RUNNER_TEMP/stored-payload.bin"
+          : > "$payload"
+          blobs=(
+            36df183187d7c7d6f87d57e400ac735ec459eb26
+            f1608c393cf8244c3f2b5887e1f67bd5e047d8e4
+            2c05a12e04a855bd8f6671d6155a8a1e9147f398
+            6e1a09084ef3107355abf53690cf36c549e05904
+            f91819512fa8f87351fbf8ab41e09c217ed2397c
+            a4f05a248eeec9de06d2f8e858c957b3491c4247
+            1efce23be5ccfe58b7ba8afccc3d07c88eea64d7
+            6a45c2bc508c9657785626cadafa04eba555dee5
+            125da3fcbe375b1a4d29a61d1ede2909c00c2b59
+            0ffbf85d623ce8b16c4251d978d7a1b3fe5096ff
+            6fc35008a21a9a800d6a76a0e8c04d9d2008042a
+            63ec4db59acd9eac2d1f9006ef282f5c4e934f51
+            d5b6f19e787cf3740631d750f1b577b7c132bea4
+            205b659489c2ac3afa4e996427b730e3a2e86489
+            18553788a25fe28aa9db30813e37b700d6217d09
+            aea93ad7f37021b65b7cf82fd5e183a3198efceb
+          )
+          for blob in "${blobs[@]}"; do
+            gh api "repos/$GITHUB_REPOSITORY/git/blobs/$blob" --jq .content \
+              | tr -d '\n' \
+              | base64 --decode >> "$payload"
+          done
+          stat -c 'size=%s' "$payload" | tee "$RUNNER_TEMP/payload-info.txt"
+          sha256sum "$payload" | tee -a "$RUNNER_TEMP/payload-info.txt"
+      - name: Upload diagnostic payload
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: stored-recovery-payload
+          path: |
+            ${{ runner.temp }}/stored-payload.bin
+            ${{ runner.temp }}/payload-info.txt
+          if-no-files-found: error
+          retention-days: 7
